@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Text Editor | Enlight
+    </title>
+    <meta name="description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Build a Text Editor | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta property="og:url" content="https://enlight.ml/projects/color-generator.html">
+    <meta name="twitter:url" content="https://enlight.ml/projects/color-generator.html">
+    <meta name="twitter:title" content="Build a Text Editor | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects. Make Awesome Stuff..">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<body>
+
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+<h1 class="project-header">Build a <span class="underline">Text Editor</span></h2>
+<h1 class="project-subtitle">minimal editor that autosaves your text every second</h1>
+
+<a href="text-editor-project/index.html"><img src = "../../images/text-editor.gif" class="project-image"/></a>
+
+<p class="header">Getting Started</p>
+<p>
+  In this tutorial, we'll make our a text editor in the broswer. Using JavaScript, we can save the text automatically in a user's localStorage so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let's you save data in a browser. 
+<p>
+  As always, you'll need a folder with three files: 
+  <ul>
+    <li>index.html - for our markup</li>
+    <li>style.css - for styling</li>
+    <li>app.js - for the function(s)</li>
+  </ul>
+<p>
+  Since we're making a text-editor, our content has to be editable! Thankfully, HTML has an attribute for that. Go ahead: link the files, and create two divs with the contenteditable attribute and with the heading and content id's as seen below. 
+  <br>
+  <script src="https://gist.github.com/samayshamdasani/ea432d5b29832d6fbb112aefd8c7c45b.js"></script>
+
+<p>
+  The reason we set div ids is that so that when we write our JavaScript, we can easily communicate with each of the divs.  Now, if you open up your HTML file in the browser, you'll see that you have two editable text boxes. However, they're pretty ugly. Let's style them!
+
+  <p class="header">Styling the Editor</p>
+  <script src="https://gist.github.com/samayshamdasani/bc92a9c0a83b8aff463abb0688bd390f.js"></script>
+<p>
+  First off, we set our font to Helevetica, changed the color to make it more readable, and set the max-width of our text boxes to 50em. We also make our heading a bigger font and our content a little smaller. Now, look at your creation! You should have a beautiful, fully-functioning text editor, but if you refresh the page, does it save? Let's fix that. 
+
+  <p class="header">JavaScript and localStorage function</p>
+
+  <p>
+  To save our text in our two divs, we need to store it in the brower's localStorage. To do that, we first have to get the div ids from the HTML document. Then, we can set it to a localStorage instance with some default text. A function will check the div's content and save it in localStorage every second. 
+
+  <script src="https://gist.github.com/samayshamdasani/8c264cf8703d279ab96f5e350022bf79.js"></script>
+
+  <p> Once we set our two div's to localStorage['title'] and localStorage['text'] variables, we use the setInterval() function to save the innerHTML of each div every 1000 milliseconds, or 1 second. 
+
+  <p> There you have it! We now have built a text editor that autosaves. Try refreshing the page, or even better: exiting the browser! You should see your text still there! You can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/color/color-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/color/color-project/index.html" class="underline">demo</a> :) 
+  <p> Try and changing up the style to your liking with CSS, or even add a footer! If you want a little challenge, try making your document title equal to your heading in the text editor. Happy Coding!
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+  <footer class="footer-project">
+    <hr>
+    <p class="footer1">
+    why <a href="/about.html" class="underline">enlight?</a> </p>
+    <p class="footer2">
+    a project by <a href="https://shamdasani.org" class="underline">Samay Shamdasani</a> 
+  </footer>
+
+

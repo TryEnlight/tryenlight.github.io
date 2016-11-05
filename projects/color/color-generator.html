@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Hex Color Generator | Enlight
+    </title>
+    <meta name="description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Build a Hex Color Generator | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta property="og:url" content="https://enlight.ml/projects/color-generator.html">
+    <meta name="twitter:url" content="https://enlight.ml/projects/color-generator.html">
+    <meta name="twitter:title" content="Build a Hex Color Generator | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects. Make Awesome Stuff..">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<body>
+
+ <!-- Markup-->
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+
+<h1 class="project-header">Build a <span class="underline">Hex Color Generator</span></h2>
+<h1 class="project-subtitle">generate beautiful colors every time you press the spacebar</h1>
+
+<a href="color-project/index.html"><img src = "../../images/color.gif" class="project-image"/></a>
+
+<p class="header">Getting Started</p>
+<p>
+  In this tutorial, we'll make our very own color generator with just a couple lines of JavaScript. First off, you'll need a folder with three files: 
+  <ul>
+    <li>index.html - for our markup</li>
+    <li>style.css - for styling</li>
+    <li>app.js - for the function(s)</li>
+  </ul>
+<p>
+  Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and type in the following markup: 
+
+  <script src="https://gist.github.com/samayshamdasani/90d90a0f3284836919b2a19e067bec92.js"></script>
+<p>
+  Seems new? Don't worry!
+  
+<p>
+  The !DOCTYPE html tag tells the web broswer version of HTML the page is written in.
+  Right below that, we set some basic tags to specify the language. The head of a html document includes your title, meta tags, and 
+  your linked files. The viewport is used to make the page responsive so that any device can view the content clearly. 
+  We also link our style.css stylsheet. 
+<p>
+  Now, how will our JavaScript code communicate with our web page? We'll have to specify that too by linking it at the bottom.
+
+<p class="header">Generating the Function</p>
+<p>
+  Speaking of JavaScript, go ahead and open your app.js file! Since we'll be generating a hex color, we'll need to create a function. 
+
+  <script src="https://gist.github.com/samayshamdasani/83d131bdeff24f73ddb5eaa417be8c6f.js"></script>
+
+<p>
+Our function, getColor() is generating a random number in hex color format using the Math.random function. We can then use that hex color by applying it to
+our background like this: 
+
+<script src="https://gist.github.com/samayshamdasani/91e7e6e42260a90e1cae45d910276696.js"></script>
+
+<p>
+To set the background color, we created another function called setBackground() and assigned a variable 
+bgColor to the getColor() function that generated the color. Then, we set the background of the document equal 
+to the variable bgColor. Lastly, we tell the browser to execute our setBackground() function.
+
+<p> You now have a working color generator. Open up your index.html file in your web browser and refresh the page! </p>
+
+<p class="header">Making the Spacebar Work</p>
+<p> Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
+ the setBackground() at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it. 
+
+<script src="https://gist.github.com/samayshamdasani/4586be17fb374140d22f4a46e8c79ba0.js"></script>
+
+<p> What we did here is make a new function to run the funtion setBackground() when the space key (the code for the spacebar on keyboards is 32) is pressed. Just to make sure, this is how your app.js file should look: 
+
+<script src="https://gist.github.com/samayshamdasani/981b734ed91a70d0fe840dc0e38236aa.js"></script>
+
+<p> Head back, refresh your index.html page, and press the spacebar. Pretty neat, right?
+
+<p> But wait! We haven't even touched our style.css file! Open it up! We'll add a transition just so it looks more fluid when switching between colors.</p> 
+
+<script src="https://gist.github.com/samayshamdasani/eeeee114b2d0808187ae4f98a2210528.js"></script>
+
+<p> Now take a look at your beautiful creation! </p> 
+
+<p class="header">Now what?</p>
+<p> We hope you've generated some pretty unique colors and learned a ton! If you are stuck, you can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/color/color-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/color/color-project/index.html" class="underline">demo</a> :) 
+
+<p> However, don't stop here! Think about what you can add next! Can you print the hex color code on screen? Can you look up some additional styles to add? Can you add a "press the spacebar" message that appears for a couple seconds? If you enjoyed this tutorial, go ahead and learn to make something else like a <a href="/projects/text-editor/text-editor.html" class="underline">text-editor</a>.
+
+</div>
+</div>
+
+  <footer class="footer-project">
+    <hr>
+    <p class="footer1">
+    why <a href="/about.html" class="underline">enlight?</a> </p>
+    <p class="footer2">
+    a project by <a href="https://shamdasani.org" class="underline">Samay Shamdasani</a> 
+  </footer>
+
