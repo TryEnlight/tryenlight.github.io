@@ -67,7 +67,7 @@
  
 As seen above, our clock has many different elements that make it well, a clock. No, we aren't using any old image. Instead, we'll be using CSS to handcraft this clock ourselves.
 
-If you count up all the different objects in the clock, you willl notice that we need nine different divs for the following:
+If you count up all the different elements in the clock, you willl notice that we need nine different divs for the following:
 <ul>
     <li>clock - the circle</li>
     <li>hours - hour hand</li>
@@ -101,7 +101,7 @@ by making all four of those divs have a width of 3px, a length of 15px, a color 
 <script src="https://gist.github.com/samayshamdasani/82105da30a9b348da7552e02bf748002.js"></script>
 
 <p>
-Alright, now we've got a <i>better</i> looking clock. However, it isn't quite done yet! We still need to design the hour, minute, and second arms! This is where it gets a little more complex as all of these arms have different lengths and widths. For the center, however, we just need to make a small circle. For the second hand, let's set a height of 160px, a width of 2px, and a #ff4136 (red) color.  For the minute hand, we can set a height of 200px, and a width of 2px, and a #000 (black) color. Lastly, for the hour hand, we can set a height of 80px, a width of 6px, and a black color. For all of the hands we also need to set a -webkit-transform-origin so that when we the element can move it's x and y values with JavaScript. And lastly, we need to play around with the positioning to make the hands sit on the center dot perfectly: 
+Alright, now we've got a <i>better</i> looking clock. However, it isn't quite done yet! We still need to design the hour, minute, and second arms! This is where it gets a little more complex as all of these arms have different lengths and widths. Before that, however, we just need a small dot in the center. For the second hand, let's set a height of 160px, a width of 2px, and a #ff4136 (red) color.  For the minute hand, we can set a height of 200px, and a width of 2px, and a #000 (black) color. Lastly, for the hour hand, we can set a height of 80px, a width of 6px, and a #000 (black) color. For all of the hands we also need to set a -webkit-transform-origin so that the element can move it's position once we link it with our JavaScript. And lastly, we need to play around with the positioning to make the hands sit on the center dot perfectly: 
 
 <script src="https://gist.github.com/samayshamdasani/b01f65ddcaa6f40852f79aa463c0d562.js"></script>
 
@@ -119,7 +119,7 @@ You did it! We now have a fully-functional, minimal, and beautiful clock. I hope
 
 <p class="header">What's next?</p>
 <p>
-Don't stop here! Maybe make the time display under it, customize the look of the clock to your style, or even better - try and make the clock responsive with media queries!
+Don't stop! Maybe make the time display digitally underneath it, customize the look of the clock to your style, or even better - try and make the clock responsive with media queries!
 
 
 
