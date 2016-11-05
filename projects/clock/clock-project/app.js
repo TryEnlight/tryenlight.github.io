@@ -11,4 +11,4 @@ function moveHands() {
     }
 }
 
-window.onload = moveHands
+window.onload = moveHands;

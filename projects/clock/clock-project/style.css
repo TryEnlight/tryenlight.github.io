@@ -1,15 +1,11 @@
-/* Time by @samayshamdasani
-demo at https://shamdasani.org/time
-*/
-
-* {
+* { 
   margin: 0;
   padding: 0;
   border: 0;
 }
 
 body {
-  background-color: #111111;
+  background-color: #000;
 }
 
 .clock {
@@ -18,7 +14,7 @@ body {
   width: 500px;
   background-color: #DDDDDD;
   border-radius: 100%;
-  border: 5px solid #AAAAAA;
+  border: 3px solid #AAAAAA;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -30,6 +26,7 @@ body {
   height: 15px;
   background: #111111;
   left: 0;
+  top: 0;
   right: 0;
   margin: 0 auto;
 }
@@ -67,23 +64,25 @@ body {
   margin: auto 0;
  }
 
- .center {
+.center {
    width: 10px;
    height: 10px;
    position: absolute;
    left: 0; right: 0; bottom: 0; top: 0;
    margin: auto;
-   background: #111111;
+   background: #000;
    border-radius: 100%;
  }
 
- #seconds {
+
+
+#seconds {
    position: absolute;
    height: 160px;
    width: 2px;
    left: 0; right: 0; bottom: 160px; top: 0px;
    margin: auto;
-   background: #111111;
+   background: #000;
    -webkit-transform-origin: bottom;
    background: #FF4136;
 }
@@ -94,7 +93,7 @@ body {
   width: 2px;
   left: 0; right: 0; bottom: 200px; top: 0px;
   margin: auto;
-  background: #111111;
+  background: #000;
   -webkit-transform-origin: bottom;
 }
 
@@ -104,48 +103,6 @@ body {
   width: 6px;
   left: 0; right: 0; bottom: 80px; top: 0px;
   margin: auto;
-  background: #111111;
+  background: #000;
   -webkit-transform-origin: bottom;
-}
-
-
-@media screen and (max-width:760px){
-  .clock{
-    height: 300px;
-    width: 300px;
-}
-
-#seconds {
-  position: absolute;
-  height: 100px;
-  width: 2px;
-  left: 0; right: 0; bottom: 100px; top: 0px;
-  margin: auto;
-  background: #111111;
-  -webkit-transform-origin: bottom;
-  background: #FF4136;
-}
-
-#minutes {
-  position: absolute;
-  height: 130px;
-  width: 2px;
-  left: 0; right: 0; bottom: 130px; top: 0px;
-  margin: auto;
-  background: #111111;
-  -webkit-transform-origin: bottom;
-}
-}
-
-p {
-  color: #fff;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  font-family: helvetica, arial, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: #7FDBFF;
 }
