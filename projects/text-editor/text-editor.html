@@ -57,7 +57,7 @@
 
 <p class="header">Getting Started</p>
 <p>
-  In this tutorial, we'll make our a text editor in the broswer. Using JavaScript, we can save the text automatically in a user's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let's you save data in user's browser. 
+  In this tutorial, we'll make a text editor in the broswer. Using JavaScript, we can save the text automatically in a user's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let's you save data in user's browser. 
 <p>
   As always, you'll need a folder with three files: 
   <ul>
@@ -66,7 +66,7 @@
     <li>app.js - for the function(s)</li>
   </ul>
 <p>
-  Since we're making a text-editor, our content has to be editable! Thankfully, HTML has an attribute for that. Go ahead: link the files, and create two <a href="http://www.w3schools.com/tags/tag_div.asp" class="underline">divs</a> with the <a href="http://www.w3schools.com/tags/att_global_contenteditable.asp" class="underline">contenteditable attribute </a>and with the heading and content ids as seen below. 
+  Since we're making a text-editor, our content has to be editable! Thankfully, HTML has an attribute for that. Go ahead: link the files, and create two <a href="http://www.w3schools.com/tags/tag_div.asp" class="underline">divs</a> with the <a href="http://www.w3schools.com/tags/att_global_contenteditable.asp" class="underline">contenteditable attribute </a>and with a heading and a content id. 
   <br>
 
 <script async src="//jsfiddle.net/samayshamdasani/1myw842p/embed/html,result/"></script>
@@ -75,7 +75,7 @@
 
   <p class="header">Styling the Editor</p>
 <p>
-  Here's some things you should do in the style.css file:
+  Here's some basic things you should do in your the style.css file:
   <ul>
   <li>change the <a href="http://www.w3schools.com/cssref/pr_font_font-family.asp" class="underline">font</a>
   <li>center the text boxes and set a <a href="http://www.w3schools.com/cssref/pr_dim_max-width.asp" class="underline">max-width</a>
@@ -88,7 +88,7 @@
   <script async src="//jsfiddle.net/samayshamdasani/rvuyap8h/embed/html,css,result/"></script>
 
 <p>
-  You may have noticed that if you refresh the page, it doesn't save. Let's fix that. 
+  How does it look now? Play around with it! However, you may have noticed that if you refresh the page, the text doesn't save. Let's fix that. 
 
   <p class="header">JavaScript and localStorage function</p>
 
@@ -97,8 +97,8 @@
 
   <ul>
   <li>for both divs, we need to use <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">document.getElementById().innerHTML</a> and set it to a <a href="http://www.w3schools.com/html/html5_webstorage.asp" class="underline">localStorage[]</a> || 'default text' object 
-  <li>an <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" class="underline">interval function</a> which has a localStorage object assigned to the document.getElementById().innerHTML for each div
-  <li>make the function do it every 1000 milliseconds, or 1 second.
+  <li>need to have an <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" class="underline">interval function</a> which has a localStorage object assigned to the document.getElementById().innerHTML for each div
+  <li>make the function run every 1000 milliseconds, or 1 second.
   </ul>
 
   <p> This is what the finished product should look like:
@@ -106,8 +106,10 @@
   <script async src="//jsfiddle.net/samayshamdasani/bjxxptbo/embed/"></script>
 
 
-  <p> There you have it! We now have built a text editor that autosaves. Try refreshing the page, or even better - exiting the browser! You should see your text still there! You can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/text-editor/text-editor-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/text-editor/text-editor-project/index.html" class="underline">demo</a> :) 
-  <p> Try and changing up the style to your liking with CSS, if you want a little challenge, try making your document title (heading div) equal to your document.title! Good Luck!
+  <p> There you have it! We now have built a text editor that autosaves. Try refreshing the page, or even better - exiting the browser! You should see your text still there! You can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/text-editor/text-editor-project" class="underline">here</a> to view all the code for this project, and if you want to check out how it should look like, you can view the <a href="/projects/text-editor/text-editor-project/index.html" class="underline">demo</a> :) 
+
+  <p class="header">What's next?</p>
+  <p> Try and changing up the style to your liking, or, if you want a little challenge, try making your text editor's title (heading div) equal to the title of your <a href="http://www.w3schools.com/jsref/prop_doc_title.asp" class="underline">document</a>! Good Luck!
 
 
 </div>
