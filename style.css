@@ -213,3 +213,46 @@ hr {
   font-style: normal;
   font-weight: 600;
 }
+
+/* Newsletter */
+form {
+	padding-top: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+input {
+	width: 25em;
+	height: 2em;
+    padding: 10;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input:focus {
+	border: 1px solid #ee4287;
+}
+
+button {
+	width: 7em;
+	height: 2em;
+	border: none;
+	background: #ee4287;
+	color: #fff;
+	border-radius: 4px;
+	 -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
+
+
+}
+
+button:hover {
+	color: #000;
+	border: 2px solid #ee4287;
+	background: #fff;
+}
