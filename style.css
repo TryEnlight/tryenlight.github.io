@@ -179,6 +179,10 @@ hr {
 	margin: 0 auto;
 }
 
+.btn {
+	padding-bottom: 5px;
+}
+
 /* Font */
 @font-face {
   font-family: 'Fakt';
