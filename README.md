@@ -4,12 +4,12 @@ learn to code by making projects
 ## projects available
 - [hex color generator](https://enlight.ml/projects/color/color-generator.html)
 - [text editor](https://enlight.ml/projects/text-editor/text-editor.html)
+- [a minimal clock](https://enlight.ml/projects/clock/clock.html)
 
 ## for the future
 - to-do list
 - geo-location weather app 
 - personal website 
-- a minimal clock 
 - autosaving text editor
 - blog with jekyll
 - fun quote generator
