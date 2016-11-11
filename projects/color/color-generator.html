@@ -65,7 +65,8 @@
     <li>app.js - for the function(s)</li>
   </ul>
 <p>
-  Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and type in the following markup: 
+  Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor, add a title, a viewport, and 
+  link all our files together. Our index.html file should something like this:
 
   <script src="https://gist.github.com/samayshamdasani/90d90a0f3284836919b2a19e067bec92.js"></script>
 <p>
@@ -73,51 +74,85 @@
   
 <p>
   The !DOCTYPE html tag tells the web broswer version of HTML the page is written in.
-  Right below that, we set some basic tags to specify the language. The head of a html document includes your title, meta tags, and 
-  your linked files. The viewport is used to make the page responsive so that any device can view the content clearly. 
-  We also link our style.css stylsheet. 
-<p>
-  Now, how will our JavaScript code communicate with our web page? We'll have to specify that too by linking it at the bottom.
+  Right below that, we have our head tag, where we can add our title, meta, and link up our CSS file.
+  The viewport is used to make the page responsive so that any device can view the content clearly by based on 
+  the size of the screen so that browser can scale accordingly. Lastly, we have to link our JavaScript file which 
+  will contain our function of generating the random color. 
 
 <p class="header">Generating the Function</p>
 <p>
-  Speaking of JavaScript, go ahead and open your app.js file! Since we'll be generating a hex color, we'll need to create a function. 
+  If you are somewhat familiar with CSS, you know that colors are wither specified in an rgb or hex code format. An example of this 
+  would be #ffffff (white) or #000000 (black). To actually get a number, JavaScript has a math.random function that can return well, random numbers that are between 0 and 1. 
+<p>
+  For example, let's start by printing a simple math.random function: 
 
-  <script src="https://gist.github.com/samayshamdasani/83d131bdeff24f73ddb5eaa417be8c6f.js"></script>
+<script async src="//jsfiddle.net/samayshamdasani/x7jtxzh7/1/embed/js,result/"></script>
 
 <p>
-Our function, getColor() is generating a random number in hex color format using the Math.random function. We can then use that hex color by applying it to
-our background like this: 
+  If you take a look at the result, we get a random number between 0 and 1 with a (#) added in front of it. However, since hex numbers include six letters (A, B, C, D, E, & F), we need to add those letters into our result as well. In addition, we also need to get rid of the (0) and (.) and limit the result to only 6 characters.
+  Go ahead and try to solve this yourself. Here's a hint: you'll need to expand the math.random function by using Javascript's <a href="http://www.w3schools.com/jsref/jsref_tostring_number.asp" class="underline">toString()</a> and <a href="http://www.w3schools.com/jsref/jsref_slice_string.asp" class="underline">slice()</a> methods.
 
-<script src="https://gist.github.com/samayshamdasani/91e7e6e42260a90e1cae45d910276696.js"></script>
+  <p> <br> <br> Seriously, don't move on! Read up on those methods!
 
-<p>
-To set the background color, we created another function called setBackground() and assigned a variable 
-bgColor to the getColor() function that generated the color. Then, we set the background of the document equal 
-to the variable bgColor. Lastly, we tell the browser to execute our setBackground() function.
+  <p> <br> <br> Alright, let's see what you've come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let's see what we get: 
 
-<p> You now have a working color generator. Open up your index.html file in your web browser and refresh the page! </p>
+  <script async src="//jsfiddle.net/samayshamdasani/h2hvkcbr/embed/js,result/"></script>
+
+  <p>
+    Now we have a number in hexadecimal format, but it isn't ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8); at the end of our math.random function. 
+    The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eigth charcter to get six charcters in total. Now, let's take a look at our result!
+
+  <script async src="//jsfiddle.net/samayshamdasani/ftpowevf/embed/js,result/"></script>
+
+  <p> 
+    Finally, we have a number we can work with! All we need to do is set this hex value
+    as our background. We can do that by writing another function, and that function will do two things:
+    <ul>
+    <li>set getColor() to a <a href="http://www.w3schools.com/js/js_variables.asp" class="underline">variable</a></li>
+    <li>set the <a href="http://www.w3schools.com/jsref/prop_style_background.asp" class ="underline">document.body.style.background</a> equal to that variable</li>
+    </ul>
+
+    <p> Go ahead, you should be able to do this one!
+
+    <p> Your app.js code should look something like this: 
+
+    <script async src="//jsfiddle.net/samayshamdasani/3hkq2153/embed/js,result/"></script>
+
+    <p>
+     If we open our html file in the browser, you should see a random color everytime you refresh the page!
 
 <p class="header">Making the Spacebar Work</p>
 <p> Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
- the setBackground() at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it. 
+ the setBackground() function at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it. 
 
-<script src="https://gist.github.com/samayshamdasani/4586be17fb374140d22f4a46e8c79ba0.js"></script>
+ <p> We can do this by using an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if statement </a> that runs the setBackground() function only when the keyCode of 32 (code for spacebar) is pressed. This is what we have to write:
 
-<p> What we did here is make a new function to run the funtion setBackground() when the space key (the code for the spacebar on keyboards is 32) is pressed. Just to make sure, this is how your app.js file should look: 
+ <ul>
+  <li> <a href="http://www.w3schools.com/jsref/event_onkeyup.asp" class="underline"> document.body.keyup</a> should be equal to a function (a variable)
+  <li>in that function, there must be an if statement stating if the (that variable).keyCode == 32, setBackground() should run
+</ul>
 
-<script src="https://gist.github.com/samayshamdasani/981b734ed91a70d0fe840dc0e38236aa.js"></script>
+<p>
+  This is what our finished app.js file should look like:
 
-<p> Head back, refresh your index.html page, and press the spacebar. Pretty neat, right?
+  <script async src="//jsfiddle.net/samayshamdasani/nvppek52/3/embed/js,result/"></script>
 
+<p> 
+  Open up your html file in the browser or click on the result tab and then press the spacebar. Pretty neat, right?
+
+<p class="header">A little transition</p>
 <p> But wait! We haven't even touched our style.css file! Open it up! We'll add a transition just so it looks more fluid when switching between colors.</p> 
 
 <script src="https://gist.github.com/samayshamdasani/eeeee114b2d0808187ae4f98a2210528.js"></script>
 
-<p> Now take a look at your beautiful creation! </p> 
+This is the finished product:
+
+<script async src="//jsfiddle.net/samayshamdasani/qhe4toas/embed/js,css,result/"></script>
+
+<p> Open up yout html file and take a look at your latest creation!
 
 <p class="header">Now what?</p>
-<p> We hope you've generated some pretty unique colors and learned a ton! If you are stuck, you can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/color/color-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/color/color-project/index.html" class="underline">demo</a> :) 
+<p> I hope you've generated some pretty unique colors and learned a ton! If you are stuck, you can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/color/color-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/color/color-project/index.html" class="underline">demo</a> :) 
 
 <p> However, don't stop here! Think about what you can add next! Can you print the hex color code on screen? Can you look up some additional styles to add? Can you add a "press the spacebar" message that appears for a couple seconds? If you enjoyed this tutorial, go ahead and learn to make something else like a <a href="/projects/text-editor/text-editor.html" class="underline">text-editor</a>.
 
