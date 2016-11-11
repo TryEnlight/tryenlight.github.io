@@ -65,15 +65,14 @@
     <li>app.js - for the function(s)</li>
   </ul>
 <p>
-  Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor, add a title, a viewport, and 
-  link all our files together. Our index.html file should something like this:
+  Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and add a title, a viewport, and link all our files together. Our index.html file should look something like this:
 
   <script src="https://gist.github.com/samayshamdasani/90d90a0f3284836919b2a19e067bec92.js"></script>
 <p>
   Seems new? Don't worry!
   
 <p>
-  The !DOCTYPE html tag tells the web broswer version of HTML the page is written in.
+  The !DOCTYPE html tag tells the web broswer what version of HTML the page is written in.
   Right below that, we have our head tag, where we can add our title, meta, and link up our CSS file.
   The viewport is used to make the page responsive so that any device can view the content clearly by based on 
   the size of the screen so that browser can scale accordingly. Lastly, we have to link our JavaScript file which 
@@ -81,8 +80,8 @@
 
 <p class="header">Generating the Function</p>
 <p>
-  If you are somewhat familiar with CSS, you know that colors are wither specified in an rgb or hex code format. An example of this 
-  would be #ffffff (white) or #000000 (black). To actually get a number, JavaScript has a math.random function that can return well, random numbers that are between 0 and 1. 
+  If you are somewhat familiar with CSS, you know that colors are either specified in a rgb or hex code format. An example of this 
+  would be #ffffff (white) or #000000 (black). To generate our number, JavaScript has a math.random function that returns, random numbers that are between 0 and 1. 
 <p>
   For example, let's start by printing a simple math.random function: 
 
@@ -94,13 +93,13 @@
 
   <p> <br> <br> Seriously, don't move on! Read up on those methods!
 
-  <p> <br> <br> Alright, let's see what you've come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let's see what we get: 
+  <p> <br> <br> Alright, let's see what you've come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let's check out our result: 
 
   <script async src="//jsfiddle.net/samayshamdasani/h2hvkcbr/embed/js,result/"></script>
 
   <p>
-    Now we have a number in hexadecimal format, but it isn't ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8); at the end of our math.random function. 
-    The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eigth charcter to get six charcters in total. Now, let's take a look at our result!
+    Now we have a number in hexadecimal format, but it isn't ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8) at the end of our math.random function. 
+    The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eigth charcter to get six charcters in total. Check out the result!
 
   <script async src="//jsfiddle.net/samayshamdasani/ftpowevf/embed/js,result/"></script>
 
@@ -114,12 +113,12 @@
 
     <p> Go ahead, you should be able to do this one!
 
-    <p> Your app.js code should look something like this: 
+    <p> Here's what your app.js code should look like: 
 
     <script async src="//jsfiddle.net/samayshamdasani/3hkq2153/embed/js,result/"></script>
 
     <p>
-     If we open our html file in the browser, you should see a random color everytime you refresh the page!
+     If we open our html file in the browser, you should see a random color every time you refresh the page!
 
 <p class="header">Making the Spacebar Work</p>
 <p> Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
@@ -138,18 +137,19 @@
   <script async src="//jsfiddle.net/samayshamdasani/nvppek52/3/embed/js,result/"></script>
 
 <p> 
-  Open up your html file in the browser or click on the result tab and then press the spacebar. Pretty neat, right?
+  Open up your html file in the browser or click on the result tab. Then, press the spacebar. Pretty neat, right?
 
 <p class="header">A little transition</p>
-<p> But wait! We haven't even touched our style.css file! Open it up! We'll add a transition just so it looks more fluid when switching between colors.</p> 
+<p> But wait! We haven't even touched our style.css file! Open it up! We'll add a transition just so it looks a little more fluid when switching between colors.</p> 
 
 <script src="https://gist.github.com/samayshamdasani/eeeee114b2d0808187ae4f98a2210528.js"></script>
 
+<p>
 This is the finished product:
 
 <script async src="//jsfiddle.net/samayshamdasani/qhe4toas/embed/js,css,result/"></script>
 
-<p> Open up yout html file and take a look at your latest creation!
+<p> <br> Open up your html file and take a look at your latest creation!
 
 <p class="header">Now what?</p>
 <p> I hope you've generated some pretty unique colors and learned a ton! If you are stuck, you can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/color/color-project" class="underline">here</a> to view all the code for this project, and if you want to see what it should look like, you can view the <a href="/projects/color/color-project/index.html" class="underline">demo</a> :) 
