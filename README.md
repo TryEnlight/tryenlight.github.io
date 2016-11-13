@@ -20,7 +20,7 @@ learn to code by making projects
 ## CONTRIBUTE by adding your projects & tutorials!
 - fork the repo
 - in the project folder, make another folder w/ the project name
-- that folder will include the project demo (w/ it's source files) and a markdown file with the tutorial. 
+- in that folder: include the project demo (w/ it's source files) and a markdown file with the tutorial. 
 - create a pull request & and it'll be up as soon!
 
 any questions // hi@shamdasani.org
