@@ -20,8 +20,8 @@ learn to code by making projects
 ## CONTRIBUTE by adding your projects & tutorials!
 - fork the repo
 - in the project folder, make another folder w/ the project name
-- that folder will include the project demo (w/ it's source files) and the .html page -- (you can just copy and paste template code from existing projects)
-- create a pull request!
+- that folder will include the project demo (w/ it's source files) and a markdown file with the tutorial. 
+- create a pull request & and it'll be up as soon!
 
 any questions // hi@shamdasani.org
 your name will be published at the top of the project tutorial along any of your links! :)
