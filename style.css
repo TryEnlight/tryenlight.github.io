@@ -256,3 +256,10 @@ button:hover {
 	border: 2px solid #ee4287;
 	background: #fff;
 }
+
+.contribute{
+	position: absolute;
+	bottom: 0;
+	right:0;
+	padding-right: 10px;
+}
