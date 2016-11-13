@@ -17,11 +17,21 @@ learn to code by making projects
 - autocompiling code editor
 - email me more ideas! hi@shamdasani.org
 
+## CONTRIBUTE by adding your projects & tutorials!
+- fork the repo
+- in the project folder, make another folder w/ the project name
+- that folder will include the project demo (w/ it's source files) and the .html page -- (you can just copy and paste template code from existing projects)
+- create a pull request!
+
+any questions // hi@shamdasani.org
+your name will be published at the top of the project tutorial along any of your links! :)
+
+thank you!
+
 ## why?
 when i learned to code the web, it was tiring, boring, and frustrating. then, i started to make mini-projects. for me, i learn the best by example. as i learn, i hope to be sharing my knowledge with you. hope you enjoy! :)
 
 ## to-do for site
-- add tweet buttons
-- add footer w/ newsletter + links
+- fix newsletter confirmation
 - reading bar
 
