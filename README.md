@@ -8,6 +8,7 @@ learn to code by making projects
 
 ## for the future
 - to-do list
+- a twitter bot
 - geo-location weather app 
 - personal website 
 - autosaving text editor
