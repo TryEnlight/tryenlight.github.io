@@ -21,7 +21,7 @@ learn to code by making projects
 - fork the repo
 - in the project folder, make another folder w/ the project name
 - that folder will include the project demo (w/ it's source files) and the .html page -- (you can just copy and paste template code from existing projects)
-- create a pull request on the DEVELOPMENT branch!
+- create a pull request!
 
 any questions // hi@shamdasani.org
 your name will be published at the top of the project tutorial along any of your links! :)
