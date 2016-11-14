@@ -15,6 +15,8 @@ learn to code by making projects
 - blog with jekyll
 - fun quote generator
 - autocompiling code editor
+- calculator
+- tic-tac-toe game
 - email me more ideas! hi@shamdasani.org
 
 ## CONTRIBUTE by adding your projects & tutorials!
