@@ -17,7 +17,7 @@ learn to code by making projects
 - autocompiling code editor
 - calculator
 - tic-tac-toe game
-- email me more ideas! hi@shamdasani.org
+- suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## CONTRIBUTE by adding your projects & tutorials!
 - fork the repo
