@@ -6,12 +6,7 @@ function newItem() {
   	ul.appendChild(li);
 }
 
-window.onload = function removeItem() {
-	var ul = document.getElementById("list");
-	var li = getElementsByTagName('li');
-	li.parentNode.removeChild(item); 
-	ul.removeChild(li);
-}
+
 
 document.body.onkeyup = function(e){
       if(e.keyCode == 13){

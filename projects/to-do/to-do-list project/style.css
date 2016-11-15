@@ -12,7 +12,7 @@ input {
 	padding-top: 30px;
 	width: 500px;
 	height: 60px;
-	font-size: 45px;
+	font-size: 40px;
 	border: 0;
 }
 
@@ -22,5 +22,6 @@ input:focus {
 
 li { 
 	text-align: left;
-	font-size: 20px;
+	font-size: 40px;
+	list-style: none;
 }
