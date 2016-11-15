@@ -24,4 +24,9 @@ li {
 	text-align: left;
 	font-size: 40px;
 	list-style: none;
+	margin: 0;
+}
+
+li:hover {
+	text-decoration: line-through;
 }
