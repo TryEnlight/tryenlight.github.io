@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Clock | Enlight
+    </title>
+    <meta name="description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="  Build a Clock | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta property="og:url" content="https://enlight.ml/projects/clock/clock.html">
+    <meta name="twitter:url" content="https://enlight.ml/projects/clock/clock.html">
+    <meta name="twitter:title" content="  Build a Clock | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects. Make Awesome Stuff..">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<body>
+
+ <!-- Markup-->
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+
+<h1 class="project-header">Build a <span class="underline">Clock</span></h2>
+<h1 class="project-subtitle">make a minimal & beautiful clock on the web</h1>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="clock-project/index.html"><img src = "../../images/clock.gif" class="project-image"/></a>
+
+<p class="header">Getting Started</p>
+<p>
+ As always, we'll need three files:
+  <ul>
+    <li>index.html - for our markup</li>
+    <li>style.css - for styling</li>
+    <li>app.js - for the function(s)</li>
+  </ul>
+<p>
+ 
+As seen above, our clock has many different elements that make it well, a clock. No, we aren't using any old image. Instead, we'll be using CSS to handcraft this clock ourselves.
+
+If you count up all the different elements in the clock, you willl notice that we need nine different divs for the following:
+<ul>
+    <li>clock - the circle</li>
+    <li>hours - hour hand</li>
+    <li>minutes - minute hand</li>
+    <li>seconds - seconds hand</li>
+    <li>center - the center dot</li>
+    <li>three - indicator for third hour</li>
+    <li>six - indicator for sixth hour</li>
+    <li>nine - indicator for ninth hour</li>
+    <li>twelve - indicator for twelfth hour</li>
+</ul>
+<p>
+Let's create those divs in our index.html file:
+
+<script src="https://gist.github.com/samayshamdasani/4f498bd930d7d36e06891534cd875cb0.js"></script>
+
+<p>
+Notice how we set ids for the arms so that when we actually want to make them move, it'll be easier to communicate with them in JavaScript.
+
+<p class="header">Designing the Clock</p>
+<p>
+Here comes the hard part. We have to actually design the clock with nothing but CSS. First, we have to set our black background and make the circular 
+shape of the clock. We can do that by starting with a height and width of the clock class to be 500px, and the border-radius to 100% so that we can make it circular. We also need a border with a greyish (#aaaaaa) color, and to make the clock centered on the page, we can use the margin and position attributes. Here's what the CSS so far should look like:
+
+<script src="https://gist.github.com/samayshamdasani/7a11639c38c0b7788de889e4374fdac7.js"></script>
+
+<p>
+Now that we've got this big circle on our screen, we need to make the small indicators for the third, sixth, ninth, and twelfth hours. We can do this 
+by making all four of those divs have a width of 3px, a length of 15px, a color of #000 (black), and playing around with the position (top, bottom, left, right) attributes: 
+
+<script src="https://gist.github.com/samayshamdasani/82105da30a9b348da7552e02bf748002.js"></script>
+
+<p>
+Alright, now we've got a <i>better</i> looking clock. However, it isn't quite done yet! We still need to design the hour, minute, and second arms! This is where it gets a little more complex as all of these arms have different lengths and widths. Before that, however, we just need a small dot in the center. For the second hand, let's set a height of 160px, a width of 2px, and a #ff4136 (red) color.  For the minute hand, we can set a height of 200px, and a width of 2px, and a #000 (black) color. Lastly, for the hour hand, we can set a height of 80px, a width of 6px, and a #000 (black) color. For all of the hands we also need to set a -webkit-transform-origin so that the element can move it's position once we link it with our JavaScript. And lastly, we need to play around with the positioning to make the hands sit on the center dot perfectly: 
+
+<script src="https://gist.github.com/samayshamdasani/b01f65ddcaa6f40852f79aa463c0d562.js"></script>
+
+<p>
+We now have a good-looking clock, but it doesn't move it's hands! Let's change that with some JavaScript.
+
+<p class="header">Making the Clock Work</p>
+<p>
+To make our hands actually move, we have to write a function in JavaScript. Since every circle is 360 degrees, and there are 12 hours, after each hour, the hour hand will move 30 degrees. Similarly, since there are 60 minutes in an hour, and 60 seconds in a minute, the minute and second hands will both move 6 degrees every minute or second. So, all we have to do, is make those element id's rotate those degrees using the -webkit-transform:rotate attribute. Here's what our JavaScript function should look like: 
+
+<script src="https://gist.github.com/samayshamdasani/ba381da14bf2fc64fc0c91993a560c21.js"></script>
+
+<p>
+You did it! We now have a fully-functional, minimal, and beautiful clock. I hope you've learned a ton in terms of CSS design and JavaScript's functionality in these types of projects. You can view the demo <a href="clock-project/index.html" class="underline">here</a>, and the full code <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/clock/clock-project" class="underline">here</a>.
+
+<p class="header">What's next?</p>
+<p>
+Don't stop! Maybe make the time display digitally underneath it, customize the look of the clock to your style, or even better - try and make the clock responsive with media queries!
+
+
+
+
+</div>
+</div>
+
+  <footer class="footer-project">
+    <hr>
+    <p class="footer1">
+    why <a href="/about.html" class="underline">enlight?</a> </p>
+    <p> follow us on <a href="https://twitter.com/tryEnlight" class="underline">twitter</a> 
+    <p class="footer2">
+    <br>--<br>
+    a project by <a href="https://shamdasani.org" class="underline">Samay Shamdasani</a> 
+  </footer>
+
+

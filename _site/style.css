@@ -264,39 +264,3 @@ button:hover {
 	right:0;
 	padding-right: 10px;
 }
-
-#carbonads {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  padding-left: 5px;
-  max-width: 300px;
-}
-
-.carbon-img { 
-  float: left; 
-  padding-right: 10px;
-
-}
-.carbon-text { 
-  display: block; 
-  font-size: 15px;
-}
-.carbon-poweredby { 
-  float: right;
-  font-size:10px;
-  border-bottom: 0 !important;
-
- }
-
-@media (max-width:650px){
-    
-    #carbonads {
-	position: relative;
-	margin: 0 auto;
-	text-align: center;
-	padding-bottom: 100px;
-	left: 0em;
-    }
-}
-
