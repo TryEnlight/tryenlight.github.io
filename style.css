@@ -123,8 +123,9 @@ li {
 
 
 /* My grid (lol) */
+
 .grid {
-	padding-top: 3%;
+  padding-top: 3%;
 }
 
 .col-1-3 {
@@ -135,14 +136,19 @@ li {
 
 @media (max-width:650px){
         .col-1-3 { 
-        	width: 100%;    
+          width: 100%;    
         }
         img {
-        	padding-top: 10px;
-        	width: 100%;
-        	height: 100%;
+          padding-top: 10px;
+          width: 100%;
+          height: 100%;
         }
     }
+
+.box {
+  padding-bottom: 30px;
+}
+
 /* Footer */
 .container {
   display: flex;
@@ -215,11 +221,15 @@ hr {
 }
 
 /* Newsletter */
+
 form {
-	padding-top: 30px;
-	margin: 0 auto;
-	text-align: center;
-	padding-bottom: 40px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter {
+  margin: 0 auto;
+  text-align: center;
 }
 
 input {
@@ -262,7 +272,7 @@ button:hover {
 	position: absolute;
 	bottom: 0;
 	right:0;
-	padding-right: 10px;
+  padding-top: 30px;
 }
 
 #carbonads {

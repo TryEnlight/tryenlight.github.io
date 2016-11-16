@@ -39,7 +39,9 @@
 
 </head>
 
-<body class="container">
+<div class="project-page">
+<div class="container">
+<body>
 
  <!-- Markup-->
 <div class="project-page">
@@ -50,42 +52,102 @@
 <h1 class="project-header">Build a <span class="underline">To-Do List</span></h1>
 <h1 class="project-subtitle">a web app in js that saves all your tasks in a list</h1>
 
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <div class="project-image">
-<img src = "/images/"/>
+<a href="to-do-project/index.html"><img src = "../../images/to-do.gif"/></a>
 </div>
 
 <p class="header"> Let's do this!</p>
 
 <p>
 In this project, we'll make our very own to-do list! This project will incorporate several JavaScript functions to add and remove
-items from the list. 
+tasks from our list. 
 
-Let's create three files: 
+Let's start by creating three files: 
   <ul>
     <li>index.html - for our markup</li>
     <li>style.css - for styling</li>
     <li>app.js - for the function(s)</li>
   </ul>
 
-
-<p class="header">The actual function</p>
 <p>
-To make our list work, we need it to do two things at the minimum: 
-  <ul>
-    <li>add items on press of the enter key</li>
-    <li>remove items on click</li>
+Our basic markup will consist of:
+<ul>
+    <li>html, head, title, and meta viewport tags</li>
+    <li>linking the style.css and app.js files</li>
+    <li>an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input tag</a> with an id and placeholder text (where tasks are typed)</li>
+    <li>lastly, an empty unordered list, or <a href="http://www.w3schools.com/tags/tag_ul.asp" class="underline">ul tag</a> with an id. The ul tag is the parent tag for the li tags that we will create in the JavaScript function. </li>
   </ul>
 
+<p> Here's the HTML markup:
+
+<script async src="//jsfiddle.net/samayshamdasani/o39om73a/2/embed/html,result/"></script>
+
+<p class="header">Jumping into the function</p>
 <p>
-How can we do this? 
+To make our list work, we need it to do three things at the minimum: 
+  <ul>
+    <li>add tasks on press of the enter key</li>
+    <li>remove text in the input box when enter key is pressed</li>
+    <li>remove tasks on click</li>
+  </ul>
+<p>
+How can we implement this? Well, we need to create a function that runs whenever the enter key is pressed. Then, that function will add that 
+input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" class="underline">li</a>. At that moment, the input text box will also be erased so that one can type in the next task. Also, on click of a task, it must be passed on to another function which will remove it from the parent element (ul).
+
+<p>
+Here's how we should go about this:
+<ul>
+    <li>write a function to add tasks with the following variables:</li>
+      <ul>
+         <li>a variable set to the <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">input id's</a> <a href="http://www.w3schools.com/jsref/prop_number_value.asp" class="underline">value</a></li>
+         <li>a variable set to the <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">ul id</a></li>
+         <li>a variable set to the<a href="http://www.w3schools.com/jsref/met_document_createelement.asp" class="underline"> create element</a> method for the li tag</li>
+      </ul>
+    <li>Then, to add the li to the list, the variable set to the create element method for the li tag should use the <a href="http://www.w3schools.com/jsref/met_document_createelement.asp" class="underline">appendChild method</a> to create a text node of the variable set to the input id's value. This is basically just setting the input id's value to the li tag.
+    <li>Moving on, the variable set to the ul's id should use the appendChild method again for the variable used to set the create element method. This will actually create the li of the input text in the ul. 
+    <li>Lastly, we can set the input id's value to nothing (so that one can type in the next task easily) and use the variable for the li tag and the <a href="http://www.w3schools.com/jsref/event_onclick.asp" class="underline">onclick event</a> to equal to our next function to remove the task from the ul.
+    <li>But wait! How do we know when to run this function to add taks? That's why we need to write a <a href="http://www.w3schools.com/jsref/event_onkeyup.asp
+" class="underline">document.body.keyup event </a> which will be equal to a function (a variable). Then, in that function, there must be an if statement stating if the (that variable).keyCode == 13, our function that we wrote above should run. (13 is the code for the enter key)
+</ul>
+
+<p>I know this may seem confusing, but try to set up your own variable names and make an attempt! If you're successful, you should be able to add a task to the list by clicking the enter key! Here's our first two functions:
+
+<script async src="//jsfiddle.net/samayshamdasani/o39om73a/3/embed/js,html,result/"></script>
+
+<p>Now, we can add tasks, but what about removing them! In our first function, we specified that li.onclick would equal our removeItem() function. Let's write that. 
+
+<p>
+Looking back, we see that the ul is our parent element, while the li is the child element. To remove the li, all we would really need to do is well, remove the child of the parent element. We can do that easily with the <a href="http://www.w3schools.com/jsref/event_target.asp" class="underline">target</a> event. This is how we would write it:
+
+<script async src="//jsfiddle.net/samayshamdasani/0xyucnLv/embed/js,html,result/"></script>
+
+<p> That's it! We can now click on any li to remove it from the list. 
 
 
+<p class="header">Stylin' it up</p>
+
+<p>
+Right now, all we have is an ugly bulleted list. Here's my attempt at making it look prettier. However, feel free to experiment with the styling yourself.
+
+<script async src="//jsfiddle.net/samayshamdasani/odL0b2Lw/embed/"></script>
+
+<p>
+Take a look at the result. What do you think? I hope you've learned a ton! You can view the project <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/to-do/to-do-project" class="underline">code</a> or view the <a href="to-do-project/index.html" class="underline">demo</a> at those links. If you feel good, try building something like a <a href="https://enlight.ml/projects/color/color-generator.html" class="underline">color generator</a>!
 
 
-
-
+</div>
+</div>
 </body>
 
-  <footer>
-  <!-- Donate + ad.html + fork/star + tweet/share + newsletter to know when is projects are added -->
+<footer class="footer-project">
+  <hr>
+  <p class="footer1">
+   why <a href="/about.html" class="underline">enlight?</a> </p>
+  <p> follow us on <a href="https://twitter.com/tryEnlight" class="underline">twitter</a> 
+   <p class="footer2">
+   <br>--<br>
+    a project by <a href="https://shamdasani.org" class="underline">Samay Shamdasani</a> 
   </footer>
+
