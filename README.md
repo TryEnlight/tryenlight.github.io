@@ -20,6 +20,7 @@ learn to code by making projects
 - tic-tac-toe game
 - web paint
 - browser notifications from websites
+- news + link aggregator
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## CONTRIBUTE by adding your projects & tutorials!
