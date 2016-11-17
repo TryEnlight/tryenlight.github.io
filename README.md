@@ -12,7 +12,6 @@ learn to code by making projects
 - a twitter bot
 - geo-location weather app 
 - personal website 
-- autosaving text editor
 - blog with jekyll
 - fun quote generator
 - autocompiling code editor
