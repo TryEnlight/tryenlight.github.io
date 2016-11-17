@@ -5,9 +5,10 @@ learn to code by making projects
 - [hex color generator](https://enlight.ml/projects/color/color-generator.html)
 - [text editor](https://enlight.ml/projects/text-editor/text-editor.html)
 - [a minimal clock](https://enlight.ml/projects/clock/clock.html)
+- [to-do list](https://enlight.ml/projects/to-do/to-do.html)
+
 
 ## for the future
-- to-do list
 - a twitter bot
 - geo-location weather app 
 - personal website 
