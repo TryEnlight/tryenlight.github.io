@@ -1,5 +1,3 @@
-![](https://github.com/samayshamdasani/enlight/blob/gh-pages/enlight-logo.png?raw=true")
-
 # [enlight](https://enlight.ml)
 learn to code by making projects
 
