@@ -39,7 +39,3 @@ thank you!
 ## why?
 when i learned to code the web, it was tiring, boring, and frustrating. then, i started to make mini-projects. for me, i learn the best by example. as i learn, i hope to be sharing my knowledge with you. hope you enjoy! :)
 
-## to-do for site
-- fix newsletter confirmation
-- reading bar
-
