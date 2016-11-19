@@ -1,4 +1,4 @@
-!(https://github.com/samayshamdasani/enlight/enlight-logo.png")
+![](https://github.com/samayshamdasani/enlight/enlight-logo.png")
 
 # [enlight](https://enlight.ml)
 learn to code by making projects
