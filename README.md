@@ -1,5 +1,9 @@
+!(https://github.com/samayshamdasani/enlight/enlight-logo.png")
+
 # [enlight](https://enlight.ml)
 learn to code by making projects
+
+
 
 ## projects available
 - [hex color generator](https://enlight.ml/projects/color/color-generator.html)
