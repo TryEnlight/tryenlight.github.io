@@ -13,10 +13,8 @@ a {
 }
 /* Styles */
 body {
-  	font-family: 'Fakt', Arial, sans-serif;
-	padding-left: 10%;
-	padding-right: 10%;
-}
+  font-family: 'Fakt', Arial, sans-serif;
+	}
 
 h1.title {
 	text-align: center;
@@ -120,6 +118,7 @@ li {
   	line-height: 1.5;
   	margin: 0;
 }
+/* Code styling */
 
 
 /* My grid (lol) */
@@ -154,35 +153,48 @@ li {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+
 }
 
 footer {
   flex: 1;
+  background: #fbfbfb;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
 }
+
+a.footer {
+  color: #333;
+}
+.footer-left {
+  padding-top: 2%;
+  float: left;  
+  padding-left: 2%;
+  color: #333;
+  padding-bottom: 5px;
+}
+
+.footer-right {
+  float: right;  
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-bottom: 5px;
+}
+
+.fa-twitter:hover {
+  color: #1dcaff;
+}
+/* */
 
 hr {
 	border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.footer1{
-	padding-top: 10px;
-}
-.footer1, .footer2 {
-	margin: 0;
-}
-
-.footer2 {
-	padding-bottom: 10px;
-}
-.footer-main {
-	padding-top: 50px;
-}
-.footer-project {
-	max-width: 50em;
-	margin: 0 auto;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .twitter-share-button {
@@ -222,15 +234,11 @@ hr {
 
 /* Newsletter */
 
-form {
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 20px;
-}
 
 .newsletter {
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
+  color: #333;
 }
 
 input {
@@ -269,12 +277,6 @@ button:hover {
 	background: #fff;
 }
 
-.contribute{
-	position: absolute;
-	bottom: 0;
-	right:0;
-  padding-top: 30px;
-}
 
 #carbonads {
   display: block;
