@@ -5,6 +5,7 @@ html, body {
 	font-size: 100%;
 	color: #333;
 	height: 100%;
+  background: #fbfbfb;
 }
 
 a {
@@ -118,7 +119,6 @@ li {
   	line-height: 1.5;
   	margin: 0;
 }
-/* Code styling */
 
 
 /* My grid (lol) */
@@ -160,7 +160,7 @@ li {
 
 footer {
   flex: 1;
-  background: #fbfbfb;
+  background: #F4F4F9;
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -267,6 +267,8 @@ button {
 	border-radius: 4px;
 	-webkit-transition-duration: 0.1s; /* Safari */
     transition-duration: 0.1s;
+  display: inline;
+
 
 
 }
@@ -277,7 +279,25 @@ button:hover {
 	background: #fff;
 }
 
+.buttons {
+  display: inline-block;
+  margin-top: 10px;
+}
 
+.project-source {
+  width: 25%;
+  height: 40px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.project-demo {
+  width: 25%;
+  height: 40px;
+  font-size: 20px;
+
+
+}
 #carbonads {
   display: block;
   overflow: hidden;

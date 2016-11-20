@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Web Painting App | Enlight
+    </title>
+    <meta name="description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Build a Web Painting App | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta property="og:url" content="https://enlight.ml/projects/color/color-generator.html">
+    <meta name="twitter:url" content="https://enlight.ml/projects/color/color-generator.html">
+    <meta name="twitter:title" content="Build a Web Paining App | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects. Make Awesome Stuff..">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<body>
+
+ <!-- Markup-->
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+<h1 class="project-header">Build a <span class="underline">Web Paint App</span></h2>
+<h1 class="project-subtitle">create your own digital whiteboard</h1>
+
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="web-paint-project/index.html"><img src = "../../images/web-paint.gif" class="project-image"/></a>
+
+<div class="buttons">
+<a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/web-paint/web-paint-project"><button class="project-source">Source</button></a>
+<a href="web-paint-project/index.html"><button class="project-demo">Demo</button></a>
+</div>
+
+<p class="header">Getting Started</p>
+<p> 
+  Our web paint application is based off of HTML5's <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a>. We'll be making a whiteboard that draws while you have your mouse clicked. We'll also implement a text box where we can specify what color we want. Since our app is basically a plain screen where we can draw, we don't need to style anything (no CSS needed). Therefore, we just need two files:
+
+  <ul>
+    <li>index.html - for our markup
+    <li>app.js - for our function(s)
+  </ul>
+
+<p class="header">The Markup</p>
+<p>
+Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp">canvas</a> tag for our canvas. We will also need to set id's for both. 
+
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%">&lt;html lang=<span style="color: #87ceeb">&quot;en&quot;</span>&gt;
+
+&lt;head&gt;
+    &lt;meta charset=<span style="color: #87ceeb">&quot;utf-8&quot;</span>&gt;
+    &lt;title&gt;
+        Web Paint!
+    &lt;/title&gt;
+    &lt;meta name=<span style="color: #87ceeb">&quot;viewport&quot;</span> content=<span style="color: #87ceeb">&quot;width=device-width, initial-scale=1&quot;</span>&gt;
+&lt;/head&gt;
+
+&lt;input id=<span style="color: #87ceeb">&quot;hex&quot;</span> placeholder=<span style="color: #87ceeb">&quot;enter hex color&quot;</span>&gt;&lt;/input&gt;
+&lt;canvas id=<span style="color: #87ceeb">&quot;draw&quot;</span>&gt;&lt;/canvas&gt;
+
+&lt;script src=<span style="color: #87ceeb">&quot;app.js&quot;</span>&gt;&lt;/script&gt;
+</pre></td></tr></table></div><br>
+
+<p class="header"> Setting up our variables & the resize function
+<p>
+  In our app.js file, we need to assign our canvas id, draw, to a <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">
+  variable</a>. Then, we'll need to set another variable to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext" class="underline">
+  .getContext('2d')</a> of that canvas variable so we can draw within it. In addition, we'll need to write a small resize function so that we can set the canvas's width 
+  and height to the window's width and height. This way the canvas will take over the whole broswer window. We can do that like this: 
+
+ <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// set canvas id to variable</span>
+<span style="color: #ff0000">var</span> canvas = document.getElementById(<span style="color: #87ceeb">&#39;draw&#39;</span>);
+
+<span style="color: #333">// get canvas 2D context and set it to the correct size</span>
+<span style="color: #ff0000">var</span> ctx = canvas.getContext(<span style="color: #87ceeb">&#39;2d&#39;</span>);
+resize(); 
+
+<span style="color: #333">// resize canvas when window is resized</span>
+<span style="color: #ff0000">function</span> resize() {
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+}
+</pre></td></tr></table></div>
+
+<p class="header"> Event listeners
+<p>
+  Our app needs four event listeners:
+
+  <ul>
+    <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">window event listener</a> to trigger the resize function when window is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/resize" class="underline">resized</a></li>
+    <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the draw() function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousemove" class="underline">moved</a></li>
+    <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user's mouse current position) function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousedown" class="underline">clicked</a></li>
+    <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user's mouse current position) function when mouse is moved over the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter" class="underline">canvas function</a></li>
+  </ul>
+
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// add event listeners to specify when functions should be triggered</span>
+window.addEventListener(<span style="color: #87ceeb">&#39;resize&#39;</span>, resize);
+document.addEventListener(<span style="color: #87ceeb">&#39;mousemove&#39;</span>, draw);
+document.addEventListener(<span style="color: #87ceeb">&#39;mousedown&#39;</span>, setPosition);
+document.addEventListener(<span style="color: #87ceeb">&#39;mouseenter&#39;</span>, setPosition);
+</pre></td></tr></table></div>
+
+<p class="header"> setPosition() and draw() functions
+<p> 
+The main drawing function of this project depends on the position of the mouse. Since we'll be moving from one position to another one whenever the mouse is clicked or when the mouse is moved over the canvas, 
+we'll need to create a setPosition() function that sets variables to the <a href="http://www.w3schools.com/jsref/event_clientx.asp" class="underline">user's x & y position</a> coordinates. We can then use those variables in our draw function. 
+
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// last known position</span>
+<span style="color: #ff0000">var</span> pos = { x: 0, y: 0 };
+
+<span style="color: #333">// new position from mouse events</span>
+<span style="color: #ff0000">function</span> setPosition(e) {
+  pos.x = e.clientX;
+  pos.y = e.clientY;
+}
+</pre></td></tr></table></div><br>
+
+
+<p>
+At last, we come to our draw() function. Our function will need a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" class="underline">closure</a> followed by the following:
+<ul>
+  <li> in the function, we need to have an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if</a> statement to make sure it runs only when mouse is clicked
+  <li> set a variable to our <a href="http://www.w3schools.com/jsref/prop_text_value.asp" class="underline">input id's value</a>
+  <li> write <a href="http://www.w3schools.com/TAgs/canvas_beginpath.asp" class="underline">ctx.beginPath()</a> to start a drawing path
+  <li> specify the <a href="http://www.w3schools.com/TAgs/canvas_linewidth.asp" class="underline">line width</a>
+  <li> specift the <a href="http://www.w3schools.com/TAgs/canvas_linecap.asp" class="underline">lineCap</a>
+  <li> specify the <a href="http://www.w3schools.com/TAgs/canvas_strokestyle.asp" class="underline">strokeStyle (color of line)</a>, which is set to our variable with the input id value
+  <li> add the from<a href="http://www.w3schools.com/tags/canvas_moveto.asp" class="underline"> (moveTo)</a> and to <a href="http://www.w3schools.com/tags/canvas_lineto.asp" class="underline">(lineTo) </a>functions for the line based on the position coordinates
+  <li> begin the drawing path<a href="http://www.w3schools.com/tags/canvas_stroke.asp" class="underline"> (stroke) </a> of the line
+</ul>
+
+<p>
+This is all our JavaScript: 
+
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// set canvas id to variable</span>
+<span style="color: #ff0000">var</span> canvas = document.getElementById(<span style="color: #87ceeb">&#39;draw&#39;</span>);
+
+<span style="color: #333">// get canvas 2D context and set it to the correct size</span>
+<span style="color: #ff0000">var</span> ctx = canvas.getContext(<span style="color: #87ceeb">&#39;2d&#39;</span>);
+resize(); 
+
+<span style="color: #333">// resize canvas when window is resized</span>
+<span style="color: #ff0000">function</span> resize() {
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+}
+
+<span style="color: #333">// add event listeners to specify when functions should be triggered</span>
+window.addEventListener(<span style="color: #87ceeb">&#39;resize&#39;</span>, resize);
+document.addEventListener(<span style="color: #87ceeb">&#39;mousemove&#39;</span>, draw);
+document.addEventListener(<span style="color: #87ceeb">&#39;mousedown&#39;</span>, setPosition);
+document.addEventListener(<span style="color: #87ceeb">&#39;mouseenter&#39;</span>, setPosition);
+
+<span style="color: #333">// last known position</span>
+<span style="color: #ff0000">var</span> pos = { x: 0, y: 0 };
+
+<span style="color: #333">// new position from mouse events</span>
+<span style="color: #ff0000">function</span> setPosition(e) {
+  pos.x = e.clientX;
+  pos.y = e.clientY;
+}
+
+<span style="color: #ff0000">function</span> draw(e) {
+  
+  <span style="color: #ff0000">if</span> (e.buttons !== 1) <span style="color: #ff0000">return</span>; <span style="color: #333">// if mouse is pressed.....</span>
+
+  <span style="color: #ff0000">var</span> color = document.getElementById(<span style="color: #87ceeb">&#39;hex&#39;</span>).value;
+
+  ctx.beginPath(); <span style="color: #333">// begin the drawing path</span>
+
+  ctx.lineWidth = 20; <span style="color: #333">// width of line </span>
+  ctx.lineCap = <span style="color: #87ceeb">&#39;round&#39;</span>; <span style="color: #333">// rounded end cap</span>
+  ctx.strokeStyle = color; <span style="color: #333">// hex color of line</span>
+
+  ctx.moveTo(pos.x, pos.y); <span style="color: #333">// from position</span>
+  setPosition(e);
+  ctx.lineTo(pos.x, pos.y); <span style="color: #333">// to position</span>
+
+  ctx.stroke(); <span style="color: #333">// draw it!</span>
+
+ }
+</pre></td></tr></table></div><br>
+
+
+<p> There you have it! We now have a drawing app that can use any hex color. Try inserting a hex code in the input box and click and drag to mouse to draw! After you've accomplished this, try to make another text box that changes the lineWidth of the line, or if you really want a challenge, try <a href="http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage">saving the canvas</a>in a user's localStorage so that the drawing will not be erased when the page is refreshed!
+
+</div>
+</div>
+
+ <footer>
+  <p class="footer-left"><a href="/about.html" class="footer"> Why Enlight?</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/issues/2" class="footer"> Request projects</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/blob/gh-pages/README.md#contribute-by-adding-your-projects--tutorials" class="footer"> Contribute</a>
+  <br><a href="https://shamdasani.org" class="footer"> A project by Samay Shamdasani</a>
+  <br><a href="https://twitter.com/tryenlight"><i class="fa fa-twitter footer-left"></i></a>
+  </p>
+
+  <div class="footer-right">
+   <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+    <p class="newsletter"> Get the latest projects delivered to your inbox!</p>
+        <input id="email" type="email" name="EMAIL">
+        <button type="submit" name="action">Subscribe!</button>
+    </form>
+  </div>
+
+</footer>
+
+
