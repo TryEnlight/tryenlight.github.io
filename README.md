@@ -8,6 +8,7 @@ learn to code by making projects
 - [text editor](https://enlight.ml/projects/text-editor/text-editor.html)
 - [a minimal clock](https://enlight.ml/projects/clock/clock.html)
 - [to-do list](https://enlight.ml/projects/to-do/to-do.html)
+- [web paint](https://enlight.ml/projects/web-paint/web-paint.html)
 
 
 ## for the future
@@ -19,7 +20,6 @@ learn to code by making projects
 - autocompiling code editor
 - calculator
 - tic-tac-toe game
-- web paint
 - browser notifications from websites
 - news + link aggregator
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
