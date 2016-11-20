@@ -64,7 +64,7 @@
 
 <p class="header">Getting Started</p>
 <p> 
-  Our web paint application is based off of HTML5's <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a>. We'll be making a whiteboard that draws while you have your mouse clicked. We'll also implement a text box where we can specify what color we want. Since our app is basically a plain screen where we can draw, we don't need to style anything (no CSS needed). Therefore, we just need two files:
+  Our web paint application is based off of HTML5's <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a>. We'll be making a "whiteboard" that draws whenever you move your mouse while clicked. We'll also implement an input box where we can specify what hex color we want. Since our app is basically a plain screen where we can draw, we don't need to style anything (no CSS file needed). Therefore, we just need two files:
 
   <ul>
     <li>index.html - for our markup
@@ -73,7 +73,7 @@
 
 <p class="header">The Markup</p>
 <p>
-Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp">canvas</a> tag for our canvas. We will also need to set id's for both. 
+Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a> tag for our canvas. We will also need to set ids for both. 
 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
@@ -139,7 +139,6 @@ resize();
 <p class="header"> Event listeners
 <p>
   Our app needs four event listeners:
-
   <ul>
     <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">window event listener</a> to trigger the resize function when window is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/resize" class="underline">resized</a></li>
     <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the draw() function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousemove" class="underline">moved</a></li>
