@@ -285,14 +285,14 @@ button:hover {
 }
 
 .project-source {
-  width: 30%;
+  width: 80px;
   height: 40px;
   font-size: 20px;
   margin-right: 10px;
 }
 
 .project-demo {
-  width: 30%;
+  width: 80px;
   height: 40px;
   font-size: 20px;
 
