@@ -111,6 +111,16 @@ p.header {
 	margin-top: 5px;
 }
 
+p.about {
+  margin: 0 auto;
+}
+
+.enlight {
+  font-size: 48px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
+}
 li {
 	color: #333;
 	text-align: left;
