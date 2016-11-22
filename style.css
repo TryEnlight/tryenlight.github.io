@@ -367,5 +367,8 @@ button:hover {
   #carbonads img {
     padding: 0;
   }
+  html {
+  	padding: 10px;
+  }
 }
 
