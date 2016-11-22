@@ -74,6 +74,7 @@
 <p class="header">The Markup</p>
 <p>
 Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a> tag for our canvas. We will also need to set ids for both. 
+</p>
 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
@@ -110,7 +111,7 @@ Our html will have all the usual tags (head, meta viewport, title, etc) but we d
   variable</a>. Then, we'll need to set another variable to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext" class="underline">
   .getContext('2d')</a> of that canvas variable so we can draw within it. In addition, we'll need to write a small resize function so that we can set the canvas's width 
   and height to the window's width and height. This way the canvas will take over the whole broswer window. We can do that like this: 
-
+</p>
  <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
  3
@@ -145,6 +146,7 @@ resize();
     <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user's mouse current position) function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousedown" class="underline">clicked</a></li>
     <li> a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user's mouse current position) function when mouse is moved over the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter" class="underline">canvas function</a></li>
   </ul>
+</p>
 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
 2
@@ -161,6 +163,7 @@ document.addEventListener(<span style="color: #87ceeb">&#39;mouseenter&#39;</spa
 <p> 
 The main drawing function of this project depends on the position of the mouse. Since we'll be moving from one position to another one whenever the mouse is clicked or when the mouse is moved over the canvas, 
 we'll need to create a setPosition() function that sets variables to the <a href="http://www.w3schools.com/jsref/event_clientx.asp" class="underline">user's x & y position</a> coordinates. We can then use those variables in our draw function. 
+</p>
 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
 2
@@ -195,6 +198,7 @@ At last, we come to our draw() function. Our function will need a <a href="https
 
 <p>
 This is all our JavaScript: 
+</p>
 
 <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
