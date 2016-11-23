@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../style.css" />
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
 
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
@@ -73,8 +75,21 @@
 <p>
   Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and add a title, a viewport, and link all our files together. Our index.html file should look something like this:
 
-  <script src="https://gist.github.com/samayshamdasani/90d90a0f3284836919b2a19e067bec92.js"></script>
-   
+  <pre class="prettyprint"><xmp>
+    <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="utf-8">
+      <title>
+          Hex Color Generator
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <script src="app.js"></script>
+  </xmp></pre>   
 <p>
   Seems new? Don't worry!
   
@@ -149,8 +164,11 @@
 <p class="header">A little transition</p>
 <p> But wait! We haven't even touched our style.css file! Open it up! We'll add a transition just so it looks a little more fluid when switching between colors.</p> 
 
-<script src="https://gist.github.com/samayshamdasani/eeeee114b2d0808187ae4f98a2210528.js"></script>
-
+<pre class="prettyprint">
+  body {
+    transition: all .5s ease;
+   }
+</pre>
 <p>
 This is the finished product:
 

@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../style.css" />
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
 
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
@@ -90,7 +92,34 @@ If you count up all the different elements in the clock, you willl notice that w
 <p>
 Let's create those divs in our index.html file:
 
-<script src="https://gist.github.com/samayshamdasani/4f498bd930d7d36e06891534cd875cb0.js"></script>
+<pre class="prettyprint"><xmp>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+      <title>Clock</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+      <div class="clock">
+          <div id="hours"></div>
+          <div id="minutes"></div>
+          <div id="seconds"></div>
+          <div class="three"></div>
+          <div class="six"></div>
+          <div class="nine"></div>
+          <div class="twelve"></div>
+          <div class="center"></div>
+      </div>
+
+      <script type="text/javascript" src="app.js"></script>
+  </body>  
+
+  </html>
+</xmp></pre>
 
 <p>
 Notice how we set ids for the arms so that when we actually want to make them move, it'll be easier to communicate with them in JavaScript.
@@ -100,18 +129,123 @@ Notice how we set ids for the arms so that when we actually want to make them mo
 Here comes the hard part. We have to actually design the clock with nothing but CSS. First, we have to set our black background and make the circular 
 shape of the clock. We can do that by starting with a height and width of the clock class to be 500px, and the border-radius to 100% so that we can make it circular. We also need a border with a greyish (#aaaaaa) color, and to make the clock centered on the page, we can use the margin and position attributes. Here's what the CSS so far should look like:
 
-<script src="https://gist.github.com/samayshamdasani/7a11639c38c0b7788de889e4374fdac7.js"></script>
+<pre class="prettyprint">
+    * { 
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
 
+    body {
+      background-color: #000;
+    }
+
+    .clock {
+      height: 500px;
+      width: 500px;
+      background-color: #DDDDDD;
+      border-radius: 100%;
+      border: 3px solid #AAAAAA;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+    }
+</pre>
 <p>
 Now that we've got this big circle on our screen, we need to make the small indicators for the third, sixth, ninth, and twelfth hours. We can do this 
 by making all four of those divs have a width of 3px, a length of 15px, a color of #000 (black), and playing around with the position (top, bottom, left, right) attributes: 
 
-<script src="https://gist.github.com/samayshamdasani/82105da30a9b348da7552e02bf748002.js"></script>
+<pre class="prettyprint">
+    .twelve {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: #111111;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .three {
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background: #111111;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 0;
+   }
+
+  .six {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: #111111;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .nine {
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background: #111111;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto 0;
+   }
+</pre>
 
 <p>
 Alright, now we've got a <i>better</i> looking clock. However, it isn't quite done yet! We still need to design the hour, minute, and second arms! This is where it gets a little more complex as all of these arms have different lengths and widths. Before that, however, we just need a small dot in the center. For the second hand, let's set a height of 160px, a width of 2px, and a #ff4136 (red) color.  For the minute hand, we can set a height of 200px, and a width of 2px, and a #000 (black) color. Lastly, for the hour hand, we can set a height of 80px, a width of 6px, and a #000 (black) color. For all of the hands we also need to set a -webkit-transform-origin so that the element can move it's position once we link it with our JavaScript. And lastly, we need to play around with the positioning to make the hands sit on the center dot perfectly: 
 
-<script src="https://gist.github.com/samayshamdasani/b01f65ddcaa6f40852f79aa463c0d562.js"></script>
+<pre class="prettyprint">
+    .center {
+     width: 10px;
+     height: 10px;
+     position: absolute;
+     left: 0; right: 0; bottom: 0; top: 0;
+     margin: auto;
+     background: #000;
+     border-radius: 100%;
+   }
+
+   #seconds {
+     position: absolute;
+     height: 160px;
+     width: 2px;
+     left: 0; right: 0; bottom: 160px; top: 0px;
+     margin: auto;
+     background: #000;
+     -webkit-transform-origin: bottom;
+     background: #FF4136;
+  }
+
+  #minutes {
+    position: absolute;
+    height: 200px;
+    width: 2px;
+    left: 0; right: 0; bottom: 200px; top: 0px;
+    margin: auto;
+    background: #000;
+    -webkit-transform-origin: bottom;
+  }
+
+  #hours {
+    position: absolute;
+    height: 80px;
+    width: 6px;
+    left: 0; right: 0; bottom: 80px; top: 0px;
+    margin: auto;
+    background: #000;
+    -webkit-transform-origin: bottom;
+  }
+</pre>
 
 <p>
 We now have a good-looking clock, but it doesn't move it's hands! Let's change that with some JavaScript.
@@ -120,7 +254,23 @@ We now have a good-looking clock, but it doesn't move it's hands! Let's change t
 <p>
 To make our hands actually move, we have to write a function in JavaScript. Since every circle is 360 degrees, and there are 12 hours, after each hour, the hour hand will move 30 degrees. Similarly, since there are 60 minutes in an hour, and 60 seconds in a minute, the minute and second hands will both move 6 degrees every minute or second. So, all we have to do, is make those element id's rotate those degrees using the -webkit-transform:rotate attribute. Here's what our JavaScript function should look like: 
 
-<script src="https://gist.github.com/samayshamdasani/ba381da14bf2fc64fc0c91993a560c21.js"></script>
+<pre class="prettyprint">
+    function moveHands() {
+      with(new Date()) {
+          h = 30 * (getHours() % 12 + getMinutes() / 60); // 30 degrees hour
+          m = 6 * getMinutes(); // 6 degrees every minute
+          s = 6 * getSeconds(); // 6 degrees every second
+          // setting the rotate CSS attribute to those degree values -->
+          document.getElementById('seconds').style.cssText = "-webkit-transform:rotate(" + s + "deg);"; 
+          document.getElementById('minutes').style.cssText = "-webkit-transform:rotate(" + m + "deg);";
+          document.getElementById('hours').style.cssText = "-webkit-transform:rotate(" + h + "deg);";
+
+          setTimeout(moveHands, 1000); // calling the function every second
+      }
+  }
+
+  window.onload = moveHands; // making sure the function starts on load of webpage
+</pre>
 
 <p>
 You did it! We now have a fully-functional, minimal, and beautiful clock. I hope you've learned a ton in terms of CSS design and JavaScript's functionality in these types of projects. You can view the demo <a href="clock-project/index.html" class="underline">here</a>, and the full code <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/clock/clock-project" class="underline">here</a>.
