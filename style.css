@@ -372,3 +372,8 @@ button:hover {
   }
 }
 
+/* Code */
+pre {
+border-radius: 5px;
+}
+

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../../style.css" />
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
 
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
@@ -76,34 +77,23 @@
 Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a> tag for our canvas. We will also need to set ids for both. 
 </p>
 
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></td><td><pre style="margin: 0; line-height: 125%">&lt;html lang=<span style="color: #87ceeb">&quot;en&quot;</span>&gt;
+<pre class="prettyprint"><xmp>
+  <html lang="en">
 
-&lt;head&gt;
-    &lt;meta charset=<span style="color: #87ceeb">&quot;utf-8&quot;</span>&gt;
-    &lt;title&gt;
-        Web Paint!
-    &lt;/title&gt;
-    &lt;meta name=<span style="color: #87ceeb">&quot;viewport&quot;</span> content=<span style="color: #87ceeb">&quot;width=device-width, initial-scale=1&quot;</span>&gt;
-&lt;/head&gt;
+  <head>
+      <meta charset="utf-8">
+      <title>
+          Web Paint!
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 
-&lt;input id=<span style="color: #87ceeb">&quot;hex&quot;</span> placeholder=<span style="color: #87ceeb">&quot;enter hex color&quot;</span>&gt;&lt;/input&gt;
-&lt;canvas id=<span style="color: #87ceeb">&quot;draw&quot;</span>&gt;&lt;/canvas&gt;
+  <input id="hex" placeholder="enter hex color"></input>
+  <canvas id="draw"></canvas>
 
-&lt;script src=<span style="color: #87ceeb">&quot;app.js&quot;</span>&gt;&lt;/script&gt;
-</pre></td></tr></table></div><br>
+  <script src="app.js"></script>
+
+ </xmp></pre>
 
 <p class="header"> Setting up our variables & the resize function
 <p>
@@ -112,30 +102,23 @@ Our html will have all the usual tags (head, meta viewport, title, etc) but we d
   .getContext('2d')</a> of that canvas variable so we can draw within it. In addition, we'll need to write a small resize function so that we can set the canvas's width 
   and height to the window's width and height. This way the canvas will take over the whole broswer window. We can do that like this: 
 </p>
- <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// set canvas id to variable</span>
-<span style="color: #ff0000">var</span> canvas = document.getElementById(<span style="color: #87ceeb">&#39;draw&#39;</span>);
+ 
+<pre class="prettyprint">
+    // set canvas id to variable
+  var canvas = document.getElementById('draw');
 
-<span style="color: #333">// get canvas 2D context and set it to the correct size</span>
-<span style="color: #ff0000">var</span> ctx = canvas.getContext(<span style="color: #87ceeb">&#39;2d&#39;</span>);
-resize(); 
+  // get canvas 2D context and set it to the correct size
+  var ctx = canvas.getContext('2d');
+  resize(); 
 
-<span style="color: #333">// resize canvas when window is resized</span>
-<span style="color: #ff0000">function</span> resize() {
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+  // resize canvas when window is resized
+  function resize() {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
 }
-</pre></td></tr></table></div>
+</pre>
+
+
 
 <p class="header"> Event listeners
 <p>
@@ -148,39 +131,30 @@ resize();
   </ul>
 </p>
 
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// add event listeners to specify when functions should be triggered</span>
-window.addEventListener(<span style="color: #87ceeb">&#39;resize&#39;</span>, resize);
-document.addEventListener(<span style="color: #87ceeb">&#39;mousemove&#39;</span>, draw);
-document.addEventListener(<span style="color: #87ceeb">&#39;mousedown&#39;</span>, setPosition);
-document.addEventListener(<span style="color: #87ceeb">&#39;mouseenter&#39;</span>, setPosition);
-</pre></td></tr></table></div>
 
+<pre class="prettyprint">
+  // add event listeners to specify when functions should be triggered
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
+</pre>
 <p class="header"> setPosition() and draw() functions
 <p> 
 The main drawing function of this project depends on the position of the mouse. Since we'll be moving from one position to another one whenever the mouse is clicked or when the mouse is moved over the canvas, 
 we'll need to create a setPosition() function that sets variables to the <a href="http://www.w3schools.com/jsref/event_clientx.asp" class="underline">user's x & y position</a> coordinates. We can then use those variables in our draw function. 
 </p>
 
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// last known position</span>
-<span style="color: #ff0000">var</span> pos = { x: 0, y: 0 };
+<pre class="prettyprint">
+  // last known position
+  var pos = { x: 0, y: 0 };
 
-<span style="color: #333">// new position from mouse events</span>
-<span style="color: #ff0000">function</span> setPosition(e) {
-  pos.x = e.clientX;
-  pos.y = e.clientY;
-}
-</pre></td></tr></table></div><br>
+  // new position from mouse events
+  function setPosition(e) {
+    pos.x = e.clientX;
+    pos.y = e.clientY;
+  }
+</pre>
 
 
 <p>
@@ -200,102 +174,55 @@ At last, we come to our draw() function. Our function will need a <a href="https
 This is all our JavaScript: 
 </p>
 
-<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;background: #ffffff; overflow:auto;width:auto;background: #f5f7f9;   border-bottom: 1px solid #d8dee9;   color: #a7adba;  border-left: 3px solid #ee4287;   line-height: 125%"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333">// set canvas id to variable</span>
-<span style="color: #ff0000">var</span> canvas = document.getElementById(<span style="color: #87ceeb">&#39;draw&#39;</span>);
+<pre class="prettyprint">
+  // set canvas id to variable
+  var canvas = document.getElementById('draw');
 
-<span style="color: #333">// get canvas 2D context and set it to the correct size</span>
-<span style="color: #ff0000">var</span> ctx = canvas.getContext(<span style="color: #87ceeb">&#39;2d&#39;</span>);
-resize(); 
+  // get canvas 2D context and set it to the correct size
+  var ctx = canvas.getContext('2d');
+  resize(); 
 
-<span style="color: #333">// resize canvas when window is resized</span>
-<span style="color: #ff0000">function</span> resize() {
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
-}
+  // resize canvas when window is resized
+  function resize() {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  }
 
-<span style="color: #333">// add event listeners to specify when functions should be triggered</span>
-window.addEventListener(<span style="color: #87ceeb">&#39;resize&#39;</span>, resize);
-document.addEventListener(<span style="color: #87ceeb">&#39;mousemove&#39;</span>, draw);
-document.addEventListener(<span style="color: #87ceeb">&#39;mousedown&#39;</span>, setPosition);
-document.addEventListener(<span style="color: #87ceeb">&#39;mouseenter&#39;</span>, setPosition);
+  // add event listeners to specify when functions should be triggered
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
 
-<span style="color: #333">// last known position</span>
-<span style="color: #ff0000">var</span> pos = { x: 0, y: 0 };
+  // last known position
+  var pos = { x: 0, y: 0 };
 
-<span style="color: #333">// new position from mouse events</span>
-<span style="color: #ff0000">function</span> setPosition(e) {
-  pos.x = e.clientX;
-  pos.y = e.clientY;
-}
+  // new position from mouse events
+  function setPosition(e) {
+    pos.x = e.clientX;
+    pos.y = e.clientY;
+  }
 
-<span style="color: #ff0000">function</span> draw(e) {
-  
-  <span style="color: #ff0000">if</span> (e.buttons !== 1) <span style="color: #ff0000">return</span>; <span style="color: #333">// if mouse is pressed.....</span>
+  function draw(e) {
+    
+    if (e.buttons !== 1) return; // if mouse is pressed.....
 
-  <span style="color: #ff0000">var</span> color = document.getElementById(<span style="color: #87ceeb">&#39;hex&#39;</span>).value;
+    var color = document.getElementById('hex').value;
 
-  ctx.beginPath(); <span style="color: #333">// begin the drawing path</span>
+    ctx.beginPath(); // begin the drawing path
 
-  ctx.lineWidth = 20; <span style="color: #333">// width of line </span>
-  ctx.lineCap = <span style="color: #87ceeb">&#39;round&#39;</span>; <span style="color: #333">// rounded end cap</span>
-  ctx.strokeStyle = color; <span style="color: #333">// hex color of line</span>
+    ctx.lineWidth = 20; // width of line 
+    ctx.lineCap = 'round'; // rounded end cap
+    ctx.strokeStyle = color; // hex color of line
 
-  ctx.moveTo(pos.x, pos.y); <span style="color: #333">// from position</span>
-  setPosition(e);
-  ctx.lineTo(pos.x, pos.y); <span style="color: #333">// to position</span>
+    ctx.moveTo(pos.x, pos.y); // from position
+    setPosition(e);
+    ctx.lineTo(pos.x, pos.y); // to position
 
-  ctx.stroke(); <span style="color: #333">// draw it!</span>
+    ctx.stroke(); // draw it!
 
- }
-</pre></td></tr></table></div><br>
-
-
+   }
+ </pre>
 <p> There you have it! We now have a drawing app that can use any hex color. Try inserting a hex code in the input box and click and drag to mouse to draw! After you've accomplished this, try to make another text box that changes the lineWidth of the line, or if you really want a challenge, try <a href="http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage" class="underline">saving the canvas</a> in a user's localStorage so that the drawing will not be erased when the page is refreshed!
 
 </div>
