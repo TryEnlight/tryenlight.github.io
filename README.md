@@ -37,5 +37,9 @@ your name will be published at the top of the project tutorial along any of your
 thank you!
 
 ## why?
-when i learned to code the web, it was tiring, boring, and frustrating. then, i started to make mini-projects. for me, i learn the best by example. as i learn, i hope to be sharing my knowledge with you. hope you enjoy! :)
+Enlight is a resource aimed at teaching anyone to code by building projects.
+
+My name is Samay Shamdasani and I built enlight. Over the past year, I've been learning to code the web (mainly in JavaScript). At first, I ended up taking many courses and reading books learning about the language. However, I learned so many terms, objects, statements, etc. that I couldn't really implement them. Then, I started to make mini-projects by following tutorials online and scraping through code on GitHub. Here's my attempt at sharing my knowledge of these mini-projects so that you can develop your skills by actually creating something. On here, you'll find a variety of fun, useful, and interesting projects related to web development - and I hope you'll benefit from them.
+
+Think we can work together? Shoot me an email. hi@shamdasani.org
 
