@@ -9,14 +9,13 @@ learn to code by making projects
 - [a minimal clock](https://enlight.ml/projects/clock/clock.html)
 - [to-do list](https://enlight.ml/projects/to-do/to-do.html)
 - [web paint](https://enlight.ml/projects/web-paint/web-paint.html)
-
+- [quote generator](https://enlight.ml/projects/quote/quote.html)
 
 ## for the future
 - a twitter bot
 - geo-location weather app 
 - personal website 
 - blog with jekyll
-- fun quote generator
 - autocompiling code editor
 - calculator
 - tic-tac-toe game
