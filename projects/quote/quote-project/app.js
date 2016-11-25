@@ -6,7 +6,7 @@ $(window).keypress(function(e) {
       setTimeout(function(){ 
         $.ajax({
           crossOrigin: true,
-          url: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
+          url: "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
           dataType:"jsonp"
       });
       }, 1000); 
