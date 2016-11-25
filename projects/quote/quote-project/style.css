@@ -7,7 +7,7 @@ html,body {
 p{
 	font-size:2em;
 }
-.contain{
+.container{
 	display:table-cell;
 	vertical-align: middle;
 	text-align: center;

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../../style.css" />
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
 
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
@@ -77,9 +78,37 @@
   To start with, our content will be displayed in the center of the screen. We also want to display our quote and source/author separately. Create a parent container <a href="http://www.w3schools.com/tags/tag_div.asp">div</a> and two other divs for the quote and source. Last, create some instructions at the tails of the site so people know how to use it, and import JQuery scripts using CDN. Our website isn't functional and it's pretty sketchy right now so let's use some CSS to alleviate parts of those problems.
   <br>
 
-<script async src="//jsfiddle.net/yfL04s50/3/embed/html/dark/"></script>
+<pre class="prettyprint"><xmp>
+  <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Quote Generator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "style.css">
+    </head>
+    <body>
+      <div class = "container">
+        <div class="executed" id="quote">
+        </div>
+        <div id="writer">
+        </div>
+        <div class="bottom">
+          <h2> press space to inspire </h2>
+        </div>
+      </div>
+    </body>
+      <script src="app.js"></script>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" 
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+  </html>
+
+</xmp></pre>
+
+
 <p>
-  The divs are empty, so you won't see them. However, they still are there, but all you should see as a result is the instructions we typed earlier.
+  The divs are empty, so you won't see them. However, they still are there, but all you should see as a result is the instructions to press the space we typed earlier.
   <p class="header">Styling the Site</p>
 <p>
   Here's some basic things you should do to style:
@@ -117,8 +146,6 @@
 
   <p> Voila! May this be useful when you are lacking insipiration.
 <script async src="//jsfiddle.net/da1four5/embed/js,html,css/dark/"></script>
-
-  <p>  You can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/quote-site/quote-site-project" class="underline">here</a> to view all the code for this project, and if you want to check out how it should look like, you can view the <a href="/projects/quote-site/quote-site-project/index.html" class="underline">demo</a> :) 
 
   <p class="header">What's next?</p>
   <p> Your API is super powerful, try displaying quotes related to a user's inputted search query! Good luck!
