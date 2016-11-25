@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Quote Site | Enlight
+    </title>
+    <meta name="description" content="Make your very own quote website!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Build a Text Editor | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects. Make Awesome Stuff.">
+    <meta property="og:url" content="https://enlight.ml/projects/quote-site/quote-site.html">
+    <meta name="twitter:url" content="https://enlight.ml/projects/quote-site/quote-site.html">
+    <meta name="twitter:title" content="Build a Quote Site | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects. Make Awesome Stuff..">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<body>
+
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+<h1 class="project-header">Build a <span class="underline">Quote Site</span></h2>
+<h1 class="project-subtitle">build a website that presents a random quote for your inspiration.</h1>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="text-editor-project/index.html"><img src = "../../images/quote-site.gif" class="project-image"/></a>
+
+<div class="buttons">
+<a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/quote-site/quote-site-project"><button class="project-source">Source</button></a>
+<a href="quote-site-project/index.html"><button class="project-demo">Demo</button></a>
+</div>
+
+<p class="header">Getting Started</p>
+<p>
+  In this tutorial, we'll use some simple JQuery connected with a <a href = "https://quotesondesign.com/api-v4-0/">Quote API </a> to make a website present a quote after the space button is pressed. We will be using AJAX to service requests between the API and handling the JSONP response.
+<p>
+  As always, you'll need a folder with three files: 
+  <ul>
+    <li>index.html - for our markup</li>
+    <li>style.css - for styling</li>
+    <li>app.js - for the function(s), API</li>
+  </ul>
+<p>
+  To start with, our content will be displayed in the center of the screen. We also want to display our quote and source/author separately. Create a parent container <a href="http://www.w3schools.com/tags/tag_div.asp">div</a> and two other divs for the quote and source. Last, create some instructions at the tails of the site so people know how to use it, and import JQuery scripts using CDN. Our website isn't functional and it's pretty sketchy right now so let's use some CSS to alleviate parts of those problems.
+  <br>
+
+<script async src="//jsfiddle.net/yfL04s50/3/embed/html/dark/"></script>
+<p>
+  The divs are empty, so you won't see them. However, they still are there, but all you should see as a result is the instructions we typed earlier.
+  <p class="header">Styling the Site</p>
+<p>
+  Here's some basic things you should do to style:
+  <ul>
+  <li>change the <a href="http://www.w3schools.com/cssref/pr_font_font-family.asp" class="underline">font</a>
+  <li>use the the CSS table display and table-cell to center.
+  <li>add some <a href="http://www.w3schools.com/css/css_padding.asp" class="underline">padding</a>
+  <li>adjust the <a href="http://www.w3schools.com/cssref/pr_font_font-size.asp" class="underline">font size</a>
+  <li>set a 'before' and 'after' stage for your quote and source - that means CSS transitions using opacity, color, position, etc.
+  </ul>
+
+<p>This is my approach, feel free to tweak or make a whole new format.
+<script async src="//jsfiddle.net/pjapr0n0/embed/css/"></script>
+
+<p>
+  It may look okay, but we need to impelement the true function of the site. Let's go ahead and do that.
+
+  <p class="header">The Meat</p>
+
+  <p>
+  To get the quotes, we need to call the Quotes API when the spacebar is pressed. Luckily, JQuery implements a window function just for that, known as keypress. To understand what to write, we have to go through what is happening in our site at that point. The current quote being displayed will be removed and we will request for a new one. When it returns from the API, we will display it. 
+
+  <ul>
+  <li> our first function implemnets $(window).keypress() to find when the spacebar is pressed. </li>
+  <li> inside that function we use add, remove and toggle class to control our 'before' and 'after' states of our quote/source. For example, when the spacebar is pressed, everything should return to the 'before' state, and when the quote is returned from the API, vice versa. <a class = "underline" href="https://api.jquery.com/category/manipulation/class-attribute/">For more on JQuery Classes</a></li>
+  <li> we should request to the API and get a response in jsonp. The url to hit is 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback' and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a class = "underline" href="http://api.jquery.com/jquery.ajax/">For more on AJAX</a></li>
+  <li> once the JSONP is returned from the API AJAX call, the script will callback to a function named 'mycallback'. This can be altered by changing the 'jsonp' field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the 'after' state) so they can be presented. <a class = "underline" href="https://www.sitepoint.com/jsonp-examples/">For more on JSONP</a> </li>
+  <li> some notes:
+
+    on timing, we use the setTimeout() function for one second so our divs get enough time to fully return to their before states. If the API calls back too fast, there can be complications. Another way to do this is to implement a timeout function inside the callback. </li>
+
+    <li>on JSONP, we mainly use this because of cross-domain requests and CORS issues. This API was a pain to deal with (at least testing it), JSONP allows us to bypass this issue with cross-domain requests and is fully supported by the API we are using.
+    </li>
+  </ul>
+
+  <p> Voila! May this be useful when you are lacking insipiration.
+<script async src="//jsfiddle.net/da1four5/embed/js,html,css/dark/"></script>
+
+  <p>  You can click <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/projects/quote-site/quote-site-project" class="underline">here</a> to view all the code for this project, and if you want to check out how it should look like, you can view the <a href="/projects/quote-site/quote-site-project/index.html" class="underline">demo</a> :) 
+
+  <p class="header">What's next?</p>
+  <p> Your API is super powerful, try displaying quotes related to a user's inputted search query! Good luck!
+
+</div>
+</div>
+
+  <footer>
+  <p class="footer-left"><a href="/about.html" class="footer"> Why Enlight?</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/issues/2" class="footer"> Request projects</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/blob/gh-pages/README.md#contribute-by-adding-your-projects--tutorials" class="footer"> Contribute</a>
+  <br><a href="https://ichauster.github.io/" class="footer"> A project by Ivan Chau</a>
+  <br><a href="https://twitter.com/tryenlight"><i class="fa fa-twitter footer-left"></i></a>
+  </p>
+
+  <div class="footer-right">
+   <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+    <p class="newsletter"> Get the latest projects delivered to your inbox!</p>
+        <input id="email" type="email" name="EMAIL">
+        <button type="submit" name="action">Subscribe!</button>
+    </form>
+  </div>
+
+</footer>
+
+
