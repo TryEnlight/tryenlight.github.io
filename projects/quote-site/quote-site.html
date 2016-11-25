@@ -103,12 +103,15 @@
 
   <ul>
   <li> our first function implemnets $(window).keypress() to find when the spacebar is pressed. </li>
-  <li> inside that function we use add, remove and toggle class to control our 'before' and 'after' states of our quote/source. For example, when the spacebar is pressed, everything should return to the 'before' state, and when the quote is returned from the API, vice versa. <a href="https://api.jquery.com/category/manipulation/class-attribute/">For more on JQuery Classes</a></li>
-  <li> we should request to the API and get a response in jsonp. The url to hit is 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback' and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a href="http://api.jquery.com/jquery.ajax/">For more on AJAX</a></li>
-  <li> once the JSONP is returned from the API AJAX call, the script will callback to a function named 'mycallback'. This can be altered by changing the 'jsonp' field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the 'after' state) so they can be presented. <a href="https://www.sitepoint.com/jsonp-examples/">For more on JSONP</a> </li>
-  <li> some notes: \n
-    on timing, we use the setTimeout() function for one second so our divs get enough time to fully return to their before states. If the API calls back too fast, there can be complications. Another way to do this is to implement a timeout function inside the callback. \n
-    on JSONP, we mainly use this because of cross-domain requests and CORS issues. This API was a pain to deal with (at least testing it), JSONP allows us to bypass this issue with cross-domain reqeusts and is fully supported by the API we are using.
+  <li> inside that function we use add, remove and toggle class to control our 'before' and 'after' states of our quote/source. For example, when the spacebar is pressed, everything should return to the 'before' state, and when the quote is returned from the API, vice versa. <a class = "underline" href="https://api.jquery.com/category/manipulation/class-attribute/">For more on JQuery Classes</a></li>
+  <li> we should request to the API and get a response in jsonp. The url to hit is 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback' and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a class = "underline" href="http://api.jquery.com/jquery.ajax/">For more on AJAX</a></li>
+  <li> once the JSONP is returned from the API AJAX call, the script will callback to a function named 'mycallback'. This can be altered by changing the 'jsonp' field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the 'after' state) so they can be presented. <a class = "underline" href="https://www.sitepoint.com/jsonp-examples/">For more on JSONP</a> </li>
+  <li> some notes:
+
+    on timing, we use the setTimeout() function for one second so our divs get enough time to fully return to their before states. If the API calls back too fast, there can be complications. Another way to do this is to implement a timeout function inside the callback. </li>
+
+    <li>on JSONP, we mainly use this because of cross-domain requests and CORS issues. This API was a pain to deal with (at least testing it), JSONP allows us to bypass this issue with cross-domain requests and is fully supported by the API we are using.
+    </li>
   </ul>
 
   <p> Voila! May this be useful when you are lacking insipiration.
