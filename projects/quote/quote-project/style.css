@@ -1,58 +1,58 @@
 html,body {
-	height: 100%;
-	width: 100%;
-	background: #202020;
-	display:table;
+  height: 100%;
+  width: 100%;
+  background: #202020;
+  display:table;
 }
 p{
-	font-size:2em;
+  font-size:2em;
 }
-.container{
-	display:table-cell;
-	vertical-align: middle;
-	text-align: center;
-	padding:3em;
+.contain{
+  display:table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding:3em;
 }
 #quote{
-	color:white;
-	font-family : Inconsolata;
-	position: relative;
+  color:white;
+  font-family : Inconsolata;
+  position: relative;
 }
 #writer{
-	opacity:1;
-	font-size: 1em;
-	padding-right:2em;
-	text-align: right;
-	color:white;
-	font-family : Inconsolata;
-	position: relative;
-	-webkit-transition: all 1s ease-in-out;
+  opacity:1;
+  font-size: 1em;
+  padding-right:2em;
+  text-align: right;
+  color:white;
+  font-family : Inconsolata;
+  position: relative;
+  -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
 .fade{
-	opacity:0 !important;
+  opacity:0 !important;
 }
 .executed{
-	opacity:1;
-	right: 0;
-	-webkit-transition: all 2s ease-in-out;
+  opacity:1;
+  right: 0;
+  -webkit-transition: all 2s ease-in-out;
     -moz-transition: all 2s ease-in-out;
     -o-transition: all 2s ease-in-out;
     transition: all 2s ease-in-out;
 }
 .reset{
-	opacity:0;
-	right:600;
-	-webkit-transition: all 1s ease-in-out;
+  opacity:0;
+  right:600;
+  -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
 .bottom{
-	bottom:10;
-	position: absolute;
-	color:#454545;
-	font-family:Inconsolata;
+  bottom:10;
+  position: absolute;
+  color:#454545;
+  font-family:Inconsolata;
 }
