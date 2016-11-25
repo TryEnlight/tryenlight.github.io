@@ -79,30 +79,34 @@
   <br>
 
 <pre class="prettyprint"><xmp>
-  <html lang="en">
+ <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Quote Generator</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel = "stylesheet" href = "style.css">
-    </head>
-    <body>
-      <div class = "container">
-        <div class="executed" id="quote">
-        </div>
-        <div id="writer">
-        </div>
-        <div class="bottom">
-          <h2> press space to inspire </h2>
-        </div>
+  <head>
+      <meta charset="utf-8">
+      <title>
+          Quote
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel = "stylesheet" href = "style.css">
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  </head>
+  <body>
+    <div class = "contain">
+      <div class = "executed" id="quote">
       </div>
-    </body>
-      <script src="app.js"></script>
-       <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+      <div id = "writer">
+      </div>
+      <div class="bottom">
+        <h2> press space to inspire </h2>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" 
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+
   </html>
 
 </xmp></pre>
@@ -122,21 +126,99 @@
   </ul>
 
 <p>This is my approach, feel free to tweak or make a whole new format.
-<script async src="//jsfiddle.net/pjapr0n0/embed/css/"></script>
+<pre class="prettyprint">
+
+  /*  include <xmp><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"></xmp> for the inconsolata font in your HTML file */
+
+  html,body {
+    height: 100%;
+    width: 100%;
+    background: #202020;
+    display:table;
+  }
+  /* font css */
+
+  p {
+    font-size:2em;
+  }
+  /* main container css */
+
+  .contain{
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding:3em;
+  }
+  /* quote css */
+
+  #quote{
+    color:white;
+    font-family : Inconsolata;
+    position: relative;
+  }
+  /* source css */
+
+  #writer{
+    opacity:1;
+    font-size: 1em;
+    padding-right:2em;
+    text-align: right;
+    color:white;
+    font-family : Inconsolata;
+    position: relative;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+  /* for the after stage of the source */
+
+  .fade {
+    opacity:0 !important;
+  }
+  /* for the after stage of the quote.*/
+
+  .executed {
+    opacity:1;
+    right: 0;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
+  }
+  /* for the before stage of the quote; should slide right when presented and left when removed.  */
+
+  .reset {
+    opacity:0;
+    right:600;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+  /* for the instructions at the bottom */
+
+  .bottom {
+    bottom:10;
+    position: absolute;
+    color:#454545;
+    font-family:Inconsolata;
+  }
+</pre>
 
 <p>
-  It may look okay, but we need to impelement the true function of the site. Let's go ahead and do that.
+  Now that we've styled our app, we need to impelement the true function of it. Let's go ahead and do that.
 
-  <p class="header">The Meat</p>
+  <p class="header">The Meat (API function)</p>
 
   <p>
   To get the quotes, we need to call the Quotes API when the spacebar is pressed. Luckily, JQuery implements a window function just for that, known as keypress. To understand what to write, we have to go through what is happening in our site at that point. The current quote being displayed will be removed and we will request for a new one. When it returns from the API, we will display it. 
 
   <ul>
   <li> our first function implemnets $(window).keypress() to find when the spacebar is pressed. </li>
-  <li> inside that function we use add, remove and toggle class to control our 'before' and 'after' states of our quote/source. For example, when the spacebar is pressed, everything should return to the 'before' state, and when the quote is returned from the API, vice versa. <a class = "underline" href="https://api.jquery.com/category/manipulation/class-attribute/">For more on JQuery Classes</a></li>
-  <li> we should request to the API and get a response in jsonp. The url to hit is 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback' and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a class = "underline" href="http://api.jquery.com/jquery.ajax/">For more on AJAX</a></li>
-  <li> once the JSONP is returned from the API AJAX call, the script will callback to a function named 'mycallback'. This can be altered by changing the 'jsonp' field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the 'after' state) so they can be presented. <a class = "underline" href="https://www.sitepoint.com/jsonp-examples/">For more on JSONP</a> </li>
+  <li> inside that function we use add, remove and toggle class to control our 'before' and 'after' states of our quote/source. For example, when the spacebar is pressed, everything should return to the 'before' state, and when the quote is returned from the API, vice versa. <a class = "underline" href="https://api.jquery.com/category/manipulation/class-attribute/">more on JQuery Classes</a></li>
+  <li> we should request to the API and get a response in jsonp. The url to hit is 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback' and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a class = "underline" href="http://api.jquery.com/jquery.ajax/">more on AJAX</a></li>
+  <li> once the JSONP is returned from the API AJAX call, the script will callback to a function named 'mycallback'. This can be altered by changing the 'jsonp' field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the 'after' state) so they can be presented. <a class = "underline" href="https://www.sitepoint.com/jsonp-examples/">more on JSONP</a> </li>
   <li> some notes:
 
     on timing, we use the setTimeout() function for one second so our divs get enough time to fully return to their before states. If the API calls back too fast, there can be complications. Another way to do this is to implement a timeout function inside the callback. </li>
@@ -145,11 +227,37 @@
     </li>
   </ul>
 
-  <p> Voila! May this be useful when you are lacking insipiration.
-<script async src="//jsfiddle.net/da1four5/embed/js,html,css/dark/"></script>
+  <p> Voila! May this be useful when you are lacking insipiration: 
+
+  <pre class="prettyprint">
+
+    $(window).keypress(function(e) {
+      if (e.which === 32) {
+        $("#quote").addClass("reset");
+        $("#quote").removeClass("executed");
+        $("#writer").toggleClass("fade");
+        setTimeout(function(){ 
+          $.ajax({
+            crossOrigin: true,
+            url: "https://quotesondesign.com/wp-json/posts?filter[orderby]=
+            rand&filter[posts_per_page]=1&_jsonp=mycallback",
+            dataType:"jsonp"
+        });
+        }, 1000); 
+      }
+  });
+  function mycallback(json){
+    var quote = json[0];
+    $("#quote").html(quote.content)
+    $("#writer").html(quote.title)
+    $("#quote").addClass("executed");
+      $("#quote").removeClass("reset");
+      $("#writer").toggleClass("fade");
+  }
+  </pre>
 
   <p class="header">What's next?</p>
-  <p> Your API is super powerful, try displaying quotes related to a user's inputted search query! Good luck!
+  <p> Your API is super powerful! Try making the site responsive, or if you want a challenge, try displaying quotes related to a user's inputted search query! Good luck :)
 
   <p class="author">Project & Tutorial by <a href="https://ichauster.github.io/" class="underline">Ivan Chau</a></p>
 
