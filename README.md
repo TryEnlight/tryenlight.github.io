@@ -1,6 +1,7 @@
 # [enlight](https://enlight.ml)
 learn to code by making projects
 
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
 
 ## projects available
