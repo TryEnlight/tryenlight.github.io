@@ -198,6 +198,10 @@ a.footer {
 .fa-twitter:hover {
   color: #1dcaff;
 }
+
+.social-footer {
+display: inline;
+}
 /* */
 
 hr {
