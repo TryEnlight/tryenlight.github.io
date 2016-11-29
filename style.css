@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -14,7 +16,7 @@ a {
 }
 /* Styles */
 body {
-  font-family: 'Avenir Next', Arial, sans-serif;
+  font-family: 'Avenir Next', 'Roboto', Helvetica, sans-serif;
 }
 
 h1.title {
