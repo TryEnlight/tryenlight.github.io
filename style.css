@@ -328,6 +328,9 @@ button:hover {
   padding: 1em;
   font-family: "Avenir Next", Helvetica, sans-serif;
   line-height: 1.5;
+  max-width: 200px;
+  background-color: hsl(0, 0%, 96%);
+  border: solid 1px hsl(0, 0%, 90%);
 }
 
   #carbonads span {
@@ -353,6 +356,19 @@ button:hover {
     text-align: right;
     font-size: .8em;
   }
+
+  @media only screen and (min-width: 320px) and (max-width: 1279px) {
+  #carbonads {
+    position: relative;
+    margin: 6em auto 2em;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+  html {
+    padding: 5px;
+  }
+}
 
 /* Code */
 pre {
