@@ -171,7 +171,7 @@ li {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  padding-left: 10%;
+  padding-left: 13%;
   padding-right: 10%;
 
 }
@@ -330,7 +330,7 @@ button:hover {
   left: 0;
   padding: 1em;
   font-family: "Avenir Next", Helvetica, sans-serif;
-  line-height: 1.5;
+  line-height: 1;
   max-width: 150px;
   background-color: hsl(0, 0%, 96%);
   border: solid 1px hsl(0, 0%, 90%);
