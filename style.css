@@ -319,69 +319,40 @@ button:hover {
   font-size: 20px;
 
 }
+
+/* ADS */
+
 #carbonads {
   display: block;
   overflow: hidden;
   padding: 1em;
-  position: absolute;
-  left: 0;
-  font-size: 14px;
-  max-width: 360px;
-  background-color: hsl(0, 0%, 96%);
-  border: solid 1px hsl(0, 0%, 90%);
+  font-family: "Avenir Next", Helvetica, sans-serif;
   line-height: 1.5;
 }
 
-#carbonads a {
-  color: inherit;
-}
-
-#carbonads a:hover {
-  color: inherit;
-}
-
-#carbonads span {
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-
-.carbon-img {
-  float: left;
-  margin-right: 1em;
-}
-
-.carbon-img img {
-  display: block;
-}
-
-.carbon-text {
-  display: block;
-  float: left;
-  max-width: calc(100% - 130px - 1em);
-  text-align: left;
-}
-
-.carbon-poweredby {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: block;
-  font-size: 13px;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 1279px) {
-  #carbonads {
-    position: relative;
-    margin: 6em auto 2em;
+  #carbonads span {
+    display: block;
+    overflow: hidden;
   }
-  #carbonads img {
-    padding: 0;
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
   }
-  html {
-  	padding: 5px;
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
   }
-}
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+  }
 
 /* Code */
 pre {
