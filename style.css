@@ -18,7 +18,7 @@ body {
 }
 
 h1.title {
-	text-align: left;
+	text-align: center;
 	font-size: 64px;
 	margin:0;
 	padding-top: 35px;
@@ -26,7 +26,7 @@ h1.title {
 }
 
 h2.subtitle {
-  float: left;
+text-align: center;
   display: inline;
   margin: 0;
 	font-weight: 300;
