@@ -325,6 +325,7 @@ button:hover {
 #carbonads {
   display: block;
   overflow: hidden;
+  position: fixed;
   padding: 1em;
   font-family: "Avenir Next", Helvetica, sans-serif;
   line-height: 1.5;
