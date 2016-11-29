@@ -326,10 +326,12 @@ button:hover {
   display: block;
   overflow: hidden;
   position: fixed;
+  top: 0;
+  left: 0;
   padding: 1em;
   font-family: "Avenir Next", Helvetica, sans-serif;
   line-height: 1.5;
-  max-width: 200px;
+  max-width: 150px;
   background-color: hsl(0, 0%, 96%);
   border: solid 1px hsl(0, 0%, 90%);
 }
