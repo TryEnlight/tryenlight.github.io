@@ -25,14 +25,14 @@ learn to code by making projects
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## CONTRIBUTE by adding your projects & tutorials!
+Enlight is open-source. That means we <3 your creations and want them to be posted on our site! Have a project on the web, in React.js, C++, Python, {insert any cool app in any language/framework}? Doesn't matter! Just send your project and tutorial over. If it's useful, it'll be posted on the site with of course, credit to you!
+
 - fork the repo
 - in the project folder, make another folder w/ the project name
 - in that folder: include the project demo (w/ it's source files) and a markdown file with the tutorial. 
 - create a pull request & and it'll be up ASAP!
 
 **or...**if you don't want to go through GitHub, you can email me your project+tutorial at hi@shamdasani.org
-
-your name will be published at the top of the project tutorial along any of your links! :)
 
 thank you!
 

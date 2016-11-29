@@ -14,11 +14,11 @@ a {
 }
 /* Styles */
 body {
-  font-family: 'Fakt', Arial, sans-serif;
-	}
+  font-family: 'Avenir Next', Arial, sans-serif;
+}
 
 h1.title {
-	text-align: center;
+	text-align: left;
 	font-size: 64px;
 	margin:0;
 	padding-top: 35px;
@@ -26,10 +26,18 @@ h1.title {
 }
 
 h2.subtitle {
-	text-align: center;
-	margin: 0;
+  float: left;
+  display: inline;
+  margin: 0;
 	font-weight: 300;
-	font-size: 32px;
+	font-size: 18px;
+}
+
+.nav {
+  display: inline;
+  word-spacing: 10px;
+  text-align: right;
+  padding-right: 80px;
 }
 
 .accent {
@@ -78,7 +86,7 @@ img {
 }
 
 .project-header {
-	text-align: left;
+	text-align: center;
 	padding-top: 20px;
 	font-size: 32px;
 	margin: 0;
@@ -86,7 +94,7 @@ img {
 
 .project-subtitle {
 	color: #333;
-	text-align: left;
+	text-align: center;
 	font-size: 20px;
 }
 
@@ -303,14 +311,12 @@ button:hover {
   width: 100px;
   height: 40px;
   font-size: 20px;
-  margin-right: 10px;
 }
 
 .project-demo {
   width: 100px;
   height: 40px;
   font-size: 20px;
-
 
 }
 #carbonads {
@@ -386,6 +392,5 @@ border-radius: 5px;
 .author {
   padding-top: 30px;
 }
-
 
 
