@@ -219,7 +219,7 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.twitter-share-button {
+.twitter-share-button, .twitter-follow-button {
 	padding-bottom: 5px;
   padding-top: 10px;
 }
