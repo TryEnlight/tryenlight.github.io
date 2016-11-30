@@ -20,6 +20,7 @@ learn to code by making projects
 - autocompiling code editor
 - calculator
 - tic-tac-toe game
+- AI chrome extension pulling info from searches
 - browser notifications from websites
 - news + link aggregator
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
