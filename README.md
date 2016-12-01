@@ -19,6 +19,7 @@ learn to code by making projects
 - blog with jekyll
 - autocompiling code editor
 - calculator
+- real-time chat
 - tic-tac-toe game
 - AI chrome extension pulling info from searches
 - browser notifications from websites
