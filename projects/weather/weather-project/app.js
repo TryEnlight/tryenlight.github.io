@@ -1,19 +1,21 @@
-function getLocation() {
+function weather() {
 
   var location = document.getElementById("location");
+  var apiKey = 'f536d4c3330c0a1391370d1443cee848'; // PLEASE SIGN UP FOR YOUR OWN API KEY
+  var url = 'https://api.forecast.io/forecast/';
 
   navigator.geolocation.getCurrentPosition(success, error);
-
-  if(!navigator.geolocation){
-      location.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-      return;
-    }
 
   function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 
-    location.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+
+     $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
+      $('#temp').html(data.currently.temperature + ' F°');
+      $('#minutely').html(data.minutely.summary);
+    });
   }
 
   function error() {
@@ -23,27 +25,5 @@ function getLocation() {
   location.innerHTML = "Locating...";
 }
 
-function getWeatherID();
-
-var request = new XMLHttpRequest();
-request.open('GET', "https://www.metaweather.com/api/location/search/?lattlong=", true);
-
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-    // Success!
-    var data = JSON.parse(request.responseText);
-  } else {
-    alert("error");
-  }
-};
-
-request.onerror = function() {
-  // There was a connection error of some sort
-};
-
-request.send();
-
-getWeatherID()
-
-
+weather();
 
