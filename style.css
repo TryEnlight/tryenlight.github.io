@@ -259,6 +259,7 @@ hr {
 
 /* Newsletter */
 
+.
 
 .newsletter {
   margin: 0 auto;
@@ -293,9 +294,6 @@ button {
 	-webkit-transition-duration: 0.1s; /* Safari */
     transition-duration: 0.1s;
   display: inline;
-
-
-
 }
 
 button:hover {
@@ -377,12 +375,14 @@ button:hover {
 
 /* Code */
 pre {
-border-radius: 5px;
+    overflow: auto;
+    border-radius: 5px;
 }
-
 /* Author */
 .author {
   padding-top: 30px;
 }
+
+
 
 
