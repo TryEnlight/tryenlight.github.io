@@ -1,6 +1,6 @@
 ![](https://enlight.ml/enlight-logo.png)
 
-learn to code by building projects
+### learn to code by building projects
 
 ## projects available
 - [hex color generator](https://enlight.ml/projects/color/color-generator.html)
