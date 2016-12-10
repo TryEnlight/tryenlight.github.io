@@ -1,8 +1,6 @@
+![https://enlight.ml/enlight-logo.png
 # [enlight](https://enlight.ml)
 learn to code by making projects
-
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/fo-sho.svg)](http://forthebadge.com)
 
 ## projects available
 - [hex color generator](https://enlight.ml/projects/color/color-generator.html)
