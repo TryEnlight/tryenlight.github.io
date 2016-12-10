@@ -332,8 +332,6 @@ button:hover {
   font-family: "Avenir Next", Helvetica, sans-serif;
   line-height: 1;
   max-width: 150px;
-  background-color: hsl(0, 0%, 96%);
-  border: solid 1px hsl(0, 0%, 90%);
 }
 
   #carbonads span {
