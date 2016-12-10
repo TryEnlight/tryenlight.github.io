@@ -9,10 +9,10 @@
 - [to-do list](https://enlight.ml/projects/to-do/to-do.html)
 - [web paint](https://enlight.ml/projects/web-paint/web-paint.html)
 - [quote generator](https://enlight.ml/projects/quote/quote.html)
+- [geolocation weather app](https://enlight.ml/projects/weather/weather.html)
 
 ## for the future
 - a twitter bot
-- geo-location weather app 
 - personal website 
 - blog with jekyll
 - autocompiling code editor
