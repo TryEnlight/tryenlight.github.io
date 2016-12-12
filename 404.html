@@ -19,6 +19,9 @@
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
           var restOfUrl = window.location.href.substr(5);
@@ -42,3 +45,9 @@
 
 
 <h1 style ="text-align: center; padding-top: 100px;"> You are lost. Go back to where you came from... </h1>
+
+<script type="text/javascript"> 
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();   
+    NProgress.done();
+</script>

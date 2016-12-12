@@ -20,6 +20,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
 
   <script type="text/javascript">
       if (window.location.protocol == "http:") {
@@ -306,3 +308,8 @@ Don't stop! Maybe make the time display digitally underneath it, customize the l
 
 </footer>
 
+<script type="text/javascript"> 
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();   
+    NProgress.done();
+</script>
