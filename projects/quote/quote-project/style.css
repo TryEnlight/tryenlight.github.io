@@ -4,7 +4,8 @@
     height: 100%;
     width: 100%;
     background: #202020;
-    display:table;
+    display: table;
+    overflow: hidden;
   }
   /* font css */
 
