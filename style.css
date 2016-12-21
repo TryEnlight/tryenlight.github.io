@@ -10,6 +10,11 @@ html, body {
   background: #fbfbfb;
 }
 
+.index {
+  max-width: 80em;
+  margin: 0 auto;
+}
+
 a {
 	text-decoration: none;
 	color: #333;
@@ -28,9 +33,7 @@ h1.title {
 }
 
 h2.subtitle {
-text-align: center;
-  display: inline;
-  margin: 0;
+  text-align: center;
 	font-weight: 300;
 	font-size: 18px;
 }
@@ -177,7 +180,7 @@ li {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  padding-left: 13%;
+  padding-left: 10%;
   padding-right: 10%;
 
 }
