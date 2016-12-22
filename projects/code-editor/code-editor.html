@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Build a Live HTML/CSS/JS Editor | Enlight
+    </title>
+    <meta name="description" content="Learn how to make a html/css/js editor that compiles live.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Build a Live HTML/CSS/JS Editor | Enlight">
+    <meta property="og:description" content="Learn to Code by Building Projects.">
+    <meta property="og:url" content="https://enlight.ml/projects/weather/weather.html">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://enlight.ml/projects/weather/weather.html">
+    <meta name="twitter:title" content="Build a Live HTML/CSS/JS Editor | Enlight">
+    <meta name="twitter:description" content="Learn to Code by Building Projects.">
+
+  <link rel="stylesheet" href="../../style.css" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+  <script type="text/javascript">
+      if (window.location.protocol == "http:") {
+          var restOfUrl = window.location.href.substr(5);
+          window.location = "https:" + restOfUrl;
+      }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85620206-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<script src="../../scripts.js"></script>
+
+</head>
+
+<div class="project-page">
+<div class="container">
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<body>
+
+ <!-- Markup-->
+<h1 class="title"><a href="https://enlight.ml" class ="title">enlight<span class="accent">.ml</span></a></h1>
+<h2 class="subtitle">learn to <i class="fa fa-code"></i> by building projects</h2>
+
+<h1 class="project-header">Build a <span class="underline">Live HTML/CSS/JS Editor</span></h2>
+<h1 class="project-subtitle">an online editor that compiles your code live</h1>
+
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="code-editor-project/index.html"><img src = "../../images/code-editor.gif" class="project-image"/></a>
+
+<div class="buttons">
+<a href=""><button class="project-source">Source</button></a>
+<a href="code-editor-project/index.html"><button class="project-demo">Demo</button></a>
+</div>
+
+<p class="header">Getting Started</p>
+<p>
+In this project, we'll be building a live code editor similar to <a href="https://codepen.io" class="underline">Codepen</a> or <a href="https://jsfiddle.net" class="underline">JsFiddle</a>.
+
+Let's get started by creating our usual three files: 
+<ul>
+    <li>index.html - for our markup</li>
+    <li>style.css - for styling</li>
+    <li>app.js - for the function(s)</li>
+</ul>
+
+<p>
+To get started with our markup, we'll be needing three <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" class="underline">textarea</a> tags which will correspond with the id of the language we'll be compiling. To actually show the compiled code, we will also need an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" class="underline">iframe</a> which will allow us to insert an html document into an existing html page. Make sure to set ids for each tag so we can communicate with these elements in JavaScript.
+
+
+<pre class="prettyprint"><xmp>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Code Editor</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+      <textarea id="html" placeholder="HTML"></textarea>
+      <textarea id="css" placeholder="CSS"></textarea>
+      <textarea id="js" placeholder="JavaScript"></textarea>
+      <iframe id="code"></iframe>
+
+      <script type="text/javascript" src="app.js"></script>
+
+    </body>
+  </html>
+
+</xmp></pre>
+
+<p class="header">Making it look decent</p>
+<p>
+Before we head on to making our app, let's style it up a bit. We should align the elements to the center, make the textarea elements go side by side, and put the iframe right below them. 
+<pre class="prettyprint">
+
+  body {
+    text-align: center;
+  }
+
+  textarea {
+    width: 32%;
+    float: top;
+    min-height: 250px;
+    overflow: scroll;
+    margin: auto;
+    display: inline-block;
+    background: #F4F4F9;
+    outline: none;
+    font-family: Courier, sans-serif;
+    font-size: 14px;
+  }
+
+  iframe {
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: 35em;
+  }
+
+
+</pre>
+<p>
+As always, feel free to customize this to your liking!
+
+<p class="header">Our compile() function</p>
+<p>
+Now, here's where we actually make our app functional. We can do so with just one function. Here's what we'll need to write in it:
+<ul>
+  <li>link the html, css, and js ids to variables using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" class="underline">document.getElementById()</a>
+  <li>set the iframe id's <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow" class="underline">contentWindow</a> to a variable
+  <li>write a function that runs on <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup" class="underline">document.body.keyup</a> (when a key is pressed) that:
+  <ul>
+    <li>opens the textarea's contentWindow
+    <li>writes the values of the html, css, and js variables in it
+    <li>closes the textarea's contentWindow
+  </ul>
+</ul>
+
+<pre class="prettyprint"><xmp>
+  function compile() {
+
+    var html = document.getElementById("html");
+    var css = document.getElementById("css");
+    var js = document.getElementById("js");
+    var code = document.getElementById("code").contentWindow.document;
+    
+     document.body.onkeyup = function(){
+      code.open();
+      code.writeln(html.value+"<style>"+css.value+"</style>"+"<script>" + js.value + "</script>");
+      code.close();
+        };
+      };
+      
+  compile();
+
+</xmp></pre>
+
+<p>
+That's it! Pretty simple right? To take this a step further, try and make the textareas responsive with  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" class="underline">media queries!</a> If you liked this tutorial, try and building a <a href="https://enlight.ml/projects/web-paint/web-paint.html" class="underline"> Web Paint</a> app!
+</div>
+</div>
+
+ <footer>
+  <p class="footer-left"><a href="/about.html" class="footer"> Why Enlight?</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/issues/2" class="footer"> Request projects</a>
+  <br><a href="https://github.com/samayshamdasani/enlight/blob/gh-pages/README.md#contribute-by-adding-your-projects--tutorials" class="footer"> Contribute</a>
+  <br><a href="https://blog.enlight.ml" class="footer">Blog</a>
+  <br><a href="https://shamdasani.org" class="footer"> A project by Samay Shamdasani</a>
+ </p>
+
+  <div class="footer-right">
+   <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+    <p class="newsletter"> Get the latest projects delivered to your inbox!</p>
+        <input id="email" type="email" name="EMAIL">
+        <button type="submit" name="action">Subscribe!</button>
+    </form>
+    <div class="social-footer">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+
+</footer>
+
+<script type="text/javascript"> 
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();   
+    NProgress.done();
+</script>
+

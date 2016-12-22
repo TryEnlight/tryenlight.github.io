@@ -92,6 +92,7 @@ img {
 .project-page {
 	max-width: 70em;
 	margin: 0 auto;
+  padding-bottom: 5%;
 }
 
 .project-header {
