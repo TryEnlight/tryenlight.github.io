@@ -10,12 +10,12 @@
 - [web paint](https://enlight.ml/projects/web-paint/web-paint.html)
 - [quote generator](https://enlight.ml/projects/quote/quote.html)
 - [geolocation weather app](https://enlight.ml/projects/weather/weather.html)
+- [auto-compiling code editor](https://enlight.ml/projects/code-editor/code-editor.html)
 
 ## for the future
 - a twitter bot
 - personal website 
 - blog with jekyll
-- autocompiling code editor
 - calculator
 - real-time chat
 - tic-tac-toe game
