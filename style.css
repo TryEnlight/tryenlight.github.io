@@ -37,21 +37,15 @@ body {
 }
 
 button.start {
+  width: 8em;
+  height: 2em;
+  padding-top: 10px;
   font-size: 30px;
-}
-
-.fa-arrow-down {
-  position: absolute;
-  bottom: 0px;
-  margin-right: auto;
-  margin-left: auto;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding-bottom: 50px;
+  border-radius: 5px;
 }
 
 .top {
-  height: 45em;
+  height: 35em;
   text-align: center;
   background: #F4F4F9;
   width: 100%;
@@ -194,7 +188,7 @@ li {
   padding: 10px;
 }
 
-@media (max-width:650px){
+@media (max-width:768px){
         .col-1-3 { 
           width: 100%;    
         }
