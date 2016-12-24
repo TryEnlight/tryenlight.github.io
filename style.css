@@ -26,12 +26,18 @@ body {
 }
 
 .learn {
-  padding-top: 5%;
-  font-weight: 300;
+  padding-top: 2%;
+  font-weight: 700;
   text-align: center;
+  font-size: 48px;
 }
 
-.code {
+.lang {
+  font-weight: 600;
+}
+
+
+img.code {
   width: 300px;
   height: auto;
 }
@@ -45,10 +51,11 @@ button.start {
 }
 
 .top {
-  height: 35em;
+  height: auto;
   text-align: center;
   background: #F4F4F9;
   width: 100%;
+  padding-bottom: 10px;
 }
 
 h1.title {
@@ -93,7 +100,7 @@ h2.subtitle {
 
 .project-header-front{
 	text-align: center;
-	font-size: 36px;
+	font-size: 30px;
 	padding: 10px;
 	margin: 0;
 }
@@ -102,6 +109,7 @@ h2.subtitle {
 	color: #333;
 	text-align: center;
 	font-size: 20px;
+  padding-top: 1%;
 	margin: 0 auto;
 	max-width: 70%;
 }
@@ -198,10 +206,6 @@ li {
           height: 100%;
         }
     }
-
-.box {
-  padding-bottom: 30px;
-}
 
 /* Footer */
 .container {
