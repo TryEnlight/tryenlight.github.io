@@ -25,7 +25,9 @@
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## CONTRIBUTE by adding your projects & tutorials!
-Enlight is open-source. That means it can grow with your help! Have a project on the web, in React.js, C++, Python, {insert any cool app in any language/framework}? Doesn't matter! Just send your project and tutorial over. If it's useful, it'll be posted on the site with of course, credit to you!
+Enlight is open-source. That means it can grow with your help! Have a project on the web, in React.js, nodejs, {insert any cool app in any language/framework}? Doesn't matter! Just send your project and tutorial over. It doesn't have to be on the web as we plan to expand to all langauges (including Swift, Python, Java...)
+
+If it's useful, it'll be posted on the site with of course, credit to you!
 
 - fork the repo
 - in the project folder, make another folder w/ the project name
