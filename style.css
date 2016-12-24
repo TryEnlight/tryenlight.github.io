@@ -15,6 +15,7 @@ html, body {
   margin: 0 auto;
 }
 
+
 a {
 	text-decoration: none;
 	color: #333;
@@ -22,6 +23,38 @@ a {
 /* Styles */
 body {
   font-family: 'Avenir Next', 'Lato', Helvetica, sans-serif;
+}
+
+.learn {
+  padding-top: 5%;
+  font-weight: 300;
+  text-align: center;
+}
+
+.code {
+  width: 300px;
+  height: auto;
+}
+
+button.start {
+  font-size: 30px;
+}
+
+.fa-arrow-down {
+  position: absolute;
+  bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding-bottom: 50px;
+}
+
+.top {
+  height: 45em;
+  text-align: center;
+  background: #F4F4F9;
+  width: 100%;
 }
 
 h1.title {
