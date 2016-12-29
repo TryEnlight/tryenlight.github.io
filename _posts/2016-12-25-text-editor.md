@@ -4,7 +4,7 @@ title: Text Editor
 description: a minimal text editor that autosaves your text every second
 category: easy-web
 permalink: /text-editor
-img: img/text-editor.gif
+img: /img/text-editor.gif
 demourl: /demo/text-editor-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/text-editor-project
 ---

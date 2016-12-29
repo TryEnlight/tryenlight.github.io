@@ -4,7 +4,7 @@ title: Hex Color Generator
 description: generate beautiful colors every time you press the spacebar
 category: easy-web
 permalink: /hex-color-generator
-img: img/color.gif
+img: /img/color.gif
 demourl: /demo/color-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/color-project
 ---

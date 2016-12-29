@@ -4,7 +4,7 @@ title: Live HTML/CSS/JS Editor
 description: an online editor that compiles your code live
 category: middle-web
 permalink: /code-editor
-img: img/code-editor.gif
+img: /img/code-editor.gif
 demourl: /demo/code-editor-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/code-editor-project
 ---
