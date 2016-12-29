@@ -338,6 +338,12 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
         margin: 0;
         padding: 0;
     }
+    p::selection, li::selection {
+      background-color: #ee4287;
+    } 
+    p:-moz-selection, li:-moz-selection {
+      background-color: #ee4287;
+    } 
     .container {
         max-width: 80em;
         margin: 0 auto;

@@ -285,6 +285,12 @@ That's it! Pretty simple right? To take this a step further, try and make the te
         margin: 0;
         padding: 0;
     }
+    p::selection, li::selection {
+      background-color: #ee4287;
+    } 
+    p:-moz-selection, li:-moz-selection {
+      background-color: #ee4287;
+    } 
     .container {
         max-width: 80em;
         margin: 0 auto;
