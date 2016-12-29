@@ -6,7 +6,7 @@ category: easy-web
 permalink: /hex-color-generator
 img: img/color.gif
 demourl: /demo/color-project/index.html
-source: 
+source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/color-project
 ---
 ### Getting Started
 

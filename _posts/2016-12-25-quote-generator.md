@@ -6,7 +6,7 @@ category: middle-web
 permalink: /quote
 img: img/quote.gif
 demourl: /demo/quote-project/index.html
-
+source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/quote-project
 ---
 ### Getting Started
 

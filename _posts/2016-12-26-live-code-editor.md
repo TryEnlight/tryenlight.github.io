@@ -6,6 +6,7 @@ category: middle-web
 permalink: /code-editor
 img: img/code-editor.gif
 demourl: /demo/code-editor-project/index.html
+source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/code-editor-project
 ---
 ### Getting Started
 
