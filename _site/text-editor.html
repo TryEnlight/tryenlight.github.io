@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+	<head>
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Text Editor</title>
+      <meta name="description" content="a minimal text editor that autosaves your text every second">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Text Editor">
+      <meta property="og:description" content="a minimal text editor that autosaves your text every second">
+      <meta property="og:url" content="https://enlight.ml/text-editor">
+      <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Text Editor" />
+      <meta name="twitter:description" content="a minimal text editor that autosaves your text every second" />
+      <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
+
+      <link href="style.css" type="stylesheet">
+
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+    
+
+	</head>
+
+
+
+	<header>
+	
+
+<a href="/"><h1 class="enlight top">Enlight </h1></a>
+
+<ul class="nav top"> 
+	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/ios"><li class="nav-item top">iOS Development </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials"><li class="nav-item top">Contribute </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://blog.enlight.ml"><li class="nav-item top">Blog</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/why"><li class="nav-item top">Why Enlight?</li></a>
+	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
+	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
+	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
+</ul>
+	</header>
+
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<style>
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", 'Nunito Sans', Helvetica, sans-serif;
+  line-height: 1;
+  max-width: 150px;
+  background: #f4faff;
+}
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+    color: #555;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    color: #555;
+
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1500px) {
+  #carbonads {
+    position: relative;
+    margin: 1em auto 1em;
+    border-radius: 5px;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+}
+
+</style>
+	<body>
+	<div class="container">
+	<h1 class="project-title"> Build a <span class="underline">Text Editor</span></h1>
+	<h2 class="project-description"> a minimal text editor that autosaves your text every second</h2>
+
+
+	<div class="post">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<a href="/demo/text-editor-project/index.html"><img class="project-image" src="img/text-editor.gif"></a>
+
+	<a href=""><button class="project-button">Source</button></a><a href="/demo/text-editor-project/index.html"><button class="project-button">Demo</button></a>
+
+	 <h3 id="getting-started">Getting Started</h3>
+
+<p>In this tutorial, we’ll make a text editor in the broswer. Using JavaScript, we can save the text automatically in a user’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let’s you save data in user’s browser.</p>
+
+<p>As always, you’ll need a folder with three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>Since we’re making a text-editor, our content has to be editable! Thankfully, HTML has an attribute for that. Go ahead: link the files, and create two <a href="http://www.w3schools.com/tags/tag_div.asp" class="underline">divs</a> with the <a href="http://www.w3schools.com/tags/att_global_contenteditable.asp" class="underline">contenteditable attribute </a>and with a heading and a content id.</p>
+
+<pre class="prettyprint"><xmp>
+  <html>
+	<head>
+	  <title>Text Editor</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="style.css" />
+	</head>
+
+		 <div id="heading" contenteditable="true"></div>
+		 <div id="content" contenteditable="true"></div>
+
+	<script src="app.js"></script>
+
+  </html>
+
+</xmp></pre>
+
+<p>Open the html file in your bowser. You’ll see that you have two editable text boxes. However, they’re pretty ugly. Let’s style them!</p>
+
+<h3 id="styling-the-editor">Styling the Editor</h3>
+
+<p>Here’s some basic things you should do in your the style.css file:</p>
+
+<ul>
+  <li>change the <a href="http://www.w3schools.com/cssref/pr_font_font-family.asp" class="underline">font</a></li>
+  <li>center the text boxes and set a <a href="http://www.w3schools.com/cssref/pr_dim_max-width.asp" class="underline">max-width</a></li>
+  <li>remove the ugly blue outline with <a href="http://www.w3schools.com/cssref/sel_focus.asp" class="underline">div:focus</a></li>
+  <li>add some <a href="http://www.w3schools.com/css/css_padding.asp" class="underline">padding</a></li>
+  <li>adjust the <a href="http://www.w3schools.com/cssref/pr_font_font-size.asp" class="underline">font size</a></li>
+</ul>
+
+<p>This is my attempt. Feel free to customize your editor however you wish to!</p>
+
+<pre class="prettyprint">
+
+  html {
+    font-family: 'Helevetica', sans-serif;
+  }
+
+  body {
+    color: #333;
+    font-weight: 100;
+    max-width: 50em;
+    margin: 0 auto;
+  }
+
+  div:focus {
+    outline: none;
+  }
+
+  #heading {
+    font-size: 48px;
+    padding-top: 30px;
+  }
+
+  #content {
+    padding-top: 10px;
+    font-size: 24px;
+  }
+
+
+</pre>
+
+<p>How does your editor look now? Play around with it! However, you may have noticed that if you refresh the page, the text doesn’t save. Let’s fix that.</p>
+
+<h3 id="javascript-and-localstorage-function">JavaScript and localStorage function</h3>
+
+<p>To save the text in our two divs, we need to store it in the brower’s localStorage. To do that, we first have to get the div ids from the HTML document and set it to a localStorage instance with some default text. Then, we can write a function that checks the innerHTML of both the divs and saves it every second. Here’s what we have to write:</p>
+
+<ul>
+  <li>for both divs, we need to use <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">document.getElementById().innerHTML</a> and set it to a <a href="http://www.w3schools.com/html/html5_webstorage.asp" class="underline">localStorage[]</a> ‘default text’ object</li>
+  <li>need to have an <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" class="underline">interval function</a> which has a localStorage object assigned to the document.getElementById().innerHTML for each div</li>
+  <li>make the function run every 1000 milliseconds, or 1 second.</li>
+</ul>
+
+<p>This is what the finished app.js should look like:</p>
+
+<pre class="prettyprint">
+
+  document.getElementById('heading').innerHTML = localStorage['title'] || 'Just Write'; // default text
+  document.getElementById('content').innerHTML = localStorage['text'] || 'This text is automatically saved every second :) '; // default text
+
+  setInterval(function() { // fuction that is saving the innerHTML of the div
+	localStorage['title'] = document.getElementById('heading').innerHTML; // heading div
+	localStorage['text'] = document.getElementById('content').innerHTML; // content div
+  }, 1000);
+	
+</pre>
+
+
+	    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+  	<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h1 class="newsletter"> Get the latest projects delivered to your inbox!</p>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action">Subscribe!</button>
+      </form>
+ </footer>
+
+	</div> 
+
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+    html, body {
+        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 80em;
+        margin: 0 auto;
+
+    }
+    header {
+        width: 100%;
+        background: #d3f2ff;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 5px 2px #6d95a5;
+
+    }
+    h1.enlight {
+        color: #ee4287;
+        font-weight: 500;
+        font-size: 50px;
+        padding-right: 3%;
+        margin-left: 15%;
+    }
+    h1 {
+        color: #333;
+        font-weight: 300;
+    }
+    .top {
+        display: inline;
+    }
+    ul.nav {
+        padding-left: 0;
+        color: #333;
+        position: relative;
+        top: -5px;
+    }
+    
+    li.nav-item {
+        margin: 1%;
+        font-size: 18px;
+        margin-bottom: 2%;
+    }
+    .social {
+        float: right;
+        position: relative;
+        top: 15px;
+    }
+
+    h2.subtitle {
+      padding-top: 1%;
+      font-size: 64px;
+      text-align: center;
+      font-weight: 300;
+      color: #333;
+    }
+            
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        opacity: .5;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-github:hover {
+        color: #c9510c;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-envelope:hover {
+        color: #85144b;
+        transition: .5s;
+        font-size: 30px;
+    }
+
+    h1.project-title-front {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+
+    }
+
+    h2.project-description-front {
+      color: #333;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding-top: 5px;
+
+    }
+    .grid {
+      margin-bottom: 2%;
+    }
+    .col-1-3 {
+      width: 30%;
+      float: left;
+      padding: 10px;
+    }
+
+    img.project-image-front {
+        width: 100%;
+    }
+
+    img:hover {
+      opacity: .5;
+    }
+
+    @media (max-width: 1400px) {
+                
+                .social {
+                    display: none;
+                }
+              }
+
+    @media (max-width: 760px) {
+                ul.nav {
+                    display: block;
+                    text-align: center;
+                }
+                h1.enlight {
+                    margin-left: 30%;
+                    padding: 0;
+                }
+                h2.subtitle {
+                    font-size: 32px;
+                }
+                header {
+                    padding-bottom: 5px;
+                }
+                .col-1-3 { 
+                    width: 100%;    
+                }
+            }
+
+    h1.project-title {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    h2.project-description {
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+        padding: 0;
+    }
+
+    .project-image {
+        width: 40%;
+        height: auto;
+        display: block;
+    }
+
+    .project-button {
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 20px;
+      background: #ee4287;
+      width: 5em;
+      border-radius: 5px;
+    }
+
+    .post {
+        font-size: 20px;
+        max-width: 50em;
+        margin: 0 auto;
+        color: #333;
+        padding: 1%;
+    }
+
+    .underline {
+        border-bottom: 1px solid #ee4287;
+    }
+    
+    .newsletter {
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+      padding: 0;
+    }
+
+    footer {
+      flex: 1;
+      padding-top: 20px;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+   
+    input {
+      outline: 0;
+      background: #f9f9f9;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+  }
+
+    button {
+      outline: 0;
+      background: #ee4287;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 16px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+    }
+
+    button:hover {
+      opacity: .5;
+    }
+
+    pre {
+      overflow: scroll;
+    }
+</style>
+
+	<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script> 
+
+
+<script type="text/javascript"> 
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();   
+      NProgress.done();
+   </script>
+
+	</div>
+	</body>
+</html>

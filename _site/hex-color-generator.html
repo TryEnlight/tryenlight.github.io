@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+	<head>
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Hex Color Generator</title>
+      <meta name="description" content="generate beautiful colors every time you press the spacebar">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Hex Color Generator">
+      <meta property="og:description" content="generate beautiful colors every time you press the spacebar">
+      <meta property="og:url" content="https://enlight.ml/hex-color-generator">
+      <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Hex Color Generator" />
+      <meta name="twitter:description" content="generate beautiful colors every time you press the spacebar" />
+      <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
+
+      <link href="style.css" type="stylesheet">
+
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+    
+
+	</head>
+
+
+
+	<header>
+	
+
+<a href="/"><h1 class="enlight top">Enlight </h1></a>
+
+<ul class="nav top"> 
+	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/ios"><li class="nav-item top">iOS Development </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials"><li class="nav-item top">Contribute </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://blog.enlight.ml"><li class="nav-item top">Blog</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/why"><li class="nav-item top">Why Enlight?</li></a>
+	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
+	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
+	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
+</ul>
+	</header>
+
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<style>
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", 'Nunito Sans', Helvetica, sans-serif;
+  line-height: 1;
+  max-width: 150px;
+  background: #f4faff;
+}
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+    color: #555;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    color: #555;
+
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1500px) {
+  #carbonads {
+    position: relative;
+    margin: 1em auto 1em;
+    border-radius: 5px;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+}
+
+</style>
+	<body>
+	<div class="container">
+	<h1 class="project-title"> Build a <span class="underline">Hex Color Generator</span></h1>
+	<h2 class="project-description"> generate beautiful colors every time you press the spacebar</h2>
+
+
+	<div class="post">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<a href="/demo/color-project/index.html"><img class="project-image" src="img/color.gif"></a>
+
+	<a href=""><button class="project-button">Source</button></a><a href="/demo/color-project/index.html"><button class="project-button">Demo</button></a>
+
+	 <h3 id="getting-started">Getting Started</h3>
+
+<p>In this tutorial, we’ll make our very own color generator with just a couple lines of JavaScript. First off, you’ll need a folder with three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and add a title, a viewport, and link all our files together. Our index.html file should look something like this:</p>
+
+<pre class="prettyprint">
+<xmp>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Hex Color Generator
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+	    <div id="hex"></div>
+	    <script src="app.js"></script>
+    </html></xmp>
+  </pre>
+
+<p>Seems new? Don’t worry!</p>
+
+<p>The !DOCTYPE html tag tells the web broswer what version of HTML the page is written in.
+ Right below that, we have our head tag, where we can add our title, meta, and link up our CSS file.
+ The viewport is used to make the page responsive so that any device can view the content clearly by based on 
+ the size of the screen so that browser can scale accordingly. Lastly, we have to link our JavaScript file which 
+ will contain our function of generating the random color.</p>
+
+<h3 id="the-function">The function</h3>
+
+<p>If you are somewhat familiar with CSS, you know that colors are either specified in a rgb or hex code format. An example of this 
+  would be #ffffff (white) or #000000 (black). To generate our number, JavaScript has a math.random function that returns, random numbers that are between 0 and 1.</p>
+
+<p>For example, let’s start by printing a simple math.random function:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+	return '#' + Math.random()
+  }
+		  
+  document.write(getColor());
+
+
+</pre>
+
+<p>If you take a look at the result by opening up our html file, we get a random number between 0 and 1 with a (#) added in front of it. However, since hex numbers include six letters (A, B, C, D, E, &amp; F), we need to add those letters into our result as well. In addition, we also need to get rid of the (0) and (.) and limit the result to only 6 characters.
+  Go ahead and try to solve this yourself. Here’s a hint: you’ll need to expand the math.random function by using Javascript’s <a href="http://www.w3schools.com/jsref/jsref_tostring_number.asp" class="underline">toString()</a> and <a href="http://www.w3schools.com/jsref/jsref_slice_string.asp" class="underline">slice()</a> methods.</p>
+
+<p>Seriously, don’t move on! Read up on those methods!</p>
+
+<p>Alright, let’s see what you’ve come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let’s check out our result:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+     return '#' + Math.random().toString(16)
+  }
+  
+  document.write(getColor());  
+
+
+</pre>
+
+<p>Now we have a number in hexadecimal format, but it isn’t ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8) at the end of our math.random function. 
+The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eigth charcter to get six charcters in total. Check out the result!</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+    return '#' + Math.random().toString(16).slice(2, 8);
+  }
+  
+  document.write(getColor()); 
+
+
+</pre>
+
+<p>Finally, we have a number we can work with! All we need to do is set this hex value
+ as our background. We can do that by writing another function, and that function will do two things:</p>
+
+<ul>
+  <li>set getColor() to a <a href="http://www.w3schools.com/js/js_variables.asp" class="underline">variable</a></li>
+  <li>set the <a href="http://www.w3schools.com/jsref/prop_style_background.asp" class="underline">document.body.style.background</a> equal to that variable</li>
+</ul>
+
+<p>Go ahead, you should be able to do this one!</p>
+
+<p>Here’s what your app.js code should look like:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+	return '#' + Math.random().toString(16).slice(2, 8);
+  }
+		  
+  function setBackground() {
+	var bgColor = getColor();
+	document.body.style.background = bgColor;
+  }
+  setBackground()
+
+
+</pre>
+
+<p>If we open our html file in the browser, you should see a random color every time you refresh the page!</p>
+
+<h3 id="making-the-spacebar-work">Making the Spacebar Work</h3>
+
+<p>Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
+ the setBackground() function at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it.</p>
+
+<p>We can do this by using an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if statement </a> that runs the setBackground() function only when the keyCode of 32 (code for spacebar) is pressed. This is what we have to write:</p>
+
+<ul>
+  <li><a href="http://www.w3schools.com/jsref/event_onkeyup.asp" class="underline"> document.body.keyup</a> should be equal to a function (a variable)</li>
+  <li>in that function, there must be an if statement stating if the (that variable).keyCode == 32, setBackground() should run</li>
+</ul>
+
+<p>This is what our finished app.js file should look like:</p>
+
+<pre class="prettyprint">
+
+  // generator function
+	function getColor() {
+	    return '#' + Math.random().toString(16).slice(2, 8);
+	}
+  // sets background color style
+	function setBackground() {
+	  var bgColor = getColor();
+	  document.body.style.background = bgColor;
+	}
+  // runs function on click
+	 document.body.onkeyup = function(e){
+	      if(e.keyCode == 32){
+	        setBackground();
+	      }
+	  }
+
+	  
+</pre>
+
+<p>Open up your html file in the browser or click on the result tab. Then, press the spacebar. Pretty neat, right?</p>
+
+<h3 id="a-little-transition">A little transition</h3>
+
+<p>But wait! We haven’t even touched our style.css file! Open it up! We’ll add a transition just so it looks a little more fluid when switching between colors.</p>
+
+<pre class="prettyprint">
+  body {
+    transition: all .5s ease;
+   }
+</pre>
+
+<p>Open up your html file and take a look at your latest creation!</p>
+
+<p>I hope you’ve generated some pretty unique colors and learned a ton! However, don’t stop here! Think about what you can add next! Can you print the hex color code on screen? Can you look up some additional styles to add? Can you add a “press the spacebar” message that appears until the user presses the spacebar?</p>
+
+<p>If you enjoyed this tutorial, go ahead and learn to make something else like a <a href="text-editor" class="underline">text-editor</a>!</p>
+
+
+
+	    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+  	<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h1 class="newsletter"> Get the latest projects delivered to your inbox!</p>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action">Subscribe!</button>
+      </form>
+ </footer>
+
+	</div> 
+
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+    html, body {
+        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 80em;
+        margin: 0 auto;
+
+    }
+    header {
+        width: 100%;
+        background: #d3f2ff;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 5px 2px #6d95a5;
+
+    }
+    h1.enlight {
+        color: #ee4287;
+        font-weight: 500;
+        font-size: 50px;
+        padding-right: 3%;
+        margin-left: 15%;
+    }
+    h1 {
+        color: #333;
+        font-weight: 300;
+    }
+    .top {
+        display: inline;
+    }
+    ul.nav {
+        padding-left: 0;
+        color: #333;
+        position: relative;
+        top: -5px;
+    }
+    
+    li.nav-item {
+        margin: 1%;
+        font-size: 18px;
+        margin-bottom: 2%;
+    }
+    .social {
+        float: right;
+        position: relative;
+        top: 15px;
+    }
+
+    h2.subtitle {
+      padding-top: 1%;
+      font-size: 64px;
+      text-align: center;
+      font-weight: 300;
+      color: #333;
+    }
+            
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        opacity: .5;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-github:hover {
+        color: #c9510c;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-envelope:hover {
+        color: #85144b;
+        transition: .5s;
+        font-size: 30px;
+    }
+
+    h1.project-title-front {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+
+    }
+
+    h2.project-description-front {
+      color: #333;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding-top: 5px;
+
+    }
+    .grid {
+      margin-bottom: 2%;
+    }
+    .col-1-3 {
+      width: 30%;
+      float: left;
+      padding: 10px;
+    }
+
+    img.project-image-front {
+        width: 100%;
+    }
+
+    img:hover {
+      opacity: .5;
+    }
+
+    @media (max-width: 1400px) {
+                
+                .social {
+                    display: none;
+                }
+              }
+
+    @media (max-width: 760px) {
+                ul.nav {
+                    display: block;
+                    text-align: center;
+                }
+                h1.enlight {
+                    margin-left: 30%;
+                    padding: 0;
+                }
+                h2.subtitle {
+                    font-size: 32px;
+                }
+                header {
+                    padding-bottom: 5px;
+                }
+                .col-1-3 { 
+                    width: 100%;    
+                }
+            }
+
+    h1.project-title {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    h2.project-description {
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+        padding: 0;
+    }
+
+    .project-image {
+        width: 40%;
+        height: auto;
+        display: block;
+    }
+
+    .project-button {
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 20px;
+      background: #ee4287;
+      width: 5em;
+      border-radius: 5px;
+    }
+
+    .post {
+        font-size: 20px;
+        max-width: 50em;
+        margin: 0 auto;
+        color: #333;
+        padding: 1%;
+    }
+
+    .underline {
+        border-bottom: 1px solid #ee4287;
+    }
+    
+    .newsletter {
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+      padding: 0;
+    }
+
+    footer {
+      flex: 1;
+      padding-top: 20px;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+   
+    input {
+      outline: 0;
+      background: #f9f9f9;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+  }
+
+    button {
+      outline: 0;
+      background: #ee4287;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 16px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+    }
+
+    button:hover {
+      opacity: .5;
+    }
+
+    pre {
+      overflow: scroll;
+    }
+</style>
+
+	<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script> 
+
+
+<script type="text/javascript"> 
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();   
+      NProgress.done();
+   </script>
+
+	</div>
+	</body>
+</html>

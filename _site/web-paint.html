@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+	<head>
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Web Paint App</title>
+      <meta name="description" content="create your own digital whiteboard">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Web Paint App">
+      <meta property="og:description" content="create your own digital whiteboard">
+      <meta property="og:url" content="https://enlight.ml/web-paint">
+      <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Web Paint App" />
+      <meta name="twitter:description" content="create your own digital whiteboard" />
+      <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
+
+      <link href="style.css" type="stylesheet">
+
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+    
+
+	</head>
+
+
+
+	<header>
+	
+
+<a href="/"><h1 class="enlight top">Enlight </h1></a>
+
+<ul class="nav top"> 
+	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/ios"><li class="nav-item top">iOS Development </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials"><li class="nav-item top">Contribute </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://blog.enlight.ml"><li class="nav-item top">Blog</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/why"><li class="nav-item top">Why Enlight?</li></a>
+	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
+	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
+	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
+</ul>
+	</header>
+
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<style>
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", 'Nunito Sans', Helvetica, sans-serif;
+  line-height: 1;
+  max-width: 150px;
+  background: #f4faff;
+}
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+    color: #555;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    color: #555;
+
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1500px) {
+  #carbonads {
+    position: relative;
+    margin: 1em auto 1em;
+    border-radius: 5px;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+}
+
+</style>
+	<body>
+	<div class="container">
+	<h1 class="project-title"> Build a <span class="underline">Web Paint App</span></h1>
+	<h2 class="project-description"> create your own digital whiteboard</h2>
+
+
+	<div class="post">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<a href="/demo/web-paint-project/index.html"><img class="project-image" src="img/web-paint.gif"></a>
+
+	<a href=""><button class="project-button">Source</button></a><a href="/demo/web-paint-project/index.html"><button class="project-button">Demo</button></a>
+
+	 <h3 id="getting-started">Getting Started</h3>
+
+<p>Our web paint application is based off of HTML5’s <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a>. We’ll be making a “whiteboard” that draws whenever you move your mouse while clicked. We’ll also implement an input box where we can specify what hex color we want. Since our app is basically a plain screen where we can draw, we don’t need to style anything (no CSS file needed). Therefore, we just need two files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>app.js - for our function(s)</li>
+</ul>
+
+<h3 id="the-markup">The Markup</h3>
+
+<p>Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a> tag for our canvas. We will also need to set ids for both.</p>
+
+<pre class="prettyprint"><xmp>
+  <html lang="en">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>
+          Web Paint!
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <input id="hex" placeholder="enter hex color" />&lt;/input&gt;
+  <canvas id="draw"></canvas>
+
+  <script src="app.js"></script>
+
+  </html>
+ </xmp></pre>
+
+<h3 id="setting-up-our-variables--the-resize-function">Setting up our variables &amp; the resize function</h3>
+
+<p>In our app.js file, we need to assign our canvas id, draw, to a <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">variable</a>. Then, we’ll need to set another variable to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext" class="underline">.getContext(’2d’)</a> of that canvas variable so we can draw within it. In addition, we’ll need to write a small resize function so that we can set the canvas’s width and height to the window’s width and height. This way the canvas will take over the whole broswer window. We can do that like this:</p>
+
+<pre class="prettyprint">
+
+    // set canvas id to variable
+  var canvas = document.getElementById('draw');
+
+  // get canvas 2D context and set it to the correct size
+  var ctx = canvas.getContext('2d');
+  resize(); 
+
+  // resize canvas when window is resized
+  function resize() {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+}
+</pre>
+
+<h3 id="event-listeners">Event listeners</h3>
+
+<p>Our app needs four event listeners:</p>
+
+<ul>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">window event listener</a> to trigger the resize function when window is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/resize" class="underline">resized</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the draw() function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousemove" class="underline">moved</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user’s mouse current position) function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousedown" class="underline">clicked</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user’s mouse current position) function when mouse is moved over the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter" class="underline">canvas function</a></li>
+</ul>
+
+<pre class="prettyprint">
+
+// add event listeners to specify when functions should be triggered
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
+ </pre>
+
+<h3 id="setposition-and-draw-functions">setPosition() and draw() functions</h3>
+
+<p>The drawing function of this project depends on the position of the mouse. Since we’ll be moving from one position to another one whenever the mouse is clicked or when the mouse is moved over the canvas, we’ll need to create a setPosition() function that sets variables to the <a href="http://www.w3schools.com/jsref/event_clientx.asp" class="underline">user’s x &amp; y position</a> coordinates. We can then use those variables in our draw function.</p>
+
+<pre class="prettyprint">
+  // last known position
+  var pos = { x: 0, y: 0 };
+
+  // new position from mouse events
+  function setPosition(e) {
+    pos.x = e.clientX;
+    pos.y = e.clientY;
+  }
+</pre>
+
+<p>At last, we come to our draw() function. Our function will need a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" class="underline">closure</a> followed by the following:</p>
+
+<ul>
+  <li>in the function, we need to have an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if</a> statement to make sure it runs only when mouse is clicked</li>
+  <li>set a variable to our <a href="http://www.w3schools.com/jsref/prop_text_value.asp" class="underline">input id’s value</a></li>
+  <li>write <a href="http://www.w3schools.com/TAgs/canvas_beginpath.asp" class="underline">ctx.beginPath()</a> to start a drawing path</li>
+  <li>specify the <a href="http://www.w3schools.com/TAgs/canvas_linewidth.asp" class="underline">line width</a></li>
+  <li>specift the <a href="http://www.w3schools.com/TAgs/canvas_linecap.asp" class="underline">lineCap</a></li>
+  <li>specify the <a href="http://www.w3schools.com/TAgs/canvas_strokestyle.asp" class="underline">strokeStyle (color of line)</a>, which is set to our variable with the input id value</li>
+  <li>add the from<a href="http://www.w3schools.com/tags/canvas_moveto.asp" class="underline">(moveTo)</a> and to <a href="http://www.w3schools.com/tags/canvas_lineto.asp" class="underline">(lineTo)</a>functions for the line based on the position coordinates</li>
+  <li>begin the drawing path<a href="http://www.w3schools.com/tags/canvas_stroke.asp" class="underline">(stroke)</a> of the line</li>
+</ul>
+
+<p>This is all our JavaScript:</p>
+
+<pre class="prettyprint">
+  // set canvas id to variable
+  var canvas = document.getElementById('draw');
+
+  // get canvas 2D context and set it to the correct size
+  var ctx = canvas.getContext('2d');
+  resize(); 
+
+  // resize canvas when window is resized
+  function resize() {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  }
+
+  // add event listeners to specify when functions should be triggered
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
+
+  // last known position
+  var pos = { x: 0, y: 0 };
+
+  // new position from mouse events
+  function setPosition(e) {
+    pos.x = e.clientX;
+    pos.y = e.clientY;
+  }
+
+  function draw(e) {
+    
+    if (e.buttons !== 1) return; // if mouse is pressed.....
+
+    var color = document.getElementById('hex').value;
+
+    ctx.beginPath(); // begin the drawing path
+
+    ctx.lineWidth = 20; // width of line 
+    ctx.lineCap = 'round'; // rounded end cap
+    ctx.strokeStyle = color; // hex color of line
+
+    ctx.moveTo(pos.x, pos.y); // from position
+    setPosition(e);
+    ctx.lineTo(pos.x, pos.y); // to position
+
+    ctx.stroke(); // draw it!
+
+   }
+ </pre>
+
+<p>There you have it! We now have a drawing app that can use any hex color. Try inserting a hex code in the input box and click and drag to mouse to draw! After you’ve accomplished this, try to make another text box that changes the lineWidth of the line, or if you really want a challenge, try <a href="http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage" class="underline">saving the canvas</a> in a user’s localStorage so that the drawing will not be erased when the page is refreshed!</p>
+
+
+
+	    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+  	<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h1 class="newsletter"> Get the latest projects delivered to your inbox!</p>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action">Subscribe!</button>
+      </form>
+ </footer>
+
+	</div> 
+
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+    html, body {
+        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 80em;
+        margin: 0 auto;
+
+    }
+    header {
+        width: 100%;
+        background: #d3f2ff;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 5px 2px #6d95a5;
+
+    }
+    h1.enlight {
+        color: #ee4287;
+        font-weight: 500;
+        font-size: 50px;
+        padding-right: 3%;
+        margin-left: 15%;
+    }
+    h1 {
+        color: #333;
+        font-weight: 300;
+    }
+    .top {
+        display: inline;
+    }
+    ul.nav {
+        padding-left: 0;
+        color: #333;
+        position: relative;
+        top: -5px;
+    }
+    
+    li.nav-item {
+        margin: 1%;
+        font-size: 18px;
+        margin-bottom: 2%;
+    }
+    .social {
+        float: right;
+        position: relative;
+        top: 15px;
+    }
+
+    h2.subtitle {
+      padding-top: 1%;
+      font-size: 64px;
+      text-align: center;
+      font-weight: 300;
+      color: #333;
+    }
+            
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        opacity: .5;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-github:hover {
+        color: #c9510c;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-envelope:hover {
+        color: #85144b;
+        transition: .5s;
+        font-size: 30px;
+    }
+
+    h1.project-title-front {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+
+    }
+
+    h2.project-description-front {
+      color: #333;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding-top: 5px;
+
+    }
+    .grid {
+      margin-bottom: 2%;
+    }
+    .col-1-3 {
+      width: 30%;
+      float: left;
+      padding: 10px;
+    }
+
+    img.project-image-front {
+        width: 100%;
+    }
+
+    img:hover {
+      opacity: .5;
+    }
+
+    @media (max-width: 1400px) {
+                
+                .social {
+                    display: none;
+                }
+              }
+
+    @media (max-width: 760px) {
+                ul.nav {
+                    display: block;
+                    text-align: center;
+                }
+                h1.enlight {
+                    margin-left: 30%;
+                    padding: 0;
+                }
+                h2.subtitle {
+                    font-size: 32px;
+                }
+                header {
+                    padding-bottom: 5px;
+                }
+                .col-1-3 { 
+                    width: 100%;    
+                }
+            }
+
+    h1.project-title {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    h2.project-description {
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+        padding: 0;
+    }
+
+    .project-image {
+        width: 40%;
+        height: auto;
+        display: block;
+    }
+
+    .project-button {
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 20px;
+      background: #ee4287;
+      width: 5em;
+      border-radius: 5px;
+    }
+
+    .post {
+        font-size: 20px;
+        max-width: 50em;
+        margin: 0 auto;
+        color: #333;
+        padding: 1%;
+    }
+
+    .underline {
+        border-bottom: 1px solid #ee4287;
+    }
+    
+    .newsletter {
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+      padding: 0;
+    }
+
+    footer {
+      flex: 1;
+      padding-top: 20px;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+   
+    input {
+      outline: 0;
+      background: #f9f9f9;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+  }
+
+    button {
+      outline: 0;
+      background: #ee4287;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 16px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+    }
+
+    button:hover {
+      opacity: .5;
+    }
+
+    pre {
+      overflow: scroll;
+    }
+</style>
+
+	<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script> 
+
+
+<script type="text/javascript"> 
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();   
+      NProgress.done();
+   </script>
+
+	</div>
+	</body>
+</html>

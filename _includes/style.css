@@ -1,0 +1,234 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+    html, body {
+        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 80em;
+        margin: 0 auto;
+
+    }
+    header {
+        width: 100%;
+        background: #d3f2ff;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 5px 2px #6d95a5;
+
+    }
+    h1.enlight {
+        color: #ee4287;
+        font-weight: 500;
+        font-size: 50px;
+        padding-right: 3%;
+        margin-left: 15%;
+    }
+    h1 {
+        color: #333;
+        font-weight: 300;
+    }
+    .top {
+        display: inline;
+    }
+    ul.nav {
+        padding-left: 0;
+        color: #333;
+        position: relative;
+        top: -5px;
+    }
+    
+    li.nav-item {
+        margin: 1%;
+        font-size: 18px;
+        margin-bottom: 2%;
+    }
+    .social {
+        float: right;
+        position: relative;
+        top: 15px;
+    }
+
+    h2.subtitle {
+      padding-top: 1%;
+      font-size: 64px;
+      text-align: center;
+      font-weight: 300;
+      color: #333;
+    }
+            
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        opacity: .5;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-github:hover {
+        color: #c9510c;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-envelope:hover {
+        color: #85144b;
+        transition: .5s;
+        font-size: 30px;
+    }
+
+    h1.project-title-front {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+
+    }
+
+    h2.project-description-front {
+      color: #333;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding-top: 5px;
+
+    }
+    .grid {
+      margin-bottom: 2%;
+    }
+    .col-1-3 {
+      width: 30%;
+      float: left;
+      padding: 10px;
+    }
+
+    img.project-image-front {
+        width: 100%;
+    }
+
+    img:hover {
+      opacity: .5;
+    }
+
+    @media (max-width: 1400px) {
+                
+                .social {
+                    display: none;
+                }
+              }
+
+    @media (max-width: 760px) {
+                ul.nav {
+                    display: block;
+                    text-align: center;
+                }
+                h1.enlight {
+                    margin-left: 30%;
+                    padding: 0;
+                }
+                h2.subtitle {
+                    font-size: 32px;
+                }
+                header {
+                    padding-bottom: 5px;
+                }
+                .col-1-3 { 
+                    width: 100%;    
+                }
+            }
+
+    h1.project-title {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    h2.project-description {
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+        padding: 0;
+    }
+
+    .project-image {
+        width: 40%;
+        height: auto;
+        display: block;
+    }
+
+    .project-button {
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 20px;
+      background: #ee4287;
+      width: 5em;
+      border-radius: 5px;
+    }
+
+    .post {
+        font-size: 20px;
+        max-width: 50em;
+        margin: 0 auto;
+        color: #333;
+        padding: 1%;
+    }
+
+    .underline {
+        border-bottom: 1px solid #ee4287;
+    }
+    
+    .newsletter {
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+      padding: 0;
+    }
+
+    footer {
+      flex: 1;
+      padding-top: 20px;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+   
+    input {
+      outline: 0;
+      background: #f9f9f9;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+  }
+
+    button {
+      outline: 0;
+      background: #ee4287;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 16px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+    }
+
+    button:hover {
+      opacity: .5;
+    }
+
+    pre {
+      overflow: scroll;
+    }
+</style>

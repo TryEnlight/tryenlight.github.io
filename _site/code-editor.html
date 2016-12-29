@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+	<head>
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Live HTML/CSS/JS Editor</title>
+      <meta name="description" content="an online editor that compiles your code live">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Live HTML/CSS/JS Editor">
+      <meta property="og:description" content="an online editor that compiles your code live">
+      <meta property="og:url" content="https://enlight.ml/code-editor">
+      <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Live HTML/CSS/JS Editor" />
+      <meta name="twitter:description" content="an online editor that compiles your code live" />
+      <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
+
+      <link href="style.css" type="stylesheet">
+
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+    
+
+	</head>
+
+
+
+	<header>
+	
+
+<a href="/"><h1 class="enlight top">Enlight </h1></a>
+
+<ul class="nav top"> 
+	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/ios"><li class="nav-item top">iOS Development </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials"><li class="nav-item top">Contribute </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="https://blog.enlight.ml"><li class="nav-item top">Blog</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
+	<a href="/why"><li class="nav-item top">Why Enlight?</li></a>
+	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
+	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
+	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
+</ul>
+	</header>
+
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<style>
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", 'Nunito Sans', Helvetica, sans-serif;
+  line-height: 1;
+  max-width: 150px;
+  background: #f4faff;
+}
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+    color: #555;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    color: #555;
+
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1500px) {
+  #carbonads {
+    position: relative;
+    margin: 1em auto 1em;
+    border-radius: 5px;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+}
+
+</style>
+	<body>
+	<div class="container">
+	<h1 class="project-title"> Build a <span class="underline">Live HTML/CSS/JS Editor</span></h1>
+	<h2 class="project-description"> an online editor that compiles your code live</h2>
+
+
+	<div class="post">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<a href="/demo/code-editor-project/index.html"><img class="project-image" src="img/code-editor.gif"></a>
+
+	<a href=""><button class="project-button">Source</button></a><a href="/demo/code-editor-project/index.html"><button class="project-button">Demo</button></a>
+
+	 <h3 id="getting-started">Getting Started</h3>
+
+<p>In this project, we’ll be building a live code editor similar to <a href="https://codepen.io" class="underline">Codepen</a> or <a href="https://jsfiddle.net" class="underline">JsFiddle</a>.</p>
+
+<p>Let’s get started by creating our usual three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>To get started with our markup, we’ll be needing three <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" class="underline">textarea</a> tags which will correspond with the id of the language we’ll be compiling. To actually show the compiled code, we will also need an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" class="underline">iframe</a> which will allow us to insert an html document into an existing html page. Make sure to set ids for each tag so we can communicate with these elements in JavaScript.</p>
+
+<pre class="prettyprint"><xmp>
+  <html>
+    <head>
+      <title>Code Editor</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+      <textarea id="html" placeholder="HTML"></textarea>
+      <textarea id="css" placeholder="CSS"></textarea>
+      <textarea id="js" placeholder="JavaScript"></textarea>
+      <iframe id="code"></iframe>
+
+      <script type="text/javascript" src="app.js"></script>
+
+    </body>
+  </html>
+
+</xmp></pre>
+
+<h3 id="making-it-look-decent">Making it look decent</h3>
+
+<p>Before we head on to making our app, let’s style it up a bit. We should align the elements to the center, make the textarea elements go side by side, and put the iframe right below them.</p>
+
+<pre class="prettyprint">
+
+  body {
+    text-align: center;
+  }
+
+  textarea {
+    width: 32%;
+    float: top;
+    min-height: 250px;
+    overflow: scroll;
+    margin: auto;
+    display: inline-block;
+    background: #F4F4F9;
+    outline: none;
+    font-family: Courier, sans-serif;
+    font-size: 14px;
+  }
+
+  iframe {
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: 35em;
+  }
+
+
+</pre>
+
+<p>As always, feel free to customize this to your liking!</p>
+
+<h3 id="our-compile-function">Our compile() function</h3>
+
+<p>Now, here’s where we actually make our app functional. We can do so with just one function. Here’s what we’ll need to write in it:</p>
+
+<ul>
+  <li>link the html, css, and js ids to variables using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" class="underline">document.getElementById()</a></li>
+  <li>set the iframe id’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow" class="underline">contentWindow</a> to a variable</li>
+  <li>write a function that runs on <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup" class="underline">document.body.keyup</a> (when a key is pressed) that:
+    <ul>
+      <li>opens the textarea’s contentWindow</li>
+      <li>writes the values of the html, css, and js variables in it</li>
+      <li>closes the textarea’s contentWindow</li>
+    </ul>
+  </li>
+</ul>
+
+<pre class="prettyprint"><xmp>
+  function compile() {
+
+    var html = document.getElementById("html");
+    var css = document.getElementById("css");
+    var js = document.getElementById("js");
+    var code = document.getElementById("code").contentWindow.document;
+    
+     document.body.onkeyup = function(){
+      code.open();
+      code.writeln(html.value+"<style>"+css.value+"</style>"+"<script>" + js.value + "</script>");
+      code.close();
+        };
+      };
+      
+  compile();
+
+</xmp></pre>
+
+<p>
+That's it! Pretty simple right? To take this a step further, try and make the textareas responsive with  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" class="underline">media queries</a>. If you liked this tutorial, try building a <a href="/web-paint.html" class="underline"> Web Paint</a> app!
+</p>
+
+
+	    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+  	<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h1 class="newsletter"> Get the latest projects delivered to your inbox!</p>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action">Subscribe!</button>
+      </form>
+ </footer>
+
+	</div> 
+
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+    html, body {
+        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 80em;
+        margin: 0 auto;
+
+    }
+    header {
+        width: 100%;
+        background: #d3f2ff;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 5px 2px #6d95a5;
+
+    }
+    h1.enlight {
+        color: #ee4287;
+        font-weight: 500;
+        font-size: 50px;
+        padding-right: 3%;
+        margin-left: 15%;
+    }
+    h1 {
+        color: #333;
+        font-weight: 300;
+    }
+    .top {
+        display: inline;
+    }
+    ul.nav {
+        padding-left: 0;
+        color: #333;
+        position: relative;
+        top: -5px;
+    }
+    
+    li.nav-item {
+        margin: 1%;
+        font-size: 18px;
+        margin-bottom: 2%;
+    }
+    .social {
+        float: right;
+        position: relative;
+        top: 15px;
+    }
+
+    h2.subtitle {
+      padding-top: 1%;
+      font-size: 64px;
+      text-align: center;
+      font-weight: 300;
+      color: #333;
+    }
+            
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        opacity: .5;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-github:hover {
+        color: #c9510c;
+        transition: .5s;
+        font-size: 30px;
+    }
+    .fa-envelope:hover {
+        color: #85144b;
+        transition: .5s;
+        font-size: 30px;
+    }
+
+    h1.project-title-front {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+
+    }
+
+    h2.project-description-front {
+      color: #333;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding-top: 5px;
+
+    }
+    .grid {
+      margin-bottom: 2%;
+    }
+    .col-1-3 {
+      width: 30%;
+      float: left;
+      padding: 10px;
+    }
+
+    img.project-image-front {
+        width: 100%;
+    }
+
+    img:hover {
+      opacity: .5;
+    }
+
+    @media (max-width: 1400px) {
+                
+                .social {
+                    display: none;
+                }
+              }
+
+    @media (max-width: 760px) {
+                ul.nav {
+                    display: block;
+                    text-align: center;
+                }
+                h1.enlight {
+                    margin-left: 30%;
+                    padding: 0;
+                }
+                h2.subtitle {
+                    font-size: 32px;
+                }
+                header {
+                    padding-bottom: 5px;
+                }
+                .col-1-3 { 
+                    width: 100%;    
+                }
+            }
+
+    h1.project-title {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    h2.project-description {
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+        padding: 0;
+    }
+
+    .project-image {
+        width: 40%;
+        height: auto;
+        display: block;
+    }
+
+    .project-button {
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 20px;
+      background: #ee4287;
+      width: 5em;
+      border-radius: 5px;
+    }
+
+    .post {
+        font-size: 20px;
+        max-width: 50em;
+        margin: 0 auto;
+        color: #333;
+        padding: 1%;
+    }
+
+    .underline {
+        border-bottom: 1px solid #ee4287;
+    }
+    
+    .newsletter {
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+      padding: 0;
+    }
+
+    footer {
+      flex: 1;
+      padding-top: 20px;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+   
+    input {
+      outline: 0;
+      background: #f9f9f9;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+  }
+
+    button {
+      outline: 0;
+      background: #ee4287;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 16px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+    }
+
+    button:hover {
+      opacity: .5;
+    }
+
+    pre {
+      overflow: scroll;
+    }
+</style>
+
+	<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script> 
+
+
+<script type="text/javascript"> 
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();   
+      NProgress.done();
+   </script>
+
+	</div>
+	</body>
+</html>

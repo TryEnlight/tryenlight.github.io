@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<h1 style="font-weight: 700;"> Beginner Web Development Projects:</h1>
+{% for post in site.categories.easy-web %}
+    <div class="grid">
+      <div class="col-1-3">
+      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></h1></a>
+      <a href="{{ post.url }}"><h1 class="project-title-front"><span class="underline">{{ post.title }}</span></h1></a>
+      <a href="{{ post.url }}"><h2 class="project-description-front">{{ post.description }}</h2></a>
+      </div>
+	</div>
+{% endfor %}
+
+<h1 style="font-weight: 700;"> Intermediate Web Development Projects:</h1>
+{% for post in site.categories.middle-web %}
+    <div class="grid">
+      <div class="col-1-3">
+      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></h1></a>
+      <a href="{{ post.url }}"><h1 class="project-title-front"><span class="underline">{{ post.title }}</span></h1></a>
+      <a href="{{ post.url }}"><h2 class="project-description-front">{{ post.description }}</h2></a>
+      </div>
+	</div>
+{% endfor %}

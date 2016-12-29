@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+	<head>
+	{% include head.html %}
+	</head>
+
+
+
+	<header>
+	{% include header.html %}
+	</header>
+
+	{% include ad.html %}
+	<body>
+	<div class="container">
+	<h1 class="project-title"><span class="underline">{{ page.title }}</span></h1>
+	<h2 class="project-description"> {{ page.description }}</h2>
+
+
+	<div class="post">
+
+	 {{content}}
+
+	 </div>
+
+	{% include style.css %}
+
+	{% include scripts.js %}
+
+	</div>
+	</body>
+</html>
