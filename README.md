@@ -3,14 +3,14 @@
 # learn to code by building projects
 
 ## projects available
-- [hex color generator](https://enlight.ml/projects/color/color-generator.html)
-- [text editor](https://enlight.ml/projects/text-editor/text-editor.html)
-- [a minimal clock](https://enlight.ml/projects/clock/clock.html)
-- [to-do list](https://enlight.ml/projects/to-do/to-do.html)
-- [web paint](https://enlight.ml/projects/web-paint/web-paint.html)
-- [quote generator](https://enlight.ml/projects/quote/quote.html)
-- [geolocation weather app](https://enlight.ml/projects/weather/weather.html)
-- [auto-compiling code editor](https://enlight.ml/projects/code-editor/code-editor.html)
+- [hex color generator](https://enlight.ml/color-generator.html)
+- [text editor](https://enlight.ml/text-editor.html)
+- [a minimal clock](https://enlight.ml/clock.html)
+- [to-do list](https://enlight.ml/to-do.html)
+- [web paint](https://enlight.ml/web-paint.html)
+- [quote generator](https://enlight.ml/quote.html)
+- [geolocation weather app](https://enlight.ml/weather.html)
+- [auto-compiling code editor](https://enlight.ml/code-editor.html)
 
 ## for the future
 - a twitter bot
