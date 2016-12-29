@@ -17,7 +17,6 @@
         margin: 0;
         padding: 0;
         box-shadow: 0px 5px 10px #274d63;
-
     }
     h1.enlight {
         color: #ee4287;
@@ -49,10 +48,10 @@
         float: right;
         position: relative;
         top: 15px;
+        list-style: none;
     }
 
     h2.subtitle {
-      padding-top: 1%;
       font-size: 64px;
       text-align: center;
       font-weight: 300;
@@ -68,18 +67,12 @@
     }
     .fa-twitter:hover {
         color: #1dcaff;
-        transition: .5s;
-        font-size: 30px;
-    }
+      }
     .fa-github:hover {
-        color: #c9510c;
-        transition: .5s;
-        font-size: 30px;
+        color: #6e5494;
     }
     .fa-envelope:hover {
         color: #85144b;
-        transition: .5s;
-        font-size: 30px;
     }
 
     h1.project-title-front {
@@ -142,6 +135,7 @@
                 .col-1-3 { 
                     width: 100%;    
                 }
+
             }
 
     h1.project-title {
@@ -233,5 +227,9 @@
       overflow: scroll;
     }
 
-
+    .s-footer {
+      position: relative;
+      bottom: 0;
+      list-style: none;
+    }
 </style>

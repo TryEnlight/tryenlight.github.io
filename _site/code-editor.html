@@ -50,52 +50,63 @@
 
 	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
 <style>
-
 #carbonads {
+  margin: 1em auto 2em;
   display: block;
   overflow: hidden;
+  padding: .5em;
   position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1em;
-  font-family: "Avenir Next", 'Nunito Sans', Helvetica, sans-serif;
-  line-height: 1;
-  max-width: 150px;
-  background: #527082;
+  font-size: 14px;
+  max-width: 360px;
+  background-color: #fff;
+  border: solid 1px #f2f7ff;
+  line-height: 1.5;
+  border-radius: 5px;
 }
 
-  #carbonads span {
-    display: block;
-    overflow: hidden;
-  }
+#carbonads a {
+  color: inherit;
+}
 
-  .carbon-img {
-    display: block;
-    margin: 0 auto 1em;
-    text-align: center;
-  }
+#carbonads a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
 
-  .carbon-text {
-    display: block;
-    margin-bottom: 1em;
-    text-align: left;
-    max-width: 200px;
-    color: #fff;
-  }
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
 
-  .carbon-poweredby {
-    display: block;
-    text-align: right;
-    font-size: .8em;
-    color: #fff;
+.carbon-img {
+  float: left;
+  margin-right: .5em;
+}
 
-  }
+.carbon-img img {
+  display: block;
+}
 
-  @media only screen and (min-width: 320px) and (max-width: 1500px) {
+.carbon-text {
+  display: block;
+  float: left;
+  max-width: 150px;
+  text-align: left;
+}
+
+.carbon-poweredby {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  font-size: 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1479px) {
   #carbonads {
     position: relative;
-    margin: 1em auto 1em;
-    border-radius: 5px;
+    margin: 1em auto 2em;
   }
   #carbonads img {
     padding: 0;
@@ -256,7 +267,12 @@ That's it! Pretty simple right? To take this a step further, try and make the te
          <h1 class="newsletter"> Get the latest projects delivered to your inbox!</p>
          <input id="email" type="email" name="EMAIL" placeholder="Email">
          <button type="submit" name="action">Subscribe!</button>
-      </form>
+      </form><br><br>
+    <div class="s-footer">
+    	<a href="https://twitter.com/tryenlight"><li class="top"><i class="fa fa-twitter"></i></li></a>
+	    <a href="https://github.com/samayshamdasani/enlight"><li class="top"><i class="fa fa-github"></i></li></a>
+	    <a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="top"><i class="fa fa-envelope"></i></li></a>
+	</div>
  </footer>
 
 	</div> 
@@ -280,7 +296,6 @@ That's it! Pretty simple right? To take this a step further, try and make the te
         margin: 0;
         padding: 0;
         box-shadow: 0px 5px 10px #274d63;
-
     }
     h1.enlight {
         color: #ee4287;
@@ -312,10 +327,10 @@ That's it! Pretty simple right? To take this a step further, try and make the te
         float: right;
         position: relative;
         top: 15px;
+        list-style: none;
     }
 
     h2.subtitle {
-      padding-top: 1%;
       font-size: 64px;
       text-align: center;
       font-weight: 300;
@@ -331,18 +346,12 @@ That's it! Pretty simple right? To take this a step further, try and make the te
     }
     .fa-twitter:hover {
         color: #1dcaff;
-        transition: .5s;
-        font-size: 30px;
-    }
+      }
     .fa-github:hover {
-        color: #c9510c;
-        transition: .5s;
-        font-size: 30px;
+        color: #6e5494;
     }
     .fa-envelope:hover {
         color: #85144b;
-        transition: .5s;
-        font-size: 30px;
     }
 
     h1.project-title-front {
@@ -405,6 +414,7 @@ That's it! Pretty simple right? To take this a step further, try and make the te
                 .col-1-3 { 
                     width: 100%;    
                 }
+
             }
 
     h1.project-title {
@@ -496,7 +506,11 @@ That's it! Pretty simple right? To take this a step further, try and make the te
       overflow: scroll;
     }
 
-
+    .s-footer {
+      position: relative;
+      bottom: 0;
+      list-style: none;
+    }
 </style>
 
 	<script>
