@@ -1,4 +1,5 @@
 ![](https://enlight.ml/favicon.ico)
+[![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/tryenlight/lobby)
 
 # learn to code by building projects
 
