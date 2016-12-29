@@ -25,7 +25,7 @@
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## CONTRIBUTE by adding your projects & tutorials!
-Enlight is open-source. That means we need you! Have a project on the web, a cool app you're making, or basically anything useful? Share your knowledge! It doesn't have to be a specific programming language -- just submit whatever you want to share!
+Enlight is open-source - which means we love contributors! Have a project on the web, a cool app you're making, or really  anything useful? Share your knowledge! It doesn't have to be a specific programming language -- just send us whatever you want to share!
 
 If it's useful, it'll be posted on the site with of course, credit to you!
 
