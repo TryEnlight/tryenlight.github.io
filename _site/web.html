@@ -5,36 +5,76 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Learn to Code the Web</title>
-      <meta name="description" content="fun, useful projects that anyone can build">
+      <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:title" content="Learn to Code the Web">
-      <meta property="og:description" content="fun, useful projects that anyone can build">
+      <meta property="og:description" content="">
       <meta property="og:url" content="https://enlight.ml/web.html">
       <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="Learn to Code the Web" />
-      <meta name="twitter:description" content="fun, useful projects that anyone can build" />
+      <meta name="twitter:description" content="" />
       <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
 
       <link href="style.css" type="stylesheet">
 
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
-
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
-
-    
-
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/timcreative/material-kit/master/assets/css/material-kit.css" />
 	</head>
 
+	
 
 
 	<header>
-	
+	<div id="header">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+	<div class="container-fluid">
+    	<div class="navbar-header">
+    		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+    		</button>
+    		<a class="navbar-brand" href="/">Enlight</a>
+    	</div>
 
-<a href="/"><h1 class="enlight top">Enlight </h1></a>
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    		<ul class="nav navbar-nav">
+				<li><a href="/web">Web Development</a></li>
+        		<li><a href="/ios">iOS Development</a></li>
+        		<li><a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a></li>
+        		<li><a href="https://blog.enlight.ml">Blog</a></li>
+        		<li><a href="/why">Why Enlight?</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+    			<li><a href="https://twitter.com/tryenlight"><i class="fa fa-twitter"></i></a></li>
+    			<li><a href="https://github.com/samayshamdasani/enlight"><i class="fa fa-github"></i></a></li>
+    			<li><a href=""><i class="fa fa-envelope inline"></i></a></li>
+
+    		</ul>
+    	</div>
+	</div>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<a href="/"><h1 class="enlight top">Enlight</h1></a>
 
 <ul class="nav top"> 
 	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
@@ -46,414 +86,522 @@
 	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
 	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
 	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
-</ul>
+</ul> -->
 	</header>
 
 	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
 <style>
 #carbonads {
-  margin: 1em auto 2em;
   display: block;
   overflow: hidden;
-  padding: .5em;
-  position: absolute;
-  font-size: 14px;
-  max-width: 360px;
-  background-color: #fff;
-  border: solid 1px #f2f7ff;
-  line-height: 1.5;
-  border-radius: 5px;
-}
-
-#carbonads a {
-  color: inherit;
-}
-
-#carbonads a:hover {
-  color: inherit;
-  text-decoration: underline;
-}
-
-#carbonads span {
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-
-.carbon-img {
-  float: left;
-  margin-right: .5em;
-}
-
-.carbon-img img {
-  display: block;
-}
-
-.carbon-text {
-  display: block;
-  float: left;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", Helvetica, sans-serif;
+  line-height: 1;
   max-width: 150px;
-  text-align: left;
+  background: #575757;
 }
 
-.carbon-poweredby {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: block;
-  font-size: 10px;
-}
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
 
-@media only screen and (min-width: 320px) and (max-width: 1479px) {
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1279px) {
   #carbonads {
     position: relative;
-    margin: 1em auto 2em;
+    margin: 6em auto 2em;
+    top: 0px;
   }
   #carbonads img {
     padding: 0;
   }
+
 }
 
-</style>
+</style> 
+
+
 	<body>
-	<div class="container">
-	<h1 class="project-title"><span class="underline">Learn to Code the Web</span></h1>
-	<h2 class="project-description"> fun, useful projects that anyone can build</h2>
+
+	 <h3 class="project-title"> Beginner Web Development Projects:</h3>
+
+<div class="grid">
+  <div class="row">
 
 
-	<div class="post">
 
-	 <h1 style="font-weight: 700;"> Beginner Web Development Projects:</h1>
+    <div class="col-sm-4">
+      <a href="/hex-color-generator"><img class="project-image-front" src=/img/color.gif></a>
+      <a href="/hex-color-generator"><h3 class="project-title-front"><span>Hex Color Generator</span></h3></a>
+    </div>
+   
 
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/hex-color-generator"><img class="project-image-front" src=/img/color.gif></h1></a>
-      <a href="/hex-color-generator"><h1 class="project-title-front"><span class="underline">Hex Color Generator</span></h1></a>
-      <a href="/hex-color-generator"><h2 class="project-description-front">generate beautiful colors every time you press the spacebar</h2></a>
-      </div>
-	</div>
+    <div class="col-sm-4">
+      <a href="/clock"><img class="project-image-front" src=/img/clock.gif></a>
+      <a href="/clock"><h3 class="project-title-front"><span>Clock</span></h3></a>
+    </div>
+   
 
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/clock"><img class="project-image-front" src=/img/clock.gif></h1></a>
-      <a href="/clock"><h1 class="project-title-front"><span class="underline">Build a Clock</span></h1></a>
-      <a href="/clock"><h2 class="project-description-front">design a beautiful & functioning clock</h2></a>
-      </div>
-	</div>
+    <div class="col-sm-4">
+      <a href="/text-editor"><img class="project-image-front" src=/img/text-editor.gif></a>
+      <a href="/text-editor"><h3 class="project-title-front"><span>Text Editor</span></h3></a>
+    </div>
+   
 
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/text-editor"><img class="project-image-front" src=/img/text-editor.gif></h1></a>
-      <a href="/text-editor"><h1 class="project-title-front"><span class="underline">Text Editor</span></h1></a>
-      <a href="/text-editor"><h2 class="project-description-front">a minimal text editor that autosaves your text every second</h2></a>
-      </div>
-	</div>
+    <div class="col-sm-4">
+      <a href="/to-do"><img class="project-image-front" src=/img/to-do.gif></a>
+      <a href="/to-do"><h3 class="project-title-front"><span>To-Do List</span></h3></a>
+    </div>
+   
 
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/to-do"><img class="project-image-front" src=/img/to-do.gif></h1></a>
-      <a href="/to-do"><h1 class="project-title-front"><span class="underline">To-Do List</span></h1></a>
-      <a href="/to-do"><h2 class="project-description-front">a simple, useful web app for tasks</h2></a>
-      </div>
-	</div>
+  </div>
+
+</div>
 
 
-<h1 style="font-weight: 700;"> Intermediate Web Development Projects:</h1>
-
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/web-paint"><img class="project-image-front" src=/img/web-paint.gif></h1></a>
-      <a href="/web-paint"><h1 class="project-title-front"><span class="underline">Web Paint App</span></h1></a>
-      <a href="/web-paint"><h2 class="project-description-front">create your own digital whiteboard</h2></a>
-      </div>
-	</div>
-
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/weather"><img class="project-image-front" src=/img/weather.gif></h1></a>
-      <a href="/weather"><h1 class="project-title-front"><span class="underline">Geolocation Weather App</span></h1></a>
-      <a href="/weather"><h2 class="project-description-front">auto-detecting location weather app using APIs</h2></a>
-      </div>
-	</div>
-
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/code-editor"><img class="project-image-front" src=/img/code-editor.gif></h1></a>
-      <a href="/code-editor"><h1 class="project-title-front"><span class="underline">Live HTML/CSS/JS Editor</span></h1></a>
-      <a href="/code-editor"><h2 class="project-description-front">an online editor that compiles your code live</h2></a>
-      </div>
-	</div>
-
-    <div class="grid">
-      <div class="col-1-3">
-      <a href="/quote"><img class="project-image-front" src=/img/quote.gif></h1></a>
-      <a href="/quote"><h1 class="project-title-front"><span class="underline">Quote Generator</span></h1></a>
-      <a href="/quote"><h2 class="project-description-front">a website that presents a random quote for your inspiration</h2></a>
-      </div>
-	</div>
+<h3 class="project-title"> Intermediate Web Development Projects:</h3>
+<div class="grid">
+  <div class="row">
 
 
-	 </div>
+
+    <div class="col-sm-4">
+      <a href="/web-paint"><img class="project-image-front" src=/img/web-paint.gif></a>
+      <a href="/web-paint"><h3 class="project-title-front"><span>Web Paint App</span></h3></a>
+    </div>
+   
+
+    <div class="col-sm-4">
+      <a href="/weather"><img class="project-image-front" src=/img/weather.gif></a>
+      <a href="/weather"><h3 class="project-title-front"><span>Geolocation Weather App</span></h3></a>
+    </div>
+   
+
+    <div class="col-sm-4">
+      <a href="/code-editor"><img class="project-image-front" src=/img/code-editor.gif></a>
+      <a href="/code-editor"><h3 class="project-title-front"><span>Live HTML/CSS/JS Editor</span></h3></a>
+    </div>
+   
+
+    <div class="col-sm-4">
+      <a href="/quote"><img class="project-image-front" src=/img/quote.gif></a>
+      <a href="/quote"><h3 class="project-title-front"><span>Quote Generator</span></h3></a>
+    </div>
+   
+
+  </div>
+
+</div>
+
+<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h3> Get the latest projects delivered to your inbox!</h3>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action" class="footer-button">Subscribe!</button>
+      </form>
+
+    <div class="s-footer">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+ </footer>
+
+<!--  FIX FOOTER, ADD TWEET BUTTON, & FOLLOW -->
+
+	 
+
+
+
+
+
+
+
 
 	<style>
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
-    html, body {
-        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
-        background: #fff;
-        margin: 0;
-        padding: 0;
-    }
-    p::selection, li::selection {
-      background-color: #ee4287;
-    } 
-    p:-moz-selection, li:-moz-selection {
-      background-color: #ee4287;
-    } 
-    .container {
-        max-width: 80em;
-        margin: 0 auto;
 
-    }
-    header {
-        width: 100%;
-        background: #274d63;
-        margin: 0;
-        padding: 0;
-        box-shadow: 0px 5px 10px #274d63;
-    }
-    h1.enlight {
-        color: #ee4287;
-        font-weight: 500;
-        font-size: 50px;
-        padding-right: 3%;
-        margin-left: 15%;
-    }
-    h1 {
-        color: #333;
-        font-weight: 300;
-    }
-    .top {
-        display: inline;
-    }
-    ul.nav {
-        padding-left: 0;
-        color: #fff;
-        position: relative;
-        top: -5px;
-    }
-    
-    li.nav-item {
-        margin: 1%;
-        font-size: 18px;
-        margin-bottom: 2%;
-    }
-    .social {
-        float: right;
-        position: relative;
-        top: 15px;
-        list-style: none;
-    }
+/* Header */
 
-    h2.subtitle {
-      font-size: 64px;
-      text-align: center;
-      font-weight: 300;
-      color: #333;
-    }
-            
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-    a:hover {
-        opacity: .5;
-    }
-    .fa-twitter:hover {
-        color: #1dcaff;
-      }
-    .fa-github:hover {
-        color: #6e5494;
-    }
-    .fa-envelope:hover {
-        color: #85144b;
-    }
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: transparent;
+}
 
-    h1.project-title-front {
-      color: #333;
-      font-weight: 600;
-      text-align: center;
-      margin: 0;
-      padding: 0;
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll {
+	background: #E91E63;
+}
 
 
-    }
+#header .navbar-brand {
+	font-size: 36px;
+	font-family: "Avenir Next", "Roboto", sans-serif;
+}
 
-    h2.project-description-front {
-      color: #333;
-      font-weight: 400;
-      text-align: center;
-      margin: 0;
-      padding-top: 5px;
+#header li {
+	letter-spacing: 1px;
+}
 
-    }
-    .grid {
-      margin-bottom: 2%;
-    }
-    .col-1-3 {
-      width: 30%;
-      float: left;
-      padding: 10px;
-    }
+#header li a {
+	font-size: 12px;
+}
 
-    img.project-image-front {
-        width: 100%;
-    }
+/* General */
 
-    img:hover {
-      opacity: .5;
-    }
+body {
+	margin-top: 100px;
+	background-color: #303030;
+	color: #fff;
+}
 
-    @media (max-width: 1400px) {
-                
-                .social {
-                    display: none;
-                }
-              }
+a {
+	color: inherit;
+}
 
-    @media (max-width: 760px) {
-                ul.nav {
-                    display: block;
-                    text-align: center;
-                }
-                h1.enlight {
-                    margin-left: 30%;
-                    padding: 0;
-                }
-                h2.subtitle {
-                    font-size: 32px;
-                }
-                header {
-                    padding-bottom: 5px;
-                }
-                .col-1-3 { 
-                    width: 100%;    
-                }
+a:hover {
+	color: inherit;
+	text-decoration: none;
+	opacity: .9;
+}
 
-            }
+p a {
+	border-bottom: 1px solid #E91E63;
+}
 
-    h1.project-title {
-        color: #333;
-        font-weight: 600;
-        text-align: center;
-        margin-top: 5%;
-    }
+.content li a {
+	border-bottom: 1px solid #E91E63;
+}
 
-    h2.project-description {
-        color: #333;
-        font-weight: 400;
-        text-align: center;
-        padding: 0;
-    }
+.content {
+	margin-bottom: 5%;
+}
 
-    .project-image {
-        width: 40%;
-        height: auto;
-        display: block;
-    }
+button {
+	outline: 0;
+    background: #E91E63;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    font-family: "Avenir Next", "Roboto", Helvetica, Arial, sans-serif;
+}
 
-    .project-button {
-      margin-top: 2%;
-      margin-right: 2%;
-      font-size: 20px;
-      background: #ee4287;
-      width: 5em;
-      border-radius: 5px;
-    }
+.underline {
+  border-bottom: 1px solid #E91E63;
+}
 
-    .post {
-        font-size: 20px;
-        max-width: 50em;
-        margin: 0 auto;
-        color: #333;
-        padding: 1%;
-    }
+/* Frontpage */
 
-    .underline {
-        border-bottom: 1px solid #ee4287;
-    }
-    
-    .newsletter {
-      margin: 0 auto;
-      text-align: center;
-      color: #333;
-      padding: 0;
-    }
+.grid {
+	margin-top: 5%;
+	max-width: 80%;
+	margin: 0 auto;
+}
 
-    footer {
-      flex: 1;
-      padding-top: 20px;
-      margin: 0;
-      width: 100%;
-      overflow: hidden;
-      padding-bottom: 5%;
-    }
-   
-    input {
+.grid .col-sm-4 {
+   position: relative; 
+   padding: 5px;
+}
+
+h3.project-title-front { 
+   position: absolute; 
+   bottom: 10px; 
+   left: 15px;
+   width: 100%; 
+}
+
+h3.project-title-front span {
+   color: white; 
+   background: #E91E63;
+   padding: 10px; 
+   border-radius: 2px;
+}
+
+img.project-image-front {
+	width: 100%;
+}
+
+/* Project Page */
+
+.project {
+	max-width: 65em;
+	margin: 0 auto;
+	width: 90%;
+}
+
+h1.project-title, h3.project-title {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+h3.project-description {
+	text-align: center;
+	padding: 0;
+	margin-bottom: 2%;
+}
+
+img.project-image {
+	display: block;
+  	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.project-button {
+	 margin-top: 2%;
+    margin-right: 2%;
+  	font-size: 20px;
+  	border-radius: 5px;
+  	width: 5em;
+}
+
+p, li {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+
+@media(max-width: 760px) {
+
+	img.project-image {
+		width: 80%;
+	}
+
+	#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: #E91E63;
+}
+
+	h1, h2, p {
+		padding: 20px;
+	}
+
+}
+
+footer {
+  width: 100%;
+  background: #3d3d3d;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.footer-button {
+    font-size: 16px;
+    border-radius: 5px;
+    width: 8em;
+}
+
+.footer-button:hover {
+    opacity: .8;
+}
+
+footer .form-control {
+  max-width: 30em;
+  margin: auto;
+}
+
+input {
       outline: 0;
-      background: #f9f9f9;
+      background: #575757;
       border: 0;
       padding: 15px;
       box-sizing: border-box;
       font-size: 16px;
       width: 350px;
       font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+      margin-top: 10px;
+      margin-right: 10px;
+      color: #E91E63;
   }
 
-    button {
-      outline: 0;
-      background: #ee4287;
-      border: 0;
-      padding: 15px;
-      color: #FFFFFF;
-      font-size: 16px;
-      -webkit-transition: all 0.3 ease;
-      transition: all 0.3 ease;
-      cursor: pointer;
-      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
-    }
+  .s-footer {
+    margin-top: 2%;
+  }
 
-    button:hover {
-      opacity: .5;
-    }
+  .fa-twitter:hover {
+    color: #1dcaff; 
+  }
 
-    pre {
-      overflow: scroll;
-    }
+  .fa-github:hover {
+    color: #6e5494;
+  }
 
-    .s-footer {
-      position: relative;
-      bottom: 0;
-      list-style: none;
-    }
+  .fa-envelope:hover {
+    color: #bd2c00;
+  }
+
+/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+.prettyprint {
+  background: #3d3d3d;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  border: 0 !important;
+  border-radius: 0;
+}
+
+.pln {
+  color: #e6e9ed;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #656d78;
+}
+
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  padding-left: 1em;
+  background-color: #2f3640;
+  list-style-type: decimal;
+}
+
+@media screen {
+
+  /* string content */
+
+  .str {
+    color: #ffce54;
+  }
+
+  /* keyword */
+
+  .kwd {
+    color: #4fc1e9;
+  }
+
+  /* comment */
+
+  .com {
+    color: #656d78;
+  }
+
+  /* type name */
+
+  .typ {
+    color: #4fc1e9;
+  }
+
+  /* literal value */
+
+  .lit {
+    color: #ac92ec;
+  }
+
+  /* punctuation */
+
+  .pun {
+    color: #e6e9ed;
+  }
+
+  /* lisp open bracket */
+
+  .opn {
+    color: #e6e9ed;
+  }
+
+  /* lisp close bracket */
+
+  .clo {
+    color: #e6e9ed;
+  }
+
+  /* markup tag name */
+
+  .tag {
+    color: #ed5565;
+  }
+
+  /* markup attribute name */
+
+  .atn {
+    color: #a0d468;
+  }
+
+  /* markup attribute value */
+
+  .atv {
+    color: #ffce54;
+  }
+
+  /* declaration */
+
+  .dec {
+    color: #ac92ec;
+  }
+
+  /* variable name */
+
+  .var {
+    color: #e6e9ed;
+  }
+
+  /* function name */
+
+  .fun {
+    color: #e6e9ed;
+  }
+}
+
 </style>
 
-	<script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-         
-         ga('create', 'UA-85620206-1', 'auto');
-         ga('send', 'pageview');
-      </script> 
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/timcreative/material-kit/master/assets/js/material-kit.js"></script>
+<script src="https://cdn.rawgit.com/timcreative/material-kit/master/assets/js/material.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
 
-
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   
+   ga('create', 'UA-85620206-1', 'auto');
+   ga('send', 'pageview');
+</script>
 <script type="text/javascript"> 
-      NProgress.configure({ showSpinner: false });
-      NProgress.start();   
-      NProgress.done();
-   </script>
+   NProgress.configure({ showSpinner: false });
+   NProgress.start();   
+   NProgress.done();
+</script>
 
-	</div>
+
+
 	</body>
 </html>

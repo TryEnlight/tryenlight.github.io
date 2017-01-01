@@ -1,241 +1,338 @@
 <style>
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
-    html, body {
-        font-family:'Avenir Next', 'Nunito Sans', Helvetica, sans-serif;
-        background: #fff;
-        margin: 0;
-        padding: 0;
-    }
-    p::selection, li::selection {
-      background-color: #ee4287;
-    } 
-    p:-moz-selection, li:-moz-selection {
-      background-color: #ee4287;
-    } 
-    .container {
-        max-width: 80em;
-        margin: 0 auto;
 
-    }
-    header {
-        width: 100%;
-        background: #274d63;
-        margin: 0;
-        padding: 0;
-        box-shadow: 0px 5px 10px #274d63;
-    }
-    h1.enlight {
-        color: #ee4287;
-        font-weight: 500;
-        font-size: 50px;
-        padding-right: 3%;
-        margin-left: 15%;
-    }
-    h1 {
-        color: #333;
-        font-weight: 300;
-    }
-    .top {
-        display: inline;
-    }
-    ul.nav {
-        padding-left: 0;
-        color: #fff;
-        position: relative;
-        top: -5px;
-    }
-    
-    li.nav-item {
-        margin: 1%;
-        font-size: 18px;
-        margin-bottom: 2%;
-    }
-    .social {
-        float: right;
-        position: relative;
-        top: 15px;
-        list-style: none;
-    }
+/* Header */
 
-    h2.subtitle {
-      font-size: 64px;
-      text-align: center;
-      font-weight: 300;
-      color: #333;
-    }
-            
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-    a:hover {
-        opacity: .5;
-    }
-    .fa-twitter:hover {
-        color: #1dcaff;
-      }
-    .fa-github:hover {
-        color: #6e5494;
-    }
-    .fa-envelope:hover {
-        color: #85144b;
-    }
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: transparent;
+}
 
-    h1.project-title-front {
-      color: #333;
-      font-weight: 600;
-      text-align: center;
-      margin: 0;
-      padding: 0;
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll {
+	background: #E91E63;
+}
 
 
-    }
+#header .navbar-brand {
+	font-size: 36px;
+	font-family: "Avenir Next", "Roboto", sans-serif;
+}
 
-    h2.project-description-front {
-      color: #333;
-      font-weight: 400;
-      text-align: center;
-      margin: 0;
-      padding-top: 5px;
+#header li {
+	letter-spacing: 1px;
+}
 
-    }
-    .grid {
-      margin-bottom: 2%;
-    }
-    .col-1-3 {
-      width: 30%;
-      float: left;
-      padding: 10px;
-    }
+#header li a {
+	font-size: 12px;
+}
 
-    img.project-image-front {
-        width: 100%;
-    }
+/* General */
 
-    img:hover {
-      opacity: .5;
-    }
+body {
+	margin-top: 100px;
+	background-color: #303030;
+	color: #fff;
+}
 
-    @media (max-width: 1400px) {
-                
-                .social {
-                    display: none;
-                }
-              }
+a {
+	color: inherit;
+}
 
-    @media (max-width: 760px) {
-                ul.nav {
-                    display: block;
-                    text-align: center;
-                }
-                h1.enlight {
-                    margin-left: 30%;
-                    padding: 0;
-                }
-                h2.subtitle {
-                    font-size: 32px;
-                }
-                header {
-                    padding-bottom: 5px;
-                }
-                .col-1-3 { 
-                    width: 100%;    
-                }
+a:hover {
+	color: inherit;
+	text-decoration: none;
+	opacity: .9;
+}
 
-            }
+p a {
+	border-bottom: 1px solid #E91E63;
+}
 
-    h1.project-title {
-        color: #333;
-        font-weight: 600;
-        text-align: center;
-        margin-top: 5%;
-    }
+.content li a {
+	border-bottom: 1px solid #E91E63;
+}
 
-    h2.project-description {
-        color: #333;
-        font-weight: 400;
-        text-align: center;
-        padding: 0;
-    }
+.content {
+	margin-bottom: 5%;
+}
 
-    .project-image {
-        width: 40%;
-        height: auto;
-        display: block;
-    }
+button {
+	outline: 0;
+    background: #E91E63;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    font-family: "Avenir Next", "Roboto", Helvetica, Arial, sans-serif;
+}
 
-    .project-button {
-      margin-top: 2%;
-      margin-right: 2%;
-      font-size: 20px;
-      background: #ee4287;
-      width: 5em;
-      border-radius: 5px;
-    }
+.underline {
+  border-bottom: 1px solid #E91E63;
+}
 
-    .post {
-        font-size: 20px;
-        max-width: 50em;
-        margin: 0 auto;
-        color: #333;
-        padding: 1%;
-    }
+/* Frontpage */
 
-    .underline {
-        border-bottom: 1px solid #ee4287;
-    }
-    
-    .newsletter {
-      margin: 0 auto;
-      text-align: center;
-      color: #333;
-      padding: 0;
-    }
+.grid {
+	margin-top: 5%;
+	max-width: 80%;
+	margin: 0 auto;
+}
 
-    footer {
-      flex: 1;
-      padding-top: 20px;
-      margin: 0;
-      width: 100%;
-      overflow: hidden;
-      padding-bottom: 5%;
-    }
-   
-    input {
+.grid .col-sm-4 {
+   position: relative; 
+   padding: 5px;
+}
+
+h3.project-title-front { 
+   position: absolute; 
+   bottom: 10px; 
+   left: 15px;
+   width: 100%; 
+}
+
+h3.project-title-front span {
+   color: white; 
+   background: #E91E63;
+   padding: 10px; 
+   border-radius: 2px;
+}
+
+img.project-image-front {
+	width: 100%;
+}
+
+/* Project Page */
+
+.project {
+	max-width: 65em;
+	margin: 0 auto;
+	width: 90%;
+}
+
+h1.project-title, h3.project-title {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+h3.project-description {
+	text-align: center;
+	padding: 0;
+	margin-bottom: 2%;
+}
+
+img.project-image {
+	display: block;
+  	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.project-button {
+	 margin-top: 2%;
+    margin-right: 2%;
+  	font-size: 20px;
+  	border-radius: 5px;
+  	width: 5em;
+}
+
+p, li {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+
+@media(max-width: 760px) {
+
+	img.project-image {
+		width: 80%;
+	}
+
+	#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: #E91E63;
+}
+
+	h1, h2, p {
+		padding: 20px;
+	}
+
+}
+
+footer {
+  width: 100%;
+  background: #3d3d3d;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.footer-button {
+    font-size: 16px;
+    border-radius: 5px;
+    width: 8em;
+}
+
+.footer-button:hover {
+    opacity: .8;
+}
+
+footer .form-control {
+  max-width: 30em;
+  margin: auto;
+}
+
+input {
       outline: 0;
-      background: #f9f9f9;
+      background: #575757;
       border: 0;
       padding: 15px;
       box-sizing: border-box;
       font-size: 16px;
       width: 350px;
       font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+      margin-top: 10px;
+      margin-right: 10px;
+      color: #E91E63;
   }
 
-    button {
-      outline: 0;
-      background: #ee4287;
-      border: 0;
-      padding: 15px;
-      color: #FFFFFF;
-      font-size: 16px;
-      -webkit-transition: all 0.3 ease;
-      transition: all 0.3 ease;
-      cursor: pointer;
-      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
-    }
+  .s-footer {
+    margin-top: 2%;
+  }
 
-    button:hover {
-      opacity: .5;
-    }
+  .fa-twitter:hover {
+    color: #1dcaff; 
+  }
 
-    pre {
-      overflow: scroll;
-    }
+  .fa-github:hover {
+    color: #6e5494;
+  }
 
-    .s-footer {
-      position: relative;
-      bottom: 0;
-      list-style: none;
-    }
+  .fa-envelope:hover {
+    color: #bd2c00;
+  }
+
+/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+.prettyprint {
+  background: #3d3d3d;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  border: 0 !important;
+  border-radius: 0;
+}
+
+.pln {
+  color: #e6e9ed;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #656d78;
+}
+
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  padding-left: 1em;
+  background-color: #2f3640;
+  list-style-type: decimal;
+}
+
+@media screen {
+
+  /* string content */
+
+  .str {
+    color: #ffce54;
+  }
+
+  /* keyword */
+
+  .kwd {
+    color: #4fc1e9;
+  }
+
+  /* comment */
+
+  .com {
+    color: #656d78;
+  }
+
+  /* type name */
+
+  .typ {
+    color: #4fc1e9;
+  }
+
+  /* literal value */
+
+  .lit {
+    color: #ac92ec;
+  }
+
+  /* punctuation */
+
+  .pun {
+    color: #e6e9ed;
+  }
+
+  /* lisp open bracket */
+
+  .opn {
+    color: #e6e9ed;
+  }
+
+  /* lisp close bracket */
+
+  .clo {
+    color: #e6e9ed;
+  }
+
+  /* markup tag name */
+
+  .tag {
+    color: #ed5565;
+  }
+
+  /* markup attribute name */
+
+  .atn {
+    color: #a0d468;
+  }
+
+  /* markup attribute value */
+
+  .atv {
+    color: #ffce54;
+  }
+
+  /* declaration */
+
+  .dec {
+    color: #ac92ec;
+  }
+
+  /* variable name */
+
+  .var {
+    color: #e6e9ed;
+  }
+
+  /* function name */
+
+  .fun {
+    color: #e6e9ed;
+  }
+}
+
 </style>

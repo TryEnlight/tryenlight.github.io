@@ -12,20 +12,22 @@
 
 	{% include ad.html %}
 	<body>
-	<div class="container">
+	<div class="project">
 	<h1 class="project-title"> Build a <span class="underline">{{ page.title }}</span></h1>
-	<h2 class="project-description"> {{ page.description }}</h2>
+	<h3 class="project-description"> {{ page.description }}</h3>
 
 
-	<div class="post">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
 
+	<div class="buttons">
 	<a href="{{ page.source }}"><button class="project-button">Source</button></a><a href="{{ page.demourl }}"><button class="project-button">Demo</button></a>
+	</div>
 
+	<br><br>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<div class="content">
 	 {{content}}
-
-	    <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+	 </div>
 
 		    <div id="disqus_thread"></div>
 	<script>
@@ -49,14 +51,15 @@
 	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	                                
 	<br><br>
+
+  	</div>
+
   	{% include footer.html %}
 
-	</div> 
 
 	{% include style.css %}
 
-	{% include scripts.js %}
+	{% include scripts.html %}
 
-	</div>
 	</body>
 </html>
