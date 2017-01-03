@@ -1,14 +1,38 @@
 ---
 layout: page
 title: You are lost.
-description: meanwhile, why not check out some awesome projects?
 ---
 
 <div class="grid">
-  {% for post in site.posts limit:3 %} 
-      <div class="col-1-3">
-      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></h1></a>
-      <a href="{{ post.url }}"><h1 class="project-title-front"><span class="underline">{{ post.title }}</span></h1></a>
-      </div>
+
+<div class="row">
+  {% for post in site.posts limit: 3%} 
+  	
+	    <div class="col-sm-4">
+	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
+	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+		</div>
+  {% endfor %}
+</div>
+
+
+<div class="row">
+  {% for post in site.posts limit: 3 offset: 3%} 
+	    <div class="col-sm-4">
+	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
+	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+		</div>
   {% endfor %}
  </div>
+
+
+ <div class="row">
+  {% for post in site.posts limit: 3 offset: 6%} 
+	    <div class="col-sm-4">
+	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
+	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+		</div>
+  {% endfor %}
+ </div>
+
+</div>
