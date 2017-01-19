@@ -173,8 +173,17 @@ p, li {
 }
 
 	h1, h2, p {
-		padding: 20px;
+		padding: 10px;
 	}
+
+  .grid {
+    max-width: 90%;
+
+  }
+
+  .project {
+      max-width: 95%;
+  }
 
 }
 
