@@ -5,7 +5,6 @@ function chat(){
     
     document.body.onkeyup = function(){
         chat.open();
-        chat.append("")
         
     };
 };
