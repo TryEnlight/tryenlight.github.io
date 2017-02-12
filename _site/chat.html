@@ -156,7 +156,7 @@
 	<h3 class="project-description"> a real time chat that built with node.js</h3>
 
 
-	<a href="/demo/text-editor-project/index.html"><img class="project-image" src="/img/text-editor.gif"></a>
+	<a href="/demo/text-editor-project/index.html"><img class="project-image" src=""></a>
 
 	<div class="buttons">
 	<a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/chat-app-project"><button class="project-button">Source</button></a><a href="/demo/chat-app-project/index.html"><button class="project-button">Demo</button></a>
@@ -167,130 +167,8 @@
 	<div class="content">
 	 <h3 id="getting-started">Getting Started</h3>
 
-<p>In this tutorial, we’ll make a text editor in the broswer. Using JavaScript, we can save the text automatically in a user’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let’s you save data in user’s browser.</p>
 
-<p>As always, you’ll need a folder with three files:</p>
-
-<ul>
-  <li>index.html - for our markup</li>
-  <li>style.css - for styling</li>
-  <li>app.js - for the function(s)</li>
-</ul>
-
-<p>Since we’re making a text-editor, our content has to be editable! Thankfully, HTML has an attribute for that. Go ahead: link the files, and create two <a href="http://www.w3schools.com/tags/tag_div.asp" class="underline">divs</a> with the <a href="http://www.w3schools.com/tags/att_global_contenteditable.asp" class="underline">contenteditable attribute </a>and with a heading and a content id.</p>
-
-<pre class="prettyprint"><xmp>
-  <html>
-	<head>
-	  <title>Text Editor</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1" />
-	  <link rel="stylesheet" href="style.css" />
-	</head>
-
-		 <div id="heading" contenteditable="true"></div>
-		 <div id="content" contenteditable="true"></div>
-
-	<script src="app.js"></script>
-
-  </html>
-
-</xmp></pre>
-
-<p>Open the html file in your bowser. You’ll see that you have two editable text boxes. However, they’re pretty ugly. Let’s style them!</p>
-
-<h3 id="styling-the-editor">Styling the Editor</h3>
-
-<p>Here’s some basic things you should do in your the style.css file:</p>
-
-<ul>
-  <li>change the <a href="http://www.w3schools.com/cssref/pr_font_font-family.asp" class="underline">font</a></li>
-  <li>center the text boxes and set a <a href="http://www.w3schools.com/cssref/pr_dim_max-width.asp" class="underline">max-width</a></li>
-  <li>remove the ugly blue outline with <a href="http://www.w3schools.com/cssref/sel_focus.asp" class="underline">div:focus</a></li>
-  <li>add some <a href="http://www.w3schools.com/css/css_padding.asp" class="underline">padding</a></li>
-  <li>adjust the <a href="http://www.w3schools.com/cssref/pr_font_font-size.asp" class="underline">font size</a></li>
-</ul>
-
-<p>This is my attempt. Feel free to customize your editor however you wish to!</p>
-
-<pre class="prettyprint">
-
-  html {
-    font-family: 'Helevetica', sans-serif;
-  }
-
-  body {
-    color: #333;
-    font-weight: 100;
-    max-width: 50em;
-    margin: 0 auto;
-  }
-
-  div:focus {
-    outline: none;
-  }
-
-  #heading {
-    font-size: 48px;
-    padding-top: 30px;
-  }
-
-  #content {
-    padding-top: 10px;
-    font-size: 24px;
-  }
-
-
-</pre>
-
-<p>How does your editor look now? Play around with it! However, you may have noticed that if you refresh the page, the text doesn’t save. Let’s fix that.</p>
-
-<h3 id="javascript-and-localstorage-function">JavaScript and localStorage function</h3>
-
-<p>To save the text in our two divs, we need to store it in the brower’s localStorage. To do that, we first have to get the div ids from the HTML document and set it to a localStorage instance with some default text. Then, we can write a function that checks the innerHTML of both the divs and saves it every second. Here’s what we have to write:</p>
-
-<ul>
-  <li>for both divs, we need to use <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">document.getElementById().innerHTML</a> and set it to a <a href="http://www.w3schools.com/html/html5_webstorage.asp" class="underline">localStorage[]</a> ‘default text’ object</li>
-  <li>need to have an <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" class="underline">interval function</a> which has a localStorage object assigned to the document.getElementById().innerHTML for each div</li>
-  <li>make the function run every 1000 milliseconds, or 1 second.</li>
-</ul>
-
-<p>This is what the finished app.js should look like:</p>
-
-<pre class="prettyprint">
-
-  document.getElementById('heading').innerHTML = localStorage['title'] || 'Just Write'; // default text
-  document.getElementById('content').innerHTML = localStorage['text'] || 'This text is automatically saved every second :) '; // default text
-
-  setInterval(function() { // fuction that is saving the innerHTML of the div
-	localStorage['title'] = document.getElementById('heading').innerHTML; // heading div
-	localStorage['text'] = document.getElementById('content').innerHTML; // content div
-  }, 1000);
-	
-</pre>
-
-	 </div>
-
-		    <div id="disqus_thread"></div>
-	<script>
-
-	/**
-	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-	/*
-	var disqus_config = function () {
-	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-	};
-	*/
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-	s.src = '//enlight-2.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	                                
+      
 	<br><br>
 
   	</div>
