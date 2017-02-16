@@ -71,8 +71,8 @@ function evaluate(state, newAction, newValue) {
       return setOperator(state, newValue);
     case 'calculate':
       return calculate(state, newValue);
-    default: // if something goes wrong, resets state
-      return generateState();
+    default: // click is elsewhere on the board
+      return generateState(state.operator, state.numA, state.numB, state.result);
   }
 }
 
