@@ -4,17 +4,17 @@
 	
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Learn to Code Node.JS</title>
-      <meta name="description" content="">
+      <title>Calculator</title>
+      <meta name="description" content="Simple calculator with HTML, CSS and JS">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta property="og:title" content="Learn to Code Node.JS">
-      <meta property="og:description" content="">
-      <meta property="og:url" content="https://enlight.ml/nodejs.html">
+      <meta property="og:title" content="Calculator">
+      <meta property="og:description" content="Simple calculator with HTML, CSS and JS">
+      <meta property="og:url" content="https://enlight.ml/calculator">
       <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Learn to Code Node.JS" />
-      <meta name="twitter:description" content="" />
+      <meta name="twitter:title" content="Calculator" />
+      <meta name="twitter:description" content="Simple calculator with HTML, CSS and JS" />
       <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
 
       <link href="style.css" type="stylesheet">
@@ -36,9 +36,6 @@
          ga('send', 'pageview');
       </script>
 	</head>
-
-	
-
 
 	<header>
 	<div id="header">
@@ -155,37 +152,148 @@
 }
 
 </style> 
-
-
 	<body>
-
-	 <h3 class="project-title"> NodeJS Projects: </h3><br>
-
-<div class="grid">
-  <div class="row">
+	<div class="project">
+	<h1 class="project-title"> Build a <span class="underline">Calculator</span></h1>
+	<h3 class="project-description"> Simple calculator with HTML, CSS and JS</h3>
 
 
+	<a href="/demo/calculator-project/index.html"><img class="project-image" src="/img/calc.gif"></a>
 
-    <div class="col-sm-4">
-      <a href="/calculator"><img class="project-image-front" src=/img/calc.gif></a>
-      <a href="/calculator"><h3 class="project-title-front"><span>Calculator</span></h3></a>
-      <a href="/calculator"><h3 class="project-language"><span>HTML/CSS/JS</span></h3></a>
+	<div class="buttons">
+	<a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project"><button class="project-button">Source</button></a><a href="/demo/calculator-project/index.html"><button class="project-button">Demo</button></a>
+	</div>
 
-    </div>
+	<br><br>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
+
+	<div class="content">
+	 <h3 id="getting-started">Getting Started</h3>
+
+<p>This calculator app is based on a design over at <a href="https://dribbble.com/shots/3125651-Daily-UI-004-Calculator" class="underline">dribble</a>. We have made a few minor changes to the original design, but you are always welcome to tinker and improve this app.</p>
+
+<h3 id="the-markup">The Markup</h3>
+
+<p>In the markup, you could see a div with class <code class="highlighter-rouge">calc</code>, that is our calculator. It has two child elements, a div classed <code class="highlighter-rouge">results</code> and a div classed <code class="highlighter-rouge">keypad</code>. As the name suggests, results is the place where results are displayed and keypad is calculator’s keypad. If you peek inside, you could see that keypad is divided into <code class="highlighter-rouge">row</code>s and each button has some <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*" class="underline">data-attributes</a>. Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.</p>
+
+<pre class="prettyprint"><xmp>
+  <button class="key" data-value="7" data-action="number">7</button>
+ </xmp></pre>
+
+<p>The attribute <code class="highlighter-rouge">data-value</code> stores the value of button and <code class="highlighter-rouge">data-action</code> ditactes what action is to be perfomed if we click it. Please read more to find out how are <code class="highlighter-rouge">data-attributes</code> used in building this calculator.</p>
+
+<h3 id="the-stying">The Stying</h3>
+
+<p>CSS for calculator project is defined in the file <code class="highlighter-rouge">style.css</code>. Apart from what you have seen on other tutorials, there are three things that might interest you in here</p>
+
+<ol>
+  <li><code class="highlighter-rouge">@import url('https://fonts.googleapis.com/css?family=Roboto');</code> We are importing a custom font into our project here, to learn more about importing custom fonts, checkout this<a href="https://fonts.google.com/" class="underline">link</a>. We have used <code class="highlighter-rouge">@import</code> to import the font, the @import CSS at-rule is used to import style rules from other style sheets <a href="http://www.cssnewbie.com/css-import-rule/#.WKcWjSF948o">Read more</a>.</li>
+  <li><code class="highlighter-rouge">display: flex;</code> Flexbox is a new display type introduced in CSS3, it is very handy in implementing layouts intuitively. A tutorial on flexbox can take up a lot of space, go over to <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks</a>, read this in deapth tutorial and gain knowledge on CSS flexbox.</li>
+  <li><code class="highlighter-rouge">.results &gt; *</code> <code class="highlighter-rouge">.key:hover</code>, these are some advanced CSS selectors, <code class="highlighter-rouge">&gt;</code> is a child selector, this means “select elements that are direct descendants of elements with class results”. <code class="highlighter-rouge">:hover</code> is a CSS psuedo selector, which means to apply a style when an element is in hovered state. Read the CSS selector <a href="https://css-tricks.com/almanac/selectors/">almanac</a> here.</li>
+</ol>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>Markup defines the structure of the application, CSS gives the looks and JavaScript is the functionality. The best thing about JS is it’s flexibility. It’s a weakly typed language that can be used to write code in whatever programming style you like, be it Object Oriented, be it functional, be it procedural. But when you are working on a project, it’s always good to define a set of rules and always follow these rules through out the development. These rules could be about syntax, the <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigm</a> of choice or even could be about variableNamings.</p>
+
+<p>Our dogmes for this project are:</p>
+
+<ol>
+  <li>Immutable calculator state</li>
+  <li>Always display results using calculator state</li>
+  <li>Try to follow functional programming, as much as possible</li>
+  <li>Not more than two levels of nested logic in a function</li>
+</ol>
+
+<p>Why should we keep the application state immutable, why should we keep state in the first place? Basicaly, in all most all the modern frameworks and large applications, you have to keep the state. In these scenarios, it a healthy idea to see your application as a set of components that operate on and display the application’s state. Different libraries have different approaches for manipulating state, some, such as Redux keep a single state object and keeps it immutable. No action would partially modify the application state. We hopw this could be a used as a light introduction to such philosophies.</p>
+
+<p>Our calculator state is generated with the function</p>
+<pre class="prettyprint">
+  function generateState(operation, numA, numB, result) {
+    var newState = {
+      numA: numA || 0,
+      numB: numB || 0,
+      operation: operation,
+      result: result
+    };
+    return newState;
+  }
+</pre>
+
+<p>numA is the first number, numB is the second number, operation holds the operator and result will be stored in result. All these details can be set as params. If no details are given, a default state is generated.</p>
+
+<p>Simply put, what we are doing is add an event listener to the calculator block. This is a form of <a href="https://davidwalsh.name/event-delegate">event deligation</a>, the process of delegating a parent block to handle click events of all it’s child elements. <code class="highlighter-rouge">calculator.addEventListener('click', handleClick);</code>. Then inside <code class="highlighter-rouge">handleClick</code>, we would find out what element triggered this event and extract what action is to be performed, with the help of data-attributes<code class="highlighter-rouge">var action = target.getAttribute('data-action');</code>.</p>
+
+<p>With the help of an <code class="highlighter-rouge">evaluate</code> function, we generate a new caclculator state. And print that result using <code class="highlighter-rouge">printResult</code>. Evaluate checks the action and selects appropriate action. If the clicked button is a number, it will <code class="highlighter-rouge">setNumber</code>, if it’s an operator- <code class="highlighter-rouge">setOperator</code>, if assign operator- <code class="highlighter-rouge">calculate</code>. If the click is on some random part of the board, just clone the state.</p>
+
+<p><code class="highlighter-rouge">setNumber</code> adds number to state. If operator is present the number will be saved as numB, otherwise, it will be saved as numA. <code class="highlighter-rouge">setOperator</code> sets the operator. <code class="highlighter-rouge">calculate</code> takes the state and calculates the result, sets result as numA and numB as zero.</p>
+
+<p>The function <code class="highlighter-rouge">beautify</code> takes a string and cleans it up to be able to display as result.</p>
+
+<p>Something different that you might be able to observe is that to clone a state, we write <code class="highlighter-rouge">return generateState(state.operator, state.numA, state.numB, state.result);</code>. why didn’t we go with <code class="highlighter-rouge">return state;</code>. In JS, all objects are reffered with their variable name. So if we assign an object as a new variable, we are actually working with the same object.</p>
+
+<pre class="prettyprint">
+  var a = {k: 123};
+  var b = a;
+  b.k = 333;
+  console.log(a.k); // prints 333, because a and b refers to same object in memeory
   
+  var a = 9; // assign a as primitive number 9
+  var b = a;
+  a = 10;
+  console.log(a, b); // prints 10, 9; since a and b are assigned with primitives, they are not just references
+</pre>
 
-    <div class="col-sm-4">
-      <a href="/nodejs-chat"><img class="project-image-front" src=/img/nodejs-chat.gif></a>
-      <a href="/nodejs-chat"><h3 class="project-title-front"><span>Real Time Chat App</span></h3></a>
-      <a href="/nodejs-chat"><h3 class="project-language"><span>NodeJS</span></h3></a>
+<p>If we go with <code class="highlighter-rouge">generateState</code>, it won’t assign the object, it would just assign each key such as operator, numA etc with a new JavaScript primitive.</p>
 
-    </div>
-  
+<p>Read more about JS object cloning <a href="http://blog.soulserv.net/understanding-object-cloning-in-javascript-part-i/">here</a>.</p>
 
-  </div>
-</div>
+<p>Hope this have introduced a few new things to your coding skills :)</p>
 
-<footer>
+<h3 id="improvements">Improvements</h3>
+
+<p>The improvements that can be implemented to the calculator project:</p>
+
+<ol>
+  <li>Add keyboard bindings</li>
+  <li>Tweak style of equals button as in dribble</li>
+  <li>Try adding new operators</li>
+  <li>Add an undo button</li>
+</ol>
+
+<p>Project &amp; Tutorial by <a href="https://github.com/sravan-s">Sravan S</a></p>
+
+	 </div>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+
+	
+
+
+  	</div>
+
+  	<footer>
       <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
          <h3> Get the latest projects delivered to your inbox!</h3>
          <input id="email" type="email" name="EMAIL" placeholder="Email">
@@ -200,14 +308,6 @@
  </footer>
 
 <!--  FIX FOOTER, ADD TWEET BUTTON, & FOLLOW -->
-
-	 
-
-
-
-
-
-
 
 
 	<style>
@@ -632,7 +732,6 @@ li.L9 {
    NProgress.start();   
    NProgress.done();
 </script>
-
 
 
 	</body>

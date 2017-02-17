@@ -1,12 +1,14 @@
 ---
 layout: post
-title: Calculator App
+title: Calculator 
 description: Simple calculator with HTML, CSS and JS
-category: middle-web
+category: hard-web
 permalink: /calculator
-img: /img/calc.png
+img: /img/calc.gif
 demourl: /demo/calculator-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project
+language: HTML/CSS/JS 
+
 ---
 
 ### Getting Started
@@ -95,3 +97,5 @@ The improvements that can be implemented to the calculator project:
   2. Tweak style of equals button as in dribble
   3. Try adding new operators
   4. Add an undo button
+
+Project & Tutorial by [Sravan S](https://github.com/sravan-s)
