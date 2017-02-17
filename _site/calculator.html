@@ -170,17 +170,22 @@
 	<div class="content">
 	 <h3 id="getting-started">Getting Started</h3>
 
-<p>This calculator app is based on a design over at <a href="https://dribbble.com/shots/3125651-Daily-UI-004-Calculator" class="underline">dribble</a>. We have made a few minor changes to the original design, but you are always welcome to tinker and improve this app.</p>
+<p>This calculator app is based on a design over at <a href="https://dribbble.com/shots/3125651-Daily-UI-004-Calculator" class="underline">dribble</a>. We have made a few minor changes to the original design, but you are always welcome to tinker and improve this app. It’s file structure includes</p>
+<ul>
+  <li>index.html (markup)</li>
+  <li>style.css (styling)</li>
+  <li>app.js (calculator functions)</li>
+</ul>
 
 <h3 id="the-markup">The Markup</h3>
 
-<p>In the markup, you could see a div with class <code class="highlighter-rouge">calc</code>, that is our calculator. It has two child elements, a div classed <code class="highlighter-rouge">results</code> and a div classed <code class="highlighter-rouge">keypad</code>. As the name suggests, results is the place where results are displayed and keypad is calculator’s keypad. If you peek inside, you could see that keypad is divided into <code class="highlighter-rouge">row</code>s and each button has some <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*" class="underline">data-attributes</a>. Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.</p>
+<p>In the markup, we have a div with class <code class="highlighter-rouge">calc</code>, that is our calculator. It has two child elements, a div classed <code class="highlighter-rouge">results</code> and a div classed <code class="highlighter-rouge">keypad</code>. As the name suggests, results is the place where results are displayed and keypad is calculator’s keypad. If you peek inside, you could see that keypad is divided into <code class="highlighter-rouge">row</code>s and each button has some <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*" class="underline">data-attributes</a>. Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.</p>
 
 <pre class="prettyprint"><xmp>
   <button class="key" data-value="7" data-action="number">7</button>
  </xmp></pre>
 
-<p>The attribute <code class="highlighter-rouge">data-value</code> stores the value of button and <code class="highlighter-rouge">data-action</code> ditactes what action is to be perfomed if we click it. Please read more to find out how are <code class="highlighter-rouge">data-attributes</code> used in building this calculator.</p>
+<p>The attribute <code class="highlighter-rouge">data-value</code> stores the value of button and <code class="highlighter-rouge">data-action</code> ditactes what action is to be perfomed if we click it.</p>
 
 <h3 id="the-stying">The Stying</h3>
 
