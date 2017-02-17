@@ -2,12 +2,13 @@
 layout: post
 title: Real Time Chat App
 description: Use technologies like Node.js, Socket.io, and Express to create your own form of communication!
-category: hard-web
+category: nodejs
 permalink: /nodejs-chat
 img: /img/nodejs-chat.gif
 demourl: https://enlight-chat.herokuapp.com/
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/node-js/chat
 language: NodeJS 
+tag: NodeJS
 ---
 
 ### Getting started 

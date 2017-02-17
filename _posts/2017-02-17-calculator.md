@@ -8,7 +8,6 @@ img: /img/calc.gif
 demourl: /demo/calculator-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project
 language: HTML/CSS/JS 
-
 ---
 
 ### Getting Started
