@@ -7,6 +7,8 @@ permalink: /quote
 img: /img/quote.gif
 demourl: /demo/quote-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/quote-project
+language: HTML/CSS/JS
+
 ---
 ### Getting Started
 

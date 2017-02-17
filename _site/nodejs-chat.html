@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+	<head>
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Real Time Chat App</title>
+      <meta name="description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Real Time Chat App">
+      <meta property="og:description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!">
+      <meta property="og:url" content="https://enlight.ml/nodejs-chat">
+      <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Real Time Chat App" />
+      <meta name="twitter:description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!" />
+      <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
+
+      <link href="style.css" type="stylesheet">
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/timcreative/material-kit/master/assets/css/material-kit.css" />
+
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+	</head>
+
+	<header>
+	<div id="header">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+	<div class="container-fluid">
+    	<div class="navbar-header">
+    		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+    		</button>
+    		<a class="navbar-brand" href="/">Enlight</a>
+    	</div>
+
+    	<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+    		<ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown">Web Development <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class><a href="/web">JavaScript</a></li>
+                      <li><a href="/nodejs">NodeJS</a></li>
+                      <li><a href="/react">React</a></li>
+                    <li><a href="/ruby">Ruby</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown">Mobile Development <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/react-native">React Native (JS)</a></li>
+                      <li><a href="/swift">Swift</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown"> More <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/python">Python</a></li>
+                      <li><a href="/cplusplus">C++</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a></li>
+        		<li><a href="https://blog.enlight.ml">Blog</a></li>
+        		<li><a href="/why">Why Enlight?</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+    			<li><a href="https://twitter.com/tryenlight"><i class="fa fa-twitter"></i></a></li>
+    			<li><a href="https://github.com/samayshamdasani/enlight"><i class="fa fa-github"></i></a></li>
+    			<li><a href=""><i class="fa fa-envelope inline"></i></a></li>
+
+    		</ul>
+    	</div>
+	</div>
+</nav>
+</div>
+
+
+
+	</header>
+
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+<style>
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  padding: 1em;
+  font-family: "Avenir Next", Helvetica, sans-serif;
+  line-height: 1;
+  max-width: 150px;
+  background: #fff;
+}
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    max-width: 200px;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1279px) {
+  #carbonads {
+    position: relative;
+    margin: 6em auto 2em;
+    top: 0px;
+  }
+  #carbonads img {
+    padding: 0;
+  }
+
+}
+
+</style> 
+	<body>
+	<div class="project">
+	<h1 class="project-title"> Build a <span class="underline">Real Time Chat App</span></h1>
+	<h3 class="project-description"> Use technologies like Node.js, Socket.io, and Express to create your own form of communication!</h3>
+
+
+	<a href="FILL WITH URL (Openshift???)"><img class="project-image" src="/img/nodejs-chat.gif"></a>
+
+	<div class="buttons">
+	<a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/node-js/chat"><button class="project-button">Source</button></a><a href="FILL WITH URL (Openshift???)"><button class="project-button">Demo</button></a>
+	</div>
+
+	<br><br>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
+
+	<div class="content">
+	 <h3 id="getting-started">Getting started</h3>
+
+<p>Building a chat app is pretty complex. However, with a framework like Node.js, and libraries like Socket.io and Express, a basic chat app is achievable with just a couple lines of code. Using Node.js, we can write JavaScript for the server, and with Socket.io and Express, we can make use of websockets to push messages to users from the server in real-time.</p>
+
+<p>We’re going to be creating a <a href="https://nodejs.org/en/">Node.js</a> app, so make sure you have it installed.</p>
+
+<p>To start:</p>
+<ul>
+  <li>create a folder</li>
+  <li>cd into that directory in your terminal (command line)</li>
+  <li>run <code class="highlighter-rouge">npm init</code> . The will create a new <code class="highlighter-rouge">package.json</code> file. (it will ask you name/version, etc.)</li>
+  <li>install our dependencies by running:
+    <ul>
+      <li><code class="highlighter-rouge">npm install --save express</code> // a web framework for node</li>
+      <li><code class="highlighter-rouge">npm install --save socket.io</code> // real-time module for our app</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="file-structure">File structure</h3>
+
+<p>Now that our dependencies are installed, let’s create our file structure:</p>
+<ul>
+  <li>add a <code class="highlighter-rouge">server.js</code> file</li>
+  <li>create a folder named <code class="highlighter-rouge">public</code> with the following files:
+    <ul>
+      <li><code class="highlighter-rouge">index.html</code></li>
+      <li><code class="highlighter-rouge">style.css</code></li>
+      <li><code class="highlighter-rouge">client.js</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="setting-up-the-server">Setting up the server</h3>
+
+<p>Open up the <code class="highlighter-rouge">server.js</code> file. Here’s where we need to require <a href="http://expressjs.com/">express</a> and <a href="http://socket.io/">socket.io</a>, and create a new server. We also need to use <a href="http://expressjs.com/en/4x/api.html#app.get">app.get</a> to deliver an HTML file easily. In addition, we have to let express know that all our static (html,css,js) files are in the public folder. Lastly, we need to open up a port on our <code class="highlighter-rouge">localhost</code> hostname.</p>
+
+<pre class="prettyprint">
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.get('/', function(req, res, next) {
+	res.sendFile(__dirname + '/public/index.html')
+});
+
+app.use(express.static('public'));
+
+server.listen(7777);
+
+</pre>
+
+<p>Now, open your <code class="highlighter-rouge">index.html</code> file in the public folder. In there, we’ll need to create a normal HTML document with the following:</p>
+<ul>
+  <li>link our CSS file</li>
+  <li>create a <code class="highlighter-rouge">form</code> with two inputs
+    <ul>
+      <li>one for the message (with an id), other for the submit button</li>
+    </ul>
+  </li>
+  <li>create a <code class="highlighter-rouge">ul</code> with an id for the messages to go in</li>
+  <li>link JQuery for our client side JavaScript</li>
+  <li>link <code class="highlighter-rouge">/socket.io/socket.io.js</code></li>
+  <li>link <code class="highlighter-rouge">client.js</code></li>
+</ul>
+
+<pre class="prettyprint"><xmp>
+ <html>  
+    <head>
+      <title> Real Time Chat </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1> Chat! </h1>
+        <form>
+            <input id="message" type="text" placeholder="message" />
+            <input type="submit" value="Send" />
+        </form>
+
+        <ul id="thread"></ul>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script src="client.js"></script>  
+    </body>
+ </html>  
+</xmp></pre>
+
+<p>Now, if you <code class="highlighter-rouge">cd</code> into the file on your terminal, run <code class="highlighter-rouge">node server.js</code>, and headover to <code class="highlighter-rouge">localhost:7777</code> in your browser, you should see your HTML file being served.</p>
+
+<h3 id="interacting-with-the-server">Interacting with the server</h3>
+
+<p>Open up your <code class="highlighter-rouge">client.js</code> file. At this point, we need to connect to our server using <a href="http://socket.io/docs/">io.connect</a>.
+On connect, let’s emit a message to confirm our connection with an event of <code class="highlighter-rouge">join</code>.</p>
+
+<pre class="prettyprint">
+var socket = io.connect('http://localhost:7777');
+socket.on('connect', function(data) {
+    socket.emit('join', 'Hello server from client');
+});
+</pre>
+
+<p>Then, we can open back up our <code class="highlighter-rouge">server.js</code> file and log a message that the client is connected. Also, we can listen for the <code class="highlighter-rouge">join</code> event we wrote earlier to log the data from the client. Here’s how it’ll work:</p>
+
+<pre class="prettyprint">
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.get('/', function(req, res, next) {
+	res.sendFile(__dirname + '/public/index.html')
+});
+
+app.use(express.static('public'));
+
+
+io.on('connection', function(client) {
+	console.log('Client connected...');
+
+	client.on('join', function(data) {
+		console.log(data);
+	});
+});
+
+server.listen(7777);
+</pre>
+
+<p>Now, if you re-run the server.js file in your terminal (CTRL+C to exit) and refresh <code class="highlighter-rouge">localhost:7777</code> in your browser, you should see the messages <code class="highlighter-rouge">client connected...</code> &amp; <code class="highlighter-rouge">Hello server from client</code> in your terminal which confirms our connection!</p>
+
+<h3 id="making-the-chat-app-work">Making the chat app work</h3>
+
+<p>Finally! Now that we have a connection, we can use it to emit and send messages. Here’s what we need to do in our 	<code class="highlighter-rouge">client.js</code> file:</p>
+<ul>
+  <li>listen for an event (<code class="highlighter-rouge">thread</code>) that will recieve any messages emitted by ther server</li>
+  <li>use the JQuery .submit() function to
+    <ul>
+      <li>emit the message from our <code class="highlighter-rouge">message</code> id (in our input)</li>
+      <li>reset the form</li>
+      <li>use <code class="highlighter-rouge">return false;</code> to prevent the from from it’s default action (refreshing page)</li>
+    </ul>
+  </li>
+</ul>
+
+<pre class="prettyprint">
+// initializing socket, connection to server
+var socket = io.connect('http://localhost:7777');
+socket.on('connect', function(data) {
+    socket.emit('join', 'Hello server from client');
+});
+
+
+// listener for 'thread' event, which updates messages
+<xmp>socket.on('thread', function(data) {
+  $('#thread').append('<li>' + data + '</li>');
+});</xmp>
+
+// sends message to server, resets &amp; prevents default form action
+$('form').submit(function() {
+	var message = $('#message').val();
+	socket.emit('messages', message);
+	this.reset();
+	return false;
+}); 
+</pre>
+
+<p>However, before we have a functional application, we have to add our <code class="highlighter-rouge">messages</code> event to our server and emit it to our thread event!</p>
+
+<pre class="prettyprint">
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.get('/', function(req, res, next) {
+	res.sendFile(__dirname + '/public/index.html')
+});
+
+app.use(express.static('public'));
+
+
+io.on('connection', function(client) {
+	console.log('Client connected...');
+
+	client.on('join', function(data) {
+		console.log(data);
+	});
+
+	client.on('messages', function(data){
+		client.emit('thread', data);
+		client.broadcast.emit('thread', data);
+	});
+});
+
+server.listen(7777);
+</pre>
+
+<p>There you go! Our <code class="highlighter-rouge">messages</code> event is listened for and once to server recieves it it is broadcasted to all the other clients using <code class="highlighter-rouge">client.broadcast.emit</code>.</p>
+
+<h3 id="styling-the-app">Styling the app</h3>
+
+<p>Before we finish, let’s style the app a bit. Open up the <code class="highlighter-rouge">style.css</code> file and customize it to your liking!</p>
+
+<pre class="prettyprint">
+html, body {
+  text-align: center;
+  font-family: 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
+}
+
+html,body,li,form,ul {
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  padding-bottom: 2%;
+}
+
+li {
+  list-style: none;
+  width: 100vw;
+}
+
+li:nth-child(odd) { 
+  background: #eee; 
+}
+
+</pre>
+
+<p>Well, now you have a basic form of communication! If you open up multiple tabs, you’ll see the messages are being sent in real-time! Have fun :)</p>
+
+
+	 </div>
+
+		    <div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//enlight-2.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	                                
+	<br><br>
+
+	
+
+
+  	</div>
+
+  	<footer>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
+         <h3> Get the latest projects delivered to your inbox!</h3>
+         <input id="email" type="email" name="EMAIL" placeholder="Email">
+         <button type="submit" name="action" class="footer-button">Subscribe!</button>
+      </form>
+
+    <div class="s-footer">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+ </footer>
+
+<!--  FIX FOOTER, ADD TWEET BUTTON, & FOLLOW -->
+
+
+	<style>
+
+/* Header */
+
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: transparent;
+  color: #333;
+}
+
+#header .navbar.navbar-fixed-top.navbar-color-on-scroll {
+	background: #031927;
+}
+
+
+#header .navbar-brand {
+	font-size: 36px;
+	font-family: "Avenir Next", "Roboto", sans-serif;
+  color: #E91E63;
+}
+
+#header li {
+	letter-spacing: 1px;
+}
+
+#header li a {
+	font-size: 12px;
+}
+
+#header .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+background: #031927;
+opacity: 1;
+}
+ 
+
+
+/* General */
+
+body {
+	margin-top: 100px;
+	background-color: #fff;
+	color: #333;
+}
+
+#nprogress .bar {
+  background: #031927;
+}
+
+a {
+	color: inherit;
+}
+
+
+
+.content a:hover {
+	color: inherit;
+	text-decoration: none;
+	opacity: .7;
+}
+
+
+.content a {
+	border-bottom: 1px solid #E91E63;
+}
+
+.content a:hover {
+  border-bottom: none;
+}
+
+.content {
+	margin-bottom: 2%;
+}
+
+p::selection {
+  background: #E91E63; 
+}
+p::-moz-selection {
+  background: #E91E63;
+}
+
+li::selection {
+  background: #E91E63; 
+}
+li::-moz-selection {
+  background: #E91E63; 
+}
+a::selection {
+  background: #E91E63; 
+}
+a::-moz-selection {
+  background: #E91E63; 
+}
+
+
+button {
+	outline: 0;
+    background: #E91E63;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    font-family: "Avenir Next", "Roboto", Helvetica, Arial, sans-serif;
+}
+
+
+/* Frontpage */
+
+.grid {
+	margin-top: 5%;
+	max-width: 75%;
+	margin: 0 auto;
+}
+
+.grid .col-sm-4 {
+   position: relative; 
+   padding: 5px;
+}
+
+h3.project-title-front { 
+   position: absolute; 
+   bottom: 10px; 
+   left: 15px;
+   width: 100%; 
+}
+
+h3.project-title-front span {
+   color: white; 
+   background: #E91E63;
+   padding: 10px; 
+   border-radius: 2px;
+}
+
+h3.project-language { 
+   position: absolute; 
+   top: 10px; 
+   right: 15px;
+   font-size: 14px;
+}
+
+h3.project-language span {
+   color: white; 
+   background: #E91E63;
+   padding: 2px; 
+   border-radius: 2px;
+}
+
+img.project-image-front {
+	width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s ease;
+}
+
+img.project-image-front:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/* Project Page */
+
+
+.project {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+
+h1.project-title, h3.project-title {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+h3.project-description {
+	text-align: center;
+	padding: 0;
+	margin-bottom: 2%;
+}
+
+img.project-image {
+	display: block;
+  margin-left: auto;
+ 	margin-right: auto;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.project-button {
+	 margin-top: 2%;
+    margin-right: 2%;
+  	font-size: 20px;
+  	border-radius: 5px;
+  	width: 5em;
+}
+
+p, li {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+
+@media(max-width: 760px) {
+
+	img.project-image {
+		width: 80%;
+	}
+
+	#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+	background: #031927;
+  color: #fff;
+}
+
+	h1, h2, p {
+		padding: 10px;
+	}
+
+  .grid {
+    max-width: 90%;
+
+  }
+
+  .project {
+      max-width: 95%;
+  }
+
+}
+
+footer {
+  width: 100%;
+  background: #031927;
+  color: #fff;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.footer-button {
+    font-size: 16px;
+    border-radius: 5px;
+    width: 8em;
+}
+
+.footer-button:hover {
+    opacity: .8;
+}
+
+footer .form-control {
+  max-width: 30em;
+  margin: auto;
+}
+
+input {
+      outline: 0;
+      background: #354652;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      width: 350px;
+      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+      margin-top: 10px;
+      margin-right: 10px;
+      color: #fff;
+  }
+
+  .s-footer {
+    margin-top: 2%;
+  }
+
+  .fa-twitter:hover {
+    color: #1dcaff; 
+  }
+
+  .fa-github:hover {
+    color: #6e5494;
+  }
+
+  .fa-envelope:hover {
+    color: #bd2c00;
+  }
+
+/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+.prettyprint {
+  background: #031927;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  border: 0 !important;
+  border-radius: 0;
+  width: 100% !important;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.pln {
+  color: #e6e9ed;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #656d78;
+}
+
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  padding-left: 1em;
+  background-color: #2f3640;
+  list-style-type: decimal;
+}
+
+@media screen {
+
+  /* string content */
+
+  .str {
+    color: #ffce54;
+  }
+
+  /* keyword */
+
+  .kwd {
+    color: #4fc1e9;
+  }
+
+  /* comment */
+
+  .com {
+    color: #656d78;
+  }
+
+  /* type name */
+
+  .typ {
+    color: #4fc1e9;
+  }
+
+  /* literal value */
+
+  .lit {
+    color: #ac92ec;
+  }
+
+  /* punctuation */
+
+  .pun {
+    color: #e6e9ed;
+  }
+
+  /* lisp open bracket */
+
+  .opn {
+    color: #e6e9ed;
+  }
+
+  /* lisp close bracket */
+
+  .clo {
+    color: #e6e9ed;
+  }
+
+  /* markup tag name */
+
+  .tag {
+    color: #ed5565;
+  }
+
+  /* markup attribute name */
+
+  .atn {
+    color: #a0d468;
+  }
+
+  /* markup attribute value */
+
+  .atv {
+    color: #ffce54;
+  }
+
+  /* declaration */
+
+  .dec {
+    color: #ac92ec;
+  }
+
+  /* variable name */
+
+  .var {
+    color: #e6e9ed;
+  }
+
+  /* function name */
+
+  .fun {
+    color: #e6e9ed;
+  }
+}
+
+</style>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/material-kit.js"></script>
+<script src="https://cdn.rawgit.com/timcreative/material-kit/master/assets/js/material.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript"> 
+   NProgress.configure({ 
+   	showSpinner: true
+
+    });
+   NProgress.start();   
+   NProgress.done();
+</script>
+
+
+	</body>
+</html>

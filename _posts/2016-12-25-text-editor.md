@@ -7,6 +7,8 @@ permalink: /text-editor
 img: /img/text-editor.gif
 demourl: /demo/text-editor-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/text-editor-project
+language: HTML/CSS/JS
+
 ---
 ### Getting Started
 

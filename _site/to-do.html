@@ -37,8 +37,6 @@
       </script>
 	</head>
 
-
-
 	<header>
 	<div id="header">
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
@@ -53,11 +51,37 @@
     		<a class="navbar-brand" href="/">Enlight</a>
     	</div>
 
-    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
     		<ul class="nav navbar-nav">
-				<li><a href="/web">Web Development</a></li>
-        		<li><a href="/ios">iOS Development</a></li>
-        		<li><a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a></li>
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown">Web Development <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class><a href="/web">JavaScript</a></li>
+                      <li><a href="/nodejs">NodeJS</a></li>
+                      <li><a href="/react">React</a></li>
+                    <li><a href="/ruby">Ruby</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown">Mobile Development <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/react-native">React Native (JS)</a></li>
+                      <li><a href="/swift">Swift</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/web" class="dropdown-toggle" data-toggle="dropdown"> More <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/python">Python</a></li>
+                      <li><a href="/cplusplus">C++</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a></li>
         		<li><a href="https://blog.enlight.ml">Blog</a></li>
         		<li><a href="/why">Why Enlight?</a></li>
     		</ul>
@@ -74,28 +98,6 @@
 
 
 
-
-
-
-
-
-
-
-<!-- 
-
-<a href="/"><h1 class="enlight top">Enlight</h1></a>
-
-<ul class="nav top"> 
-	<a href="/web"><li class="nav-item top">Web Development</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
-	<a href="/ios"><li class="nav-item top">iOS Development </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
-	<a href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials"><li class="nav-item top">Contribute </li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
-	<a href="https://blog.enlight.ml"><li class="nav-item top">Blog</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
-	<a href="https://gitter.im/tryenlight/Lobby"><li class="nav-item top">Chat</li></a><span class="top" style="font-size: 20px;color: #ee4287; font-weight: lighter;"> | </span>
-	<a href="/why"><li class="nav-item top">Why Enlight?</li></a>
-	<a href="mailto:hi@shamdasani.org?subject=Enlight"><li class="nav-item top social"><i class="fa fa-envelope"></i></li></a>
-	<a href="https://github.com/samayshamdasani/enlight"><li class="nav-item top social"><i class="fa fa-github"></i></li></a>
-	<a href="https://twitter.com/tryenlight"><li class="nav-item top social"><i class="fa fa-twitter"></i></li></a>
-</ul> -->
 	</header>
 
 	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
@@ -163,7 +165,8 @@
 	</div>
 
 	<br><br>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"></script>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
+
 	<div class="content">
 	 <h3 id="getting-started">Getting Started</h3>
 
@@ -354,6 +357,33 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
 	                                
 	<br><br>
 
+	
+		<div class="grid">
+		<div class="row">
+	
+  		<div class="col-sm-4">
+	      <a href="/web-paint"><img class="project-image-front" src=/img/web-paint.gif></a>
+	      <a href="/web-paint"><h3 class="project-title-front"><span>Web Paint App</span></h3></a>
+	      <a href="/web-paint"><h3 class="project-language"><span>HTML/CSS/JS</span></h3></a>
+    	</div>
+      
+  		<div class="col-sm-4">
+	      <a href="/weather"><img class="project-image-front" src=/img/weather.gif></a>
+	      <a href="/weather"><h3 class="project-title-front"><span>Geolocation Weather App</span></h3></a>
+	      <a href="/weather"><h3 class="project-language"><span>HTML/CSS/JS</span></h3></a>
+    	</div>
+      
+  		<div class="col-sm-4">
+	      <a href="/code-editor"><img class="project-image-front" src=/img/code-editor.gif></a>
+	      <a href="/code-editor"><h3 class="project-title-front"><span>Live HTML/CSS/JS Editor</span></h3></a>
+	      <a href="/code-editor"><h3 class="project-language"><span>HTML/CSS/JS</span></h3></a>
+    	</div>
+      
+     </div>
+    </div>
+	
+
+
   	</div>
 
   	<footer>
@@ -401,6 +431,13 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
 	font-size: 12px;
 }
 
+#header .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+background: #031927;
+opacity: 1;
+}
+ 
+
+
 /* General */
 
 body {
@@ -417,13 +454,16 @@ a {
 	color: inherit;
 }
 
-a:hover {
+
+
+.content a:hover {
 	color: inherit;
 	text-decoration: none;
 	opacity: .7;
 }
 
-.content li a {
+
+.content a {
 	border-bottom: 1px solid #E91E63;
 }
 
@@ -497,8 +537,28 @@ h3.project-title-front span {
    border-radius: 2px;
 }
 
+h3.project-language { 
+   position: absolute; 
+   top: 10px; 
+   right: 15px;
+   font-size: 14px;
+}
+
+h3.project-language span {
+   color: white; 
+   background: #E91E63;
+   padding: 2px; 
+   border-radius: 2px;
+}
+
 img.project-image-front {
 	width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s ease;
+}
+
+img.project-image-front:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 /* Project Page */
@@ -606,7 +666,7 @@ input {
       font-family: "Avenir Next", Helvetica, Arial, sans-serif;
       margin-top: 10px;
       margin-right: 10px;
-      color: #E91E63;
+      color: #fff;
   }
 
   .s-footer {
@@ -753,7 +813,7 @@ li.L9 {
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://cdn.rawgit.com/timcreative/material-kit/master/assets/js/material-kit.js"></script>
+<script src="/js/material-kit.js"></script>
 <script src="https://cdn.rawgit.com/timcreative/material-kit/master/assets/js/material.min.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>

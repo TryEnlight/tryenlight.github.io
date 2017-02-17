@@ -1,6 +1,5 @@
 ![](https://enlight.ml/img/enlight.png)
 
-[![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/tryenlight/lobby)
 
 # learn to code by building projects
 
@@ -32,8 +31,8 @@ Enlight is open-source - which means we love contributors! Have a project on the
 If it's useful, it'll be posted on the site with of course, credit to you!
 
 - fork the repo
-- in the project folder, make another folder w/ the project name
-- in that folder: include the project demo (w/ it's source files) and a markdown file with the tutorial. 
+- in the demo folder, make a folder w/ your project name
+- includes the files of the project & markdown tutorial :)
 - create a pull request & and it'll be up soon!
 
 **or...**if you don't want to go through GitHub, you can email me your project+tutorial at hi@shamdasani.org

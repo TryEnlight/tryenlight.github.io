@@ -26,6 +26,13 @@
 	font-size: 12px;
 }
 
+#header .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+background: #031927;
+opacity: 1;
+}
+ 
+
+
 /* General */
 
 body {
@@ -42,13 +49,16 @@ a {
 	color: inherit;
 }
 
-a:hover {
+
+
+.content a:hover {
 	color: inherit;
 	text-decoration: none;
 	opacity: .7;
 }
 
-.content li a {
+
+.content a {
 	border-bottom: 1px solid #E91E63;
 }
 
@@ -122,8 +132,28 @@ h3.project-title-front span {
    border-radius: 2px;
 }
 
+h3.project-language { 
+   position: absolute; 
+   top: 10px; 
+   right: 15px;
+   font-size: 14px;
+}
+
+h3.project-language span {
+   color: white; 
+   background: #E91E63;
+   padding: 2px; 
+   border-radius: 2px;
+}
+
 img.project-image-front {
 	width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s ease;
+}
+
+img.project-image-front:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 /* Project Page */
@@ -231,7 +261,7 @@ input {
       font-family: "Avenir Next", Helvetica, Arial, sans-serif;
       margin-top: 10px;
       margin-right: 10px;
-      color: #E91E63;
+      color: #fff;
   }
 
   .s-footer {

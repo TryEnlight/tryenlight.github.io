@@ -1,7 +1,9 @@
 ---
-layout: page
-title: You are lost.
+layout: default
 ---
+
+<h1 style = "text-align:center;">Syntax error <b>#404</b></h1>
+<br><br>
 
 <div class="grid">
 
@@ -11,6 +13,8 @@ title: You are lost.
 	    <div class="col-sm-4">
 	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
 	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+	      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+
 		</div>
   {% endfor %}
 </div>
@@ -21,6 +25,8 @@ title: You are lost.
 	    <div class="col-sm-4">
 	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
 	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+	  	  <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+
 		</div>
   {% endfor %}
  </div>
@@ -31,6 +37,8 @@ title: You are lost.
 	    <div class="col-sm-4">
 	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
 	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+	  	  <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+
 		</div>
   {% endfor %}
  </div>

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Learn to Code Python
+description: 
+---
+
+<h3 class="project-title"> Beginner Python Projects:</h3><br>
+
+<div class="grid">
+  <div class="row">
+
+{% for post in site.categories.python-easy limit:3 %}
+
+    <div class="col-sm-4">
+      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
+      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
+      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+
+    </div>
+  {% endfor %}
+
+  </div>
+
+</div>
+
+
+{% include footer.html %}
