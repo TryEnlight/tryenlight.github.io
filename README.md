@@ -17,11 +17,10 @@
 - a twitter bot
 - personal website 
 - blog with jekyll
-- calculator
-- real-time chat
 - tic-tac-toe game
 - AI chrome extension pulling info from searches
 - browser notifications from websites
+- fb messenger bot
 - news + link aggregator
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
