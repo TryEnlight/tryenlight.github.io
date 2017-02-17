@@ -23,26 +23,27 @@ In the markup, you could see a div with class `calc`, that is our calculator. It
 
 The attribute `data-value` stores the value of button and `data-action` ditactes what action is to be perfomed if we click it. Please read more to find out how are `data-attributes` used in building this calculator.
 
-#### The Stying
+### The Stying
 
 CSS for calculator project is defined in the file `style.css`. Apart from what you have seen on other tutorials, there are three things that might interest you in here
 
   1. `@import url('https://fonts.googleapis.com/css?family=Roboto');` We are importing a custom font into our project here, to learn more about importing custom fonts, checkout this<a href="https://fonts.google.com/" class="underline">link</a>. We have used `@import` to import the font, the @import CSS at-rule is used to import style rules from other style sheets <a href="http://www.cssnewbie.com/css-import-rule/#.WKcWjSF948o">Read more</a>.
   2. `display: flex;` Flexbox is a new display type introduced in CSS3, it is very handy in implementing layouts intuitively. A tutorial on flexbox can take up a lot of space, go over to <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks</a>, read this in deapth tutorial and gain knowledge on CSS flexbox.
   3. `.results > *` `.key:hover`, these are some advanced CSS selectors, `>` is a child selector, this means "select elements that are direct descendants of elements with class results". `:hover` is a CSS psuedo selector, which means to apply a style when an element is in hovered state. Read the CSS selector <a href="https://css-tricks.com/almanac/selectors/">almanac</a> here.
-  
+
 ### JavaScript
 
 Markup defines the structure of the application, CSS gives the looks and JavaScript is the functionality. The best thing about JS is it's flexibility. It's a weakly typed language that can be used to write code in whatever programming style you like, be it Object Oriented, be it functional, be it procedural. But when you are working on a project, it's always good to define a set of rules and always follow these rules through out the development. These rules could be about syntax, the <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigm</a> of choice or even could be about variableNamings.
 
 Our dogmes for this project are:
-  * Immutable calculator state
-  * Always display results using calculator state
-  * Try to follow functional programming, as much as possible
-  * Not more than two levels of nested logic in a function
+
+  1. Immutable calculator state
+  2. Always display results using calculator state
+  3. Try to follow functional programming, as much as possible
+  4. Not more than two levels of nested logic in a function
 
 Why should we keep the application state immutable, why should we keep state in the first place? Basicaly, in all most all the modern frameworks and large applications, you have to keep the state. In these scenarios, it a healthy idea to see your application as a set of components that operate on and display the application's state. Different libraries have different approaches for manipulating state, some, such as Redux keep a single state object and keeps it immutable. No action would partially modify the application state. We hopw this could be a used as a light introduction to such philosophies.
- 
+
 Our calculator state is generated with the function
 <pre class="prettyprint">
   function generateState(operation, numA, numB, result) {
@@ -86,8 +87,11 @@ Read more about JS object cloning <a href="http://blog.soulserv.net/understandin
 
 Hope this have introduced a few new things to your coding skills :)
 
-Improvements that can be added to the calculator project:
-  * Add keyboard bindings
-  * Tweak style of equals button as in dribble
-  * Try adding new operators
-  * Add an undo button
+### Improvements
+
+The improvements that can be implemented to the calculator project:
+
+  1. Add keyboard bindings
+  2. Tweak style of equals button as in dribble
+  3. Try adding new operators
+  4. Add an undo button
