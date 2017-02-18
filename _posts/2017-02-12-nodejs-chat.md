@@ -7,7 +7,7 @@ permalink: /nodejs-chat
 img: /img/nodejs-chat.gif
 demourl: https://enlight-chat.herokuapp.com/
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/node-js/chat
-language: NodeJS 
+language: Node.js 
 tag: NodeJS
 ---
 
