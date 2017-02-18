@@ -40,18 +40,18 @@ Now that our dependencies are installed, let's create our file structure:
 Open up the ```server.js``` file. Here's where we need to require [express](http://expressjs.com/) and [socket.io](http://socket.io/), and create a new server. We also need to use [app.get](http://expressjs.com/en/4x/api.html#app.get) to deliver an HTML file easily. In addition, we have to let express know that all our static (html,css,js) files are in the public folder. Lastly, we need to open up a port on our ```localhost``` hostname.
 
 <pre class="prettyprint">
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+  var express = require('express');
+  var app = express();
+  var server = require('http').createServer(app);
+  var io = require('socket.io')(server);
 
-app.get('/', function(req, res, next) {
-	res.sendFile(__dirname + '/public/index.html')
-});
+  app.get('/', function(req, res, next) {
+  	res.sendFile(__dirname + '/public/index.html')
+  });
 
-app.use(express.static('public'));
+  app.use(express.static('public'));
 
-server.listen(7777);
+  server.listen(7777);
 
 </pre>  
 
@@ -97,36 +97,36 @@ Open up your ```client.js``` file. At this point, we need to connect to our serv
 On connect, let's emit a message to confirm our connection with an event of ```join```.
 
 <pre class="prettyprint">
-var socket = io.connect('http://localhost:7777');
-socket.on('connect', function(data) {
-    socket.emit('join', 'Hello server from client');
-});
+  var socket = io.connect('http://localhost:7777');
+  socket.on('connect', function(data) {
+      socket.emit('join', 'Hello server from client');
+  });
 </pre>
 
 Then, we can open back up our ```server.js``` file and log a message that the client is connected. Also, we can listen for the ```join``` event we wrote earlier to log the data from the client. Here's how it'll work:
 
 <pre class="prettyprint">
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+  var express = require('express');
+  var app = express();
+  var server = require('http').createServer(app);
+  var io = require('socket.io')(server);
 
-app.get('/', function(req, res, next) {
-	res.sendFile(__dirname + '/public/index.html')
-});
+  app.get('/', function(req, res, next) {
+  	res.sendFile(__dirname + '/public/index.html')
+  });
 
-app.use(express.static('public'));
+  app.use(express.static('public'));
 
 
-io.on('connection', function(client) {
-	console.log('Client connected...');
+  io.on('connection', function(client) {
+  	console.log('Client connected...');
 
-	client.on('join', function(data) {
-		console.log(data);
-	});
-});
+  	client.on('join', function(data) {
+  		console.log(data);
+  	});
+  });
 
-server.listen(7777);
+  server.listen(7777);
 </pre>
 
 Now, if you re-run the server.js file in your terminal (CTRL+C to exit) and refresh ```localhost:7777``` in your browser, you should see the messages ```client connected...``` & ```Hello server from client``` in your terminal which confirms our connection!
@@ -141,56 +141,56 @@ Finally! Now that we have a connection, we can use it to emit and send messages.
 	- use ```return false;``` to prevent the from from it's default action (refreshing page)
 
 <pre class="prettyprint">
-// initializing socket, connection to server
-var socket = io.connect('http://localhost:7777');
-socket.on('connect', function(data) {
-    socket.emit('join', 'Hello server from client');
-});
+  // initializing socket, connection to server
+  var socket = io.connect('http://localhost:7777');
+  socket.on('connect', function(data) {
+      socket.emit('join', 'Hello server from client');
+  });
 
 
-// listener for 'thread' event, which updates messages
-<xmp>socket.on('thread', function(data) {
-  $('#thread').append('<li>' + data + '</li>');
-});</xmp>
+  // listener for 'thread' event, which updates messages
+  <xmp>socket.on('thread', function(data) {
+    $('#thread').append('<li>' + data + '</li>');
+  });</xmp>
 
-// sends message to server, resets & prevents default form action
-$('form').submit(function() {
-	var message = $('#message').val();
-	socket.emit('messages', message);
-	this.reset();
-	return false;
-}); 
+  // sends message to server, resets & prevents default form action
+  $('form').submit(function() {
+  	var message = $('#message').val();
+  	socket.emit('messages', message);
+  	this.reset();
+  	return false;
+  }); 
 </pre>
 
 However, before we have a functional application, we have to add our ```messages``` event to our server and emit it to our thread event!
 
 <pre class="prettyprint">
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+  var express = require('express');
+  var app = express();
+  var server = require('http').createServer(app);
+  var io = require('socket.io')(server);
 
-app.get('/', function(req, res, next) {
-	res.sendFile(__dirname + '/public/index.html')
-});
+  app.get('/', function(req, res, next) {
+  	res.sendFile(__dirname + '/public/index.html')
+  });
 
-app.use(express.static('public'));
+  app.use(express.static('public'));
 
 
-io.on('connection', function(client) {
-	console.log('Client connected...');
+  io.on('connection', function(client) {
+  	console.log('Client connected...');
 
-	client.on('join', function(data) {
-		console.log(data);
-	});
+  	client.on('join', function(data) {
+  		console.log(data);
+  	});
 
-	client.on('messages', function(data){
-		client.emit('thread', data);
-		client.broadcast.emit('thread', data);
-	});
-});
+  	client.on('messages', function(data){
+  		client.emit('thread', data);
+  		client.broadcast.emit('thread', data);
+  	});
+  });
 
-server.listen(7777);
+  server.listen(7777);
 </pre>
 
 There you go! Our ```messages``` event is listened for and once to server recieves it it is broadcasted to all the other clients using ```client.broadcast.emit```.
@@ -201,28 +201,28 @@ There you go! Our ```messages``` event is listened for and once to server reciev
 Before we finish, let's style the app a bit. Open up the ```style.css``` file and customize it to your liking!
 
 <pre class="prettyprint">
-html, body {
-  text-align: center;
-  font-family: 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
-}
+  html, body {
+    text-align: center;
+    font-family: 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
+  }
 
-html,body,li,form,ul {
-  padding: 0;
-  margin: 0;
-}
+  html,body,li,form,ul {
+    padding: 0;
+    margin: 0;
+  }
 
-form {
-  padding-bottom: 2%;
-}
+  form {
+    padding-bottom: 2%;
+  }
 
-li {
-  list-style: none;
-  width: 100vw;
-}
+  li {
+    list-style: none;
+    width: 100vw;
+  }
 
-li:nth-child(odd) { 
-  background: #eee; 
-}
+  li:nth-child(odd) { 
+    background: #eee; 
+  }
 
 </pre>
 
