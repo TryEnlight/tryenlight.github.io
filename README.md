@@ -4,6 +4,7 @@
 # learn to code by building projects
 
 ## projects available
+HTML/CSS/JS
 - [hex color generator](https://enlight.ml/color-generator.html)
 - [text editor](https://enlight.ml/text-editor.html)
 - [a minimal clock](https://enlight.ml/clock.html)
@@ -12,6 +13,11 @@
 - [quote generator](https://enlight.ml/quote.html)
 - [geolocation weather app](https://enlight.ml/weather.html)
 - [auto-compiling code editor](https://enlight.ml/code-editor.html)
+- [calculator](https://enlight.ml/calculator)
+
+Node.js
+- [real time chat app](https://enlight.ml/nodejs-chat)
+
 
 ## for the future
 - a twitter bot
