@@ -509,8 +509,8 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
         padding: 5px;
     }
     .card {
-        height: 325px;
-        width: 400px;
+        width: 100%;
+        height: 310px;
         background-position: center;
         background-repeat: none;
         margin: 5px;
@@ -525,6 +525,7 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
         -moz-background-size: auto 100%;
         -o-background-size: auto 100%;
         background-size: auto 100%;
+
     }
     h3.project-title-front {
         position: absolute;
@@ -674,7 +675,7 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
 
 
 
-    @media(max-width: 760px) {
+    @media(max-width: 900px) {
         .card {
             width: 100%;
         }
@@ -682,16 +683,13 @@ input text to the ul as a <a href="http://www.w3schools.com/tags/tag_li.asp" cla
             background: #031927;
             color: #fff;
         }
-        h1,
-        h2,
-        p {
-            padding: 10px;
-        }
+    
         .grid {
             max-width: 90%;
         }
-        .project {
+        .project-header, .content {
             max-width: 95%;
+            margin: 0 auto;
         }
     }
     footer {
