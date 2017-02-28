@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-editor
 title: Text Editor
 description: a minimal text editor that autosaves your text every second
 category: easy-web

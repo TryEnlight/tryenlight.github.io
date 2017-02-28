@@ -1,407 +1,417 @@
 <style>
-
-/* Header */
-
-#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
-	background: transparent;
-  color: #333;
-}
-
-#header .navbar.navbar-fixed-top.navbar-color-on-scroll {
-	background: #031927;
-}
-
-
-#header .navbar-brand {
-	font-size: 36px;
-	font-family: "Avenir Next", "Roboto", sans-serif;
-  color: #E91E63;
-}
-
-#header li {
-	letter-spacing: 1px;
-}
-
-#header li a {
-	font-size: 12px;
-}
-
-#header .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-background: #031927;
-opacity: 1;
-}
- 
-
-
-/* General */
-
-body {
-	margin-top: 100px;
-	background-color: #fff;
-	color: #333;
-}
-
-#nprogress .bar {
-  background: #031927;
-}
-
-a {
-	color: inherit;
-}
-
-
-
-.content a:hover {
-	color: inherit;
-	text-decoration: none;
-	opacity: .7;
-}
-
-
-.content a {
-	border-bottom: 1px solid #E91E63;
-}
-
-.content a:hover {
-  border-bottom: none;
-}
-
-.content {
-	margin-bottom: 2%;
-}
-
-p::selection {
-  background: #E91E63; 
-}
-p::-moz-selection {
-  background: #E91E63;
-}
-
-li::selection {
-  background: #E91E63; 
-}
-li::-moz-selection {
-  background: #E91E63; 
-}
-a::selection {
-  background: #E91E63; 
-}
-a::-moz-selection {
-  background: #E91E63; 
-}
-
-
-button {
-	outline: 0;
-    background: #E91E63;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 16px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    font-family: "Avenir Next", "Roboto", Helvetica, Arial, sans-serif;
-}
-
-
-/* Frontpage */
-
-.grid {
-	margin-top: 5%;
-	max-width: 75%;
-	margin: 0 auto;
-}
-
-.grid .col-sm-4 {
-   position: relative; 
-   padding: 5px;
-}
-
-h3.project-title-front { 
-   position: absolute; 
-   bottom: 10px; 
-   left: 15px;
-   width: 100%; 
-}
-
-h3.project-title-front span {
-   color: white; 
-   background: #E91E63;
-   padding: 10px; 
-   border-radius: 2px;
-}
-
-h3.project-language { 
-   position: absolute; 
-   top: 10px; 
-   right: 15px;
-   font-size: 14px;
-}
-
-h3.project-language span {
-   color: white; 
-   background: #E91E63;
-   padding: 2px; 
-   border-radius: 2px;
-}
-
-img.project-image-front {
-	width: 100%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s ease;
-}
-
-img.project-image-front:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-/* Project Page */
-
-
-.project {
-  max-width: 60%;
-  margin: 0 auto;
-}
-
-
-h1.project-title, h3.project-title {
-	text-align: center;
-	padding: 0;
-	margin: 0;
-}
-
-h3.project-description {
-	text-align: center;
-	padding: 0;
-	margin-bottom: 2%;
-}
-
-img.project-image {
-	display: block;
-  margin-left: auto;
- 	margin-right: auto;
-}
-
-.buttons {
-	text-align: center;
-}
-
-.project-button {
-	 margin-top: 2%;
-    margin-right: 2%;
-  	font-size: 20px;
-  	border-radius: 5px;
-  	width: 5em;
-}
-
-p, li {
-	font-size: 18px;
-	line-height: 1.5;
-}
-
-
-@media(max-width: 760px) {
-
-	img.project-image {
-		width: 80%;
-	}
-
-	#header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
-	background: #031927;
-  color: #fff;
-}
-
-	h1, h2, p {
-		padding: 10px;
-	}
-
-  .grid {
-    max-width: 90%;
-
-  }
-
-  .project {
-      max-width: 95%;
-  }
-
-}
-
-footer {
-  width: 100%;
-  background: #031927;
-  color: #fff;
-  margin-top: 5%;
-  text-align: center;
-}
-
-.footer-button {
-    font-size: 16px;
-    border-radius: 5px;
-    width: 8em;
-}
-
-.footer-button:hover {
-    opacity: .8;
-}
-
-footer .form-control {
-  max-width: 30em;
-  margin: auto;
-}
-
-input {
-      outline: 0;
-      background: #354652;
-      border: 0;
-      padding: 15px;
-      box-sizing: border-box;
-      font-size: 16px;
-      width: 350px;
-      font-family: "Avenir Next", Helvetica, Arial, sans-serif;
-      margin-top: 10px;
-      margin-right: 10px;
-      color: #fff;
-  }
-
-  .s-footer {
-    margin-top: 2%;
-  }
-
-  .fa-twitter:hover {
-    color: #1dcaff; 
-  }
-
-  .fa-github:hover {
-    color: #6e5494;
-  }
-
-  .fa-envelope:hover {
-    color: #bd2c00;
-  }
-
-/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
-.prettyprint {
-  background: #031927;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
-  border: 0 !important;
-  border-radius: 0;
-  width: 100% !important;
-  margin-top: 3%;
-  margin-bottom: 3%;
-}
-
-.pln {
-  color: #e6e9ed;
-}
-
-/* Specify class=linenums on a pre to get line numbering */
-ol.linenums {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #656d78;
-}
-
-li.L0,
-li.L1,
-li.L2,
-li.L3,
-li.L4,
-li.L5,
-li.L6,
-li.L7,
-li.L8,
-li.L9 {
-  padding-left: 1em;
-  background-color: #2f3640;
-  list-style-type: decimal;
-}
-
-@media screen {
-
-  /* string content */
-
-  .str {
-    color: #ffce54;
-  }
-
-  /* keyword */
-
-  .kwd {
-    color: #4fc1e9;
-  }
-
-  /* comment */
-
-  .com {
-    color: #656d78;
-  }
-
-  /* type name */
-
-  .typ {
-    color: #4fc1e9;
-  }
-
-  /* literal value */
-
-  .lit {
-    color: #ac92ec;
-  }
-
-  /* punctuation */
-
-  .pun {
-    color: #e6e9ed;
-  }
-
-  /* lisp open bracket */
-
-  .opn {
-    color: #e6e9ed;
-  }
-
-  /* lisp close bracket */
-
-  .clo {
-    color: #e6e9ed;
-  }
-
-  /* markup tag name */
-
-  .tag {
-    color: #ed5565;
-  }
-
-  /* markup attribute name */
-
-  .atn {
-    color: #a0d468;
-  }
-
-  /* markup attribute value */
-
-  .atv {
-    color: #ffce54;
-  }
-
-  /* declaration */
-
-  .dec {
-    color: #ac92ec;
-  }
-
-  /* variable name */
-
-  .var {
-    color: #e6e9ed;
-  }
-
-  /* function name */
-
-  .fun {
-    color: #e6e9ed;
-  }
-}
-
+    /* Header */
+    
+    #header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+        background: transparent;
+        color: #333;
+    }
+    #header .navbar.navbar-fixed-top.navbar-color-on-scroll {
+        background: #031927;
+    }
+    #header .navbar-brand {
+        font-size: 36px;
+        font-family: "Avenir Next", "Roboto", sans-serif;
+        color: #E91E63;
+    }
+    #header li {
+        letter-spacing: 1px;
+    }
+    #header li a {
+        font-size: 12px;
+    }
+    #header .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus {
+        background: #031927;
+        opacity: 1;
+    }
+    /* General */
+    
+    body {
+        margin-top: 100px;
+        background-color: #fff;
+        color: #333;
+
+    }
+    #nprogress .bar {
+        background: #031927;
+    }
+    a {
+        color: inherit;
+    }
+    .content a:hover {
+        color: inherit;
+        text-decoration: none;
+        opacity: .7;
+    }
+    .content a {
+        border-bottom: 1px solid #E91E63;
+    }
+    .content a:hover {
+        border-bottom: none;
+    }
+    *::selection {
+        background: #FCE4EC;
+    }
+    *::-moz-selection {
+        background: #FCE4EC;
+    }
+    button {
+        outline: 0;
+        background: #E91E63;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 16px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+        font-family: "Avenir Next", "Roboto", Helvetica, Arial, sans-serif;
+    }
+    /* Frontpage */
+    
+    .grid {
+        margin-top: 5%;
+        max-width: 75%;
+        margin: 0 auto;
+    }
+    .grid .col-sm-4 {
+        position: relative;
+        padding: 5px;
+    }
+    .card {
+        height: 325px;
+        width: 400px;
+        background-position: center;
+        background-repeat: none;
+        margin: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s ease;
+    }
+    .card:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    .card img {
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+    }
+    h3.project-title-front {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        width: 100%;
+    }
+    h3.project-title-front span {
+        color: white;
+        background: #E91E63;
+        padding: 10px;
+        border-radius: 2px;
+    }
+    h3.project-language {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 14px;
+    }
+    h3.project-language span {
+        color: white;
+        background: #E91E63;
+        padding: 2px;
+        border-radius: 2px;
+    }
+    /* Project Page */
+    
+    .project-header {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+    h1.project-title,
+    h3.project-title {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+    h3.project-description {
+        text-align: center;
+        padding: 0;
+        margin-bottom: 2%;
+    }
+    img.project-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .buttons {
+        text-align: center;
+
+    }
+    .project-button {
+        margin-top: 2%;
+        margin-right: 2%;
+        font-size: 20px;
+    }
+    .project-button:hover {
+        outline: 1px solid #E91E63;
+        background: #fff;
+        color: #E91E63;
+    }
+    p,
+    li {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    .content {
+        margin-bottom: 2%;
+    }
+    /* If post.layout === editor */
+    
+    @media(min-width: 960px) {
+
+
+        .project-editor {
+            overflow-x: hidden;
+            display: flex;
+            overflow: hidden;
+            height: 100vh;
+            margin-top: -100px;
+            padding-top: 100px;
+            position: relative;
+            width: 100%;
+            backface-visibility: hidden;
+            will-change: overflow;
+        }
+
+        .code-content::-webkit-scrollbar{
+            display: none;
+        }
+
+
+        .code-content, .editor {
+            overflow: auto;
+            height: auto;
+            padding: .5rem;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;
+        }
+
+        .code-content {
+            flex: 1;
+        }
+
+        .editor {
+            flex: 1;
+             
+        }
+
+        textarea {
+          width: 95%;
+          float: top;
+          min-height: 150px;
+          overflow: scroll;
+          display: inline-block;
+          outline: none;
+          font-family: Courier, sans-serif;
+          font-size: 14px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        iframe {
+          width: 95%;
+          height: 25em;
+        }
+
+        .editor .project-button {
+            margin-left: auto;
+            display: flex;
+        }
+
+            /* If exited editor */
+        .content-exit {
+            max-width: 60%;
+            margin: 0 auto;
+        }
+
+        /* If embeded editor */
+
+        .embedded-compiler {
+            width: 48%;
+        }
+
+    }
+
+
+
+    @media(max-width: 760px) {
+        .card {
+            width: 100%;
+        }
+        #header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
+            background: #031927;
+            color: #fff;
+        }
+        h1,
+        h2,
+        p {
+            padding: 10px;
+        }
+        .grid {
+            max-width: 90%;
+        }
+        .project {
+            max-width: 95%;
+        }
+    }
+    footer {
+        width: 100%;
+        background: #031927;
+        color: #fff;
+        margin-top: 5%;
+        text-align: center;
+    }
+    .footer-button {
+        font-size: 16px;
+        border-radius: 5px;
+        width: 8em;
+    }
+    .footer-button:hover {
+        opacity: .8;
+    }
+    footer .form-control {
+        max-width: 30em;
+        margin: auto;
+    }
+    input {
+        outline: 0;
+        background: #354652;
+        border: 0;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 16px;
+        width: 350px;
+        font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+        margin-top: 10px;
+        margin-right: 10px;
+        color: #fff;
+    }
+    .s-footer {
+        margin-top: 2%;
+    }
+    .fa-twitter:hover {
+        color: #1dcaff;
+    }
+    .fa-github:hover {
+        color: #6e5494;
+    }
+    .fa-envelope:hover {
+        color: #bd2c00;
+    }
+    /*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+    
+    .prettyprint {
+        background: #031927;
+        font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+        border: 0 !important;
+        border-radius: 0;
+        width: 100% !important;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .pln {
+        color: #e6e9ed;
+    }
+    /* Specify class=linenums on a pre to get line numbering */
+    
+    ol.linenums {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #656d78;
+    }
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L4,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8,
+    li.L9 {
+        padding-left: 1em;
+        background-color: #2f3640;
+        list-style-type: decimal;
+    }
+    @media screen {
+        /* string content */
+        
+        .str {
+            color: #ffce54;
+        }
+        /* keyword */
+        
+        .kwd {
+            color: #4fc1e9;
+        }
+        /* comment */
+        
+        .com {
+            color: #656d78;
+        }
+        /* type name */
+        
+        .typ {
+            color: #4fc1e9;
+        }
+        /* literal value */
+        
+        .lit {
+            color: #ac92ec;
+        }
+        /* punctuation */
+        
+        .pun {
+            color: #e6e9ed;
+        }
+        /* lisp open bracket */
+        
+        .opn {
+            color: #e6e9ed;
+        }
+        /* lisp close bracket */
+        
+        .clo {
+            color: #e6e9ed;
+        }
+        /* markup tag name */
+        
+        .tag {
+            color: #ed5565;
+        }
+        /* markup attribute name */
+        
+        .atn {
+            color: #a0d468;
+        }
+        /* markup attribute value */
+        
+        .atv {
+            color: #ffce54;
+        }
+        /* declaration */
+        
+        .dec {
+            color: #ac92ec;
+        }
+        /* variable name */
+        
+        .var {
+            color: #e6e9ed;
+        }
+        /* function name */
+        
+        .fun {
+            color: #e6e9ed;
+        }
+    }
 </style>

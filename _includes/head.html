@@ -1,7 +1,15 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-   {% if page.layout == 'post' %}
+   {% if page.language == 'html/css/js' %}
+      <title>Build a {{ page.title | strip_html }} in {{ page.language }}</title>
+   {% endif %}
+
+   {% if page.layout == 'post-editor' %}
+      <title>Build a {{ page.title | strip_html }} in {{ page.language }}</title>
+   {% endif %}
+
+      {% if page.layout == 'post-editor-python' %}
       <title>Build a {{ page.title | strip_html }} in {{ page.language }}</title>
    {% endif %}
 

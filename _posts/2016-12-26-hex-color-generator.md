@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-editor
 title: Hex Color Generator
 description: generate beautiful colors every time you press the spacebar
 category: easy-web

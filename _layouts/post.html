@@ -1,79 +1,63 @@
 <!DOCTYPE html>
-
-	<head>
-	{% include head.html %}
-	</head>
-
-	<header>
-	{% include header.html %}
-	</header>
-
-	{% include ad.html %}
-	<body>
-	<div class="project">
-	<h1 class="project-title"> Build a <span class="underline">{{ page.title }}</span></h1>
-	<h3 class="project-description"> {{ page.description }}</h3>
-
-
-	<a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
-
-	<div class="buttons">
-	<a href="{{ page.source }}"><button class="project-button">Source</button></a><a href="{{ page.demourl }}"><button class="project-button">Demo</button></a>
-	</div>
-
-	<br><br>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
-
-	<div class="content">
-	 {{content}}
-	 </div>
-
-		    <div id="disqus_thread"></div>
-	<script>
-
-	/**
-	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-	/*
-	var disqus_config = function () {
-	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-	};
-	*/
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-	s.src = '//enlight-2.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	                                
-	<br><br>
-
-	{% if page.categories contains "easy-web" %}
-		<div class="grid">
-		<div class="row">
-	{% for post in site.categories.middle-web limit:3 %}
-  		<div class="col-sm-4">
-	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
-	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
-	      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
-    	</div>
-      {% endfor %}
-     </div>
-    </div>
-	{% endif %}
-
-
-  	</div>
-
-  	{% include footer.html %}
-
-
-	{% include style.css %}
-
-	{% include scripts.html %}
-
-	</body>
+<head>
+   {% include head.html %}
+</head>
+<header>
+   {% include header.html %}
+</header>
+{% include ad.html %}
+<body>
+   <div class="project-header">
+      <h1 class="project-title"> Build a <span class="underline">{{ page.title }}</span></h1>
+      <h3 class="project-description"> {{ page.description }}</h3>
+      <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
+      <div class="buttons">
+         <a href="{{ page.source }}"><button class="project-button">Source</button></a><a href="{{ page.demourl }}"><button class="project-button">Demo</button></a>
+      </div>
+      <br><br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
+      <div class="content">
+         {{content}}
+      </div>
+      <div id="disqus_thread"></div>
+      <script>
+         /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+         /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+         (function() { // DON'T EDIT BELOW THIS LINE
+         var d = document, s = d.createElement('script');
+         s.src = '//enlight-2.disqus.com/embed.js';
+         s.setAttribute('data-timestamp', +new Date());
+         (d.head || d.body).appendChild(s);
+         })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <br><br>
+      {% if page.categories contains "easy-web" %}
+      <div class="grid">
+         <div class="row">
+            {% for post in site.categories.middle-web limit:3 %}
+            <a href="{{ post.url }}">
+         <div class="col-sm-4">
+           <div class="card" style="background-image:url({{ post.img }});">
+            <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+            <h3 class="project-language"><span>{{ post.language }}</span></h3>
+           </div>
+         </div>
+      </a>
+            {% endfor %}
+         </div>
+      </div>
+      {% endif %}
+   </div>
+   {% include footer.html %}
+   {% include style.css %}
+   {% include scripts.html %}
+</body>
 </html>

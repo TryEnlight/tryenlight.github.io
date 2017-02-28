@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
-	<head>
-	
+<head>
+   
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    
@@ -9,20 +8,22 @@
    
 
       
+      <title>Build a Guessing Number Game in Python</title>
+   
 
-   <title>Learn to Code the Web</title>
+   <title>Guessing Number Game</title>
 
 
-      <meta name="description" content="Learn Web Development (HTML/CSS/JS)">
+      <meta name="description" content="a fun guessing number game in the terminal">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta property="og:title" content="Learn to Code the Web">
-      <meta property="og:description" content="Learn Web Development (HTML/CSS/JS)">
-      <meta property="og:url" content="https://enlight.ml/web.html">
+      <meta property="og:title" content="Guessing Number Game">
+      <meta property="og:description" content="a fun guessing number game in the terminal">
+      <meta property="og:url" content="https://enlight.ml/guess-number">
       <meta property="og:image" content="https://enlight.ml/img/enlight-round-logo.png" /> 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Learn to Code the Web" />
-      <meta name="twitter:description" content="Learn Web Development (HTML/CSS/JS)" />
+      <meta name="twitter:title" content="Guessing Number Game" />
+      <meta name="twitter:description" content="a fun guessing number game in the terminal" />
       <meta name="twitter:image" content="https://enlight.ml/img/enlight-round-logo.png" />
 
       <link href="style.css" type="stylesheet">
@@ -43,13 +44,9 @@
          ga('create', 'UA-85620206-1', 'auto');
          ga('send', 'pageview');
       </script>
-	</head>
-
-	
-
-
-	<header>
-	<div id="header">
+</head>
+<header>
+   <div id="header">
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
 	<div class="container-fluid">
     	<div class="navbar-header">
@@ -109,9 +106,8 @@
 
 
 
-	</header>
-
-	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+</header>
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
 <style>
 #carbonads {
   display: block;
@@ -163,157 +159,150 @@
 }
 
 </style> 
+<body>
+   <div class="project-header">
+      <h1 class="project-title"> Build a <span class="underline">Guessing Number Game</span></h1>
+      <h3 class="project-description"> a fun guessing number game in the terminal</h3>
+      <a href="https://repl.it/FgfS/0"><img class="project-image" src="/img/guess-number.gif"></a>
+      <div class="buttons">
+         <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/python/guess-number"><button class="project-button">Source</button></a>
+         <a href="https://repl.it/FgfS/0"><button class="project-button">Demo</button></a>
+         <a href="#start"><button class="project-button">Start Coding!</button></a>
+      </div>
+   </div>
+   <div id="start"></div>
 
 
-	<body>
+   <div class="project-editor" id="project-editor" style="margin-top:10px">
+   <div class="content code-content">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
+      <h3 id="getting-started">Getting Started</h3>
 
-	 <h3 class="project-title"> Beginner Web Development (JS) Projects:</h3><br>
+<p>Today we’ll be creating a guessing number game in Python that you can run in your terminal. Open up your favorite text editor and let’s begin!</p>
 
-<div class="grid">
-  <div class="row">
+<p>To start, we’ll need to <code class="highlighter-rouge">import random</code> as the random module will let us generate a random number for the user to guess.</p>
+
+<p>Then, we’ll set three variables:</p>
+<ul>
+  <li><code class="highlighter-rouge">numberofGuesses</code>: set to 0 - contains how many guesses the user takes</li>
+  <li><code class="highlighter-rouge">number</code>: to generate the random number</li>
+  <li><code class="highlighter-rouge">name</code>: set to <code class="highlighter-rouge">raw_input</code> to get user’s name</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">number</code> variable will be set to <code class="highlighter-rouge">random.randint(1,50)</code>. This assigns the variable to a random integer between 1 and 50. You may change the range
+if you wish.</p>
+
+<p>Here’s what our code should look like so far:</p>
+
+<pre class="prettyprint">
+import random
+
+numberofGuesses = 0
+number = random.randint(1,50)
+
+name = raw_input("Hello! What is your name? ")
+</pre>
+
+<h3 id="creating-the-while--if-loops">Creating the while &amp; if loops</h3>
+
+<p>Now, let’s print a message to the user asking to guess a number between 1 and 50. After that, we can run more <code class="highlighter-rouge">raw_inputs</code> as guesses and calculate whether the guess was too high or low in a <a href="https://docs.python.org/2/reference/compound_stmts.html#the-while-statement">while</a> loop with <a href="https://docs.python.org/2/reference/compound_stmts.html#the-if-statement">if</a> statements.</p>
+
+<p>Our while loop will run the functions in it until a certain number of guesses. In this case the while loop will be set to <code class="highlighter-rouge">while numberofGuesses &lt; 8:</code>.
+In the while loop, we can do the following:</p>
+<ul>
+  <li>set a <code class="highlighter-rouge">guess</code> variable to <code class="highlighter-rouge">raw_input</code> for the guess
+    <ul>
+      <li>turn the <code class="highlighter-rouge">guess</code> input into an integer</li>
+    </ul>
+  </li>
+  <li>for every guess, add (<code class="highlighter-rouge">1</code>) to the variable of <code class="highlighter-rouge">numberofGuesses</code></li>
+  <li>set a <code class="highlighter-rouge">guessesLeft</code> variable to 8 - <code class="highlighter-rouge">numberofGuesses</code></li>
+  <li>use <code class="highlighter-rouge">if</code> statements to see if guess is larger or smaller than number
+    <ul>
+      <li>convert <code class="highlighter-rouge">guessesLeft</code> to a string and print out if number is to low/high</li>
+    </ul>
+  </li>
+  <li>set an if for <code class="highlighter-rouge">guess===number</code>, which breaks the loop if true and prints out that you guessed the number in <code class="highlighter-rouge">numberofGuesses</code> tries</li>
+  <li>set an if for <code class="highlighter-rouge">guess!=number</code> (not equal), which prints out the <code class="highlighter-rouge">number</code> that the computer generated as the user did not guess it within 8 tries</li>
+</ul>
+
+<p>That may seem like a lot - and it is!</p>
+
+<pre class="prettyprint">
+import random
+
+numberofGuesses = 0
+number = random.randint(1,50)
+
+name = raw_input("Hello! What is your name? ")
+
+print(name + ", I am thinking of a whole number between 1 and 50. Can you guess what it is?")
+
+while numberofGuesses &lt; 8: 
+  guess = raw_input("Take a guess ")
+  guess = int(guess)
+
+  numberofGuesses = numberofGuesses + 1;
+  guessesLeft = 8 - numberofGuesses;
+
+  if guess &lt; number:
+    guessesLeft=str(guessesLeft)
+    print("Your guess is too low! You have " + guessesLeft + " guesses left")
+
+  if guess &gt; number:
+    guessesLeft=str(guessesLeft)
+    print("Your guess is too high! You have " + guessesLeft + " guesses left")
+
+  if guess==number:
+    break
+
+if guess==number:
+  numberofGuesses=str(numberofGuesses)
+  print("Good job! You guessed the number in " + numberofGuesses + " tries :)")
+
+if guess!=number:
+  number=str(number)
+  print("Sorry. The number I was thinking of was " + number + " :)")
+</pre>
+
+<p>Take note that when we want to either use the number in code our print it out, we need to convert it. First, we convert it to an integer (<code class="highlighter-rouge">int(guess)</code>). In the same way, when we want to print out a number, we make sure it is converted to a string (<code class="highlighter-rouge">str(number)</code>).</p>
+
+<p>Well, that’s all! Hope you learned a lot :)</p>
+
+
+   </div>
+
+
+   <div class="editor" id="editor">
+      <button class="project-button" onclick="exitEditorView()">Exit Editor View</button>
+            <iframe src="https://trinket.io/embed/python/4b09ea6934" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+   </div>
+   </div>
 
 
 
-    <a href="/hex-color-generator">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/color.gif);">
-          <h3 class="project-title-front"><span>Hex Color Generator</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-  
-
-    <a href="/clock">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/clock.gif);">
-          <h3 class="project-title-front"><span>Clock</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-  
-
-    <a href="/text-editor">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/text-editor.gif);">
-          <h3 class="project-title-front"><span>Text Editor</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-  
-
-  </div>
-
-  <div class="row">
-
-
-
-   <a href="/to-do">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/to-do.gif);">
-          <h3 class="project-title-front"><span>To-Do List</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-  
-
-  </div>
-
-</div>
-
-
-
-
-
-<h3 class="project-title"> Intermediate Web Development (JS) Projects:</h3><br>
-<div class="grid">
-  <div class="row">
-
-
-
-    <a href="/web-paint">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/web-paint.gif);">
-          <h3 class="project-title-front"><span>Web Paint App</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
+   <div id="disqus_thread" style="padding: 5%;"></div>
+   <script>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//enlight-2.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+   </script>
+   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   <br><br>
    
-
-    <a href="/weather">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/weather.gif);">
-          <h3 class="project-title-front"><span>Geolocation Weather App</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-   
-
-    <a href="/code-editor">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/code-editor.gif);">
-          <h3 class="project-title-front"><span>Live HTML/CSS/JS Editor</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-   
-
-  </div>
-
-
-
-  <div class="row">
-
-
-
-    <a href="/quote">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/quote.gif);">
-          <h3 class="project-title-front"><span>Quote Generator</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-   
-
-  </div>
-
-
-
-
-<h3 class="project-title"> Advanced Web Development (JS) Projects:</h3><br>
-
-   <div class="row">
-
-
-
-    <a href="/calculator">
-        <div class="col-sm-4">
-          <div class="card" style="background-image:url(/img/calc.gif);">
-          <h3 class="project-title-front"><span>Calculator</span></h3>
-          <h3 class="project-language"><span>HTML/CSS/JS</span></h3>
-         </div>
-       </div>
-    </a>
-   
-
-  </div>
-
-
-
-
-
-
-
-</div>
-
-<footer>
+   <footer>
       <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form">
          <h3> Get the latest projects delivered to your inbox!</h3>
          <input id="email" type="email" name="EMAIL" placeholder="Email">
@@ -328,17 +317,7 @@
  </footer>
 
 <!--  FIX FOOTER, ADD TWEET BUTTON, & FOLLOW -->
-
-	 
-
-
-
-
-
-
-
-
-	<style>
+   <style>
     /* Header */
     
     #header .navbar.navbar-fixed-top.navbar-color-on-scroll.navbar-transparent {
@@ -755,8 +734,7 @@
         }
     }
 </style>
-
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/js/material-kit.js"></script>
 <script src="/js/editor.js"></script>
@@ -771,7 +749,5 @@
    NProgress.done();
 </script>
 
-
-
-	</body>
+</body>
 </html>

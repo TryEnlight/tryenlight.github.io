@@ -4,44 +4,63 @@ title: Enlight | Learn to Code by Building Projects
 description: Enlight is a resource aimed to teach anyone to code through building projects. Hosting a wide variety of tutorials and demos, it provides users with sample projects and explains how they work.
 ---
 
-<h1 class="project-title">Learn to code by building projects</h1><br>
+<h1 class="project-title">Choose a project and start coding now! </h1><br>
 
 
-<div class="grid">
+<div class="grid"> 
 
 <div class="row">
   {% for post in site.posts limit: 3%} 
-  	
-	    <div class="col-sm-4">
-	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
-	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
-	      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+	    <a href="{{ post.url }}">
+	    	<div class="col-sm-4">
+	    	  <div class="card" style="background-image:url({{ post.img }});">
+		      <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+		      <h3 class="project-language"><span>{{ post.language }}</span></h3>
+		     </div>
+		   </div>
+		</a>
 
-		</div>
   {% endfor %}
 </div>
 
 
 <div class="row">
   {% for post in site.posts limit: 3 offset: 3%} 
-	    <div class="col-sm-4">
-	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
-	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
-	      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
-
-		</div>
+	    <a href="{{ post.url }}">
+	    	<div class="col-sm-4">
+	    	  <div class="card" style="background-image:url({{post.img }});">
+		      <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+		      <h3 class="project-language"><span>{{ post.language }}</span></h3>
+		     </div>
+		   </div>
+		</a>
   {% endfor %}
  </div>
 
 
  <div class="row">
   {% for post in site.posts limit: 3 offset: 6%} 
-	    <div class="col-sm-4">
-	      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
-	      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
-	      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
+	    <a href="{{ post.url }}">
+	    	<div class="col-sm-4">
+	    	  <div class="card" style="background-image:url({{post.img }});">
+		      <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+		      <h3 class="project-language"><span>{{ post.language }}</span></h3>
+		     </div>
+		   </div>
+		</a>
+  {% endfor %}
+ </div>
 
-		</div>
+ <div class="row">
+  {% for post in site.posts limit: 3 offset: 9%} 
+	    <a href="{{ post.url }}">
+	    	<div class="col-sm-4">
+	    	  <div class="card" style="background-image:url({{post.img }});">
+		      <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+		      <h3 class="project-language"><span>{{ post.language }}</span></h3>
+		     </div>
+		   </div>
+		</a>
   {% endfor %}
  </div>
 

@@ -11,12 +11,14 @@ description:
 
 {% for post in site.categories.nodejs limit:3 %}
 
-    <div class="col-sm-4">
-      <a href="{{ post.url }}"><img class="project-image-front" src={{ post.img }}></a>
-      <a href="{{ post.url }}"><h3 class="project-title-front"><span>{{ post.title }}</span></h3></a>
-      <a href="{{ post.url }}"><h3 class="project-language"><span>{{ post.language }}</span></h3></a>
-
-    </div>
+    <a href="{{ post.url }}">
+	    	<div class="col-sm-4">
+	    	  <div class="card" style="background-image:url({{ post.img }});">
+		      <h3 class="project-title-front"><span>{{ post.title }}</span></h3>
+		      <h3 class="project-language"><span>{{ post.language }}</span></h3>
+		     </div>
+		   </div>
+		</a>
   {% endfor %}
 
   </div>

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-editor
 title: Calculator 
 description: Simple calculator with HTML, CSS and JS
 category: hard-web
@@ -79,7 +79,7 @@ Here's what the markup looks like:
  </html>
 </xmp></pre>
 
-### The Stying
+### The Styling
 
 CSS for calculator project is defined in the file `style.css`. Apart from what you have seen on other tutorials, there are three things that might interest you in here
 
