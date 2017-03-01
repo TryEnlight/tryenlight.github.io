@@ -166,6 +166,10 @@
     .content {
         margin-bottom: 2%;
     }
+
+    .project {
+        margin: 0 auto;
+}
     /* If post.layout === editor */
     
     @media(min-width: 960px) {
