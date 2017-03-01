@@ -18,6 +18,8 @@ HTML/CSS/JS
 Node.js
 - [real time chat app](https://enlight.ml/nodejs-chat)
 
+Python
+- [Guessing Number Game](https://enlight.ml/guess-number)
 
 ## for the future
 - a twitter bot
