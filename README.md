@@ -23,6 +23,7 @@ Python
 
 ## for the future
 - a twitter bot
+- flappy bird game
 - personal website 
 - blog with jekyll
 - tic-tac-toe game
