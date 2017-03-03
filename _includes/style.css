@@ -169,6 +169,7 @@
 
     .project {
         margin: 0 auto;
+        max-width: 60em;
 }
     /* If post.layout === editor */
     
