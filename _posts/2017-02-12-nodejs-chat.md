@@ -5,7 +5,7 @@ description: Use technologies like Node.js, Socket.io, and Express to create you
 category: nodejs
 permalink: /nodejs-chat
 img: /img/nodejs-chat.gif
-demourl: https://enlight-chat.herokuapp.com/
+demourl: https://enlight-chat-nodejs.herokuapp.com/
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/node-js/chat
 language: Node.js 
 tag: NodeJS
