@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="reaction_timer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:reaction_timer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="MainGrid" Background="Green">
+        <HyperlinkButton Visibility="Collapsed" x:Name="MyRespond" ClickMode="Press" Click="MyRespond_Click" BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False">
+            <TextBlock Text="Respond!" FontSize="30" Foreground="White"/>
+        </HyperlinkButton>
+        <Border Background="White" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" x:Name="Information" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30"/>
+        </Border>
+    </Grid>
+</Page>
