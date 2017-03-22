@@ -1,0 +1,157 @@
+### Getting Started 
+
+Today we'll be creating a reaction timer game in C# and Microsoft's UWP framework that you can run on your Windows 10 PC or mobile. First things first. Open [Visual Studio](https://www.visualstudio.com/) 2015 Update 2 to or newer, click 'New Project', under 'Templates'->'Visual c#'-> 'Windows Universal' category you will see the 'Blank App' option. Set the project destination and you are done.
+
+If you didnt develop uwp apps before, in the project explorer you will see the MainPage.xaml and MainPage.cs files, double-click to open them!
+
+To start, we'll need to create some elements in the .xaml file. There are a button, used to mesure the reaction of the user, and a textblock, used to show the results to the user. Also, i set the Background property of the Grid element to Green and the name to MainGrid.
+
+#### 1) The button
+I used Hyperlink button because it fits better in this.
+<pre class="prettyprint">
+<HyperlinkButton Visibility="Collapsed" x:Name="MyRespond" ClickMode="Press" Click="MyRespond_Click" BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False">
+            <TextBlock Text="Respond!" FontSize="30" Foreground="White"/>
+        </HyperlinkButton>
+</pre>
+I set the Visibility to Collapsed, because we dont want the user to know where it is, and the 'Click' property to 'MyRespond_Click' which is the method which runs when the user click the button.
+
+#### 2) The TextBlock
+Its not something special, it only gives the feedback to the user.
+<pre class="prettyprint">
+<Border Background="White" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" x:Name="Information" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30"/>
+</Border>
+</pre>
+
+Keep in mind that you have to put the elements in distinctly places in the screen.
+You can play with the UI later.
+
+Here's what our code should look like so far inside the Page element of the xaml file:
+
+<pre class="prettyprint">
+<Grid x:Name="MainGrid" Background="Green">
+        <HyperlinkButton Visibility="Collapsed" x:Name="MyRespond" ClickMode="Press" Click="MyRespond_Click" BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False">
+            <TextBlock Text="Respond!" FontSize="30" Foreground="White"/>
+        </HyperlinkButton>
+        <Border Background="White" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" x:Name="Information" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30"/>
+        </Border>
+    </Grid>
+</pre>
+
+### Making the reaction timer work
+
+Open the MainPage.xaml.cs file. We will define 3 variables(with the types: [DispatcerTimer](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.dispatchertimer) and [DateTime](https://docs.microsoft.com/en-us/uwp/api/windows.foundation.datetime):
+<pre class="prettyprint">
+private DispatcherTimer timer;
+DateTime now;
+DateTime clicked;
+</pre>
+The first variable is for the timer we will use, and the others are: one to save the currrent time and the other to save the time the button pressed.
+
+Now, let's implement the OnNavigatedTo() method to start a timer when the Page become visible.
+First, we need to define the DispacherTimer variable with a new Interval:
+<pre class="prettyprint">
+    timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 2) };
+</pre>
+
+Note that you can set the number 2 to a Random Generated int to make the app more awesome
+
+After that, we can tell the timer to start with this statement: 'timer.Start()'
+
+Now, the cuttest line of this project. With this line: 'timer.Tick += onStop;', we'll tell the timer what to do when it stops.
+
+That's it. Yoy have a running timer!! Here is the full code.
+<pre class="prettyprint">
+protected override void OnNavigatedTo(NavigationEventArgs e)
+{
+    base.OnNavigatedTo(e);
+    timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 2) };
+    timer.Start();
+    timer.Tick += onStop;
+}
+</pre>
+To understand how the Timer works you can read [this sample](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/Accelerometer/cs/Scenario3_Polling.xaml.cs) from Microsoft.
+
+OnStop is a method(event as a tick: Occurs when the timer interval has elapsed.) that takes two objects as args(in my case: object sender, object e).
+In this method stop the running timer with the 'sender.Stop();' statement, then, set the MyRespond button visible and enabled and,finally, save the current time.
+Here's my code:
+<pre class="prettyprint">
+private void onStop(object sender, object e)
+{
+    ((DispatcherTimer)sender).Stop();
+    MyRespond.IsEnabled = true;
+    MyRespond.Visibility = Visibility.Visible;
+    now = DateTime.Now;
+}
+</pre>
+
+Finally, the only piece of code we didnt implement is the autogenerated MyRespond_Click method.
+<div align="center">
+<h4>OK, COOL!</h4>
+</div>
+When user clicks the respond button we need to save the clicked time, draw the background with a different color, calculate the response time which is 'clicked' minus 'now', set the text to our textblock and disable the button.
+You can see my implementation of this method hear:
+<pre class="prettyprint">
+private void MyRespond_Click(object sender, RoutedEventArgs e)
+{
+    clicked = DateTime.Now;
+    MainGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+    var sum = clicked - now;
+    Information.Text = "You did " + sum.TotalSeconds.ToString() + " seconds to respond";
+    MyRespond.IsEnabled = false;
+}
+</pre>
+
+NICE, the whole file now, looks like this:
+
+<pre class="prettyprint">
+using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+namespace reaction_timer
+{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
+    {
+        private DispatcherTimer timer;
+        DateTime now;
+        DateTime clicked;
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 2) };
+            timer.Start();
+            timer.Tick += onStop;
+        }
+        private void onStop(object sender, object e)
+        {
+            ((DispatcherTimer)sender).Stop();
+            MyRespond.IsEnabled = true;
+            MyRespond.Visibility = Visibility.Visible;
+            now = DateTime.Now;
+        }
+
+        private void MyRespond_Click(object sender, RoutedEventArgs e)
+        {
+            clicked = DateTime.Now;
+            MainGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+            var sum = clicked - now;
+            Information.Text = "You did " + sum.TotalSeconds.ToString() + " seconds to respond";
+            MyRespond.IsEnabled = false;
+        }
+}
+}
+</pre>
+
+Well, that's all! Hope you learned a lot from this post :)
