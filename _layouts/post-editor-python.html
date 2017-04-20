@@ -7,35 +7,41 @@
 </header>
 {% include ad.html %}
 <body>
-   <div class="project-header">
-      <h1 class="project-title"> Build a <span class="underline">{{ page.title }}</span></h1>
-      <h3 class="project-description"> {{ page.description }}</h3>
-      <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
-      <div class="buttons">
-         <a href="{{ page.source }}"><button class="project-button">Source</button></a>
-         <a href="{{ page.demourl }}"><button class="project-button">Demo</button></a>
-         <a href="#start"><button class="project-button">Start Coding!</button></a>
-      </div>
-   </div>
+
+ <div class="vh-100 dt w-100 tc bg-blue white cover athelas" id="post">
+    <div class="dtc v-mid">
+      <h1 class="f1 f-headline-l fw2 b near-black-60 ph0 ph6-ns">Build a <span class="underline">{{ page.title }}</span></h1>
+      <blockquote class="ph0 mh0 measure f4 lh-copy center">
+        <p class="fw3 near-black-70 avenir">
+          {{ page.description }}
+        </p>
+        <a href="{{ page.source }}" class="f4 link dim ba ph3 pv2 mb2 dib white sans-serif">Source</a>
+        <a href="{{ page.demourl }}" class="f4 link dim ba ph3 pv2 mb2 dib white sans-serif">Demo</a>
+        <a href="#start" class="f4 link dim ba ph3 pv2 mb2 dib white sans-serif">Start Coding!</a><br><br>
+        <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
+
+      </blockquote>
+    </div>
+  </div>
+
+
    <div id="start"></div>
-
-
    <div class="project-editor" id="project-editor" style="margin-top:10px">
-   <div class="content code-content">
+   <div class="athelas f4 content code-content">
       <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="tryenlight" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8" style="max-width: 60%; margin: 0 auto;"> </script>	
       {{content}}
    </div>
 
 
    <div class="editor" id="editor">
-      <button class="project-button" onclick="exitEditorView()">Exit Editor View</button>
+      <a class="f4 link dim ba ph3 pv2 mb2 dib black sans-serif" onclick="exitEditorView()">Exit Editor View</a>
             {{ page.embed-compiler }}
    </div>
    </div>
 
 
 
-   <div id="disqus_thread" style="padding: 5%;"></div>
+   <div id="disqus_thread" class="cf w-50-ns w-90 center athelas f4 content pa3"></div>
    <script>
       /**
       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

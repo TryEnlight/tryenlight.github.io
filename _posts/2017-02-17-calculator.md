@@ -5,9 +5,11 @@ description: Simple calculator with HTML, CSS and JS
 category: hard-web
 permalink: /calculator
 img: /img/calc.gif
+img-front: /img/calculator.gif
 demourl: /demo/calculator-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project
 language: HTML/CSS/JS 
+bg: bg-purple
 ---
 
 ### Getting Started

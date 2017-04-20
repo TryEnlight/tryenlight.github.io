@@ -5,9 +5,11 @@ description: a website that presents a random quote for your inspiration
 category: middle-web
 permalink: /quote
 img: /img/quote.gif
+img-front: /img/quote.gif
 demourl: /demo/quote-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/quote-project
 language: HTML/CSS/JS
+bg: bg-black
 
 ---
 ### Getting Started

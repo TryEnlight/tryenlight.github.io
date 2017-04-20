@@ -5,9 +5,11 @@ description: generate beautiful colors every time you press the spacebar
 category: easy-web
 permalink: /hex-color-generator
 img: /img/color.gif
+img-front: /img/color.gif
 demourl: /demo/color-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/color-project
 language: HTML/CSS/JS
+bg: bg-black
 
 ---
 ### Getting Started

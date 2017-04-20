@@ -1,3 +1,9 @@
+function hideHeader() {
+	document.getElementById('post').scrollIntoView();
+}
+
+hideHeader();
+
 function compile() {
 
 	var html = document.getElementById("html");

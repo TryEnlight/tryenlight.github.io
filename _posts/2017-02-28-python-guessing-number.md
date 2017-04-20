@@ -1,14 +1,16 @@
 ---
 layout: post-editor-python
 title: Guessing Number Game
-description: a fun guessing number game in the terminal
+description: a fun number guessing game using python in the terminal
 category: python-easy
 permalink: /guess-number
 img: /img/guess-number.gif
+img-front: /img/guess-number.gif
 demourl: https://repl.it/FgfS/0
 embed-compiler: <iframe src="https://trinket.io/embed/python/4b09ea6934" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/python/guess-number
 language: Python
+bg: bg-blue
 ---
 
 ### Getting Started 
