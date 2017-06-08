@@ -1,0 +1,27 @@
+{
+  "name": "amoraitis",
+  "version": "1.0.0",
+  "description": "A chat app wrote with the help of node.js<3",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoraitis/enlight.git"
+  },
+  "keywords": [
+    "github",
+    "enlight",
+    "chat"
+  ],
+  "author": "amoraitis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amoraitis/enlight/issues"
+  },
+  "homepage": "https://github.com/amoraitis/enlight#readme",
+  "dependencies": {
+    "frames": "0.0.1"
+  }
+}
