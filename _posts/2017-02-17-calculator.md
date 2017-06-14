@@ -1,5 +1,5 @@
 ---
-layout: post-editor
+layout: post
 title: Calculator 
 description: Simple calculator with HTML, CSS and JS
 category: hard-web
@@ -9,7 +9,7 @@ img-front: /img/calculator.gif
 demourl: /demo/calculator-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project
 language: HTML/CSS/JS 
-bg: bg-purple
+color: purple
 ---
 
 ### Getting Started

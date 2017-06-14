@@ -1,58 +1,21 @@
-<!DOCTYPE html>
-<head>
-   {% include head.html %}
-</head>
-<header>
-   {% include header.html %}
-</header>
-{% include ad.html %}
-<body>
-   
-<div class="vh-100 dt w-100 tc {{page.bg}} white cover athelas" id="post">
-    <div class="dtc v-mid">
-      <h1 class="f1 f-headline-l fw2 b near-black-60 ph0 ph6-ns">Build a <span class="underline">{{ page.title }}</span></h1>
-      <blockquote class="ph0 mh0 measure f4 lh-copy center">
-        <p class="fw3 near-black-70 avenir">
-          {{ page.description }}
-        </p>
-        <a href="{{ page.source }}" class="f4 link dim ba ph3 pv2 mb2 dib white sans-serif">Source</a>
-        <a href="{{ page.demourl }}" class="f4 link dim ba ph3 pv2 mb2 dib white sans-serif">Demo</a>
-         <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a>
+---
+layout: default
+---
 
-      </blockquote>
-    </div>
+<article class="vh-100 dt w-100 project-{{ page.color }} tc">
+<div class="mw5 mw6-ns center pt4">
+  {% include ad.html %}
+</div>
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">{{ page.title }}</span></h1>
+    <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a><br><br>
+    <a href="{{ page.source }}" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="{{ page.demourl }}" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
   </div>
+</article>
 
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-
-      <div class="cf w-50-ns w-90 center athelas f4 content">
-         {{content}}
-      <div id="disqus_thread"></div>
-      <script>
-         /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-         /*
-         var disqus_config = function () {
-         this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-         };
-         */
-         (function() { // DON'T EDIT BELOW THIS LINE
-         var d = document, s = d.createElement('script');
-         s.src = '//enlight-2.disqus.com/embed.js';
-         s.setAttribute('data-timestamp', +new Date());
-         (d.head || d.body).appendChild(s);
-         })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <br><br>
-
-      </div>
-
-   {% include footer.html %}
-   {% include style.css %}
-   {% include scripts.html %}
-</body>
-</html>
+  {{ content }}
+</div>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+
+   
+
+      
+
+   <title>Quote Generator</title>
+
+      <meta name="description" content="a website that presents a random quote for your inspiration">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Quote Generator">
+      <meta property="og:description" content="a website that presents a random quote for your inspiration">
+      <meta property="og:url" content="https://enlight.ml/quote">
+      <meta property="og:image" content="https://enlight.ml/enlight-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Quote Generator" />
+      <meta name="twitter:description" content="a website that presents a random quote for your inspiration" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
+
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+	</head>
+
+
+	<header>
+	<nav class="db dt-l tc tl-l w-100 border-box pa3 ph5-l ba b--black-10 ">
+  <div class="gradient">
+    <a class="f2 fw3 dib pa2 no-underline black" href="/">
+		Enlight
+    </a>
+  </div>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l fw5">
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/#projects">Projects</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/web">JavaScript</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/python">Python</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/swift">Swift</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/about">About</a>
+  </div>
+</nav>
+	</header>
+
+
+	<body>
+
+	 <article class="vh-100 dt w-100 project-red tc">
+<div class="mw5 mw6-ns center pt4">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+
+</div>
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Quote Generator</span></h1>
+    <a href="/demo/quote-project/index.html"><img class="project-image" src="/img/quote.gif"></a><br><br>
+    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/quote-project" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="/demo/quote-project/index.html" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <h3 id="getting-started">Getting Started</h3>
+
+<p>In this tutorial, we’ll use some simple JQuery connected with a <a href="https://quotesondesign.com/api-v4-0/">Quote API </a> to make a website present a quote after the spacebar is pressed. We will be using AJAX to service requests between the API and handling the JSONP response.</p>
+
+<p>As always, you’ll need a folder with three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s), API</li>
+</ul>
+
+<p>To start with, our content will be displayed in the center of the screen. We also want to display our quote and source/author separately. Create a parent container <a href="http://www.w3schools.com/tags/tag_div.asp">div</a> and two other divs for the quote and source. Last, create some instructions at the tails of the site so people know how to use it, import JQuery scripts using CDN, and link a custom font for us to use from Google Fonts. Our website isn’t functional and it’s pretty sketchy right now so let’s use some CSS to alleviate parts of those problems.</p>
+
+<pre class="prettyprint"><xmp>
+ <html>
+  <head>
+      <meta charset="utf-8" />
+      <title>
+          Quote
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="contain">
+      <div class="executed" id="quote">
+      </div>
+      <div id="writer">
+      </div>
+      <div class="bottom">
+        <h2> press space to inspire </h2>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+
+  </html>
+
+</xmp></pre>
+
+<p>The divs are empty, so you won’t see them. However, they still are there, but all you should see as a result is the instructions to press the space we typed earlier.</p>
+<h3 id="styling-the-app">Styling the app</h3>
+
+<p>Here’s some basic things you should style:</p>
+
+<ul>
+  <li>change the <a href="http://www.w3schools.com/cssref/pr_font_font-family.asp" class="underline">font</a></li>
+  <li>use the the CSS table display and table-cell to center.</li>
+  <li>add some <a href="http://www.w3schools.com/css/css_padding.asp" class="underline">padding</a></li>
+  <li>adjust the <a href="http://www.w3schools.com/cssref/pr_font_font-size.asp" class="underline">font size</a></li>
+  <li>set a ‘before’ and ‘after’ stage for your quote and source - that means CSS transitions using opacity, color, position, etc.</li>
+</ul>
+
+<p>This is my approach, feel free to tweak it to your preferences.</p>
+
+<pre class="prettyprint">
+
+  html,body {
+    height: 100%;
+    width: 100%;
+    background: #202020;
+    display:table;
+    overflow: hidden;
+  }
+  
+  /* font css */
+  p {
+    font-size:2em;
+  }
+
+  /* main container css */
+  .contain{
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding:3em;
+  }
+
+  /* quote css */
+  #quote{
+    color:white;
+    font-family : Inconsolata;
+    position: relative;
+  }
+
+  /* source css */
+  #writer{
+    opacity:1;
+    font-size: 1em;
+    padding-right:2em;
+    text-align: right;
+    color:white;
+    font-family : Inconsolata;
+    position: relative;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+
+  /* for the after stage of the source */
+  .fade {
+    opacity:0 !important;
+  }
+
+  /* for the after stage of the quote.*/
+  .executed {
+    opacity:1;
+    right: 0;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
+  }
+
+  /* for the before stage of the quote; should slide right when presented and left when removed.  */
+  .reset {
+    opacity:0;
+    right:600;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+
+  /* for the instructions at the bottom */
+  .bottom {
+    bottom:10;
+    position: absolute;
+    color:#454545;
+    font-family:Inconsolata;
+  }
+</pre>
+
+<p>Now that we’ve styled our app, we need to implement the true function of it. Let’s go ahead and do that.</p>
+
+<h3 id="the-api-function">The API function</h3>
+
+<p>To get the quotes, we need to call the Quotes API when the spacebar is pressed. Luckily, JQuery implements a window function just for that, known as keypress. To understand what to write, we have to go through what is happening in our site at that point. The current quote being displayed will be removed and we will request for a new one. When it returns from the API, we will display it.</p>
+
+<ul>
+  <li>our first function implemnets $(window).keypress() to find when the spacebar is pressed.</li>
+  <li>inside that function we use add, remove and toggle class to control our ‘before’ and ‘after’ states of our quote/source. For example, when the spacebar is pressed, everything should return to the ‘before’ state, and when the quote is returned from the API, vice versa. <a class="underline" href="https://api.jquery.com/category/manipulation/class-attribute/">more on JQuery Classes</a></li>
+  <li>we should request to the API and get a response in jsonp. The url to hit is <code class="highlighter-rouge">http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&amp;filter[posts_per_page]=1&amp;_jsonp=mycallback</code> and we can use some pretty simple AJAX (a way to send post/get requests) to retrieve the quote from the API. <a class="underline" href="http://api.jquery.com/jquery.ajax/">more on AJAX</a></li>
+  <li>once the JSONP is returned from the API AJAX call, the script will callback to a function named ‘mycallback’. This can be altered by changing the ‘jsonp’ field in your GET url. Inside this function, we simply need to grab the quote, change the text of each div containing the quote and source, and change their states (to the ‘after’ state) so they can be presented. <a class="underline" href="https://www.sitepoint.com/jsonp-examples/">more on JSONP</a></li>
+  <li>some notes:
+    <ul>
+      <li>on timing, we use the setTimeout() function for one second so our divs get enough time to fully return to their before states. If the API calls back too fast, there can be complications. Another way to do this is to implement a timeout function inside the callback.</li>
+      <li>on JSONP, we mainly use this because of cross-domain requests and CORS issues. This API was a pain to deal with (at least testing it), JSONP allows us to bypass this issue with cross-domain requests and is fully supported by the API we are using.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Voila! May this be useful when you are lacking insipiration:</p>
+
+<pre class="prettyprint">
+
+    $(window).keypress(function(e) {
+      if (e.which === 32) {
+        $("#quote").addClass("reset");
+        $("#quote").removeClass("executed");
+        $("#writer").toggleClass("fade");
+        setTimeout(function(){ 
+          $.ajax({
+            crossOrigin: true,
+            url: "https://quotesondesign.com/wp-json/posts?filter[orderby]=
+            rand&amp;filter[posts_per_page]=1&amp;_jsonp=mycallback",
+            dataType:"jsonp"
+        });
+        }, 1000); 
+      }
+  });
+  function mycallback(json){
+    var quote = json[0];
+    $("#quote").html(quote.content)
+    $("#writer").html(quote.title)
+    $("#quote").addClass("executed");
+      $("#quote").removeClass("reset");
+      $("#writer").toggleClass("fade");
+  }
+</pre>
+
+<h3 id="whats-next">What’s next?</h3>
+<p>Your API is super powerful! Try making the site responsive and changing up the style. Try making other apps using JSON APIs like a <a href="/weather.html" class="underline">weather app!</a></p>
+
+<p>Project &amp; Tutorial by <a href="https://ichauster.github.io/" class="underline">Ivan Chau</a></p>
+
+</div>
+
+
+	<script src="/js/editor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript"> 
+   NProgress.configure({ 
+   	showSpinner: true
+    });
+   NProgress.start();   
+   NProgress.done();
+</script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+
+   
+
+      
+
+   <title>Hex Color Generator</title>
+
+      <meta name="description" content="generate beautiful colors every time you press the spacebar">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Hex Color Generator">
+      <meta property="og:description" content="generate beautiful colors every time you press the spacebar">
+      <meta property="og:url" content="https://enlight.ml/hex-color-generator">
+      <meta property="og:image" content="https://enlight.ml/enlight-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Hex Color Generator" />
+      <meta name="twitter:description" content="generate beautiful colors every time you press the spacebar" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
+
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+	</head>
+
+
+	<header>
+	<nav class="db dt-l tc tl-l w-100 border-box pa3 ph5-l ba b--black-10 ">
+  <div class="gradient">
+    <a class="f2 fw3 dib pa2 no-underline black" href="/">
+		Enlight
+    </a>
+  </div>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l fw5">
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/#projects">Projects</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/web">JavaScript</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/python">Python</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/swift">Swift</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/about">About</a>
+  </div>
+</nav>
+	</header>
+
+
+	<body>
+
+	 <article class="vh-100 dt w-100 project-navy tc">
+<div class="mw5 mw6-ns center pt4">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+
+</div>
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Hex Color Generator</span></h1>
+    <a href="/demo/color-project/index.html"><img class="project-image" src="/img/color.gif"></a><br><br>
+    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/color-project" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="/demo/color-project/index.html" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <h3 id="getting-started">Getting Started</h3>
+
+<p>In this tutorial, we’ll make our very own color generator with just a couple lines of JavaScript. First off, you’ll need a folder with three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and add a title, a viewport, and link all our files together. Our index.html file should look something like this:</p>
+
+<pre class="prettyprint">
+<xmp>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Hex Color Generator
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+	    <div id="hex"></div>
+	    <script src="app.js"></script>
+    </html></xmp>
+  </pre>
+
+<p>Seems new? Don’t worry!</p>
+
+<p>The !DOCTYPE html tag tells the web broswer what version of HTML the page is written in.
+ Right below that, we have our head tag, where we can add our title, meta, and link up our CSS file.
+ The viewport is used to make the page responsive so that any device can view the content clearly by based on 
+ the size of the screen so that browser can scale accordingly. Lastly, we have to link our JavaScript file which 
+ will contain our function of generating the random color.</p>
+
+<h3 id="the-function">The function</h3>
+
+<p>If you are somewhat familiar with CSS, you know that colors are either specified in a rgb or hex code format. An example of this 
+  would be #ffffff (white) or #000000 (black). To generate our number, JavaScript has a math.random function that returns, random numbers that are between 0 and 1.</p>
+
+<p>For example, let’s start by printing a simple math.random function:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+	return '#' + Math.random()
+  }
+		  
+  document.write(getColor());
+
+
+</pre>
+
+<p>If you take a look at the result by opening up our html file, we get a random number between 0 and 1 with a (#) added in front of it. However, since hex numbers include six letters (A, B, C, D, E, &amp; F), we need to add those letters into our result as well. In addition, we also need to get rid of the (0) and (.) and limit the result to only 6 characters.
+  Go ahead and try to solve this yourself. Here’s a hint: you’ll need to expand the math.random function by using Javascript’s <a href="http://www.w3schools.com/jsref/jsref_tostring_number.asp" class="underline">toString()</a> and <a href="http://www.w3schools.com/jsref/jsref_slice_string.asp" class="underline">slice()</a> methods.</p>
+
+<p>Seriously, don’t move on! Read up on those methods!</p>
+
+<p>Alright, let’s see what you’ve come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let’s check out our result:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+     return '#' + Math.random().toString(16)
+  }
+  
+  document.write(getColor());  
+
+
+</pre>
+
+<p>Now we have a number in hexadecimal format, but it isn’t ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8) at the end of our math.random function. 
+The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eigth charcter to get six charcters in total. Check out the result!</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+    return '#' + Math.random().toString(16).slice(2, 8);
+  }
+  
+  document.write(getColor()); 
+
+
+</pre>
+
+<p>Finally, we have a number we can work with! All we need to do is set this hex value
+ as our background. We can do that by writing another function, and that function will do two things:</p>
+
+<ul>
+  <li>set getColor() to a <a href="http://www.w3schools.com/js/js_variables.asp" class="underline">variable</a></li>
+  <li>set the <a href="http://www.w3schools.com/jsref/prop_style_background.asp" class="underline">document.body.style.background</a> equal to that variable</li>
+</ul>
+
+<p>Go ahead, you should be able to do this one!</p>
+
+<p>Here’s what your app.js code should look like:</p>
+
+<pre class="prettyprint">
+
+  function getColor() {
+	return '#' + Math.random().toString(16).slice(2, 8);
+  }
+		  
+  function setBackground() {
+	var bgColor = getColor();
+	document.body.style.background = bgColor;
+  }
+  setBackground()
+
+
+</pre>
+
+<p>If we open our html file in the browser, you should see a random color every time you refresh the page!</p>
+
+<h3 id="making-the-spacebar-work">Making the Spacebar Work</h3>
+
+<p>Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
+ the setBackground() function at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it.</p>
+
+<p>We can do this by using an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if statement </a> that runs the setBackground() function only when the keyCode of 32 (code for spacebar) is pressed. This is what we have to write:</p>
+
+<ul>
+  <li><a href="http://www.w3schools.com/jsref/event_onkeyup.asp" class="underline"> document.body.keyup</a> should be equal to a function (a variable)</li>
+  <li>in that function, there must be an if statement stating if the (that variable).keyCode == 32, setBackground() should run</li>
+</ul>
+
+<p>This is what our finished app.js file should look like:</p>
+
+<pre class="prettyprint">
+
+  // generator function
+	function getColor() {
+	    return '#' + Math.random().toString(16).slice(2, 8);
+	}
+  // sets background color style
+	function setBackground() {
+	  var bgColor = getColor();
+	  document.body.style.background = bgColor;
+	}
+  // runs function on click
+	 document.body.onkeyup = function(e){
+	      if(e.keyCode == 32){
+	        setBackground();
+	      }
+	  }
+
+	  
+</pre>
+
+<p>Open up your html file in the browser or click on the result tab. Then, press the spacebar. Pretty neat, right?</p>
+
+<h3 id="a-little-transition">A little transition</h3>
+
+<p>But wait! We haven’t even touched our style.css file! Open it up! We’ll add a transition just so it looks a little more fluid when switching between colors.</p>
+
+<pre class="prettyprint">
+  body {
+    transition: all .5s ease;
+   }
+</pre>
+
+<p>Open up your html file and take a look at your latest creation!</p>
+
+<p>I hope you’ve generated some pretty unique colors and learned a ton! However, don’t stop here! Think about what you can add next! Can you print the hex color code on screen? Can you look up some additional styles to add? Can you add a “press the spacebar” message that appears until the user presses the spacebar?</p>
+
+<p>If you enjoyed this tutorial, go ahead and learn to make something else like a <a href="text-editor" class="underline">text-editor</a>!</p>
+
+
+</div>
+
+
+	<script src="/js/editor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript"> 
+   NProgress.configure({ 
+   	showSpinner: true
+    });
+   NProgress.start();   
+   NProgress.done();
+</script>
+
+
+
+	</body>
+</html>

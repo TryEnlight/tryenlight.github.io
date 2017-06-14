@@ -1,5 +1,5 @@
 ---
-layout: post-editor-python
+layout: post
 title: Guessing Number Game
 description: a fun number guessing game using python in the terminal
 category: python-easy
@@ -10,7 +10,7 @@ demourl: https://repl.it/FgfS/0
 embed-compiler: <iframe src="https://trinket.io/embed/python/4b09ea6934" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/python/guess-number
 language: Python
-bg: bg-blue
+color: blue
 ---
 
 ### Getting Started 
@@ -29,7 +29,7 @@ if you wish.
 
 Here's what our code should look like so far:
 
-<pre class="prettyprint">
+<pre class="prettyprint linenums">
 import random
 
 numberofGuesses = 0
@@ -55,7 +55,7 @@ In the while loop, we can do the following:
 
 That may seem like a lot - and it is! 
 
-<pre class="prettyprint">
+<pre class="prettyprint linenums">
 import random
 
 numberofGuesses = 0

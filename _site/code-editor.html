@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+
+   
+
+      
+
+   <title>Live HTML/CSS/JS Editor</title>
+
+      <meta name="description" content="an online editor that compiles your code live">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Live HTML/CSS/JS Editor">
+      <meta property="og:description" content="an online editor that compiles your code live">
+      <meta property="og:url" content="https://enlight.ml/code-editor">
+      <meta property="og:image" content="https://enlight.ml/enlight-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Live HTML/CSS/JS Editor" />
+      <meta name="twitter:description" content="an online editor that compiles your code live" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
+
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+	</head>
+
+
+	<header>
+	<nav class="db dt-l tc tl-l w-100 border-box pa3 ph5-l ba b--black-10 ">
+  <div class="gradient">
+    <a class="f2 fw3 dib pa2 no-underline black" href="/">
+		Enlight
+    </a>
+  </div>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l fw5">
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/#projects">Projects</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/web">JavaScript</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/python">Python</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/swift">Swift</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="https://github.com/samayshamdasani/enlight#contribute-by-adding-your-projects--tutorials">Contribute</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/about">About</a>
+  </div>
+</nav>
+	</header>
+
+
+	<body>
+
+	 <article class="vh-100 dt w-100 project-red tc">
+<div class="mw5 mw6-ns center pt4">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+
+</div>
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Live HTML/CSS/JS Editor</span></h1>
+    <a href="/demo/code-editor-project/index.html"><img class="project-image" src="/img/code-editor.gif"></a><br><br>
+    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/code-editor-project" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="/demo/code-editor-project/index.html" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <h3 id="getting-started">Getting Started</h3>
+
+<p>In this project, we’ll be building a live code editor similar to <a href="https://codepen.io" class="underline">Codepen</a> or <a href="https://jsfiddle.net" class="underline">JsFiddle</a>.</p>
+
+<p>Let’s get started by creating our usual three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>To get started with our markup, we’ll be needing three <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" class="underline">textarea</a> tags which will correspond with the id of the language we’ll be compiling. To actually show the compiled code, we will also need an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" class="underline">iframe</a> which will allow us to insert an html document into an existing html page. Make sure to set ids for each tag so we can communicate with these elements in JavaScript.</p>
+
+<pre class="prettyprint"><xmp>
+  <html>
+    <head>
+      <title>Code Editor</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+      <textarea id="html" placeholder="HTML"></textarea>
+      <textarea id="css" placeholder="CSS"></textarea>
+      <textarea id="js" placeholder="JavaScript"></textarea>
+      <iframe id="code"></iframe>
+
+      <script type="text/javascript" src="app.js"></script>
+
+    </body>
+  </html>
+
+</xmp></pre>
+
+<h3 id="making-it-look-decent">Making it look decent</h3>
+
+<p>Before we head on to making our app, let’s style it up a bit. We should align the elements to the center, make the textarea elements go side by side, and put the iframe right below them.</p>
+
+<pre class="prettyprint">
+
+  body {
+    text-align: center;
+  }
+
+  textarea {
+    width: 32%;
+    float: top;
+    min-height: 250px;
+    overflow: scroll;
+    margin: auto;
+    display: inline-block;
+    background: #F4F4F9;
+    outline: none;
+    font-family: Courier, sans-serif;
+    font-size: 14px;
+  }
+
+  iframe {
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: 35em;
+  }
+
+
+</pre>
+
+<p>As always, feel free to customize this to your liking!</p>
+
+<h3 id="our-compile-function">Our compile() function</h3>
+
+<p>Now, here’s where we actually make our app functional. We can do so with just one function. Here’s what we’ll need to write in it:</p>
+
+<ul>
+  <li>link the html, css, and js ids to variables using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" class="underline">document.getElementById()</a></li>
+  <li>set the iframe id’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow" class="underline">contentWindow</a> to a variable</li>
+  <li>write a function that runs on <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup" class="underline">document.body.keyup</a> (when a key is pressed) that:
+    <ul>
+      <li>opens the textarea’s contentWindow</li>
+      <li>writes the values of the html, css, and js variables in it</li>
+      <li>closes the textarea’s contentWindow</li>
+    </ul>
+  </li>
+</ul>
+
+<pre class="prettyprint"><xmp>
+  function compile() {
+
+    var html = document.getElementById("html");
+    var css = document.getElementById("css");
+    var js = document.getElementById("js");
+    var code = document.getElementById("code").contentWindow.document;
+    
+     document.body.onkeyup = function(){
+      code.open();
+      code.writeln(html.value+"<style>"+css.value+"</style>"+"<script>" + js.value + "</script>");
+      code.close();
+        };
+      };
+      
+  compile();
+
+</xmp></pre>
+
+<p>
+That's it! Pretty simple right? To take this a step further, try and make the textareas responsive with  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" class="underline">media queries</a>. If you liked this tutorial, try building a <a href="/web-paint.html" class="underline"> Web Paint</a> app!
+</p>
+
+</div>
+
+
+	<script src="/js/editor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript"> 
+   NProgress.configure({ 
+   	showSpinner: true
+    });
+   NProgress.start();   
+   NProgress.done();
+</script>
+
+
+
+	</body>
+</html>

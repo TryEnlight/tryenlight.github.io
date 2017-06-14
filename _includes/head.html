@@ -1,4 +1,3 @@
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    {% if page.language == 'html/css/js' %}
@@ -15,7 +14,6 @@
 
    <title>{{ page.title | strip_html }}</title>
 
-
       <meta name="description" content="{{ page.description }}">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:title" content="{{ page.title }}">
@@ -28,10 +26,10 @@
       <meta name="twitter:description" content="{{ page.description }}" />
       <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
 
-      <link href="style.css" type="stylesheet">
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
-      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+      <link href="/style.css" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
 

@@ -10,7 +10,7 @@ demourl: https://enlight-chat-nodejs.herokuapp.com/
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/node-js/chat
 language: Node.js 
 tag: NodeJS
-bg: bg-red
+color: red
 
 ---
 

@@ -9,7 +9,7 @@ img-front: /img/quote.gif
 demourl: /demo/quote-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/quote-project
 language: HTML/CSS/JS
-bg: bg-black
+color: red
 
 ---
 ### Getting Started

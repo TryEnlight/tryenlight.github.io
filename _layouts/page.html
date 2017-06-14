@@ -1,24 +1,15 @@
-<!DOCTYPE html>
+---
+layout: default
+---
 
-	<head>
-	{% include head.html %}
-	</head>
+<article class="vh-100 dt w-100 project-red">
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">{{ page.title }}</h1>
+  </div>
+</article>
 
-	<header>
-	{% include header.html %}
-	</header>
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-	{% include ad.html %}
-	<body>
-	
-	<div class="cf w-50-ns w-90 center athelas f4 content">	
-	<h1 class="f2 avenir">{{ page.title }}</h1>
-	 {{content}}
-	</div>
-
-	{% include style.css %}
-
-	{% include scripts.html %}
-
-	</body>
-</html>
+  {{ content }}
+</div>

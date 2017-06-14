@@ -1,5 +1,5 @@
 ---
-layout: post-editor
+layout: post
 title: Hex Color Generator
 description: generate beautiful colors every time you press the spacebar
 category: easy-web
@@ -9,7 +9,7 @@ img-front: /img/color.gif
 demourl: /demo/color-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/color-project
 language: HTML/CSS/JS
-bg: bg-black
+color: navy
 
 ---
 ### Getting Started

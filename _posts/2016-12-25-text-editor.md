@@ -1,5 +1,5 @@
 ---
-layout: post-editor
+layout: post
 title: Text Editor
 description: a minimal text editor that autosaves your text every second
 category: easy-web
@@ -9,7 +9,7 @@ img-front: /img/text-editor.gif
 demourl: /demo/text-editor-project/index.html
 source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/text-editor-project
 language: HTML/CSS/JS
-bg: bg-black
+color: red
 
 ---
 ### Getting Started
