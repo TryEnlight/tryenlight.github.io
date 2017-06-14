@@ -135,8 +135,7 @@
 				right: 0;
 				bottom: 0;
 				display: block;
-				font-size: .5em;
-				text-transform: uppercase;
+				font-size: .4em;
 				line-height: 1;
 				letter-spacing: 1px;
 			}
@@ -144,6 +143,7 @@
 			#carbonads:hover {
 				transform: scale(1.05);
 			}
+
 
 			/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
 
