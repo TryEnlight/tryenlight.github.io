@@ -144,6 +144,11 @@
 				transform: scale(1.05);
 			}
 
+			.project-image {
+				max-height: 400px;
+				width: auto;
+			}
+
 
 			/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
 
