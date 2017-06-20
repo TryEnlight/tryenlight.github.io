@@ -2,14 +2,12 @@
 layout: default
 ---
 
-<article class="vh-100 dt w-100 project-red">
+<article class="vh-100 dt w-100 project-{{page.color}}">
   <div class="dtc v-mid tc white ph3 ph4-l">
     <h1 class="f1 f-subheadline-l fw6 tc">{{ page.title }}</h1>
   </div>
 </article>
 
 <div class="center measure-wide f4 pv5 lh-copy ph2 content">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
   {{ content }}
 </div>

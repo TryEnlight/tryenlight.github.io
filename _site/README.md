@@ -1,4 +1,4 @@
-![](https://enlight.ml/img/enlight.png)
+![](https://enlight.ml/enlight-logo.png)
 
 
 # learn to code by building projects
@@ -17,16 +17,15 @@ HTML/CSS/JS
 
 Node.js
 - [real time chat app](https://enlight.ml/nodejs-chat)
+- [twitter bot](https://enlight.ml/twitter-bot)
 
 Python
 - [Guessing Number Game](https://enlight.ml/guess-number)
 
 ## for the future
-- a twitter bot
-- flappy bird game
-- personal website 
-- blog with jekyll
-- tic-tac-toe game
+- MACHINE LEARNING!
+- iOS APPS!
+- 3D JavaScript Games & Animations!!!
 - AI chrome extension pulling info from searches
 - browser notifications from websites
 - fb messenger bot
@@ -39,9 +38,8 @@ Enlight is open-source - which means we love contributors! Have a project on the
 If it's useful, it'll be posted on the site with of course, credit to you!
 
 - fork the repo
-- in the demo folder, make a folder w/ your project name
-- includes the files of the project & markdown tutorial :)
-- create a pull request & and it'll be up soon!
+- in the contribute folder, place your project files (demo/source) & the tutorial text
+- submit a pull request
 
 **or...**if you don't want to go through GitHub, you can email me your project+tutorial at hi@shamdasani.org
 

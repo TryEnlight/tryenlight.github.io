@@ -13,6 +13,10 @@
 
 			*::-moz-selection { background: #ff80cc; }
 			*::selection { background: #ff80cc; }
+
+			.attention {
+				background-color: #F64E24;
+			}
 			
 			.hello {
 				background: rgba(246,46,36,1);
