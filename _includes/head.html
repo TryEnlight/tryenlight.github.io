@@ -2,6 +2,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    {% if page.layout == 'post' %}
       <title>Build a {{ page.title | strip_html }} with {{ page.language }}</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
+      <meta name="twitter:description" content="{{ page.description }}" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
    {% endif %}
 
    <title>{{ page.title | strip_html }}</title>
