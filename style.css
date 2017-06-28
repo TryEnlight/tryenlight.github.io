@@ -104,7 +104,7 @@
 			  margin-right: auto; 
 			  background: #fff;
 			  border-radius: 5px;
-			  transition: all .2s ease-in-out;
+			  border: 1px solid #fff;
 			}
 
 			#carbonads a {
@@ -145,7 +145,8 @@
 			}
 
 			#carbonads:hover {
-				transform: scale(1.05);
+			  border: 1px solid#333;
+			  transition: .5s ease;
 			}
 
 			.project-image {
