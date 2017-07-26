@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Live HTML/CSS/JS Editor
-description: an online editor that compiles your code live
+description: Build an online editor that compiles your code live
+author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: middle-web
+difficulty: intermediate
 permalink: /code-editor
 img: /img/code-editor.gif
 img-front: /img/code-editor.gif

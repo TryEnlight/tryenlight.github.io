@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Calculator 
-description: Simple calculator with HTML, CSS and JS
+description: Build a simple calculator with HTML, CSS and JS.
+author: <a class="link white" href="https://github.com/sravan-s">Sravan S.</a>
 category: hard-web
+difficulty: advanced
 permalink: /calculator
 img: /img/calc.gif
 img-front: /img/calculator.gif

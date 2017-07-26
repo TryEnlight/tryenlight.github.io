@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Quote Generator
-description: a website that presents a random quote for your inspiration
+description: Build a website that presents a random quote for your inspiration
+author: <a class="link white" href="https://ichauster.github.io/">Ivan Chau</a>
 category: middle-web
+difficulty: intermediate
 permalink: /quote
 img: /img/quote.gif
 img-front: /img/quote.gif
@@ -201,4 +203,3 @@ Voila! May this be useful when you are lacking insipiration:
 ### What's next?
 Your API is super powerful! Try making the site responsive and changing up the style. Try making other apps using JSON APIs like a <a href="/weather.html" class="underline">weather app!</a> 
 
- Project & Tutorial by <a href="https://ichauster.github.io/" class="underline">Ivan Chau</a>

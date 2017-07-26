@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Guessing Number Game
-description: a fun number guessing game using python in the terminal
+description: Build a fun number guessing game using python in the terminal
+author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: python-easy
+difficulty: beginner
 permalink: /guess-number
 img: /img/guess-number.gif
 img-front: /img/guess-number.gif

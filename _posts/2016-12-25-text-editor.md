@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Text Editor
-description: a minimal text editor that autosaves your text every second
+description: Build a minimal text editor that autosaves your text every second
+author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: easy-web
+difficulty: beginner
 permalink: /text-editor
 img: /img/text-editor.gif
 img-front: /img/text-editor.gif

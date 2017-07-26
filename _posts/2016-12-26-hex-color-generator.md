@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Hex Color Generator
-description: generate beautiful colors every time you press the spacebar
+description: Build a generate beautiful colors every time you press the spacebar
+author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: easy-web
+difficulty: beginner
 permalink: /hex-color-generator
 img: /img/color.gif
 img-front: /img/color.gif

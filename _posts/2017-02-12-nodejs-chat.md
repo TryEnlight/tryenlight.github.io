@@ -2,7 +2,9 @@
 layout: post
 title: Real Time Chat App
 description: Use technologies like Node.js, Socket.io, and Express to create your own form of communication!
+author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: nodejs
+difficulty: intermediate
 permalink: /nodejs-chat
 img: /img/nodejs-chat.gif
 img-front: /img/nodejs-chat.gif
