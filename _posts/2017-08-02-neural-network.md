@@ -322,7 +322,7 @@ def train (self, X, y):
     self.backward(X, y, o)
 </pre>
 
-To run the network, all we have to do is to run the `train` function. Of course, we'll want to do this multiple, or maybe thousands, of times. So, we'll use a for loop.
+To run the network, all we have to do is to run the `train` function. Of course, we'll want to do this multiple, or maybe thousands, of times. So, we'll use a `for` loop.
 
 <pre class="prettyprint linenums">
 NN = Neural_Network()
@@ -399,7 +399,7 @@ for i in xrange(1000): # trains the NN 1,000 times
   NN.train(X, y)
 </pre>
 
-There you have it! A full-fledged neural network that can learn from inputs and outputs. Try changing the input and out matrices to see how your network adapts! While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, eventually all play a big role in machine learning. If you think about it, it's super impressive that your computer, an object, managed to *learn* by itself! 
+There you have it! A full-fledged neural network that can learn from inputs and outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it's super impressive that your computer, an object, managed to *learn* by itself! 
 
 Stay tuned for more machine learning tutorials on other models like Linear Regression and Classification!
 
