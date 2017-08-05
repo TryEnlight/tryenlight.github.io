@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Neural Network
+title: Feedforward Neural Network
 description: Build a basic Feedforward Neural Network with backpropagation 
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 difficulty: advanced
