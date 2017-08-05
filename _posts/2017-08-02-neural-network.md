@@ -287,7 +287,7 @@ Here's how we will calculate the incremental change to our weights:
 
 4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).
 
-5) Adjust the weights for the first layer by performing a **dot product of the input layer** with the **hidden (z2) delta output sum**. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the **output (o) delta output sum**. 
+5) Adjust the weights for the first layer by performing a **dot product of the input layer** with the **hidden (z<sup>2</sup>) delta output sum**. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the **output (o) delta output sum**. 
 
 Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as **sigmoid prime**, will give us the rate of change, or slope, of the activation function at output sum. 
 
@@ -322,7 +322,7 @@ def train (self, X, y):
     self.backward(X, y, o)
 </pre>
 
-To run the network, all we have to do is to run `train` function. Of course, we'll want to do this multiple, or maybe thousands, of times. So, we'll use a for loop.
+To run the network, all we have to do is to run the `train` function. Of course, we'll want to do this multiple, or maybe thousands, of times. So, we'll use a for loop.
 
 <pre class="prettyprint linenums">
 NN = Neural_Network()
