@@ -1,7 +1,7 @@
 ---
 layout: email
 title: New Tutorials- Learn Machine Learning and Build a Neural Network!
-premalink: /nn
+permalink: /nn
 ---
 
 # Welcome to the World of Machine Learning!
