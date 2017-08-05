@@ -105,7 +105,7 @@ X = X/np.amax(X, axis=0) # maximum of X array
 y = y/100 # max test score is 100
 </pre>
 
-Next, let's define a python `class` and write an `init` function where we'll specify our parameters such as input, hidden, and output layers. 
+Next, let's define a python `class` and write an `init` function where we'll specify our parameters such as the input, hidden, and output layers. 
 
 <pre class="prettyprint linenums">
 class Neural_Network(object):
@@ -116,7 +116,7 @@ class Neural_Network(object):
     self.hiddenSize = 3
 </pre>
 
-Let's move on to our first calculation. Remember that our synapses perform a [dot product](https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro), or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1. 
+It is time for our first calculation. Remember that our synapses perform a [dot product](https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro), or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1. 
 
 ### The calculations behind our network
 
@@ -290,8 +290,6 @@ Here's how we will calculate the incremental change to our weights:
 5) Adjust the weights for the first layer by performing a **dot product of the input layer** with the **hidden (z2) delta output sum**. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the **output (o) delta output sum**. 
 
 Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as **sigmoid prime**, will give us the rate of change, or slope, of the activation function at output sum. 
-
-[go more into this]
 
 Let's continue to code our `Neural_Network` class by adding a sigmoidPrime (derivative of sigmoid) function:
 
