@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Neural Network with Python</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Neural Network with Python" />
+      <meta name="twitter:description" content="Build a basic Feedforward Neural Network with backpropagation" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
+   
+
+   <title>Neural Network</title>
+
+      <meta name="description" content="Build a basic Feedforward Neural Network with backpropagation">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Neural Network">
+      <meta property="og:description" content="Build a basic Feedforward Neural Network with backpropagation">
+      <meta property="og:url" content="https://enlight.ml/build-a-neural-network">
+      <meta property="og:image" content="https://enlight.ml/enlight-logo.png" /> 
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Neural Network" />
+      <meta name="twitter:description" content="Build a basic Feedforward Neural Network with backpropagation" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight-logo.png" />
+
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="https://enlight.ml/style.css?1501900226073590000" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
+      <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
+
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-85620206-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+	</head>
+
+
+	<header>
+	<nav class="db dt-l tc tl-l w-100 border-box pa3 ph5-l ba b--black-10 ">
+  <div class="gradient">
+    <a class="f2 fw3 dib pa2 no-underline black" href="/">
+	    <img src="enlight.png" width="30" class="grow" style="border-radius: 2px;">  Enlight 
+    </a>
+  </div>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l fw5">
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/#projects">Projects</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/guide">Guide</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/ml">Machine Learning</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/web">Web Development</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/nodejs">Node.js</a>
+    <a class="link f5 dib mr3 mr4-l black hover-blue" href="/about">About</a>
+  </div>
+</nav>
+	</header>
+
+
+	<body>
+
+	 <article class="dt w-100 project-maroon tc">
+<div class="mw5 mw6-ns center pt3">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=enlightml" id="_carbonads_js"></script>
+
+</div>
+  <div class="dtc v-mid tc white ph3 ph4-l pt6">
+    <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Neural Network</span></h1>
+    <a href="https://repl.it/Jxmb/2"><img class="project-image" src="/img/nn.png"></a><br><br>
+    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork.py" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="https://repl.it/Jxmb/2" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
+    <h3 class="f4 tc">By <u><a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></u></h3>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <h2 id="what-is-a-neural-network">What is a Neural Network?</h2>
+
+<p>Before we get started with the <em>how</em> of building a Neural Network, we need to understand the <em>what</em> first.</p>
+
+<p>Neural networks can be intimidating, especially for people new to machine learning. However, this tutorial will break down how exactly a neural network works and you will have a working flexible neural network by the end. Let’s get started!</p>
+
+<h3 id="understanding-the-process">Understanding the process</h3>
+
+<p>With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! A neural network is a collection of <strong>neurons</strong> connected by <strong>synapses</strong>. This collection is organized into three main layers: the input later, the hidden layer, and the output layer. You can have many hidden layers, which is where the term deep learning comes into play. An artifical neural network, there are several inputs, which are called <strong>features</strong>, and produce a single output, which is called a <strong>label</strong>.</p>
+
+<p><img src="https://blog.kabir.ml/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img" /></p>
+<div class="tr">
+<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
+</div>
+
+<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to take the sum of products of the inputs and <strong>weights</strong>. After, an activation function is applied to return an output.</p>
+
+<p>Here’s a brief overview of how a simple feedforward neural network works:</p>
+
+<ol>
+  <li>
+    <p>Takes inputs as a matrix (2D array of numbers)</p>
+  </li>
+  <li>
+    <p>Multiplies the input by a set weights (performs a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a> aka matrix multiplication)</p>
+  </li>
+  <li>
+    <p>Applies an activation function</p>
+  </li>
+  <li>
+    <p>Returns an output</p>
+  </li>
+  <li>
+    <p>Error is calculated by taking the difference from the desired output from the data and the predicted output. This creates our gradient descent, which we can use to alter the weights</p>
+  </li>
+  <li>
+    <p>The weights are then altered slightly according to the error.</p>
+  </li>
+  <li>
+    <p>To train, this process is repeated 1,000+ times. The more the data is trained upon, the more accurate our outputs will be.</p>
+  </li>
+</ol>
+
+<p class="bg-pink">At its core, neural networks are simple. They just perform a dot product with the input and weights and apply an activation function. When weights are adjusted via the gradient of loss function, the network adapts to the changes to produce more accurate outputs.</p>
+
+<p>Our neural network will model a single hidden layer with three inputs and one output. In the network, we will be predicting the score of our exam based on the inputs of how many hours we studied and how many hours we slept the day before. Our test score is the output. Here’s our sample data of what we’ll be training our Neural Network on:</p>
+
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw5 center" cellspacing="0">
+      <thead>
+        <tr class="stripe-dark">
+          <th class="fw6 tl pa3 bg-white">Hours Studied, Hours Slept (input)</th>
+          <th class="fw6 tl pa0 bg-white">Test Score (output)</th>
+        </tr>
+      </thead>
+      <tbody class="lh-copy">
+        <tr class="stripe-dark">
+          <td class="pa3">2, 9</td>
+          <td class="pa3">92</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">1, 5</td>
+          <td class="pa3">86</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">3, 6</td>
+          <td class="pa3">89</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">4, 8</td>
+          <td class="pa3">?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tr">
+<sup>Original example via <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">Welch Labs</a></sup><br />
+</div>
+
+<p>As you may have noticed, the <code class="highlighter-rouge">?</code> in this case represents what we want our neural network to calculate. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.</p>
+
+<h2 id="forward-propagation">Forward Propagation</h2>
+
+<p>Let’s start coding this bad boy! Open up a new python file. You’ll want to import <code class="highlighter-rouge">numpy</code> as it will help us with certain calculations.</p>
+
+<p>First, let’s import our data as numpy arrays using <code class="highlighter-rouge">np.array</code>. We’ll also want to normalize our units as our inputs are in hours, but our output is a test score from 0-100. Therefore, we need to scale our data by dividing by the maximum value for each variable.</p>
+<pre class="prettyprint linenums">
+import numpy as np
+ 
+# X = (hours sleeping, hours studying), y = score on test
+X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
+y = np.array(([92], [86], [89]), dtype=float)
+ 
+# scale units
+X = X/np.amax(X, axis=0) # maximum of X array
+y = y/100 # max test score is 100
+</pre>
+
+<p>Next, let’s define a python <code class="highlighter-rouge">class</code> and write an <code class="highlighter-rouge">init</code> function where we’ll specify our parameters such as input, hidden, and output layers.</p>
+
+<pre class="prettyprint linenums">
+class Neural_Network(object):
+  def __init__(self):
+    #parameters
+    self.inputSize = 2
+    self.outputSize = 1
+    self.hiddenSize = 3
+</pre>
+
+<p>Let’s move on to our first calculation. Remember that our synapses perform a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a>, or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1.</p>
+
+<h3 id="the-calculations-behind-our-network">The calculations behind our network</h3>
+
+<p>In the data set, our input data, <code class="highlighter-rouge">X</code>, is a 3x2 matrix. Our output data, <code class="highlighter-rouge">y</code>, is a 3x1 matrix. Each element in matrix <code class="highlighter-rouge">X</code> needs to be multiplied by a corresponding weight and then added together with all the other results for each neuron in the hidden layer. Here’s how the first input data element (2 hours studying and 9 hours sleeping) would calculate an output in the network:</p>
+
+<p><img src="/img/nn-calc.png" class="img" /></p>
+
+<p>This image breaks down what our neural network actually does to produce an output. First, the products of the random generated weights (.2, .6, .1, .8, .3, .7) on each synapse and the corresponding inputs are summed to arrive as the first values of the hidden layer. These sums are in a smaller font as they are not the final values for the hidden layer.</p>
+
+<pre class="prettyprint linenums">
+(2 * .2) + (9 * .8) = 7.6 
+(2 * .6) + (9 * .3) = 7.5 
+(2 * .1) + (9 * .7) = 6.5
+</pre>
+
+<p>To get the final value for the hidden layer, we need to apply the <a href="https://en.wikipedia.org/wiki/Activation_function">activation function</a>. The role of an activation function is to introduce nonlinearity. An advantage of this is that the output is mapped from a range of 0 and 1, making it easier to alter weights in the future.</p>
+
+<p>There are many activation functions out there. In this case, we’ll stick to one of the more popular ones - the sigmoid function.</p>
+
+<p><img src="http://www.saedsayad.com/images/ANN_Sigmoid.png" class="img" /></p>
+
+<pre class="prettyprint linenums">
+S(7.6) = 0.999499799
+S(7.5) = 1.000553084
+S(6.5) = 0.998498818
+</pre>
+
+<p>Now, we need to use matrix multiplication again, with another set of random weights, to calculate our output layer value.</p>
+
+<pre class="prettyprint linenums">
+(.9994 * .4) + (1.000 * .5) + (.9984 * .9) = 1.79832
+</pre>
+
+<p>Lastly, to normalize the output, we just apply the activation function again.</p>
+
+<pre class="prettyprint linenums">
+S(1.79832) = .8579443067
+</pre>
+
+<p>And, there you go! Theoretically, with those weights, out neural network will calculate <code class="highlighter-rouge">.85</code> as our test score!  However, our target was <code class="highlighter-rouge">.92</code>. Our result wasn’t poor, it just isn’t the best it can be. We just got a little lucky when I chose the random weights for this example.</p>
+
+<p>How do we train our model to learn? Well, we’ll find out very soon. For now, let’s countinue coding our network.</p>
+
+<p>If you are still confused, I highly reccomend you check out <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">this</a> informative video which explains the structure of a neural network with the same example.</p>
+
+<h3 id="implementing-the-calculations">Implementing the calculations</h3>
+
+<p>Now, let’s generate our weights randomly using <code class="highlighter-rouge">np.random.randn()</code>. Remember, we’ll need two sets of weights. One to go from the input to the hidden layer, and the other to go from the hidden to output layer.</p>
+
+<pre class="prettyprint linenums">
+#weights
+self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
+self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
+</pre>
+
+<p>Once we have all the variables set up, we are ready to write our <code class="highlighter-rouge">forward</code> propagation function. Let’s pass in our input, <code class="highlighter-rouge">X</code>, and in this example, we can use the variable <code class="highlighter-rouge">z</code> to simulate the activity between the input and output layers. As explained, we need to take a dot product of the inputs and weights, apply an activation function, take another dot product of the hidden layer and second set of weights, and lastly apply a final activation function to recieve our output:</p>
+
+<pre class="prettyprint linenums">
+def forward(self, X):
+    #forward propagation through our network
+    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+    self.z2 = self.sigmoid(self.z) # activation function
+    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+    o = self.sigmoid(self.z3) # final activation function
+    return o 
+</pre>
+
+<p>Lastly, we need to define our sigmoid function:</p>
+
+<pre class="prettyprint linenums">
+def sigmoid(self, s):
+    # activation function 
+    return 1/(1+np.exp(-s))
+</pre>
+
+<p>And, there we have it! A (untrained) neural network capable of producing an output.</p>
+
+<pre class="prettyprint linenums">
+import numpy as np
+ 
+# X = (hours sleeping, hours studying), y = score on test
+X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
+y = np.array(([92], [86], [89]), dtype=float)
+ 
+# scale units
+X = X/np.amax(X, axis=0) # maximum of X array
+y = y/100 # max test score is 100
+ 
+class Neural_Network(object):
+  def __init__(self):
+    #parameters
+    self.inputSize = 2
+    self.outputSize = 1
+    self.hiddenSize = 3
+ 
+    #weights
+    self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
+    self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
+ 
+  def forward(self, X):
+    #forward propagation through our network
+    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+    self.z2 = self.sigmoid(self.z) # activation function
+    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+    o = self.sigmoid(self.z3) # final activation function
+    return o 
+ 
+  def sigmoid(self, s):
+    # activation function 
+    return 1/(1+np.exp(-s))
+
+NN = Neural_Network()
+
+#defining our output 
+o = NN.forward(X)
+
+print "Predicted Output: \n" + str(o) 
+print "Actual Output: \n" + str(y) 
+</pre>
+
+<p>As you may have noticed, we need to train our network to calculate more accurate results.</p>
+
+<h2 id="backpropagation">Backpropagation</h2>
+
+<h3 id="the-learning-of-our-network">The “learning” of our network</h3>
+
+<p>Since we have a random set of weights, we need to alter them to make our inputs equal to the corresponding outputs from our data set. This is done through a method called backpropagation.</p>
+
+<p>Backpropagation works by using a <strong>loss</strong> function to calculate how far the network was from the target output.</p>
+
+<h4 id="calculating-error">Calculating error</h4>
+
+<p>One way of representing the loss function is by using the <strong>mean sum squared loss</strong> function:</p>
+
+<p><img src="/img/loss.png" class="img" /></p>
+
+<p>In this function, <code class="highlighter-rouge">o</code> is our predicted output, and <code class="highlighter-rouge">y</code> is our actual output. Now that we have the loss function, our goal is to get it as close as we can to 0. That means we will need to have close to no loss at all. As we are training our network, all we are doing is minimizing the loss.</p>
+
+<p>To figure out which direction to alter our weights, we need to find the rate of change of our loss with respect to our weights. In other words, we need to use the derivative of the loss function to understand how the weights affect the input.</p>
+
+<p>In this case, we will be using a partial derivative to allow us to take into account another variable.</p>
+
+<p><img src="https://blog.kabir.ml/img/machine-learning/weightToLoss.svg" class="img" /></p>
+<div class="tr">
+<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
+</div>
+
+<p>This method is known as <strong>gradient descent</strong>. By knowing which way to alter our weights, our outputs can only get more accurate.</p>
+
+<!-- 
+Let's start with a simple overview of a derivative:
+
+#### f(X, w) = Xw
+
+The derivative helps us understand how the weight, `w`, affects the input, `X`:
+
+#### ∂f/∂w=X
+
+Basically, if we have a weight of `10`, and an input of `5`, our output is `50`. However, when we plug it into the derivative function, we get 5 as a result. This means that if we change the weight by `1`, we change the output by `5`. Thus, 5 is our derivative.  -->
+
+<p>Here’s how we will calculate the incremental change to our weights:</p>
+
+<p>1) Find the <strong>margin of error</strong> of the output layer (o) by taking the difference of the predicted output and the actual output (y)</p>
+
+<p>2) Apply the derivative of our sigmoid activation function to the output layer error. We call this result the <strong>delta output sum</strong>.</p>
+
+<p>3) Use the delta output sum of the output layer error to figure out how much our z<sup>2</sup> (hidden) layer contributed to the output error by performing a dot product with our second weight matrix. We can call this the z<sup>2</sup> error.</p>
+
+<p>4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).</p>
+
+<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z2) delta output sum</strong>. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
+
+<p>Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as <strong>sigmoid prime</strong>, will give us the rate of change, or slope, of the activation function at output sum.</p>
+
+<p>[go more into this]</p>
+
+<p>Let’s continue to code our <code class="highlighter-rouge">Neural_Network</code> class by adding a sigmoidPrime (derivative of sigmoid) function:</p>
+
+<pre class="prettyprint linenums">
+def sigmoidPrime(self, s):
+    #derivative of sigmoid
+    return s * (1 - s)
+</pre>
+
+<p>Then, we’ll want to create our <code class="highlighter-rouge">backward</code> propagation function that does everything specified in the four steps above:</p>
+
+<pre class="prettyprint linenums">
+def backward(self, X, y, o):
+    # backward propgate through the network
+    self.o_error = y - o # error in output
+    self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
+
+    self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
+    self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
+
+    self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --&gt; hidden) weights
+    self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --&gt; output) weights
+</pre>
+
+<p>We can now define our output through initiating foward propagation and intiate the backward function by calling it in the <code class="highlighter-rouge">train</code> function:</p>
+
+<pre class="prettyprint linenums">
+def train (self, X, y):
+    o = self.forward(X)
+    self.backward(X, y, o)
+</pre>
+
+<p>To run the network, all we have to do is to run <code class="highlighter-rouge">train</code> function. Of course, we’ll want to do this multiple, or maybe thousands, of times. So, we’ll use a for loop.</p>
+
+<pre class="prettyprint linenums">
+NN = Neural_Network()
+for i in xrange(1,000): # trains the NN 1,000 times
+  print "Input: \n" + str(X) 
+  print "Actual Output: \n" + str(y) 
+  print "Predicted Output: \n" + str(NN.forward(X)) 
+  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
+  print "\n"
+  NN.train(X, y)
+</pre>
+
+<p>Here’s the full 60 lines of awesomeness:</p>
+<pre class="prettyprint linenums">
+import numpy as np
+ 
+# X = (hours sleeping, hours studying), y = score on test
+X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
+y = np.array(([92], [86], [89]), dtype=float)
+ 
+# scale units
+X = X/np.amax(X, axis=0) # maximum of X array
+y = y/100 # max test score is 100
+ 
+class Neural_Network(object):
+  def __init__(self):
+    #parameters
+    self.inputSize = 2
+    self.outputSize = 1
+    self.hiddenSize = 3
+ 
+    #weights
+    self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
+    self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
+ 
+  def forward(self, X):
+    #forward propagation through our network
+    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+    self.z2 = self.sigmoid(self.z) # activation function
+    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+    o = self.sigmoid(self.z3) # final activation function
+    return o 
+ 
+  def sigmoid(self, s):
+    # activation function 
+    return 1/(1+np.exp(-s))
+
+  def sigmoidPrime(self, s):
+    #derivative of sigmoid
+    return s * (1 - s)
+
+  def backward(self, X, y, o):
+    # backward propgate through the network
+    self.o_error = y - o # error in output
+    self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
+
+    self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
+    self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
+
+    self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --&gt; hidden) weights
+    self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --&gt; output) weights
+
+  def train (self, X, y):
+    o = self.forward(X)
+    self.backward(X, y, o)
+ 
+NN = Neural_Network()
+for i in xrange(1,000): # trains the NN 1,000 times
+  print "Input: \n" + str(X) 
+  print "Actual Output: \n" + str(y) 
+  print "Predicted Output: \n" + str(NN.forward(X)) 
+  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
+  print "\n"
+  NN.train(X, y)
+</pre>
+
+<p>There you have it! A full-fledged neural network that can learn from inputs and outputs. Try changing the input and out matrices to see how your network adapts! While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, eventually all play a big role in machine learning. If you think about it, it’s super impressive that your computer, an object, managed to <em>learn</em> by itself!</p>
+
+<p>Stay tuned for more machine learning tutorials on other models like Linear Regression and Classification!</p>
+
+<p>email, fix css, hackernews, and slack ppl</p>
+
+<h4 id="references">References</h4>
+
+<p><a href="https://stevenmiller888.github.io/mind-how-to-build-a-neural-network/">Steven Miller</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=bxe2T-V8XRs">Welch Labs</a></p>
+
+<p><em>Special thanks to <a href="https://blog.kabir.ml/posts/machine-learning.html">Kabir Shah</a> for his contributions to the development of this tutorial</em></p>
+
+</div>
+<div class="w-50-l center f4 pv5 lh-copy ph2 content bt">
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = 'https://enlight-2.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+	<footer class="pa4 pa5-l black-70 bt b--black-10">
+  <section class="cf mb5">
+    <div class="mb4 mb0-ns fl w-100 w-50-l" >
+      <p class="f4 fw6 mb2 f6 mt0">
+        Join over <b class="f5">1,000</b> other developers who get the latest projects sent directly to their inbox!
+      </p>
+      <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+	      <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+	      <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+      </form>
+    </div>
+  </section>
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+
+      <p class="f7 black-70 dib pr3 mb3">
+      © Enlight 2017
+      </p>
+    </div>
+    <div class="db dtc-ns black-70 tc tr-ns v-mid">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <a class="link near-black hover-silver dib mh3 tc" href="https://github.com/samayshamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 
+    </p>
+  </div>
+</footer>
+
+
+
+	<script src="/js/editor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript"> 
+   NProgress.configure({ 
+   	showSpinner: true
+    });
+   NProgress.start();   
+   NProgress.done();
+</script>
+
+
+
+	</body>
+</html>

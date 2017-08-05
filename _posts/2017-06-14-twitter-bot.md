@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Twitter Bot
-description: Buid a virtual machine that can tweet!
+description: Build a virtual machine that can tweet!
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: nodejs
 difficulty: intermediate
