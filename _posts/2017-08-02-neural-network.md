@@ -19,7 +19,7 @@ Neural networks can be intimidating, especially for people new to machine learni
 
 ### Understanding the process
 
-With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! A neural network is a collection of **neurons** connected by **synapses**. This collection is organized into three main layers: the input later, the hidden layer, and the output layer. You can have many hidden layers, which is where the term deep learning comes into play. An artifical neural network, there are several inputs, which are called **features**, and produce a single output, which is called a **label**. 
+With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! In essence, a neural network is a collection of **neurons** connected by **synapses**. This collection is organized into three main layers: the input later, the hidden layer, and the output layer. You can have many hidden layers, which is where the term **deep learning** comes into play. In an artifical neural network, there are several inputs, which are called **features**, and produce a single output, which is called a **label**. 
 
 <img src="https://blog.kabir.ml/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img">
 <div class="tr">
