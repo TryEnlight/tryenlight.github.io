@@ -29,7 +29,7 @@
       <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
-      <link href="https://enlight.ml/style.css?1501901046381226000" rel="stylesheet">
+      <link href="https://enlight.ml/style.css?1501906532227106000" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
       <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
@@ -92,14 +92,14 @@
 
 <h3 id="understanding-the-process">Understanding the process</h3>
 
-<p>With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! A neural network is a collection of <strong>neurons</strong> connected by <strong>synapses</strong>. This collection is organized into three main layers: the input later, the hidden layer, and the output layer. You can have many hidden layers, which is where the term deep learning comes into play. An artifical neural network, there are several inputs, which are called <strong>features</strong>, and produce a single output, which is called a <strong>label</strong>.</p>
+<p>With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! In essence, a neural network is a collection of <strong>neurons</strong> connected by <strong>synapses</strong>. This collection is organized into three main layers: the input later, the hidden layer, and the output layer. You can have many hidden layers, which is where the term <strong>deep learning</strong> comes into play. In an artifical neural network, there are several inputs, which are called <strong>features</strong>, and produce a single output, which is called a <strong>label</strong>.</p>
 
 <p><img src="https://blog.kabir.ml/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img" /></p>
 <div class="tr">
 <sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
 </div>
 
-<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to take the sum of products of the inputs and <strong>weights</strong>. After, an activation function is applied to return an output.</p>
+<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to take the multiply the inputs and <strong>weights</strong>. You can think of weights as the “strength” of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.</p>
 
 <p>Here’s a brief overview of how a simple feedforward neural network works:</p>
 
@@ -166,7 +166,7 @@
 <sup>Original example via <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">Welch Labs</a></sup><br />
 </div>
 
-<p>As you may have noticed, the <code class="highlighter-rouge">?</code> in this case represents what we want our neural network to calculate. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.</p>
+<p>As you may have noticed, the <code class="highlighter-rouge">?</code> in this case represents what we want our neural network to predict. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.</p>
 
 <h2 id="forward-propagation">Forward Propagation</h2>
 
@@ -185,7 +185,7 @@ X = X/np.amax(X, axis=0) # maximum of X array
 y = y/100 # max test score is 100
 </pre>
 
-<p>Next, let’s define a python <code class="highlighter-rouge">class</code> and write an <code class="highlighter-rouge">init</code> function where we’ll specify our parameters such as input, hidden, and output layers.</p>
+<p>Next, let’s define a python <code class="highlighter-rouge">class</code> and write an <code class="highlighter-rouge">init</code> function where we’ll specify our parameters such as the input, hidden, and output layers.</p>
 
 <pre class="prettyprint linenums">
 class Neural_Network(object):
@@ -196,7 +196,7 @@ class Neural_Network(object):
     self.hiddenSize = 3
 </pre>
 
-<p>Let’s move on to our first calculation. Remember that our synapses perform a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a>, or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1.</p>
+<p>It is time for our first calculation. Remember that our synapses perform a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a>, or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1.</p>
 
 <h3 id="the-calculations-behind-our-network">The calculations behind our network</h3>
 
@@ -367,11 +367,9 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <p>4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).</p>
 
-<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z2) delta output sum</strong>. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
+<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z<sup>2</sup>) delta output sum</strong>. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
 
 <p>Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as <strong>sigmoid prime</strong>, will give us the rate of change, or slope, of the activation function at output sum.</p>
-
-<p>[go more into this]</p>
 
 <p>Let’s continue to code our <code class="highlighter-rouge">Neural_Network</code> class by adding a sigmoidPrime (derivative of sigmoid) function:</p>
 
@@ -404,7 +402,7 @@ def train (self, X, y):
     self.backward(X, y, o)
 </pre>
 
-<p>To run the network, all we have to do is to run <code class="highlighter-rouge">train</code> function. Of course, we’ll want to do this multiple, or maybe thousands, of times. So, we’ll use a for loop.</p>
+<p>To run the network, all we have to do is to run the <code class="highlighter-rouge">train</code> function. Of course, we’ll want to do this multiple, or maybe thousands, of times. So, we’ll use a <code class="highlighter-rouge">for</code> loop.</p>
 
 <pre class="prettyprint linenums">
 NN = Neural_Network()
@@ -481,7 +479,7 @@ for i in xrange(1000): # trains the NN 1,000 times
   NN.train(X, y)
 </pre>
 
-<p>There you have it! A full-fledged neural network that can learn from inputs and outputs. Try changing the input and out matrices to see how your network adapts! While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, eventually all play a big role in machine learning. If you think about it, it’s super impressive that your computer, an object, managed to <em>learn</em> by itself!</p>
+<p>There you have it! A full-fledged neural network that can learn from inputs and outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it’s super impressive that your computer, an object, managed to <em>learn</em> by itself!</p>
 
 <p>Stay tuned for more machine learning tutorials on other models like Linear Regression and Classification!</p>
 
