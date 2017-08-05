@@ -1,4 +1,4 @@
-![](https://enlight.ml/enlight-logo.png)
+![](https://enlight.ml/enlight.png)
 
 
 # learn to code by building projects
