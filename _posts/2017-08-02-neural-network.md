@@ -86,7 +86,7 @@ Our neural network will model a single hidden layer with three inputs and one ou
 <sup>Original example via <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">Welch Labs</a></sup><br>
 </div>
 
-As you may have noticed, the `?` in this case represents what we want our neural network to calculate. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.
+As you may have noticed, the `?` in this case represents what we want our neural network to predict. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.
 
 ## Forward Propagation
 
