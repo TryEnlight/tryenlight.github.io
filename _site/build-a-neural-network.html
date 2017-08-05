@@ -29,7 +29,7 @@
       <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
-      <link href="https://enlight.ml/style.css?1501900226073590000" rel="stylesheet">
+      <link href="https://enlight.ml/style.css?1501901046381226000" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css" />
       <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
@@ -75,7 +75,7 @@
   <div class="dtc v-mid tc white ph3 ph4-l pt6">
     <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Neural Network</span></h1>
     <a href="https://repl.it/Jxmb/2"><img class="project-image" src="/img/nn.png"></a><br><br>
-    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork.py" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
+    <a href="https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork/NeuralNetwork.py" class="f4 link dim ba ph3 pv2 mb2 dib white">Source</a>
     <a href="https://repl.it/Jxmb/2" class="f4 link dim ba ph3 pv2 mb2 dib white">Demo</a>
     <h3 class="f4 tc">By <u><a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></u></h3>
   </div>
@@ -472,7 +472,7 @@ class Neural_Network(object):
     self.backward(X, y, o)
  
 NN = Neural_Network()
-for i in xrange(1,000): # trains the NN 1,000 times
+for i in xrange(1000): # trains the NN 1,000 times
   print "Input: \n" + str(X) 
   print "Actual Output: \n" + str(y) 
   print "Predicted Output: \n" + str(NN.forward(X)) 
@@ -484,8 +484,6 @@ for i in xrange(1,000): # trains the NN 1,000 times
 <p>There you have it! A full-fledged neural network that can learn from inputs and outputs. Try changing the input and out matrices to see how your network adapts! While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, eventually all play a big role in machine learning. If you think about it, it’s super impressive that your computer, an object, managed to <em>learn</em> by itself!</p>
 
 <p>Stay tuned for more machine learning tutorials on other models like Linear Regression and Classification!</p>
-
-<p>email, fix css, hackernews, and slack ppl</p>
 
 <h4 id="references">References</h4>
 

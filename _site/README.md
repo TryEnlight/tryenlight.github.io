@@ -1,9 +1,12 @@
-![](https://enlight.ml/enlight-logo.png)
+![](https://enlight.ml/enlight.png)
 
-
+# Enlight
 # learn to code by building projects
 
 ## projects available
+
+Latest: [Neural Network](https://enlight.ml/build-a-neural-network)
+
 HTML/CSS/JS
 - [hex color generator](https://enlight.ml/color-generator.html)
 - [text editor](https://enlight.ml/text-editor.html)
@@ -21,6 +24,8 @@ Node.js
 
 Python
 - [Guessing Number Game](https://enlight.ml/guess-number)
+- [Neural Network](https://enlight.ml/build-a-neural-network)
+
 
 ## for the future
 - MACHINE LEARNING!

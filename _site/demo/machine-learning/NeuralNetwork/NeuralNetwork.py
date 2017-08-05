@@ -51,7 +51,7 @@ class Neural_Network(object):
     self.backward(X, y, o)
  
 NN = Neural_Network()
-for i in xrange(1,000): # trains the NN 1,000 times
+for i in xrange(1000): # trains the NN 1,000 times
   print "Input: \n" + str(X) 
   print "Actual Output: \n" + str(y) 
   print "Predicted Output: \n" + str(NN.forward(X)) 
