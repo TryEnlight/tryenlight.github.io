@@ -6,7 +6,7 @@
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
-      <meta name="twitter:image" content="https://enlight.ml/enlight.png" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight.png?{{site.time | date: '%s%N'}}" />
    {% endif %}
    {% if page.layout != 'post' %}
    <title>{{ page.title | strip_html }}</title>
@@ -16,12 +16,12 @@
       <meta property="og:title" content="{{ page.title }}">
       <meta property="og:description" content="{{ page.description }}">
       <meta property="og:url" content="https://enlight.ml{{page.url}}">
-      <meta property="og:image" content="https://enlight.ml/enlight.png" /> 
+      <meta property="og:image" content="https://enlight.ml/enlight.png?{{site.time | date: '%s%N'}}" /> 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="{{ page.title }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
-      <meta name="twitter:image" content="https://enlight.ml/enlight.png" />
+      <meta name="twitter:image" content="https://enlight.ml/enlight.png?{{site.time | date: '%s%N'}}" />
 
       <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
