@@ -9,7 +9,7 @@ permalink: /calculator
 img: /img/calc.gif
 img-front: /img/calculator.gif
 demourl: /demo/calculator-project/index.html
-source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/calculator-project
+source: https://github.com/shamdasani/enlight/tree/gh-pages/demo/calculator-project
 language: HTML/CSS/JS 
 color: purple
 ---

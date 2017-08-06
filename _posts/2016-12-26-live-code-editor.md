@@ -9,7 +9,7 @@ permalink: /code-editor
 img: /img/code-editor.gif
 img-front: /img/code-editor.gif
 demourl: /demo/code-editor-project/index.html
-source: https://github.com/samayshamdasani/enlight/tree/gh-pages/demo/code-editor-project
+source: https://github.com/shamdasani/enlight/tree/gh-pages/demo/code-editor-project
 language: HTML/CSS/JS
 color: red
 
