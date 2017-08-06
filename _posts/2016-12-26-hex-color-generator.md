@@ -9,7 +9,7 @@ permalink: /hex-color-generator
 img: /img/color.gif
 img-front: /img/color.gif
 demourl: /demo/color-project/index.html
-source: https://github.com/shamdasani/enlight/tree/gh-pages/demo/color-project
+source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/color-project
 language: HTML/CSS/JS
 color: navy
 

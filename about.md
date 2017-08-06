@@ -18,7 +18,7 @@ A couple years ago, I started to learn web development. At first, I ended up tak
 
 Enlight is open-source, which means we love contributors! Have a project on the web, a cool app you're making, or really anything useful? Share your knowledge! It doesn't have to be a specific programming language - just send us whatever you want to share!
 
-- fork the [repo](https://github.com/shamdasani/enlight)
+- fork the [repo](https://github.com/tryenlight/enlight)
 - in the contribute folder, place your project files (demo/source) and the tutorial text.
 - submit a pull request
 

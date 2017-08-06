@@ -7,7 +7,7 @@ difficulty: advanced
 permalink: /build-a-neural-network
 img: /img/nn.png
 demourl: https://repl.it/Jxmb/2
-source: https://github.com/shamdasani/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork/NeuralNetwork.py
+source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork/NeuralNetwork.py
 language: Python
 color: maroon
 ---
