@@ -128,7 +128,7 @@ This image breaks down what our neural network actually does to produce an outpu
 
 <pre class="prettyprint linenums">
 (2 * .2) + (9 * .8) = 7.6 
-(2 * .6) + (9 * .3) = 7.5 
+(2 * .6) + (9 * .3) = 7.5 <!-- fix!!!  -->
 (2 * .1) + (9 * .7) = 6.5
 </pre>
 
@@ -335,18 +335,57 @@ for i in xrange(1000): # trains the NN 1,000 times
   NN.train(X, y)
 </pre>
 
-Here's the full 60 lines of awesomeness:
+Great, we now have a Neural Network! What about using these trained weights to predict test scores that we don't know?
+
+## Predictions
+
+To predict our test score for the input of `[4, 8]`, we'll need to create a new array to store this data, `xPredicted`.  
+<pre class="prettyprint linenums">
+xPredicted = np.array(([4,8]), dtype=float)
+</pre>
+
+We'll also need to scale this as we did with our input and output variables:
+
+<pre class="prettyprint linenums">
+xPredicted = xPredicted/np.amax(xPredicted, axis=0) # maximum of xPredicted (our input data for the prediction)
+</pre>
+
+Then, we'll create a new function that prints our predicted output for `xPredicted`. Believe it or not, all we have to run is `forward(xPredicted)` to return an output!
+
+<pre class="prettyprint linenums">
+def predict(self):
+    print "Predicted data based on trained weights: ";
+    print "Input (scaled): \n" + str(xPredicted);
+    print "Output: \n" + str(self.forward(xPredicted));
+</pre>
+
+To run this function simply call it under the for loop. 
+<pre class="prettyprint linenums">
+NN.predict()
+</pre>
+
+If you'd like to save your trained weights, you can do so with `np.savetxt`:
+<pre class="prettyprint linenums">
+def saveWeights(self):
+    np.savetxt("w1.txt", self.W1, fmt="%s") 
+    np.savetxt("w2.txt", self.W2, fmt="%s") 
+</pre>
+
+Here's the final result: 
+
 <pre class="prettyprint linenums">
 import numpy as np
  
-# X = (hours sleeping, hours studying), y = score on test
+# X = (hours studying, hours sleeping), y = score on test, xPredicted = 4 hours studying & 8 hours sleeping (input data for prediction)
 X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
 y = np.array(([92], [86], [89]), dtype=float)
+xPredicted = np.array(([4,8]), dtype=float)
  
 # scale units
 X = X/np.amax(X, axis=0) # maximum of X array
+xPredicted = xPredicted/np.amax(xPredicted, axis=0) # maximum of xPredicted (our input data for the prediction)
 y = y/100 # max test score is 100
- 
+
 class Neural_Network(object):
   def __init__(self):
     #parameters
@@ -385,23 +424,35 @@ class Neural_Network(object):
     self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
     self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
 
-  def train (self, X, y):
+  def train(self, X, y):
     o = self.forward(X)
     self.backward(X, y, o)
- 
+
+  def saveWeights(self):
+    np.savetxt("w1.txt", self.W1, fmt="%s") 
+    np.savetxt("w2.txt", self.W2, fmt="%s") 
+
+  def predict(self):
+    print "Predicted data based on trained weights: ";
+    print "Input (scaled): \n" + str(xPredicted);
+    print "Output: \n" + str(self.forward(xPredicted));
+
 NN = Neural_Network()
 for i in xrange(1000): # trains the NN 1,000 times
-  print "Input: \n" + str(X) 
+  print "Input (scaled): \n" + str(X) 
   print "Actual Output: \n" + str(y) 
   print "Predicted Output: \n" + str(NN.forward(X)) 
   print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
   print "\n"
   NN.train(X, y)
+
+NN.saveWeights()
+NN.predict()
 </pre>
 
-There you have it! A full-fledged neural network that can learn from inputs and outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it's super impressive that your computer, an object, managed to *learn* by itself! 
+There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it's super impressive that your computer, a physical object, managed to *learn* by itself! 
 
-Stay tuned for more machine learning tutorials on other models like Linear Regression and Classification!
+Make sure to stick around for more machine learning tutorials on other models like Linear Regression and Classification coming soon!
 
 
 #### References

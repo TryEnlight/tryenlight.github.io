@@ -1,13 +1,15 @@
 import numpy as np
  
-# X = (hours sleeping, hours studying), y = score on test
+# X = (hours studying, hours sleeping), y = score on test, xPredicted = 4 hours studying & 8 hours sleeping (input data for prediction)
 X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
 y = np.array(([92], [86], [89]), dtype=float)
+xPredicted = np.array(([4,8]), dtype=float)
  
 # scale units
 X = X/np.amax(X, axis=0) # maximum of X array
+xPredicted = xPredicted/np.amax(xPredicted, axis=0) # maximum of xPredicted (our input data for the prediction)
 y = y/100 # max test score is 100
- 
+
 class Neural_Network(object):
   def __init__(self):
     #parameters
@@ -46,17 +48,30 @@ class Neural_Network(object):
     self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
     self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
 
-  def train (self, X, y):
+  def train(self, X, y):
     o = self.forward(X)
     self.backward(X, y, o)
- 
+
+  def saveWeights(self):
+    np.savetxt("w1.txt", self.W1, fmt="%s") 
+    np.savetxt("w2.txt", self.W2, fmt="%s") 
+
+  def predict(self):
+    print "Predicted data based on trained weights: ";
+    print "Input (scaled): \n" + str(xPredicted);
+    print "Output: \n" + str(self.forward(xPredicted));
+
 NN = Neural_Network()
 for i in xrange(1000): # trains the NN 1,000 times
-  print "Input: \n" + str(X) 
+  print "Input (scaled): \n" + str(X) 
   print "Actual Output: \n" + str(y) 
   print "Predicted Output: \n" + str(NN.forward(X)) 
   print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
   print "\n"
   NN.train(X, y)
+
+NN.saveWeights()
+NN.predict()
+
 
 

@@ -1,222 +1,226 @@
-			/* General */
-			
-			html, body, header {
-			  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
-			}
-			#nprogress .bar {
-			  background: rgba(246, 46, 36, 1);
-			}
-			*::-moz-selection {
-			  background: #ff80cc;
-			}
-			*::selection {
-			  background: #ff80cc;
-			}
-			.attention {
-			  background-color: #F64E24;
-			}
-			.hello {
-			  background: rgba(246, 46, 36, 1);
-			  background: -webkit-linear-gradient(top, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
-			}
-			.project-red {
-			  background: rgba(246, 46, 36, 1);
-			  background: -webkit-linear-gradient(top, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
-			}
-			.project-blue {
-			  background: rgba(0, 116, 217, 1);
-			  background: -webkit-linear-gradient(top, rgba(0, 116, 217, 1) 0%, rgba(0, 65, 122, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(0, 116, 217, 1) 0%, rgba(0, 65, 122, 1) 100%);
-			}
-			.project-maroon {
-			  background: rgba(204, 31, 115, 1);
-			  background: -webkit-linear-gradient(top, rgba(204, 31, 115, 1) 0%, rgba(133, 20, 75, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(204, 31, 115, 1) 0%, rgba(133, 20, 75, 1) 100%);
-			}
-			.project-orange {
-			  background: rgba(255, 133, 27, 1);
-			  background: -webkit-linear-gradient(top, rgba(255, 133, 27, 1) 0%, rgba(255, 80, 27, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(255, 133, 27, 1) 0%, rgba(255, 80, 27, 1) 100%);
-			}
-			.project-purple {
-			  background: rgba(176, 13, 201, 1);
-			  background: -webkit-linear-gradient(top, rgba(176, 13, 201, 1) 0%, rgba(107, 7, 122, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(176, 13, 201, 1) 0%, rgba(107, 7, 122, 1) 100%);
-			}
-			.project-navy {
-			  background: rgba(0, 32, 63, 1);
-			  background: -webkit-linear-gradient(top, rgba(0, 32, 63, 1) 0%, rgba(0, 10, 20, 1) 100%);
-			  background: linear-gradient(to bottom, rgba(0, 32, 63, 1) 0%, rgba(0, 10, 20, 1) 100%);
-			}
-			.gradient a {
-			  background: -webkit-linear-gradient(left, hotPink 0%, blue 70%, transparent 30%);
-			  background-position: 100% 0;
-			  background-size: 200% 200%;
-			  -webkit-background-clip: text;
-			  -webkit-transition: .1s;
-			}
-			.gradient a:hover {
-			  background-position: 0 0;
-			  color: transparent;
-			  transition: .4s 0;
-			}
-			code {
-			  color: #d14;
-			  font-size: 20px;
-			}
-			.content a {
-			  color: inherit;
-			  transition: .1s;
-			  text-decoration: none;
-			  border-bottom: 3px solid #E8E8E8;
-			}
+/* General */
 
-			.img {
-				display: block;
-    			margin: 0 auto;
-			}
+html, body, header {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+#nprogress .bar {
+	background: rgba(246, 46, 36, 1);
+}
+*::-moz-selection {
+	background: #ff80cc;
+}
+*::selection {
+	background: #ff80cc;
+}
+.attention {
+	background-color: #F64E24;
+}
+.hello {
+	background: rgba(246, 46, 36, 1);
+	background: -webkit-linear-gradient(top, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
+	background: linear-gradient(to bottom, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
+}
+.project-red {
+	background: rgba(246, 46, 36, 1);
+	background: -webkit-linear-gradient(top, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
+	background: linear-gradient(to bottom, rgba(246, 46, 36, 1) 0%, rgba(255, 54, 121, 1) 100%);
+}
+.project-blue {
+	background: rgba(0, 116, 217, 1);
+	background: -webkit-linear-gradient(top, rgba(0, 116, 217, 1) 0%, rgba(0, 65, 122, 1) 100%);
+	background: linear-gradient(to bottom, rgba(0, 116, 217, 1) 0%, rgba(0, 65, 122, 1) 100%);
+}
+.project-maroon {
+	background: rgba(204, 31, 115, 1);
+	background: -webkit-linear-gradient(top, rgba(204, 31, 115, 1) 0%, rgba(133, 20, 75, 1) 100%);
+	background: linear-gradient(to bottom, rgba(204, 31, 115, 1) 0%, rgba(133, 20, 75, 1) 100%);
+}
+.project-orange {
+	background: rgba(255, 133, 27, 1);
+	background: -webkit-linear-gradient(top, rgba(255, 133, 27, 1) 0%, rgba(255, 80, 27, 1) 100%);
+	background: linear-gradient(to bottom, rgba(255, 133, 27, 1) 0%, rgba(255, 80, 27, 1) 100%);
+}
+.project-purple {
+	background: rgba(176, 13, 201, 1);
+	background: -webkit-linear-gradient(top, rgba(176, 13, 201, 1) 0%, rgba(107, 7, 122, 1) 100%);
+	background: linear-gradient(to bottom, rgba(176, 13, 201, 1) 0%, rgba(107, 7, 122, 1) 100%);
+}
+.project-navy {
+	background: rgba(0, 32, 63, 1);
+	background: -webkit-linear-gradient(top, rgba(0, 32, 63, 1) 0%, rgba(0, 10, 20, 1) 100%);
+	background: linear-gradient(to bottom, rgba(0, 32, 63, 1) 0%, rgba(0, 10, 20, 1) 100%);
+}
+.gradient a {
+	background: -webkit-linear-gradient(left, hotPink 0%, blue 70%, transparent 30%);
+	background-position: 100% 0;
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-transition: .1s;
+}
+.gradient a:hover {
+	background-position: 0 0;
+	color: transparent;
+	transition: .4s 0;
+}
+code {
+	color: rgba(246, 46, 36, 1);
+	background: #ffeaed;
+	font-size: 1.25rem !important;
+	font-family: inherit !important;
+	border-radius: 3px;
+	padding: 3px;
+}
+.content a {
+	color: inherit;
+	transition: .1s;
+	text-decoration: none;
+	border-bottom: 3px solid #E8E8E8;
+}
 
-			.content a:hover {
-			  text-decoration: none;
-			  border-bottom: 5px solid #333;
-			}
-			#carbonads {
-			  display: block;
-			  overflow: hidden;
-			  padding: 1em;
-			  line-height: 1;
-			  width: 350px;
-			  position: absolute;
-			  left: 0;
-			  right: 0;
-			  margin-left: auto;
-			  margin-right: auto;
-			  background: #fff;
-			  border-radius: 5px;
-			  border: 1px solid #fff;
-			}
-			#carbonads a {
-			  color: #333;
-			  text-decoration: none;
-			}
-			#carbonads span {
-			  position: relative;
-			  display: block;
-			  overflow: hidden;
-			}
-			.carbon-img {
-			  float: left;
-			  margin-right: 1em;
-			}
-			.carbon-img img {
-			  display: block;
-			}
-			.carbon-text {
-			  display: block;
-			  float: left;
-			  max-width: calc(100% - 130px - 1em);
-			  text-align: left;
-			}
-			.carbon-poweredby {
-			  position: absolute;
-			  right: 0;
-			  bottom: 0;
-			  display: block;
-			  font-size: .4em;
-			  line-height: 1;
-			  letter-spacing: 1px;
-			}
-			#carbonads:hover {
-			  border: 1px solid#333;
-			  transition: .5s ease;
-			}
-			.project-image {
-			  max-height: 400px;
-			  width: auto;
-			}
-			/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
-			
-			pre {
-			  overflow: auto;
-			}
-			.prettyprint {
-			  background: #2d2d2d;
-			  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
-			  border: 0 !important;
-			  font-size: .75em;
-			}
-			.pln {
-			  color: #cccccc;
-			}
-			/* Specify class=linenums on a pre to get line numbering */
-			
-			ol.linenums {
-			  margin-top: 0;
-			  margin-bottom: 0;
-			  color: #999999;
-			}
-			li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-			  padding-left: 1em;
-			  background-color: #2d2d2d;
-			  list-style-type: decimal;
-			}
-			@media screen {
-			  /* string content */
-			  .str {
-			    color: #99cc99;
-			  }
-			  /* keyword */
-			  .kwd {
-			    color: #cc99cc;
-			  }
-			  /* comment */
-			  .com {
-			    color: #999999;
-			  }
-			  /* type name */
-			  .typ {
-			    color: #6699cc;
-			  }
-			  /* literal value */
-			  .lit {
-			    color: #f99157;
-			  }
-			  /* punctuation */
-			  .pun {
-			    color: #cccccc;
-			  }
-			  /* lisp open bracket */
-			  .opn {
-			    color: #cccccc;
-			  }
-			  /* lisp close bracket */
-			  .clo {
-			    color: #cccccc;
-			  }
-			  /* markup tag name */
-			  .tag {
-			    color: #f2777a;
-			  }
-			  /* markup attribute name */
-			  .atn {
-			    color: #f99157;
-			  }
-			  /* markup attribute value */
-			  .atv {
-			    color: #66cccc;
-			  }
-			  /* declaration */
-			  .dec {
-			    color: #f99157;
-			  }
-			  /* variable name */
-			  .var {
-			    color: #f2777a;
-			  }
-			  /* function name */
-			  .fun {
-			    color: #6699cc;
-			  }
-			}
+.img {
+	display: block;
+	margin: 0 auto;
+}
+
+.content a:hover {
+	text-decoration: none;
+	border-bottom: 5px solid #333;
+}
+#carbonads {
+	display: block;
+	overflow: hidden;
+	padding: 1em;
+	line-height: 1;
+	width: 350px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #fff;
+}
+#carbonads a {
+	color: #333;
+	text-decoration: none;
+}
+#carbonads span {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+.carbon-img {
+	float: left;
+	margin-right: 1em;
+}
+.carbon-img img {
+	display: block;
+}
+.carbon-text {
+	display: block;
+	float: left;
+	max-width: calc(100% - 130px - 1em);
+	text-align: left;
+}
+.carbon-poweredby {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: block;
+	font-size: .4em;
+	line-height: 1;
+	letter-spacing: 1px;
+}
+#carbonads:hover {
+	border: 1px solid#333;
+	transition: .5s ease;
+}
+.project-image {
+	max-height: 400px;
+	width: auto;
+}
+/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+
+pre {
+	overflow: auto;
+}
+.prettyprint {
+	background: #2d2d2d;
+	font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+	border: 0 !important;
+	font-size: .75em;
+}
+.pln {
+	color: #cccccc;
+}
+/* Specify class=linenums on a pre to get line numbering */
+
+ol.linenums {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #999999;
+}
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+	padding-left: 1em;
+	background-color: #2d2d2d;
+	list-style-type: decimal;
+}
+@media screen {
+	/* string content */
+	.str {
+		color: #99cc99;
+	}
+	/* keyword */
+	.kwd {
+		color: #cc99cc;
+	}
+	/* comment */
+	.com {
+		color: #999999;
+	}
+	/* type name */
+	.typ {
+		color: #6699cc;
+	}
+	/* literal value */
+	.lit {
+		color: #f99157;
+	}
+	/* punctuation */
+	.pun {
+		color: #cccccc;
+	}
+	/* lisp open bracket */
+	.opn {
+		color: #cccccc;
+	}
+	/* lisp close bracket */
+	.clo {
+		color: #cccccc;
+	}
+	/* markup tag name */
+	.tag {
+		color: #f2777a;
+	}
+	/* markup attribute name */
+	.atn {
+		color: #f99157;
+	}
+	/* markup attribute value */
+	.atv {
+		color: #66cccc;
+	}
+	/* declaration */
+	.dec {
+		color: #f99157;
+	}
+	/* variable name */
+	.var {
+		color: #f2777a;
+	}
+	/* function name */
+	.fun {
+		color: #6699cc;
+	}
+}

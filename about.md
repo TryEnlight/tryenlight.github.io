@@ -36,7 +36,7 @@ Feel free to shoot me an **[email](mailto:hi@shamdasani.org)** if you have any s
 <a class="link white" href="https://ichauster.github.io/">Ivan Chau</a><br>
 <a class="link white" href="https://kabir.ml">Kabir Shah</a><br>
 
-Credits to Heo Poh Lin from the Noun Project Enlight's logo. 
+Credits to Heo Poh Lin from the Noun Project for Enlight's logo. 
 
 
 
