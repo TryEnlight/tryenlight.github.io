@@ -1,7 +1,7 @@
 ![](https://enlight.ml/enlight.png)
 
-# .center[Enlight]
-# .center[learn to code by building projects]
+<p align="center"><h1>Enlight</h1></p>
+<p align="center"><h2>learn to code by building projects</h2></p>
 
 ## projects available
 
