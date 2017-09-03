@@ -1,6 +1,6 @@
 <p align="center"><img align="center" src="https://enlight.ml/enlight.png"><p align="center">
 <p align="center"><h1 align="center">Enlight</h1></p>
-<p align="center"><h2 align="center">learn to code by building projects</h2></p>
+<p align="center"><b>learn to code by building projects</b>
 
 ## projects available
 
