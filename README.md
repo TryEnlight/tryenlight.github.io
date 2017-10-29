@@ -1,5 +1,5 @@
 <p align="center"><img align="center" src="https://enlight.ml/enlight.png"><p align="center">
-<p align="center"><h1 align="center">Enlight</h1></p>
+<p align="center"><h1 align="center"> <img src="https://tryenlight.github.io/enlight.png" width="3.5%"> Enlight</h1></p>
 <p align="center"><b>learn to code by building projects</b>
 
 ## projects available
