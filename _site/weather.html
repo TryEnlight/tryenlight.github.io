@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Geolocation Weather App with HTML/CSS/JS</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Geolocation Weather App with HTML/CSS/JS" />
+      <meta name="twitter:description" content="Build a auto-detecting location weather app using APIs" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="Build a auto-detecting location weather app using APIs">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Geolocation Weather App">
+      <meta property="og:description" content="Build a auto-detecting location weather app using APIs">
+      <meta property="og:url" content="/weather">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Geolocation Weather App" />
+      <meta name="twitter:description" content="Build a auto-detecting location weather app using APIs" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="blue">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 blue tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Geolocation Weather App</span></h1>
+        <a href="/enlight/demo/weather-project/index.html"><img class="project-image" src="/img/weather.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/gh-pages/demo/weather-project" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="/enlight/demo/weather-project/index.html" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h3 id="getting-started">Getting Started</h3>
+<p>This weather app tutorial will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation" class="underline">HTML geolocation</a> to auto-detect the user’s latitude and longitude and then will use those coordinates to determine the weather using the <a href="https://darksky.net/dev/docs" class="underline">Dark Sky API.</a> Before we start, you must sign up for your <a href="https://darksky.net/dev/register" class="underline">API key over at Dark Sky</a>. Once you sign up and reach to your console, take note of your API key. Just for your information, this API is free for up to 1,000 requests/day.</p>
+
+<p>Now that we have our API key, we can create our files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s), API</li>
+</ul>
+
+<p>As you probably saw in the preview above, we’re going to be displaying the current temperature, a short summary, and the coordinates based on the user’s location. That’s why we’ll need three divs in addition to adding the jQuery CDN (for the API request) and linking our style.css and app.js files.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;html&gt;</span>
+     <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span> Weather <span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="nt">&lt;/head&gt;</span>
+
+     <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;&lt;div</span> <span class="na">id=</span><span class="s">"temp"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">id=</span><span class="s">"minutely"</span><span class="nt">&gt;&lt;/div&gt;&lt;/h1&gt;</span>
+        <span class="nt">&lt;h2&gt;&lt;div</span> <span class="na">id=</span><span class="s">"location"</span><span class="nt">&gt;&lt;/div&gt;&lt;/h2&gt;</span>
+     <span class="nt">&lt;/body&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="the-weather-function">The weather() function</h3>
+<p>Our JS file will be centered around <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation" class="underline">HTML’s geolocation.</a></p>
+
+<p>This is what we need to incorporate:</p>
+
+<ul>
+  <li>set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" class="underline">location div to a variable</a></li>
+  <li>set the API key and the url(https://api.forecast.io/forecast/) equal to variables.</li>
+  <li>write the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition" class="underline">geolocation.getCurrentPosition</a> method with the parameters (success, error)</li>
+  <li>write the success function consisting of the following:
+    <ul>
+      <li>set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation" class="underline">position.coords.latitude and position.coords.longitude</a> to their own variables</li>
+      <li>use the location div’s variable to display the latitude and longitude for the location</li>
+      <li>use the <a href="http://api.jquery.com/jquery.getjson/" class="underline">$.getJSON jQuery method</a> to make a request to the weather API url</li>
+      <li>set the temp and daily div values to the data.currently.temperature and data.minutely.summary <a href="https://darksky.net/dev/docs" class="underline">(docs on weather API request) </a></li>
+    </ul>
+  </li>
+  <li>write an error function to tell the user that the location could not be retrieved</li>
+  <li>set the location div’s value to “Locating…”</li>
+  <li>call the weather() function</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="kd">function</span> <span class="nx">weather</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"location"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">apiKey</span> <span class="o">=</span> <span class="s1">'INSERT API KEY'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://api.forecast.io/forecast/'</span><span class="p">;</span>
+
+    <span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">success</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">success</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">latitude</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+      <span class="nx">longitude</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+
+      <span class="nx">location</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Latitude is '</span> <span class="o">+</span> <span class="nx">latitude</span> <span class="o">+</span> <span class="s1">'° Longitude is '</span> <span class="o">+</span> <span class="nx">longitude</span> <span class="o">+</span> <span class="s1">'°'</span><span class="p">;</span>
+
+       <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">url</span> <span class="o">+</span> <span class="nx">apiKey</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="nx">latitude</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="nx">longitude</span> <span class="o">+</span> <span class="s2">"?callback=?"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#temp'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">currently</span><span class="p">.</span><span class="nx">temperature</span> <span class="o">+</span> <span class="s1">'° F'</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#minutely'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">minutely</span><span class="p">.</span><span class="nx">summary</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">error</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">location</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Unable to retrieve your location"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">location</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Locating..."</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">weather</span><span class="p">();</span>
+
+
+</code></pre></div></div>
+<p>There you have it! We now have a functional weather app :)</p>
+
+<h3 id="some-styling">Some styling</h3>
+
+<p>Here’s my take on some basic centering and font changes in CSS. Feel free to style the page to your liking.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">html</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Avenir Next"</span><span class="p">,</span> <span class="n">Helevetica</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span> <span class="p">{</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="m">300</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>I encourage you to try to explore more with the world of APIs. You can build a <a href="/quote.html" class="underline">Quote Generator</a> that uses a quote API, or you could even further advance this project by adding more weather details from the <a href="https://darksky.net/dev/docs" class="underline">Dark Sky API! </a></p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

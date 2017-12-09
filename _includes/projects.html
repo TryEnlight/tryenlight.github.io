@@ -1,0 +1,52 @@
+<section class="cf w-100 pa2-ns" id="projects">
+  {% for post in site.categories.easy-web %}
+  <article class="fl w-100 w-50-m w-25-ns pa2-ns">
+    <a href="{{ post.url | prepend: site.baseurl }}" class="ph2 ph0-ns pb3 link db">
+    <div class="aspect-ratio aspect-ratio--1x1">
+      <img style="background-image:url({{post.img}});"
+      class="db bg-center contain aspect-ratio--object card" />
+    </div>
+      <h3 class="f5 f4-ns mb0 black-90">{{ post.title }}</h3>
+      <h3 class="f6 f5 fw4 mt2 black-60">{{ post.language }} | <u>{{ post.difficulty }}</u></h3>
+    </a>
+  </article>
+  {% endfor %}
+  {% for post in site.categories.middle-web %}
+  <article class="fl w-100 w-50-m w-25-ns pa2-ns">
+    <a href="{{ post.url | prepend: site.baseurl }}" class="ph2 ph0-ns pb3 link db">
+    <div class="aspect-ratio aspect-ratio--1x1">
+      <img style="background-image:url({{post.img}});"
+      class="db bg-center contain aspect-ratio--object card" />
+    </div>
+      <h3 class="f5 f4-ns mb0 black-90">{{ post.title }}</h3>
+      <h3 class="f6 f5 fw4 mt2 black-60">{{ post.language }} | <u>{{ post.difficulty }}</u></h3>
+    </a>
+  </article>
+  {% endfor %}
+  {% for post in site.categories.hard-web %}
+  <article class="fl w-100 w-50-m w-25-ns pa2-ns">
+    <a href="{{ post.url | prepend: site.baseurl }}" class="ph2 ph0-ns pb3 link db">
+    <div class="aspect-ratio aspect-ratio--1x1">
+      <img style="background-image:url({{post.img}});"
+      class="db bg-center contain aspect-ratio--object card" />
+    </div>
+      <h3 class="f5 f4-ns mb0 black-90">{{ post.title }}</h3>
+      <h3 class="f6 f5 fw4 mt2 black-60">{{ post.language }} | <u>{{ post.difficulty }}</u></h3>
+    </a>
+  </article>
+  {% endfor %}
+  {% for post in site.categories.python %}
+  <article class="fl w-100 w-50-m w-25-ns pa2-ns">
+    <a href="{{ post.url | prepend: site.baseurl }}" class="ph2 ph0-ns pb3 link db">
+    <div class="aspect-ratio aspect-ratio--1x1">
+      <img style="background-image:url({{post.img}});"
+      class="db bg-center contain aspect-ratio--object card" />
+    </div>
+      <h3 class="f5 f4-ns mb0 black-90">{{ post.title }}</h3>
+      <h3 class="f6 f5 fw4 mt2 black-60">{{ post.language }} | <u>{{ post.difficulty }}</u></h3>
+    </a>
+  </article>
+  {% endfor %}
+
+
+</section>

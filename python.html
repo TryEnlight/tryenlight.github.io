@@ -1,0 +1,22 @@
+---
+layout: default
+title: Learn to Code Python
+description:
+---
+
+<h3 class="tc f4"> Beginner Python Projects:</h3><br>
+
+<section class="cf w-50 center pa2-ns">
+  {% for post in site.categories.python limit:4%} 
+    <article class="fl w-100 w-50-m  w-25-ns pa2-ns">
+    <a href="{{ post.url }}" class="ph2 ph0-ns pb3 link db">
+    <div class="aspect-ratio aspect-ratio--1x1">
+      <img style="background-image:url({{post.img}});"
+      class="db bg-center cover aspect-ratio--object card" />
+    </div>
+      <h3 class="f5 f4-ns mb0 black-90">{{ post.title }}</h3>
+      <h3 class="f6 f5 fw4 mt2 black-60">{{ post.language }}</h3>
+    </a>
+  </article>
+  {% endfor %}
+</section>

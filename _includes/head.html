@@ -1,0 +1,41 @@
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   {% if page.layout == 'post' %}
+      <title>Build a {{ page.title | strip_html }} with {{ page.language }}</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
+      <meta name="twitter:description" content="{{ page.description }}" />
+      <meta name="twitter:image" content="{{ site.url }}/enlight.png?{{site.time | date: '%s%N'}}" />
+   {% endif %}
+   {% if page.layout != 'post' %}
+   <title>{{ page.title | strip_html }}</title>
+   {% endif %}
+      <meta name="description" content="{{ page.description }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:description" content="{{page.description }}">
+      <meta property="og:url" content="{{page.url}}">
+      <meta property="og:image" content="/enlight.png?{{site.time | date: '%s%N'}}" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="{{ page.title }}" />
+      <meta name="twitter:description" content="{{ page.description }}" />
+      <meta name="twitter:image" content="{{ site.url }}/enlight.png?{{site.time | date: '%s%N'}}" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>

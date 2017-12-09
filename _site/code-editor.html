@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Live HTML/CSS/JS Editor with HTML/CSS/JS</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Live HTML/CSS/JS Editor with HTML/CSS/JS" />
+      <meta name="twitter:description" content="Build an online editor that compiles your code live" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="Build an online editor that compiles your code live">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Live HTML/CSS/JS Editor">
+      <meta property="og:description" content="Build an online editor that compiles your code live">
+      <meta property="og:url" content="/code-editor">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Live HTML/CSS/JS Editor" />
+      <meta name="twitter:description" content="Build an online editor that compiles your code live" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="maroon">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 maroon tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Live HTML/CSS/JS Editor</span></h1>
+        <a href="/enlight/demo/code-editor-project/index.html"><img class="project-image" src="/img/code-editor.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/gh-pages/demo/code-editor-project" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="/enlight/demo/code-editor-project/index.html" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h3 id="getting-started">Getting Started</h3>
+
+<p>In this project, we’ll be building a live code editor similar to <a href="https://codepen.io" class="underline">Codepen</a> or <a href="https://jsfiddle.net" class="underline">JsFiddle</a>.</p>
+
+<p>Let’s get started by creating our usual three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>To get started with our markup, we’ll be needing three <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" class="underline">textarea</a> tags which will correspond with the id of the language we’ll be compiling. To actually show the compiled code, we will also need an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" class="underline">iframe</a> which will allow us to insert an html document into an existing html page. Make sure to set ids for each tag so we can communicate with these elements in JavaScript.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Code Editor<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+
+    <span class="nt">&lt;body&gt;</span>
+
+      <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"html"</span> <span class="na">placeholder=</span><span class="s">"HTML"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+      <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"css"</span> <span class="na">placeholder=</span><span class="s">"CSS"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+      <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"js"</span> <span class="na">placeholder=</span><span class="s">"JavaScript"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+      <span class="nt">&lt;iframe</span> <span class="na">id=</span><span class="s">"code"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+
+      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+<h3 id="making-it-look-decent">Making it look decent</h3>
+
+<p>Before we head on to making our app, let’s style it up a bit. We should align the elements to the center, make the textarea elements go side by side, and put the iframe right below them.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nt">textarea</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">32%</span><span class="p">;</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">top</span><span class="p">;</span>
+    <span class="nl">min-height</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">scroll</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="m">#F4F4F9</span><span class="p">;</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="n">Courier</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nt">iframe</span> <span class="p">{</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">35em</span><span class="p">;</span>
+  <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p>As always, feel free to customize this to your liking!</p>
+
+<h3 id="our-compile-function">Our compile() function</h3>
+
+<p>Now, here’s where we actually make our app functional. We can do so with just one function. Here’s what we’ll need to write in it:</p>
+
+<ul>
+  <li>link the html, css, and js ids to variables using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" class="underline">document.getElementById()</a></li>
+  <li>set the iframe id’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow" class="underline">contentWindow</a> to a variable</li>
+  <li>write a function that runs on <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup" class="underline">document.body.keyup</a> (when a key is pressed) that:
+    <ul>
+      <li>opens the textarea’s contentWindow</li>
+      <li>writes the values of the html, css, and js variables in it</li>
+      <li>closes the textarea’s contentWindow</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">compile</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"html"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">css</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"css"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">js</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"js"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"code"</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+
+     <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">onkeyup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">code</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+      <span class="nx">code</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">html</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">"&lt;style&gt;"</span><span class="o">+</span><span class="nx">css</span><span class="p">.</span><span class="nx">value</span><span class="o">+</span><span class="s2">"&lt;/style&gt;"</span><span class="o">+</span><span class="s2">"&lt;script&gt;"</span> <span class="o">+</span> <span class="nx">js</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="s2">"&lt;/script&gt;"</span><span class="p">);</span>
+      <span class="nx">code</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+        <span class="p">};</span>
+      <span class="p">};</span>
+
+  <span class="nx">compile</span><span class="p">();</span>
+
+</code></pre></div></div>
+<p>
+That's it! Pretty simple right? To take this a step further, try and make the textareas responsive with  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" class="underline">media queries</a>. If you liked this tutorial, try building a <a href="/web-paint.html" class="underline"> Web Paint</a> app!
+</p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

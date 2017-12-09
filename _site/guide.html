@@ -1,0 +1,183 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+   
+   <title>Getting Started as a Developer</title>
+   
+      <meta name="description" content="Learn to Code Starter Pack">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Getting Started as a Developer">
+      <meta property="og:description" content="Learn to Code Starter Pack">
+      <meta property="og:url" content="/guide.html">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Getting Started as a Developer" />
+      <meta name="twitter:description" content="Learn to Code Starter Pack" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+</head>
+
+
+<header class="orange">
+  <div class="top">
+  <div class="enlight">
+  <a href="/" class="white">enlight</a>
+  </div>
+
+    <div class="nav">
+      <ul>
+      <li><a href="/enlight/guide">Guide</a><li>
+      <li><a href="/enlight/projects">Tutorials</a><li>
+      <li><a href="/enlight/web">Web Development</a><li>
+      <li><a href="/enlight/about">About</a><li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<body>
+<article class="dt w-100 orange">
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">Getting Started as a Developer</h1>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  <article class="pa1 pa2-ns">
+  <h1 class="f4 bold mw6">Table of Contents</h1>
+  <ul class="list pl0 ml0 mw6 ba b--light-silver br2">
+    <li class="ph3 pv3 bb b--light-silver"><a href="#getting-started">Getting Started</a></li>
+    <li class="ph3 pv3 bb b--light-silver"><a href="#html">HTML/CSS/JS</a></li>
+    <li class="ph3 pv3 bb b--light-silver"><a href="#node">Node.js</a></li>
+    <li class="ph3 pv3 bb b--light-silver"><a href="#python">Python</a></li>
+    <li class="ph3 pv3 bb b--light-silver"><a href="ml.html">Machine Learning</a></li>
+
+  </ul>
+</article>
+
+  <h1 class="f2 bold mw6" id="getting-started">Getting Started</h1>
+  	<p>
+  	Welcome to the official starter pack for becoming a developer! Here's all the stuff that's mandatory:
+
+    <ol>
+      <li>a computer</li>
+      <li>a text editor</li>
+      <li>hard work</li>
+    </ol>
+
+    <p>That's it! It doesn't take much to start to code. The toughest part is persisting and pushing yourself to learn more
+    and more to advance your skills.
+
+    <p>Some text editors I recommend are <a href="https://atom.io">Atom</a> and <a href="https://sublimetext.com">Sublime Text</a>.
+    However, you may even use TextEdit or WordPad if you wish :P
+
+  <h1 class="f2 bold mw6" id="html">HTML/CSS/JS</h1>
+
+    <p> HTML, CSS, and JS are the building blocks of the web. You markup your webpage in the Hyper Text Markup Language, make it look pretty with Cascading Style Sheets, and make the magic happen with JavaScript. They are a powerful trio, and thankfully, the easiest to get started with.
+
+    <p>All you need to make your first webpage is to open up your text editor and save it as a <code>.html</code> page. In the file, you can write something like <pre class="prettyprint linenums"> <xmp><h1>Hello World!</h1></xmp></pre> and the text will be shown once you open your browser. Don't worry, you'll learn the markup as you get started building projects.
+
+    <p>Now, CSS is what makes the web as beautiful as it is today. In fact, I highly recommend <a href="http://jgthms.com/web-design-in-4-minutes/">Jeremy Thomas's Web Design in 4 Minutes</a>. It introduces some key CSS concepts in a step-by-step fashion and eventually converts the dull page into an attractive one.
+
+    <p>JavaScript is where the <i> real </i> programming comes into play. It's fully packed - consisting of mostly everything you'd think of in a programming language. With functions, objects, variables, constants, and much more, JavaScript provides the elements for any developer to create something amazing. Here's a quick example:
+
+<pre class="prettyprint linenums">
+  var triangle = '';
+  for (var i = 0; i < 7; i++) {
+    console.log(triangle += '#');
+  }
+</pre>
+
+<p class="bl bw2 b--black ph2"> Console Log: <br>
+  # <br>
+  ## <br>
+  ### <br>
+  #### <br>
+  ##### <br>
+  ###### <br>
+  ####### <br>
+</p>
+
+<p> Take a look at what we can do in just 4 lines of code. In this example, we set the variable <code>triangle</code> to an empty string. Then, we used a <code> for </code> loop to add a new <code>#</code> symbol until the variable <code>i</code>, which is defined as 0, hits 7. In essence, the program keeps on adding a <code>#</code> as it is told to do so and stops only once it has repeated it seven times.
+
+<p> If this is a little above your head, don't worry. It'll get easier as you dig into <a href="/web">Web Development</a>.
+
+<h1 class="f2 bold mw6" id="node">Node.js</h1>
+
+<p> Node.js is well, a runtime built on JavaScript. However, it allows for something great. Node.js lets one use the same JavaScript syntax but on the server. If you have not noticed already, JavaScript is a scripting language built for use only in the browser. Node.js is different because it lets you use JavaScript as if it was any other programming language.
+
+<p>For example, with Node.js, you can transfer information from the client to the server, thus enabling the creation of apps such as <a href="/nodejs-chat">real-time messaging</a> or <a href="/twitter-bot">bots</a>.
+
+<p>To get started, make sure you install <a href="https://nodejs.org/en/">Node.js and npm</a>, its package manager.
+
+<h1 class="f2 bold mw6" id="python">Python</h1>
+
+<p>Python is a high level programming language that's super popular. Python's main strength is that it's a general purpose and flexible. language You can download Python <a href="https://www.python.org/downloads/"> here </a>.
+
+</div>
+
+</body>
+
+<footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

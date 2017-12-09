@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+	<head>
+	{% include head.html %}
+	</head>
+
+
+	<header class="{{ page.color }}">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 {{ page.color }} tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">{{ page.title }}</span></h1>
+        <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a><br><br>
+				<div class="pv4">
+
+        <a href="{{ page.source }}" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="{{ page.demourl }}" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By {{ page.author }}</h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      {{ content }}
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  {% include footer.html %}
+
+</html>

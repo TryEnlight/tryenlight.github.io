@@ -1,0 +1,38 @@
+<head>
+{% include head.html %}
+</head>
+
+
+<header class="{{ page.color }}">
+  <div class="top">
+  <div class="enlight">
+  <a href="/" class="white">enlight</a>
+  </div>
+
+    <div class="nav">
+      <ul>
+      <li><a href="/enlight/guide">Guide</a><li>
+      <li><a href="/enlight/projects">Tutorials</a><li>
+      <li><a href="/enlight/web">Web Development</a><li>
+      <li><a href="/enlight/about">About</a><li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<body>
+<article class="dt w-100 {{page.color}}">
+  <div class="dtc v-mid tc white ph3 ph4-l">
+    <h1 class="f1 f-subheadline-l fw6 tc">{{ page.title }}</h1>
+  </div>
+</article>
+
+<div class="center measure-wide f4 pv5 lh-copy ph2 content">
+  {{ content }}
+</div>
+
+</body>
+
+{% include footer.html %}
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Twitter Bot with Node.js</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Twitter Bot with Node.js" />
+      <meta name="twitter:description" content="Build a virtual machine that can tweet!" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="Build a virtual machine that can tweet!">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Twitter Bot">
+      <meta property="og:description" content="Build a virtual machine that can tweet!">
+      <meta property="og:url" content="/twitter-bot">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Twitter Bot" />
+      <meta name="twitter:description" content="Build a virtual machine that can tweet!" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="orange">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 orange tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Twitter Bot</span></h1>
+        <a href="https://twitter.com/InspireMe77"><img class="project-image" src="/img/twitter-bot.png"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/TryEnlight/enlight/tree/gh-pages/demo/node-js/twitter-bot" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="https://twitter.com/InspireMe77" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <p>Today, we’ll be building our very own Twitter Bot with Node.js. Our bot will fetch a random quote using the <a href="https://forismatic.com/en/api/">Forismatic API</a> and then, of course, tweet it in an attempt to look smart!</p>
+
+<p>First off, make sure you have <a href="https://nodejs.org/en/">Node.js and npm</a> installed. Then, create a new folder for your application and <code class="highlighter-rouge">cd</code> into it from the command line. Then, run <code class="highlighter-rouge">npm init</code> and go through the process to initialize a new node application.</p>
+
+<p>Now, the twitter API module we’ll be using is <a href="https://github.com/ttezel/twit">twit</a>. The module we’ll be using to make requests is <a href="https://github.com/request/request">request</a>
+Run <code class="highlighter-rouge">npm install --save twit request</code> to install it.</p>
+
+<p>Once we have everything ready to go, create a <code class="highlighter-rouge">index.js</code> file where we’ll be coding our application.</p>
+
+<p>Let’s get started by requiring our modules in our <code class="highlighter-rouge">index.js</code> file.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Twit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'twit'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Oh, wait. There’s one more step before we actually start writing more code. Since we’re building a twitter bot, we need to register a twitter application!</p>
+
+<p>You’ll need to either create a new Twitter account or use your own to create a new <a href="https://apps.twitter.com">Twitter application</a>. Create your app and then navigate to the “Keys &amp; Access Tokens” Page. From there, copy your “top secret” keys and tokens into your <code class="highlighter-rouge">index.js</code> file using the following template:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Twit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'twit'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">T</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twit</span><span class="p">({</span>
+  <span class="na">consumer_key</span><span class="p">:</span>         <span class="s1">'TOP SECRET CODE'</span><span class="p">,</span>
+  <span class="na">consumer_secret</span><span class="p">:</span>      <span class="s1">'TOP SECRET CODE'</span><span class="p">,</span>
+  <span class="na">access_token</span><span class="p">:</span>         <span class="s1">'TOP SECRET CODE'</span><span class="p">,</span>
+  <span class="na">access_token_secret</span><span class="p">:</span>  <span class="s1">'TOP SECRET CODE'</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Here, we’re defining the variable <code class="highlighter-rouge">T</code> and setting it to initialize the Twit library with our application that we registered so we can post, search, favorite, retweet, and basically do whatever we want on Twitter.</p>
+
+<p>To build what we want, we need to fetch a random quote. Luckily, <a href="https://forismatic.com/en/api/">Forismatic’s API</a> is very easy to use as we just need a url. You can set the url below as a <code class="highlighter-rouge">const</code> as unlike variables, it will not be changed.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">https</span><span class="p">:</span><span class="c1">//api.forismatic.com/api/1.0/?method=getQuote&amp;key=123456&amp;format=text&amp;lang=en</span>
+</code></pre></div></div>
+
+<p>One problem that we may run to when building these kind of applications is that since we have to make a request, we want to:</p>
+<ul>
+  <li>call a function to make the request</li>
+  <li>send that data to another function to tweet</li>
+  <li>tweet the data</li>
+</ul>
+
+<p>This may look simple - except for the sending data to another function part. To do this in JavaScript, we use something called <a href="http://callbackhell.com/">callbacks</a>. Callbacks allow us to write asynchronous code. This means that to make this program as efficient as it can be, we have to use callbacks.</p>
+
+<p>Let’s start by creating a <code class="highlighter-rouge">getQuote</code> function with a paramenter that’s named <code class="highlighter-rouge">callback</code>. Then, using request, we can make a request to the url and set the data of the request to the callback.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getQuote</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+	  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error:'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span> <span class="c1">// Print the error if one occurred</span>
+	  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'statusCode:'</span><span class="p">,</span> <span class="nx">response</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span> <span class="c1">// Print the response status code if a response was received</span>
+	  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'body:'</span><span class="p">,</span> <span class="nx">body</span><span class="p">);</span>
+	  <span class="nx">callback</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now, we have our data, in this case <code class="highlighter-rouge">body</code> ready to be used in another function. The next function we’ll be creating is a <code class="highlighter-rouge">postTweet</code> function with the <code class="highlighter-rouge">tweet</code> parameter. Using <a href="https://github.com/ttezel/twit#usage">T.post</a>, we are able to post with the status (data of tweet) to be <code class="highlighter-rouge">tweet</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">postTweet</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tweet</span><span class="p">);</span>
+	<span class="nx">T</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'statuses/update'</span><span class="p">,</span> <span class="p">{</span> <span class="na">status</span><span class="p">:</span> <span class="nx">tweet</span> <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+	  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+	<span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We’ve written the two functions. What next? Well, now we need to connect them together! We want <code class="highlighter-rouge">getQuote</code> to run first, so we’ll need to run it first with the parameter of <code class="highlighter-rouge">postTweet</code> which is our callback.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getQuote</span><span class="p">(</span><span class="nx">postTweet</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you take a look at your code, it’s actually just calling the <code class="highlighter-rouge">getQuote</code> function, setting the callback to the data that was requested, and then it calls the <code class="highlighter-rouge">postTweet</code> function which has the <code class="highlighter-rouge">tweet</code> parameter. However, the <code class="highlighter-rouge">tweet</code> parameter is equal to the body of the request all because of the callback.</p>
+
+<p>You did it! Save your file and then run <code class="highlighter-rouge">node index.js</code> in your terminal. You should see everything being logged and the tweet posted! I encourage you to continue making the bot more advanced using the <a href="https://github.com/ttezel/twit">twit</a> library! If you have any questions, feel free to leave them below :)</p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

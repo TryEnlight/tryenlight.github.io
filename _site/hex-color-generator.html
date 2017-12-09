@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Hex Color Generator with HTML/CSS/JS</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Hex Color Generator with HTML/CSS/JS" />
+      <meta name="twitter:description" content="Build a generate beautiful colors every time you press the spacebar" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="Build a generate beautiful colors every time you press the spacebar">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Hex Color Generator">
+      <meta property="og:description" content="Build a generate beautiful colors every time you press the spacebar">
+      <meta property="og:url" content="/hex-color-generator">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Hex Color Generator" />
+      <meta name="twitter:description" content="Build a generate beautiful colors every time you press the spacebar" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="black">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 black tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Hex Color Generator</span></h1>
+        <a href="/enlight/demo/color-project/index.html"><img class="project-image" src="/img/color.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/gh-pages/demo/color-project" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="/enlight/demo/color-project/index.html" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h3 id="getting-started">Getting Started</h3>
+
+<p>In this tutorial, we’ll make our very own color generator with just a couple lines of JavaScript. First off, you’ll need a folder with three files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>style.css - for styling</li>
+  <li>app.js - for the function(s)</li>
+</ul>
+
+<p>Before we begin, we have to link all our files all together. Open up your index.html file in your favorite text editor and add a title, a viewport, and link all our files together. Our index.html file should look something like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>
+            Hex Color Generator
+        <span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"hex"</span><span class="nt">&gt;&lt;/div&gt;</span>
+	    <span class="nt">&lt;script </span><span class="na">src =</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/html&gt;</span>
+  <span class="nt">&lt;/pre&gt;</span>   
+</code></pre></div></div>
+
+<p>Seems new? Don’t worry!</p>
+
+<p>The !DOCTYPE html tag tells the web broswer what version of HTML the page is written in.
+ Right below that, we have our head tag, where we can add our title, meta, and link up our CSS file.
+ The viewport is used to make the page responsive so that any device can view the content clearly by based on
+ the size of the screen so that browser can scale accordingly. Lastly, we have to link our JavaScript file which
+ will contain our function of generating the random color.</p>
+
+<h3 id="the-function">The function</h3>
+
+<p>If you are somewhat familiar with CSS, you know that colors are either specified in a rgb or hex code format. An example of this
+  would be #ffffff (white) or #000000 (black). To generate our number, JavaScript has a math.random function that returns, random numbers that are between 0 and 1.</p>
+
+<p>For example, let’s start by printing a simple math.random function:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">getColor</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">getColor</span><span class="p">());</span>
+</code></pre></div></div>
+<p>If you take a look at the result by opening up our html file, we get a random number between 0 and 1 with a (#) added in front of it. However, since hex numbers include six letters (A, B, C, D, E, &amp; F), we need to add those letters into our result as well. In addition, we also need to get rid of the (0) and (.) and limit the result to only 6 characters.
+  Go ahead and try to solve this yourself. Here’s a hint: you’ll need to expand the math.random function by using Javascript’s <a href="http://www.w3schools.com/jsref/jsref_tostring_number.asp" class="underline">toString()</a> and <a href="http://www.w3schools.com/jsref/jsref_slice_string.asp" class="underline">slice()</a> methods.</p>
+
+<p>Seriously, don’t move on! Read up on those methods!</p>
+
+<p>Alright, let’s see what you’ve come up with. Using the toString() method, we can convert our number to a string with a hexadecimal value. We can get a hexadecimal value by adding .toString(16) to the end of our math.random function. Let’s check out our result:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">getColor</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">getColor</span><span class="p">());</span>  
+</code></pre></div></div>
+
+<p>Now we have a number in hexadecimal format, but it isn’t ready yet! We still have to get rid of the (0) and (.) and limit our result to 6 characters! We can to that with the JavaScript slice() method by adding .slice(2,8) at the end of our math.random function.
+The reason we have 2 and 8 in the parenthesis is because we want to slice the result starting with the first two characters and ending at the eighth character to get six characters in total. Check out the result!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">getColor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">getColor</span><span class="p">());</span>
+
+
+</code></pre></div></div>
+<p>Finally, we have a number we can work with! All we need to do is set this hex value
+ as our background. We can do that by writing another function, and that function will do two things:</p>
+
+<ul>
+  <li>set getColor() to a <a href="http://www.w3schools.com/js/js_variables.asp" class="underline">variable</a></li>
+  <li>set the <a href="http://www.w3schools.com/jsref/prop_style_background.asp" class="underline">document.body.style.background</a> equal to that variable</li>
+</ul>
+
+<p>Go ahead, you should be able to do this one!</p>
+
+<p>Here’s what your app.js code should look like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">getColor</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">setBackground</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">bgColor</span> <span class="o">=</span> <span class="nx">getColor</span><span class="p">();</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="nx">bgColor</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">setBackground</span><span class="p">()</span>
+
+
+</code></pre></div></div>
+<p>If we open our html file in the browser, you should see a random color every time you refresh the page!</p>
+
+<h3 id="making-the-spacebar-work">Making the Spacebar Work</h3>
+
+<p>Now, nobody wants to keep refreshing! We want to generate a new color every time someone clicks the space bar. We can do that by editing
+ the setBackground() function at the end. Instead of just running it, we have to tell the browser <i>when</i> to run it.</p>
+
+<p>We can do this by using an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if statement </a> that runs the setBackground() function only when the keyCode of 32 (code for spacebar) is pressed. This is what we have to write:</p>
+
+<ul>
+  <li><a href="http://www.w3schools.com/jsref/event_onkeyup.asp" class="underline"> document.body.keyup</a> should be equal to a function (a variable)</li>
+  <li>in that function, there must be an if statement stating if the (that variable).keyCode == 32, setBackground() should run</li>
+</ul>
+
+<p>This is what our finished app.js file should look like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// generator function</span>
+	<span class="kd">function</span> <span class="nx">getColor</span><span class="p">()</span> <span class="p">{</span>
+	    <span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+	<span class="p">}</span>
+  <span class="c1">// sets background color style</span>
+	<span class="kd">function</span> <span class="nx">setBackground</span><span class="p">()</span> <span class="p">{</span>
+	  <span class="kd">var</span> <span class="nx">bgColor</span> <span class="o">=</span> <span class="nx">getColor</span><span class="p">();</span>
+	  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="nx">bgColor</span><span class="p">;</span>
+	<span class="p">}</span>
+  <span class="c1">// runs function on click</span>
+	 <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">onkeyup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+	      <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">32</span><span class="p">){</span>
+	        <span class="nx">setBackground</span><span class="p">();</span>
+	      <span class="p">}</span>
+	  <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p>Open up your html file in the browser or click on the result tab. Then, press the spacebar. Pretty neat, right?</p>
+
+<h3 id="a-little-transition">A little transition</h3>
+
+<p>But wait! We haven’t even touched our style.css file! Open it up! We’ll add a transition just so it looks a little more fluid when switching between colors.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">transition</span><span class="p">:</span> <span class="n">all</span> <span class="m">.5s</span> <span class="n">ease</span><span class="p">;</span>
+   <span class="p">}</span>
+</code></pre></div></div>
+<p>Open up your html file and take a look at your latest creation!</p>
+
+<p>I hope you’ve generated some pretty unique colors and learned a ton! However, don’t stop here! Think about what you can add next! Can you print the hex color code on screen? Can you look up some additional styles to add? Can you add a “press the spacebar” message that appears until the user presses the spacebar?</p>
+
+<p>If you enjoyed this tutorial, go ahead and learn to make something else like a <a href="text-editor" class="underline">text-editor</a>!</p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

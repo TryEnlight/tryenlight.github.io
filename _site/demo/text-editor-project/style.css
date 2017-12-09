@@ -1,0 +1,24 @@
+html {
+  font-family: 'Helevetica', sans-serif;
+}
+
+body {
+  color: #333;
+  font-weight: 100;
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+div:focus {
+  outline: none;
+}
+
+#heading {
+  font-size: 48px;
+  padding-top: 30px;
+}
+
+#content {
+  padding-top: 10px;
+  font-size: 24px;
+}

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Neural Network with Python</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Neural Network with Python" />
+      <meta name="twitter:description" content="Build a basic Feedforward Neural Network with backpropagation in Python" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="Build a basic Feedforward Neural Network with backpropagation in Python">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Neural Network">
+      <meta property="og:description" content="Build a basic Feedforward Neural Network with backpropagation in Python">
+      <meta property="og:url" content="/neural-network">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Neural Network" />
+      <meta name="twitter:description" content="Build a basic Feedforward Neural Network with backpropagation in Python" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="orange">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 orange tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Neural Network</span></h1>
+        <a href="https://repl.it/Jxmb/2"><img class="project-image" src="/img/nn.png"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/gh-pages/demo/machine-learning/NeuralNetwork/NeuralNetwork.py" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="https://repl.it/Jxmb/2" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h2 id="what-is-a-neural-network">What is a Neural Network?</h2>
+
+<p>Before we get started with the <em>how</em> of building a Neural Network, we need to understand the <em>what</em> first.</p>
+
+<p>Neural networks can be intimidating, especially for people new to machine learning. However, this tutorial will break down how exactly a neural network works and you will have a working flexible neural network by the end. Let’s get started!</p>
+
+<h3 id="understanding-the-process">Understanding the process</h3>
+
+<p>With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! In essence, a neural network is a collection of <strong>neurons</strong> connected by <strong>synapses</strong>. This collection is organized into three main layers: the input layer, the hidden layer, and the output layer. You can have many hidden layers, which is where the term <strong>deep learning</strong> comes into play. In an artifical neural network, there are several inputs, which are called <strong>features</strong>, and produce a single output, which is called a <strong>label</strong>.</p>
+
+<p><img src="https://blog.kabir.ml/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img" /></p>
+<div class="tr">
+<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
+</div>
+
+<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to take the multiply the inputs and <strong>weights</strong>. You can think of weights as the “strength” of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.</p>
+
+<p>Here’s a brief overview of how a simple feedforward neural network works:</p>
+
+<ol>
+  <li>
+    <p>Takes inputs as a matrix (2D array of numbers)</p>
+  </li>
+  <li>
+    <p>Multiplies the input by a set weights (performs a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a> aka matrix multiplication)</p>
+  </li>
+  <li>
+    <p>Applies an activation function</p>
+  </li>
+  <li>
+    <p>Returns an output</p>
+  </li>
+  <li>
+    <p>Error is calculated by taking the difference from the desired output from the data and the predicted output. This creates our gradient descent, which we can use to alter the weights</p>
+  </li>
+  <li>
+    <p>The weights are then altered slightly according to the error.</p>
+  </li>
+  <li>
+    <p>To train, this process is repeated 1,000+ times. The more the data is trained upon, the more accurate our outputs will be.</p>
+  </li>
+</ol>
+
+<p>At its core, neural networks are simple. They just perform a dot product with the input and weights and apply an activation function. When weights are adjusted via the gradient of loss function, the network adapts to the changes to produce more accurate outputs.</p>
+
+<p>Our neural network will model a single hidden layer with three inputs and one output. In the network, we will be predicting the score of our exam based on the inputs of how many hours we studied and how many hours we slept the day before. Our test score is the output. Here’s our sample data of what we’ll be training our Neural Network on:</p>
+
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw5 center" cellspacing="0">
+      <thead>
+        <tr class="stripe-dark">
+          <th class="fw6 tl pa3 bg-white">Hours Studied, Hours Slept (input)</th>
+          <th class="fw6 tl pa0 bg-white">Test Score (output)</th>
+        </tr>
+      </thead>
+      <tbody class="lh-copy">
+        <tr class="stripe-dark">
+          <td class="pa3">2, 9</td>
+          <td class="pa3">92</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">1, 5</td>
+          <td class="pa3">86</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">3, 6</td>
+          <td class="pa3">89</td>
+        </tr>
+        <tr class="stripe-dark">
+          <td class="pa3">4, 8</td>
+          <td class="pa3">?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tr">
+<sup>Original example via <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">Welch Labs</a></sup><br />
+</div>
+
+<p>As you may have noticed, the <code class="highlighter-rouge">?</code> in this case represents what we want our neural network to predict. In this case, we are predicting the test score of someone who studied for four hours and slept for eight hours based on their prior performance.</p>
+
+<h2 id="forward-propagation">Forward Propagation</h2>
+
+<p>Let’s start coding this bad boy! Open up a new python file. You’ll want to import <code class="highlighter-rouge">numpy</code> as it will help us with certain calculations.</p>
+
+<p>First, let’s import our data as numpy arrays using <code class="highlighter-rouge">np.array</code>. We’ll also want to normalize our units as our inputs are in hours, but our output is a test score from 0-100. Therefore, we need to scale our data by dividing by the maximum value for each variable.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># X = (hours sleeping, hours studying), y = score on test</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">92</span><span class="p">],</span> <span class="p">[</span><span class="mi">86</span><span class="p">],</span> <span class="p">[</span><span class="mi">89</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c"># scale units</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum of X array</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="mi">100</span> <span class="c"># max test score is 100</span>
+</code></pre></div></div>
+
+<p>Next, let’s define a python <code class="highlighter-rouge">class</code> and write an <code class="highlighter-rouge">init</code> function where we’ll specify our parameters such as the input, hidden, and output layers.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Neural_Network</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c">#parameters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p>It is time for our first calculation. Remember that our synapses perform a <a href="https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro">dot product</a>, or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1.</p>
+
+<h3 id="the-calculations-behind-our-network">The calculations behind our network</h3>
+
+<p>In the data set, our input data, <code class="highlighter-rouge">X</code>, is a 3x2 matrix. Our output data, <code class="highlighter-rouge">y</code>, is a 3x1 matrix. Each element in matrix <code class="highlighter-rouge">X</code> needs to be multiplied by a corresponding weight and then added together with all the other results for each neuron in the hidden layer. Here’s how the first input data element (2 hours studying and 9 hours sleeping) would calculate an output in the network:</p>
+
+<p><img src="img/nn-calc.png" class="img" /></p>
+
+<p>This image breaks down what our neural network actually does to produce an output. First, the products of the random generated weights (.2, .6, .1, .8, .3, .7) on each synapse and the corresponding inputs are summed to arrive as the first values of the hidden layer. These sums are in a smaller font as they are not the final values for the hidden layer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">8</span><span class="p">)</span> <span class="o">=</span> <span class="mf">7.6</span>
+<span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="mf">6.5</span>
+</code></pre></div></div>
+<p>To get the final value for the hidden layer, we need to apply the <a href="https://en.wikipedia.org/wiki/Activation_function">activation function</a>. The role of an activation function is to introduce nonlinearity. An advantage of this is that the output is mapped from a range of 0 and 1, making it easier to alter weights in the future.</p>
+
+<p>There are many activation functions out there. In this case, we’ll stick to one of the more popular ones - the sigmoid function.</p>
+
+<p><img src="http://www.saedsayad.com/images/ANN_Sigmoid.png" class="img" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">S</span><span class="p">(</span><span class="mf">7.6</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.999499799</span>
+<span class="n">S</span><span class="p">(</span><span class="mf">7.5</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.000553084</span>
+<span class="n">S</span><span class="p">(</span><span class="mf">6.5</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.998498818</span>
+</code></pre></div></div>
+
+<p>Now, we need to use matrix multiplication again, with another set of random weights, to calculate our output layer value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="o">.</span><span class="mi">9994</span> <span class="o">*</span> <span class="o">.</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.000</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">.</span><span class="mi">9984</span> <span class="o">*</span> <span class="o">.</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.79832</span>
+</code></pre></div></div>
+
+<p>Lastly, to normalize the output, we just apply the activation function again.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">S</span><span class="p">(</span><span class="mf">1.79832</span><span class="p">)</span> <span class="o">=</span> <span class="o">.</span><span class="mi">8579443067</span>
+</code></pre></div></div>
+
+<p>And, there you go! Theoretically, with those weights, out neural network will calculate <code class="highlighter-rouge">.85</code> as our test score!  However, our target was <code class="highlighter-rouge">.92</code>. Our result wasn’t poor, it just isn’t the best it can be. We just got a little lucky when I chose the random weights for this example.</p>
+
+<p>How do we train our model to learn? Well, we’ll find out very soon. For now, let’s countinue coding our network.</p>
+
+<p>If you are still confused, I highly reccomend you check out <a href="https://www.youtube.com/watch?v=UJwK6jAStmg">this</a> informative video which explains the structure of a neural network with the same example.</p>
+
+<h3 id="implementing-the-calculations">Implementing the calculations</h3>
+
+<p>Now, let’s generate our weights randomly using <code class="highlighter-rouge">np.random.randn()</code>. Remember, we’ll need two sets of weights. One to go from the input to the hidden layer, and the other to go from the hidden to output layer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#weights</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">)</span> <span class="c"># (3x2) weight matrix from input to hidden layer</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span><span class="p">)</span> <span class="c"># (3x1) weight matrix from hidden to output layer</span>
+</code></pre></div></div>
+<p>Once we have all the variables set up, we are ready to write our <code class="highlighter-rouge">forward</code> propagation function. Let’s pass in our input, <code class="highlighter-rouge">X</code>, and in this example, we can use the variable <code class="highlighter-rouge">z</code> to simulate the activity between the input and output layers. As explained, we need to take a dot product of the inputs and weights, apply an activation function, take another dot product of the hidden layer and second set of weights, and lastly apply a final activation function to recieve our output:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="c">#forward propagation through our network</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">)</span> <span class="c"># dot product of X (input) and first set of 3x2 weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="c"># activation function</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">)</span> <span class="c"># dot product of hidden layer (z2) and second set of 3x1 weights</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z3</span><span class="p">)</span> <span class="c"># final activation function</span>
+    <span class="k">return</span> <span class="n">o</span>
+</code></pre></div></div>
+
+<p>Lastly, we need to define our sigmoid function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c"># activation function</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>And, there we have it! A (untrained) neural network capable of producing an output.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># X = (hours sleeping, hours studying), y = score on test</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">92</span><span class="p">],</span> <span class="p">[</span><span class="mi">86</span><span class="p">],</span> <span class="p">[</span><span class="mi">89</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c"># scale units</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum of X array</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="mi">100</span> <span class="c"># max test score is 100</span>
+
+<span class="k">class</span> <span class="nc">Neural_Network</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c">#parameters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="c">#weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">)</span> <span class="c"># (3x2) weight matrix from input to hidden layer</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span><span class="p">)</span> <span class="c"># (3x1) weight matrix from hidden to output layer</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="c">#forward propagation through our network</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">)</span> <span class="c"># dot product of X (input) and first set of 3x2 weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="c"># activation function</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">)</span> <span class="c"># dot product of hidden layer (z2) and second set of 3x1 weights</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z3</span><span class="p">)</span> <span class="c"># final activation function</span>
+    <span class="k">return</span> <span class="n">o</span>
+
+  <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c"># activation function</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">))</span>
+
+<span class="n">NN</span> <span class="o">=</span> <span class="n">Neural_Network</span><span class="p">()</span>
+
+<span class="c">#defining our output</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">"Predicted Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">"Actual Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>As you may have noticed, we need to train our network to calculate more accurate results.</p>
+
+<h2 id="backpropagation">Backpropagation</h2>
+
+<h3 id="the-learning-of-our-network">The “learning” of our network</h3>
+
+<p>Since we have a random set of weights, we need to alter them to make our inputs equal to the corresponding outputs from our data set. This is done through a method called backpropagation.</p>
+
+<p>Backpropagation works by using a <strong>loss</strong> function to calculate how far the network was from the target output.</p>
+
+<h4 id="calculating-error">Calculating error</h4>
+
+<p>One way of representing the loss function is by using the <strong>mean sum squared loss</strong> function:</p>
+
+<p><img src="img/loss.png" class="img" /></p>
+
+<p>In this function, <code class="highlighter-rouge">o</code> is our predicted output, and <code class="highlighter-rouge">y</code> is our actual output. Now that we have the loss function, our goal is to get it as close as we can to 0. That means we will need to have close to no loss at all. As we are training our network, all we are doing is minimizing the loss.</p>
+
+<p>To figure out which direction to alter our weights, we need to find the rate of change of our loss with respect to our weights. In other words, we need to use the derivative of the loss function to understand how the weights affect the input.</p>
+
+<p>In this case, we will be using a partial derivative to allow us to take into account another variable.</p>
+
+<p><img src="https://blog.kabir.ml/img/machine-learning/weightToLoss.svg" class="img" /></p>
+<div class="tr">
+<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
+</div>
+
+<p>This method is known as <strong>gradient descent</strong>. By knowing which way to alter our weights, our outputs can only get more accurate.</p>
+
+<!--
+Let's start with a simple overview of a derivative:
+
+#### f(X, w) = Xw
+
+The derivative helps us understand how the weight, `w`, affects the input, `X`:
+
+#### ∂f/∂w=X
+
+Basically, if we have a weight of `10`, and an input of `5`, our output is `50`. However, when we plug it into the derivative function, we get 5 as a result. This means that if we change the weight by `1`, we change the output by `5`. Thus, 5 is our derivative.  -->
+
+<p>Here’s how we will calculate the incremental change to our weights:</p>
+
+<p>1) Find the <strong>margin of error</strong> of the output layer (o) by taking the difference of the predicted output and the actual output (y)</p>
+
+<p>2) Apply the derivative of our sigmoid activation function to the output layer error. We call this result the <strong>delta output sum</strong>.</p>
+
+<p>3) Use the delta output sum of the output layer error to figure out how much our z<sup>2</sup> (hidden) layer contributed to the output error by performing a dot product with our second weight matrix. We can call this the z<sup>2</sup> error.</p>
+
+<p>4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).</p>
+
+<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z<sup>2</sup>) delta output sum</strong>. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
+
+<p>Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as <strong>sigmoid prime</strong>, will give us the rate of change, or slope, of the activation function at output sum.</p>
+
+<p>Let’s continue to code our <code class="highlighter-rouge">Neural_Network</code> class by adding a sigmoidPrime (derivative of sigmoid) function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sigmoidPrime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c">#derivative of sigmoid</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, we’ll want to create our <code class="highlighter-rouge">backward</code> propagation function that does everything specified in the four steps above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="c"># backward propgate through the network</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">o_error</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">o</span> <span class="c"># error in output</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o_error</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmoidPrime</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="c"># applying derivative of sigmoid to error</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c"># z2 error: how much our hidden layer weights contributed to output error</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2_delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2_error</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmoidPrime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">)</span> <span class="c"># applying derivative of sigmoid to z2 error</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">+=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2_delta</span><span class="p">)</span> <span class="c"># adjusting first set (input --&gt; hidden) weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span><span class="p">)</span> <span class="c"># adjusting second set (hidden --&gt; output) weights</span>
+</code></pre></div></div>
+
+<p>We can now define our output through initiating foward propagation and intiate the backward function by calling it in the <code class="highlighter-rouge">train</code> function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">train</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To run the network, all we have to do is to run the <code class="highlighter-rouge">train</code> function. Of course, we’ll want to do this multiple, or maybe thousands, of times. So, we’ll use a <code class="highlighter-rouge">for</code> loop.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">NN</span> <span class="o">=</span> <span class="n">Neural_Network</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c"># trains the NN 1,000 times</span>
+  <span class="k">print</span> <span class="s">"Input: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="k">print</span> <span class="s">"Actual Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span> <span class="s">"Predicted Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+  <span class="k">print</span> <span class="s">"Loss: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">))))</span> <span class="c"># mean sum squared loss</span>
+  <span class="k">print</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+  <span class="n">NN</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Great, we now have a Neural Network! What about using these trained weights to predict test scores that we don’t know?</p>
+
+<h2 id="predictions">Predictions</h2>
+
+<p>To predict our test score for the input of <code class="highlighter-rouge">[4, 8]</code>, we’ll need to create a new array to store this data, <code class="highlighter-rouge">xPredicted</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xPredicted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We’ll also need to scale this as we did with our input and output variables:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xPredicted</span> <span class="o">=</span> <span class="n">xPredicted</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum of xPredicted (our input data for the prediction)</span>
+</code></pre></div></div>
+
+<p>Then, we’ll create a new function that prints our predicted output for <code class="highlighter-rouge">xPredicted</code>. Believe it or not, all we have to run is <code class="highlighter-rouge">forward(xPredicted)</code> to return an output!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"Predicted data based on trained weights: "</span><span class="p">;</span>
+    <span class="k">print</span> <span class="s">"Input (scaled): </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">);</span>
+    <span class="k">print</span> <span class="s">"Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>To run this function simply call it under the for loop.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">NN</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>If you’d like to save your trained weights, you can do so with <code class="highlighter-rouge">np.savetxt</code>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">saveWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">"w1.txt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">"w2.txt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here’s the final result:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># X = (hours studying, hours sleeping), y = score on test, xPredicted = 4 hours studying &amp; 8 hours sleeping (input data for prediction)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">92</span><span class="p">],</span> <span class="p">[</span><span class="mi">86</span><span class="p">],</span> <span class="p">[</span><span class="mi">89</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">xPredicted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c"># scale units</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum of X array</span>
+<span class="n">xPredicted</span> <span class="o">=</span> <span class="n">xPredicted</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum of xPredicted (our input data for the prediction)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="mi">100</span> <span class="c"># max test score is 100</span>
+
+<span class="k">class</span> <span class="nc">Neural_Network</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c">#parameters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="c">#weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">)</span> <span class="c"># (3x2) weight matrix from input to hidden layer</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hiddenSize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputSize</span><span class="p">)</span> <span class="c"># (3x1) weight matrix from hidden to output layer</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="c">#forward propagation through our network</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">)</span> <span class="c"># dot product of X (input) and first set of 3x2 weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="c"># activation function</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">)</span> <span class="c"># dot product of hidden layer (z2) and second set of 3x1 weights</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z3</span><span class="p">)</span> <span class="c"># final activation function</span>
+    <span class="k">return</span> <span class="n">o</span>
+
+  <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c"># activation function</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">sigmoidPrime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c">#derivative of sigmoid</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="c"># backward propgate through the network</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">o_error</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">o</span> <span class="c"># error in output</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o_error</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmoidPrime</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="c"># applying derivative of sigmoid to error</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c"># z2 error: how much our hidden layer weights contributed to output error</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">z2_delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2_error</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmoidPrime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">)</span> <span class="c"># applying derivative of sigmoid to z2 error</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">+=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z2_delta</span><span class="p">)</span> <span class="c"># adjusting first set (input --&gt; hidden) weights</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o_delta</span><span class="p">)</span> <span class="c"># adjusting second set (hidden --&gt; output) weights</span>
+
+  <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">saveWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">"w1.txt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">"w2.txt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"</span><span class="si">%</span><span class="s">s"</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"Predicted data based on trained weights: "</span><span class="p">;</span>
+    <span class="k">print</span> <span class="s">"Input (scaled): </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">);</span>
+    <span class="k">print</span> <span class="s">"Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">xPredicted</span><span class="p">));</span>
+
+<span class="n">NN</span> <span class="o">=</span> <span class="n">Neural_Network</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c"># trains the NN 1,000 times</span>
+  <span class="k">print</span> <span class="s">"Input (scaled): </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="k">print</span> <span class="s">"Actual Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span> <span class="s">"Predicted Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+  <span class="k">print</span> <span class="s">"Loss: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">))))</span> <span class="c"># mean sum squared loss</span>
+  <span class="k">print</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+  <span class="n">NN</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">NN</span><span class="o">.</span><span class="n">saveWeights</span><span class="p">()</span>
+<span class="n">NN</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it’s super impressive that your computer, a physical object, managed to <em>learn</em> by itself!</p>
+
+<p>Make sure to stick around for more machine learning tutorials on other models like Linear Regression and Classification coming soon!</p>
+
+<h4 id="references">References</h4>
+
+<p><a href="https://stevenmiller888.github.io/mind-how-to-build-a-neural-network/">Steven Miller</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=bxe2T-V8XRs">Welch Labs</a></p>
+
+<p><em>Special thanks to <a href="https://blog.kabir.ml/posts/machine-learning.html">Kabir Shah</a> for his contributions to the development of this tutorial</em></p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Web Paint App with HTML/CSS/JS</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Web Paint App with HTML/CSS/JS" />
+      <meta name="twitter:description" content="create your own digital whiteboard in HTML/CSS/JS" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+   
+   
+      <meta name="description" content="create your own digital whiteboard in HTML/CSS/JS">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Web Paint App">
+      <meta property="og:description" content="create your own digital whiteboard in HTML/CSS/JS">
+      <meta property="og:url" content="/web-paint">
+      <meta property="og:image" content="/enlight.png?1512840026407894000" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Web Paint App" />
+      <meta name="twitter:description" content="create your own digital whiteboard in HTML/CSS/JS" />
+      <meta name="twitter:image" content="http://tryenlight.github.io/enlight.png?1512840026407894000" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="orange">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/enlight/guide">Guide</a><li>
+        <li><a href="/enlight/projects">Tutorials</a><li>
+        <li><a href="/enlight/web">Web Development</a><li>
+        <li><a href="/enlight/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 orange tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Web Paint App</span></h1>
+        <a href="/enlight/demo/web-paint-project/index.html"><img class="project-image" src="/img/web-paint.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/gh-pages/demo/web-paint-project" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+        <a href="/enlight/demo/web-paint-project/index.html" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h3 id="getting-started">Getting Started</h3>
+
+<p>Our web paint application is based off of HTML5’s <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a>. We’ll be making a “whiteboard” that draws whenever you move your mouse while clicked. We’ll also implement an input box where we can specify what hex color we want. Since our app is basically a plain screen where we can draw, we don’t need to style anything (no CSS file needed). Therefore, we just need two files:</p>
+
+<ul>
+  <li>index.html - for our markup</li>
+  <li>app.js - for our function(s)</li>
+</ul>
+
+<h3 id="the-markup">The Markup</h3>
+
+<p>Our html will have all the usual tags (head, meta viewport, title, etc) but we do need to add an <a href="http://www.w3schools.com/tags/tag_input.asp" class="underline">input</a> tag to let the user specify a hex color, and a <a href="http://www.w3schools.com/html/html5_canvas.asp" class="underline">canvas</a> tag for our canvas. We will also need to set ids for both.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;title&gt;</span>
+          Web Paint!
+      <span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"hex"</span> <span class="na">placeholder=</span><span class="s">"enter hex color"</span><span class="nt">&gt;&lt;/input&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"draw"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="setting-up-our-variables--the-resize-function">Setting up our variables &amp; the resize function</h3>
+
+<p>In our app.js file, we need to assign our canvas id, draw, to a <a href="http://www.w3schools.com/jsref/met_document_getelementbyid.asp" class="underline">variable</a>. Then, we’ll need to set another variable to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext" class="underline">.getContext(’2d’)</a> of that canvas variable so we can draw within it. In addition, we’ll need to write a small resize function so that we can set the canvas’s width and height to the window’s width and height. This way the canvas will take over the whole broswer window. We can do that like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">// set canvas id to variable</span>
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'draw'</span><span class="p">);</span>
+
+  <span class="c1">// get canvas 2D context and set it to the correct size</span>
+  <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+  <span class="nx">resize</span><span class="p">();</span>
+
+  <span class="c1">// resize canvas when window is resized</span>
+  <span class="kd">function</span> <span class="nx">resize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">;</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="event-listeners">Event listeners</h3>
+
+<p>Our app needs four event listeners:</p>
+
+<ul>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">window event listener</a> to trigger the resize function when window is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/resize" class="underline">resized</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the draw() function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousemove" class="underline">moved</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user’s mouse current position) function when mouse is <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mousedown" class="underline">clicked</a></li>
+  <li>a <a href="http://www.w3schools.com/jsref/met_document_addeventlistener.asp" class="underline">document event listener</a> to trigger the setPosition() (user’s mouse current position) function when mouse is moved over the <a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter" class="underline">canvas function</a></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// add event listeners to specify when functions should be triggered</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'resize'</span><span class="p">,</span> <span class="nx">resize</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mousemove'</span><span class="p">,</span> <span class="nx">draw</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mousedown'</span><span class="p">,</span> <span class="nx">setPosition</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="nx">setPosition</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="setposition-and-draw-functions">setPosition() and draw() functions</h3>
+
+<p>The drawing function of this project depends on the position of the mouse. Since we’ll be moving from one position to another one whenever the mouse is clicked or when the mouse is moved over the canvas, we’ll need to create a setPosition() function that sets variables to the <a href="http://www.w3schools.com/jsref/event_clientx.asp" class="underline">user’s x &amp; y position</a> coordinates. We can then use those variables in our draw function.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// last known position</span>
+  <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// new position from mouse events</span>
+  <span class="kd">function</span> <span class="nx">setPosition</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pos</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+    <span class="nx">pos</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>At last, we come to our draw() function. Our function will need a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" class="underline">closure</a> followed by the following:</p>
+
+<ul>
+  <li>in the function, we need to have an <a href="http://www.w3schools.com/js/js_if_else.asp" class="underline">if</a> statement to make sure it runs only when mouse is clicked</li>
+  <li>set a variable to our <a href="http://www.w3schools.com/jsref/prop_text_value.asp" class="underline">input id’s value</a></li>
+  <li>write <a href="http://www.w3schools.com/TAgs/canvas_beginpath.asp" class="underline">ctx.beginPath()</a> to start a drawing path</li>
+  <li>specify the <a href="http://www.w3schools.com/TAgs/canvas_linewidth.asp" class="underline">line width</a></li>
+  <li>specify the <a href="http://www.w3schools.com/TAgs/canvas_linecap.asp" class="underline">lineCap</a></li>
+  <li>specify the <a href="http://www.w3schools.com/TAgs/canvas_strokestyle.asp" class="underline">strokeStyle (color of line)</a>, which is set to our variable with the input id value</li>
+  <li>add the from<a href="http://www.w3schools.com/tags/canvas_moveto.asp" class="underline">(moveTo)</a> and to <a href="http://www.w3schools.com/tags/canvas_lineto.asp" class="underline">(lineTo)</a>functions for the line based on the position coordinates</li>
+  <li>begin the drawing path<a href="http://www.w3schools.com/tags/canvas_stroke.asp" class="underline">(stroke)</a> of the line</li>
+</ul>
+
+<p>This is all our JavaScript:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// set canvas id to variable</span>
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'draw'</span><span class="p">);</span>
+
+  <span class="c1">// get canvas 2D context and set it to the correct size</span>
+  <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+  <span class="nx">resize</span><span class="p">();</span>
+
+  <span class="c1">// resize canvas when window is resized</span>
+  <span class="kd">function</span> <span class="nx">resize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">;</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// add event listeners to specify when functions should be triggered</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'resize'</span><span class="p">,</span> <span class="nx">resize</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mousemove'</span><span class="p">,</span> <span class="nx">draw</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mousedown'</span><span class="p">,</span> <span class="nx">setPosition</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="nx">setPosition</span><span class="p">);</span>
+
+  <span class="c1">// last known position</span>
+  <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// new position from mouse events</span>
+  <span class="kd">function</span> <span class="nx">setPosition</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pos</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+    <span class="nx">pos</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">buttons</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span> <span class="c1">// if mouse is pressed.....</span>
+
+    <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'hex'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span> <span class="c1">// begin the drawing path</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// width of line</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineCap</span> <span class="o">=</span> <span class="s1">'round'</span><span class="p">;</span> <span class="c1">// rounded end cap</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span> <span class="c1">// hex color of line</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">pos</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">pos</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// from position</span>
+    <span class="nx">setPosition</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">pos</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">pos</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// to position</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span> <span class="c1">// draw it!</span>
+
+   <span class="p">}</span>
+</code></pre></div></div>
+
+<p>There you have it! We now have a drawing app that can use any hex color. Try inserting a hex code in the input box and click and drag to mouse to draw! After you’ve accomplished this, try to make another text box that changes the lineWidth of the line, or if you really want a challenge, try <a href="http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage" class="underline">saving the canvas</a> in a user’s localStorage so that the drawing will not be erased when the page is refreshed!</p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+      © shamdasani.org 2017
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/shamdasani/enlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>
