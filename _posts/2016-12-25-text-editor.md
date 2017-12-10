@@ -7,8 +7,8 @@ category: easy-web
 difficulty: beginner
 permalink: /text-editor
 img: /img/text-editor.gif
-demourl: /enlight/demo/text-editor-project/index.html
-source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/text-editor-project
+demourl: /demo/text-editor-project/index.html
+source: https://github.com/tryenlight/enlight/tree/master/demo/text-editor-project
 language: HTML/CSS/JS
 color: orange
 

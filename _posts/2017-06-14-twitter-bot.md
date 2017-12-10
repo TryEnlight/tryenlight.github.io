@@ -8,7 +8,7 @@ difficulty: intermediate
 permalink: /twitter-bot
 img: /img/twitter-bot.png
 demourl: https://twitter.com/InspireMe77
-source: https://github.com/TryEnlight/enlight/tree/gh-pages/demo/node-js/twitter-bot
+source: https://github.com/TryEnlight/enlight/tree/master/demo/node-js/twitter-bot
 language: Node.js
 color: orange
 ---

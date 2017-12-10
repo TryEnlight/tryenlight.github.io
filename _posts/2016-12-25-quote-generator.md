@@ -7,8 +7,8 @@ category: middle-web
 difficulty: intermediate
 permalink: /quote
 img: /img/quote.gif
-demourl: /enlight/demo/quote-project/index.html
-source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/quote-project
+demourl: /demo/quote-project/index.html
+source: https://github.com/tryenlight/enlight/tree/master/demo/quote-project
 language: HTML/CSS/JS
 color: maroon
 

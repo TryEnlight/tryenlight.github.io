@@ -7,8 +7,8 @@ category: middle-web
 difficulty: intermediate
 permalink: /code-editor
 img: /img/code-editor.gif
-demourl: /enlight/demo/code-editor-project/index.html
-source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/code-editor-project
+demourl: /demo/code-editor-project/index.html
+source: https://github.com/tryenlight/enlight/tree/master/demo/code-editor-project
 language: HTML/CSS/JS
 color: maroon
 

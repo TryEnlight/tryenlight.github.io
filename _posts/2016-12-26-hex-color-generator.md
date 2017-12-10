@@ -7,8 +7,8 @@ category: easy-web
 difficulty: beginner
 permalink: /hex-color-generator
 img: /img/color.gif
-demourl: /enlight/demo/color-project/index.html
-source: https://github.com/tryenlight/enlight/tree/gh-pages/demo/color-project
+demourl: /demo/color-project/index.html
+source: https://github.com/tryenlight/enlight/tree/master/demo/color-project
 language: HTML/CSS/JS
 color: black
 
