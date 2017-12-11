@@ -29,7 +29,7 @@ If you don't want to go through GitHub, you can **[email](mailto:hi@shamdasani.o
 
 Hey! I'm **[Samay](https://shamdasani.org)**, the creator of Enlight. Of course, Enlight wouldn't be complete without our contributors.
 
-Feel free to shoot me an **[email](mailto:hi@shamdasani.org)** if you have any suggestions, opportunities, or if you'd just like to talk! &#128526;
+Feel free to shoot me an **[email](mailto:techboss302@gmail.com)** if you have any suggestions, opportunities, or if you'd just like to talk! &#128526;
 
 
 ### Contributors
