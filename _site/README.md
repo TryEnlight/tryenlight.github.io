@@ -3,7 +3,7 @@
 
 ## projects available
 
-Latest: [Neural Network](https://tryenlight.github.io/build-a-neural-network)
+Latest: [Neural Network](https://tryenlight.github.io/neural-network)
 
 HTML/CSS/JS
 - [hex color generator](https://tryenlight.github.io/color-generator.html)
@@ -44,7 +44,7 @@ If it's useful, it'll be posted on the site with of course, credit to you!
 - in the contribute folder, place your project files (source) & the tutorial text in a `.md` file
 - submit a pull request
 
-**or...**if you don't want to go through GitHub, you can email me your project+tutorial at hi@shamdasani.org
+**or...**if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
 
 thank you!
 
