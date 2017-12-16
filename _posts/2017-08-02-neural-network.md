@@ -27,7 +27,7 @@ With approximately 100 billion neurons, the human brain processes data at speeds
 <sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br>
 </div>
 
-The circles represent neurons while the lines represent synapses. The role of a synapse is to take the multiply the inputs and **weights**. You can think of weights as the "strength" of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.
+The circles represent neurons while the lines represent synapses. The role of a synapse is to multiply the inputs and **weights**. You can think of weights as the "strength" of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.
 
 Here's a brief overview of how a simple feedforward neural network works:
 
