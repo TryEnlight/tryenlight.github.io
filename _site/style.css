@@ -52,6 +52,9 @@ header {
   font-weight: 400;
   font-family: 'Playfair Display', serif;
 }
+.nav ul li a {
+  color: #fff;
+}
 .nav ul {
   list-style-type: none;
   display: inline-block;
