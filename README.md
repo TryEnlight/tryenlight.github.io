@@ -22,7 +22,7 @@ Node.js
 
 Python
 - [Guessing Number Game](https://tryenlight.github.io/guess-number)
-- [Neural Network](https://tryenlight.github.io/build-a-neural-network)
+- [Neural Network](https://tryenlight.github.io/neural-network)
 
 
 ## for the future
