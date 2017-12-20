@@ -2,23 +2,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    {% if page.layout == 'post' %}
       <title>Build a {{ page.title | strip_html }} with {{ page.language }}</title>
+      <meta name="description" content="{{ page.description }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
-   {% endif %}
-   {% if page.layout != 'post' %}
-   <title>{{ page.title | strip_html }}</title>
-   {% endif %}
-      <meta name="description" content="{{ page.description }}">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:title" content="Build a {{ page.title }} with {{ page.language }}">
       <meta property="og:description" content="{{page.description }}">
       <meta property="og:url" content="{{ site.url }}{{page.url}}">
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="{{ page.title }}" />
-      <meta name="twitter:description" content="{{ page.description }}" />
+   {% endif %}
+   {% if page.layout != 'post' %}
+     <title>{{ page.title | strip_html }}</title>
+     <meta name="description" content="{{ page.description }}">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta property="og:title" content="{{ page.title }}">
+     <meta property="og:description" content="{{page.description }}">
+     <meta property="og:url" content="{{ site.url }}{{page.url}}">
+     <meta name="twitter:card" content="summary" />
+     <meta name="twitter:site" content="@tryenlight" />
+     <meta name="twitter:title" content="{{ page.title }}" />
+     <meta name="twitter:description" content="{{ page.description }}" />
+   {% endif %}
+
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
 
