@@ -136,7 +136,7 @@ Here's what I got for `AMZN` stock (12/19/17):
 ```
 
 ### What's next?
-Try and plot your data using [matplotlib](https://matplotlib.org/). Try to make your predictions more advanced by including more features. When completed, feel free to share your projects in the comments! I'd love to check them out :)
+Try and plot your data using [matplotlib](https://matplotlib.org/). Make your predictions more advanced by including more features. When completed, feel free to share your projects in the comments! I'd love to check them out :)
 
 #### Resources
 

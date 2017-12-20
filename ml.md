@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Learn Machine Learning 
-description: Resources to educate developers on the realms of machine learning. 
-color: navy
+title: Learn Machine Learning
+description: Resources to educate developers on the realms of machine learning.
+color: blue
 ---
 
 <article class="pa1 pa2-ns">
@@ -14,10 +14,10 @@ color: navy
 		<li class="ph3 pv3 bb b--light-silver">
 			<a href="/neural-network">Build a Neural Network</a>
 		</li>
-		<!-- <li class="ph3 pv3 bb b--light-silver">
-			<a href="#">Building a Linear Regression Model (stock prices?, best fit line?)</a>
-		</li>
 		<li class="ph3 pv3 bb b--light-silver">
+			<a href="/stock-market-prediction">Build a Stock Prediction Algorithm</a>
+		</li>
+		<!-- <li class="ph3 pv3 bb b--light-silver">
 			<a href="#">Building a Classification Model</a>
 		</li> -->
 	</ul>
@@ -48,8 +48,8 @@ color: navy
 	<li><b>Clustering</b>: Is the color of this car red, blue, or green? </li>
 </ol>
 
-<p>Now that we've got a brief overview. Let's head over and build our first Neural Network!</p>
+<p>Now that we've got a brief overview. Let's head over and build some projects!</p>
 
 
-<a class="f2 fw7 dib no-underline bg-animate bg-white hover-bg-light-pink black" href="/neural-network">Build a Neural Network!</a>
-
+<a class="f2 fw7 dib no-underline" href="/neural-network">Build a Feedforward Neural Network</a> <br><br>
+<a class="f2 fw7 dib no-underline" href="/stock-market-prediction">Build a Stock Prediction Algorithm</a>

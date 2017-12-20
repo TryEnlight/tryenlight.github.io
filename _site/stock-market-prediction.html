@@ -4,22 +4,19 @@
 	  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    
-      <title>Build a Stock Prediction Algorithm with ML & Python</title>
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Build a Stock Prediction Algorithm with ML & Python" />
-      <meta name="twitter:description" content="Build an algorithm that predicts stock prices based on prior data" />
-   
-   
-      <meta name="description" content="Build an algorithm that predicts stock prices based on prior data">
+      <title>Build a Stock Prediction Algorithm with scikit-learn</title>
+      <meta name="description" content="Build an algorithm that forecasts stock prices">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta property="og:title" content="Stock Prediction Algorithm">
-      <meta property="og:description" content="Build an algorithm that predicts stock prices based on prior data">
-      <meta property="og:url" content="http://localhost:4000/stock-market-prediction">
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Stock Prediction Algorithm" />
-      <meta name="twitter:description" content="Build an algorithm that predicts stock prices based on prior data" />
+      <meta name="twitter:title" content="Build a Stock Prediction Algorithm with scikit-learn" />
+      <meta name="twitter:description" content="Build an algorithm that forecasts stock prices" />
+      <meta property="og:title" content="Build a Stock Prediction Algorithm with scikit-learn">
+      <meta property="og:description" content="Build an algorithm that forecasts stock prices">
+      <meta property="og:url" content="http://localhost:4000/stock-market-prediction">
+   
+   
+
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
 
@@ -50,7 +47,7 @@ gtag('config', 'UA-85620206-1')
       <div class="nav">
         <ul>
         <li><a href="/guide">Guide</a><li>
-        <li><a href="/projects">Tutorials</a><li>
+				<li><a href="/ml">Machine Learning</a><li>
         <li><a href="/web">Web Development</a><li>
         <li><a href="/about">About</a><li>
         </ul>
@@ -144,7 +141,7 @@ gtag('config', 'UA-85620206-1')
 <p>You can see the new dataframe by printing it: <code class="highlighter-rouge">print(df.tail())</code></p>
 
 <h2 id="defining-features--labels">Defining Features &amp; Labels</h2>
-<p>Our <code class="highlighter-rouge">X</code> will be an array consisting of our <code class="highlighter-rouge">Adj. Close</code> values, and so we want to <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html">drop</a> the <code class="highlighter-rouge">Prediction</code> column. We also want to scale our input values.</p>
+<p>Our <code class="highlighter-rouge">X</code> will be an array consisting of our <code class="highlighter-rouge">Adj. Close</code> values, and so we want to <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html">drop</a> the <code class="highlighter-rouge">Prediction</code> column. We also want to scale our input values. Scaling our features allow us to normalize the data.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Prediction'</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div></div>
@@ -160,16 +157,17 @@ gtag('config', 'UA-85620206-1')
 </code></pre></div></div>
 
 <h2 id="linear-regression">Linear Regression</h2>
-<p>Finally, prediciton time! First, we’ll want to split our testing and training data sets, and set our <code class="highlighter-rouge">test_size</code> equal to 20% of the data.</p>
+<p>Finally, prediciton time! First, we’ll want to split our testing and training data sets, and set our <code class="highlighter-rouge">test_size</code> equal to 20% of the data. The training set contains our known outputs, or prices, that our model learns on, and our test dataset is to test our model’s predictions based on what it learned from the training set.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Then, we’ll want to train and test our accuracy.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Train</span>
+<p>Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We can get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Training</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-<span class="c"># Test</span>
+<span class="c"># Testing</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"Accuracy of Linear Regression Predictions: "</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
 </code></pre></div></div>
@@ -191,7 +189,7 @@ gtag('config', 'UA-85620206-1')
 </code></pre></div></div>
 
 <h3 id="whats-next">What’s next?</h3>
-<p>Try and plot your data using <a href="https://matplotlib.org/">matplotlib</a>. If you want to dig deeper into regression, try analyzing more features like the volatility of the stock (high/low percent change). When completed, feel free to share your project in the comments!</p>
+<p>Try and plot your data using <a href="https://matplotlib.org/">matplotlib</a>. Make your predictions more advanced by including more features. When completed, feel free to share your projects in the comments! I’d love to check them out :)</p>
 
 <h4 id="resources">Resources</h4>
 
@@ -236,7 +234,7 @@ gtag('config', 'UA-85620206-1')
   <footer class="pa4 pa5-l black-70 bt b--black-10">
 
 <div class="email">
-<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,400+ other developers.</h1>
 <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
   <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
   <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
