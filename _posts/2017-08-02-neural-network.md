@@ -9,7 +9,7 @@ permalink: /neural-network
 img: /img/nn.png
 demourl: https://repl.it/Jxmb/2
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/NeuralNetwork/NeuralNetwork.py
-language: ML & Python
+language: Python
 color: orange
 ---
 ## What is a Neural Network?

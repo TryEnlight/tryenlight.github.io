@@ -8,7 +8,7 @@ category: python
 permalink: /stock-market-prediction
 img: /img/stock.png
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/stock-prediction/stock.py
-language: ML & Python
+language: scikit-learn 
 color: blue
 ---
 
