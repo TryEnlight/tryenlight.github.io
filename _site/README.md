@@ -6,7 +6,7 @@
 Latest: [Neural Network](https://tryenlight.github.io/neural-network)
 
 HTML/CSS/JS
-- [hex color generator](https://tryenlight.github.io/color-generator.html)
+- [hex color generator](https://tryenlight.github.io/hex-color-generator.html)
 - [text editor](https://tryenlight.github.io/text-editor.html)
 - [a minimal clock](https://tryenlight.github.io/clock.html)
 - [to-do list](https://tryenlight.github.io/to-do.html)
@@ -22,7 +22,7 @@ Node.js
 
 Python
 - [Guessing Number Game](https://tryenlight.github.io/guess-number)
-- [Neural Network](https://tryenlight.github.io/build-a-neural-network)
+- [Neural Network](https://tryenlight.github.io/neural-network)
 
 
 ## for the future
@@ -41,10 +41,10 @@ Enlight is open-source - which means we love contributors! Have a project on the
 If it's useful, it'll be posted on the site with of course, credit to you!
 
 - fork the repo
-- in the contribute folder, place your project files (source) & the tutorial text in a `.md` file
+- put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory
 - submit a pull request
 
-**or...**if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
+**or...** if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
 
 thank you!
 

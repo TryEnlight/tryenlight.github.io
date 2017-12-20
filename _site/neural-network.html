@@ -4,10 +4,10 @@
 	  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    
-      <title>Build a Neural Network with Python</title>
+      <title>Build a Neural Network with ML & Python</title>
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Build a Neural Network with Python" />
+      <meta name="twitter:title" content="Build a Neural Network with ML & Python" />
       <meta name="twitter:description" content="Build a basic Feedforward Neural Network with backpropagation in Python" />
    
    
@@ -69,7 +69,9 @@ gtag('config', 'UA-85620206-1')
 				<div class="pv4">
 
         <a href="https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/NeuralNetwork/NeuralNetwork.py" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+				
         <a href="https://repl.it/Jxmb/2" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+				
         <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
 			</div>
 			</div>
@@ -94,7 +96,7 @@ gtag('config', 'UA-85620206-1')
 <sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br />
 </div>
 
-<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to take the multiply the inputs and <strong>weights</strong>. You can think of weights as the “strength” of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.</p>
+<p>The circles represent neurons while the lines represent synapses. The role of a synapse is to multiply the inputs and <strong>weights</strong>. You can think of weights as the “strength” of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.</p>
 
 <p>Here’s a brief overview of how a simple feedforward neural network works:</p>
 
@@ -351,7 +353,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <p>4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).</p>
 
-<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z<sup>2</sup>) delta output sum</strong>. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
+<p>5) Adjust the weights for the first layer by performing a <strong>dot product of the input layer</strong> with the <strong>hidden (z<sup>2</sup>) delta output sum</strong>. For the second layer, perform a dot product of the hidden(z<sup>2</sup>) layer and the <strong>output (o) delta output sum</strong>.</p>
 
 <p>Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as <strong>sigmoid prime</strong>, will give us the rate of change, or slope, of the activation function at output sum.</p>
 

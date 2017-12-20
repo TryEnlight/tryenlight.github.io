@@ -33,7 +33,10 @@
 				<div class="pv4">
 
         <a href="{{ page.source }}" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+				{% if page.demourl == null %}
+				{% else %}
         <a href="{{ page.demourl }}" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+				{% endif %}
         <h3 class="f4 fw3 tc">By {{ page.author }}</h3>
 			</div>
 			</div>

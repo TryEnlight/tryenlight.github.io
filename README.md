@@ -41,7 +41,7 @@ Enlight is open-source - which means we love contributors! Have a project on the
 If it's useful, it'll be posted on the site with of course, credit to you!
 
 - fork the repo
-- in the contribute folder, place your project files (source) & the tutorial text in a `.md` file
+- put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory
 - submit a pull request
 
 **or...** if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com

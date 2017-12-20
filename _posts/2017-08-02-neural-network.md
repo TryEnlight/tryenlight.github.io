@@ -9,7 +9,7 @@ permalink: /neural-network
 img: /img/nn.png
 demourl: https://repl.it/Jxmb/2
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/NeuralNetwork/NeuralNetwork.py
-language: Python
+language: ML & Python
 color: orange
 ---
 ## What is a Neural Network?
@@ -286,7 +286,7 @@ Here's how we will calculate the incremental change to our weights:
 
 4) Calculate the delta output sum for the z<sup>2</sup> layer by applying the derivative of our sigmoid activation function (just like step 2).
 
-5) Adjust the weights for the first layer by performing a **dot product of the input layer** with the **hidden (z<sup>2</sup>) delta output sum**. For the second weight, perform a dot product of the hidden(z<sup>2</sup>) layer and the **output (o) delta output sum**.
+5) Adjust the weights for the first layer by performing a **dot product of the input layer** with the **hidden (z<sup>2</sup>) delta output sum**. For the second layer, perform a dot product of the hidden(z<sup>2</sup>) layer and the **output (o) delta output sum**.
 
 Calculating the delta output sum and then applying the derivative of the sigmoid function are very important to backpropagation. The derivative of the sigmoid, also known as **sigmoid prime**, will give us the rate of change, or slope, of the activation function at output sum.
 

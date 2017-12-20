@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Stock Prediction Algorithm with ML & Python</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Stock Prediction Algorithm with ML & Python" />
+      <meta name="twitter:description" content="Build an algorithm that predicts stock prices based on prior data" />
+   
+   
+      <meta name="description" content="Build an algorithm that predicts stock prices based on prior data">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Stock Prediction Algorithm">
+      <meta property="og:description" content="Build an algorithm that predicts stock prices based on prior data">
+      <meta property="og:url" content="http://localhost:4000/stock-market-prediction">
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Stock Prediction Algorithm" />
+      <meta name="twitter:description" content="Build an algorithm that predicts stock prices based on prior data" />
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+
+      <link href="/style.css" rel="stylesheet">
+      <link href="/syntax.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="blue">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+      <div class="nav">
+        <ul>
+        <li><a href="/guide">Guide</a><li>
+        <li><a href="/projects">Tutorials</a><li>
+        <li><a href="/web">Web Development</a><li>
+        <li><a href="/about">About</a><li>
+        </ul>
+      </div>
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 blue tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Stock Prediction Algorithm</span></h1>
+        <a href=""><img class="project-image" src="/img/stock.png"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/stock-prediction/stock.py" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+				
+				
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h2 id="predicting-the-market">Predicting the Market</h2>
+
+<p>In this tutorial, we’ll be exploring how we can use Linear Regression to predict stock prices thirty days into the future. You probably won’t get rich with this algorithm, but I still think it is super cool to watch your computer predict the price of your favorite stocks.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>Create a new <code class="highlighter-rouge">stock.py</code> file. In our project, we’ll need to import a few dependencies. If you don’t have them installed, you will have to run <code class="highlighter-rouge">pip install [dependency]</code> on the command line.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">quandl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">cross_validation</span><span class="p">,</span> <span class="n">svm</span>
+</code></pre></div></div>
+<p>We are using <a href="https://www.quandl.com/">Quandl</a> for our stock data, <a href="https://pandas.pydata.org/">pandas</a> for our dataframe, <a href="http://www.numpy.org/">numpy</a> for array and math fucntions, and <a href="http://scikit-learn.org/">sklearn</a> for the regression algorithm.</p>
+
+<h2 id="stock-data--dataframe">Stock Data &amp; Dataframe</h2>
+<p>To get our stock data, we can set our dataframe to <code class="highlighter-rouge">quandl.get("WIKI/[NAME OF STOCK]")</code>. In this tutorial, I will use Amazon, but you can choose any stock you wish.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">quandl</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"WIKI/AMZN"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If we <code class="highlighter-rouge">print(df.tail())</code> and run our python program, we see that we get a lot of data for each stock:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Open</span>     <span class="n">High</span>      <span class="n">Low</span>    <span class="n">Close</span>     <span class="n">Volume</span>  <span class="n">Ex</span><span class="o">-</span><span class="n">Dividend</span>  \
+<span class="n">Date</span>                                                                     
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">13</span>  <span class="mf">1170.00</span>  <span class="mf">1170.87</span>  <span class="mf">1160.27</span>  <span class="mf">1164.13</span>  <span class="mf">2555053.0</span>          <span class="mf">0.0</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span>  <span class="mf">1163.71</span>  <span class="mf">1177.93</span>  <span class="mf">1162.45</span>  <span class="mf">1174.26</span>  <span class="mf">3069993.0</span>          <span class="mf">0.0</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span>  <span class="mf">1179.03</span>  <span class="mf">1182.75</span>  <span class="mf">1169.33</span>  <span class="mf">1179.14</span>  <span class="mf">4539895.0</span>          <span class="mf">0.0</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span>  <span class="mf">1187.37</span>  <span class="mf">1194.78</span>  <span class="mf">1180.91</span>  <span class="mf">1190.58</span>  <span class="mf">2767271.0</span>          <span class="mf">0.0</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">19</span>  <span class="mf">1189.15</span>  <span class="mf">1192.97</span>  <span class="mf">1179.14</span>  <span class="mf">1187.38</span>  <span class="mf">2555235.0</span>          <span class="mf">0.0</span>   
+
+<span class="n">Split</span> <span class="n">Ratio</span>  <span class="n">Adj</span><span class="o">.</span> <span class="n">Open</span>  <span class="n">Adj</span><span class="o">.</span> <span class="n">High</span>  <span class="n">Adj</span><span class="o">.</span> <span class="n">Low</span>  <span class="n">Adj</span><span class="o">.</span> <span class="n">Close</span>  \
+<span class="n">Date</span>                                                                  
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">13</span>          <span class="mf">1.0</span>    <span class="mf">1170.00</span>    <span class="mf">1170.87</span>   <span class="mf">1160.27</span>     <span class="mf">1164.13</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span>          <span class="mf">1.0</span>    <span class="mf">1163.71</span>    <span class="mf">1177.93</span>   <span class="mf">1162.45</span>     <span class="mf">1174.26</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span>          <span class="mf">1.0</span>    <span class="mf">1179.03</span>    <span class="mf">1182.75</span>   <span class="mf">1169.33</span>     <span class="mf">1179.14</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span>          <span class="mf">1.0</span>    <span class="mf">1187.37</span>    <span class="mf">1194.78</span>   <span class="mf">1180.91</span>     <span class="mf">1190.58</span>   
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">19</span>          <span class="mf">1.0</span>    <span class="mf">1189.15</span>    <span class="mf">1192.97</span>   <span class="mf">1179.14</span>     <span class="mf">1187.38</span>   
+
+<span class="n">Adj</span><span class="o">.</span> <span class="n">Volume</span>  
+<span class="n">Date</span>                     
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">13</span>    <span class="mf">2555053.0</span>  
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span>    <span class="mf">3069993.0</span>  
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span>    <span class="mf">4539895.0</span>  
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span>    <span class="mf">2767271.0</span>  
+<span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">19</span>    <span class="mf">2555235.0</span>  
+
+</code></pre></div></div>
+<p>However, in our case, we only need the <code class="highlighter-rouge">Adj. Close</code> column for our predictions.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">'Adj. Close'</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<p>Now, let’s set up our forecasting. We want to predict 30 days into the future, so we’ll set a variable <code class="highlighter-rouge">forecast_out</code> equal to that. Then, we need to create a new column in our dataframe which serves as our <code class="highlighter-rouge">label</code>, which, in machine learning, is known as our output.  To fill our output data with data to be trained upon, we will set our <code class="highlighter-rouge">prediction</code> column equal to our <code class="highlighter-rouge">Adj. Close</code> column, but shifted 30 units up.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">forecast_out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c"># predicting 30 days into future</span>
+<span class="n">df</span><span class="p">[</span><span class="s">'Prediction'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">'Adj. Close'</span><span class="p">]]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="n">forecast_out</span><span class="p">)</span> <span class="c">#  label column with data shifted 30 units up</span>
+</code></pre></div></div>
+
+<p>You can see the new dataframe by printing it: <code class="highlighter-rouge">print(df.tail())</code></p>
+
+<h2 id="defining-features--labels">Defining Features &amp; Labels</h2>
+<p>Our <code class="highlighter-rouge">X</code> will be an array consisting of our <code class="highlighter-rouge">Adj. Close</code> values, and so we want to <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html">drop</a> the <code class="highlighter-rouge">Prediction</code> column. We also want to scale our input values.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Prediction'</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, if you printed the dataframe after we created the <code class="highlighter-rouge">Prediction</code> column, you saw that for the last 30 days, there were <code class="highlighter-rouge">NaNs</code>, or no label data. We’ll set a new input variable to these days and remove them from the <code class="highlighter-rouge">X</code> array.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_forecast</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="n">forecast_out</span><span class="p">:]</span> <span class="c"># set X_forecast equal to last 30</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="o">-</span><span class="n">forecast_out</span><span class="p">]</span> <span class="c"># remove last 30 from X</span>
+</code></pre></div></div>
+
+<p>To define our y, or output, we will set it equal to our array of the <code class="highlighter-rouge">Prediction</code> values and remove the last 30 days where we don’t have any pricing data.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'Prediction'</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="n">forecast_out</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="linear-regression">Linear Regression</h2>
+<p>Finally, prediciton time! First, we’ll want to split our testing and training data sets, and set our <code class="highlighter-rouge">test_size</code> equal to 20% of the data.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, we’ll want to train and test our accuracy.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Train</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="c"># Test</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Accuracy of Linear Regression Predictions: "</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Lastly, we can to predict our <code class="highlighter-rouge">X_forecast</code> values:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">forecast_prediction</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_forecast</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">forecast_prediction</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here’s what I got for <code class="highlighter-rouge">AMZN</code> stock (12/19/17):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">'Accuracy of Linear Regression: '</span><span class="p">,</span> <span class="mf">0.989032635604704</span><span class="p">)</span>
+<span class="p">[</span> <span class="mf">1163.89768621</span>  <span class="mf">1166.50500319</span>  <span class="mf">1172.69608254</span>  <span class="mf">1168.7695255</span>   <span class="mf">1172.7376334</span>
+  <span class="mf">1180.70501237</span>  <span class="mf">1170.16147958</span>  <span class="mf">1181.17245963</span>  <span class="mf">1173.47516131</span>  <span class="mf">1169.76674633</span>
+  <span class="mf">1183.45775738</span>  <span class="mf">1200.77408167</span>  <span class="mf">1231.77102929</span>  <span class="mf">1241.98215513</span>  <span class="mf">1239.66569423</span>
+  <span class="mf">1206.08220507</span>  <span class="mf">1222.16239103</span>  <span class="mf">1207.20407851</span>  <span class="mf">1177.70296214</span>  <span class="mf">1185.61840252</span>
+  <span class="mf">1196.81636148</span>  <span class="mf">1204.54482295</span>  <span class="mf">1206.84050841</span>  <span class="mf">1214.0288086</span>   <span class="mf">1210.03992526</span>
+  <span class="mf">1209.05309214</span>  <span class="mf">1219.57584949</span>  <span class="mf">1224.6450554</span>   <span class="mf">1236.52860369</span>  <span class="mf">1233.20453424</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="whats-next">What’s next?</h3>
+<p>Try and plot your data using <a href="https://matplotlib.org/">matplotlib</a>. If you want to dig deeper into regression, try analyzing more features like the volatility of the stock (high/low percent change). When completed, feel free to share your project in the comments!</p>
+
+<h4 id="resources">Resources</h4>
+
+<p><a href="https://www.youtube.com/watch?v=OGxgnH8y2NM&amp;t">Sentdex ML series</a></p>
+
+<p><a href="http://suruchifialoke.com/2016-08-17-machine-learning-tutorial-with-python-I/">Suruchi Fialoke</a></p>
+
+    </div>
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,000+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+        © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/TryEnlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+</footer>
+
+
+</html>
