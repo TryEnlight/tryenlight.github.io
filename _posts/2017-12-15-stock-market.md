@@ -8,7 +8,7 @@ category: python
 permalink: /stock-market-prediction
 img: /img/stock.png
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/stock-prediction/stock.py
-language: scikit-learn 
+language: scikit-learn
 color: blue
 ---
 
@@ -81,7 +81,7 @@ df['Prediction'] = df[['Adj. Close']].shift(-forecast_out) #  label column with 
  You can see the new dataframe by printing it: `print(df.tail())`
 
 ## Defining Features & Labels
-Our `X` will be an array consisting of our `Adj. Close` values, and so we want to [drop](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html) the `Prediction` column. We also want to scale our input values.
+Our `X` will be an array consisting of our `Adj. Close` values, and so we want to [drop](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html) the `Prediction` column. We also want to scale our input values. Scaling our features allow us to normalize the data.
 ```python
 X = np.array(df.drop(['Prediction'], 1))
 X = preprocessing.scale(X)
@@ -100,18 +100,19 @@ y = y[:-forecast_out]
 ```
 
 ## Linear Regression
-Finally, prediciton time! First, we’ll want to split our testing and training data sets, and set our `test_size` equal to 20% of the data.
+Finally, prediciton time! First, we’ll want to split our testing and training data sets, and set our `test_size` equal to 20% of the data. The training set contains our known outputs, or prices, that our model learns on, and our test dataset is to test our model's predictions based on what it learned from the training set.
 
 ```python
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size = 0.2)
 ```
 
-Then, we’ll want to train and test our accuracy.
+Now, we initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.
+
 ```python
-# Train
+# Training
 clf = LinearRegression()
 clf.fit(X_train,y_train)
-# Test
+# Testing
 accuracy = clf.score(X_test, y_test)
 print("Accuracy of Linear Regression Predictions: ", accuracy)
 ```
@@ -135,7 +136,7 @@ Here's what I got for `AMZN` stock (12/19/17):
 ```
 
 ### What's next?
-Try and plot your data using [matplotlib](https://matplotlib.org/). If you want to dig deeper into regression, try analyzing more features like the volatility of the stock (high/low percent change). When completed, feel free to share your project in the comments!
+Try and plot your data using [matplotlib](https://matplotlib.org/). Try to make your predictions more advanced by including more features. When completed, feel free to share your projects in the comments! I'd love to check them out :)
 
 #### Resources
 

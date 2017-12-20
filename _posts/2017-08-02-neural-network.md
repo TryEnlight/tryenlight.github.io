@@ -3,7 +3,7 @@ layout: post
 title: Neural Network
 description: Build a basic Feedforward Neural Network with backpropagation in Python
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
-difficulty: advanced
+difficulty: intermediate
 category: python
 permalink: /neural-network
 img: /img/nn.png
