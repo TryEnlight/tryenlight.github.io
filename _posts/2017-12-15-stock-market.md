@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stock Prediction Algorithm
-description: Build an algorithm that predicts stock prices
+description: Build an algorithm that forecasts stock prices
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 difficulty: intermediate
 category: python
@@ -106,7 +106,7 @@ Finally, prediciton time! First, we’ll want to split our testing and training 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size = 0.2)
 ```
 
-Now, we initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.
+Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We can get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.
 
 ```python
 # Training
