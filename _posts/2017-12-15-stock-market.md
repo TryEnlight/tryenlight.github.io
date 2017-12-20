@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Stock Prediction Algorithm
-description: Build an algorithm that predicts stock prices 
+description: Build an algorithm that predicts stock prices
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
-difficulty: advanced
+difficulty: intermediate
 category: python
 permalink: /stock-market-prediction
 img: /img/stock.png
