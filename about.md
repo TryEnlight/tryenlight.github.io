@@ -16,14 +16,17 @@ A couple years ago, I started to learn web development. At first, I ended up tak
 
 ### How can I contribute?
 
-Enlight is open-source, which means we love contributors! Have a project on the web, a cool app you're making, or really anything useful? Share your knowledge! It doesn't have to be a specific programming language - just send us whatever you want to share!
+Enlight is open-source, which means we love contributors! Have a project on the web, a cool app you're making, or really  anything useful? Share your knowledge! It doesn't have to be a specific programming language -- just send us whatever you want to share!
 
-- fork the [repo](https://github.com/shamdasani/enlight)
-- in the contribute folder, place your project files (demo/source) and the tutorial text.
+If it's useful, it'll be posted on the site with of course, credit to you!
+
+- fork the repo
+- put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory
 - submit a pull request
 
-If you don't want to go through GitHub, you can **[email](mailto:hi@shamdasani.org)** me your project+tutorial.
+**or...** if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
 
+Thanks!
 
 ### Who runs this thing?
 
