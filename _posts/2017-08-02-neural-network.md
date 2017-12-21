@@ -438,6 +438,7 @@ class Neural_Network(object):
 
 NN = Neural_Network()
 for i in xrange(1000): # trains the NN 1,000 times
+  print "# " + str(i) + "\n"
   print "Input (scaled): \n" + str(X)
   print "Actual Output: \n" + str(y)
   print "Predicted Output: \n" + str(NN.forward(X))
@@ -447,6 +448,33 @@ for i in xrange(1000): # trains the NN 1,000 times
 
 NN.saveWeights()
 NN.predict()
+```
+
+To see how accurate the network actually is, I ran trained it 100,000 times to see if it would ever get exactly the right output. Here's what I got:
+
+```js
+# 99999
+Input (scaled):
+[[ 0.66666667  1.        ]
+ [ 0.33333333  0.55555556]
+ [ 1.          0.66666667]]
+Actual Output:
+[[ 0.92]
+ [ 0.86]
+ [ 0.89]]
+Predicted Output:
+[[ 0.92]
+ [ 0.86]
+ [ 0.89]]
+Loss:
+1.94136958194e-18
+
+
+Predicted data based on trained weights:
+Input (scaled):
+[ 0.5  1. ]
+Output:
+[ 0.91882413]
 ```
 
 There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it's super impressive that your computer, a physical object, managed to *learn* by itself!
