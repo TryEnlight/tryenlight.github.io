@@ -106,15 +106,15 @@ Finally, prediciton time! First, we’ll want to split our testing and training 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size = 0.2)
 ```
 
-Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We can get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.
+Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we "score" it using the testing data. We can get an r^2 ([coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination)) reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got a value of over 90%.
 
 ```python
 # Training
 clf = LinearRegression()
 clf.fit(X_train,y_train)
 # Testing
-accuracy = clf.score(X_test, y_test)
-print("Accuracy of Linear Regression Predictions: ", accuracy)
+confidence = clf.score(X_test, y_test)
+print("confidence: ", confidence)
 ```
 
 Lastly, we can to predict our `X_forecast` values:
