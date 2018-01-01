@@ -28,8 +28,8 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_
 clf = LinearRegression()
 clf.fit(X_train,y_train)
 
-accuracy = clf.score(X_test, y_test)
-print("Accuracy of Linear Regression: ", accuracy)
+confidence = clf.score(X_test, y_test)
+print("confidence: ", confidence)
 
 forecast_prediction = clf.predict(X_forecast)
 print(forecast_prediction)

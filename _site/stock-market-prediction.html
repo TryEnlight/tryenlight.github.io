@@ -162,14 +162,14 @@ gtag('config', 'UA-85620206-1')
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we score it using the testing data. We can get an accuracy reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got accuracy readings of over 90%.</p>
+<p>Now, we can initiate our Linear Regression model and fit it with training data. After training, to test the accuracy of the model, we “score” it using the testing data. We can get an r^2 (<a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>) reading based on how far the predicted price was compared to the actual price in the test data set. When I ran the algorithm, I usually got a value of over 90%.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Training</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 <span class="c"># Testing</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Accuracy of Linear Regression Predictions: "</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="n">confidence</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"confidence: "</span><span class="p">,</span> <span class="n">confidence</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Lastly, we can to predict our <code class="highlighter-rouge">X_forecast</code> values:</p>
@@ -179,7 +179,7 @@ gtag('config', 'UA-85620206-1')
 
 <p>Here’s what I got for <code class="highlighter-rouge">AMZN</code> stock (12/19/17):</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">'Accuracy of Linear Regression: '</span><span class="p">,</span> <span class="mf">0.989032635604704</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">'confidence: '</span><span class="p">,</span> <span class="mf">0.989032635604704</span><span class="p">)</span>
 <span class="p">[</span> <span class="mf">1163.89768621</span>  <span class="mf">1166.50500319</span>  <span class="mf">1172.69608254</span>  <span class="mf">1168.7695255</span>   <span class="mf">1172.7376334</span>
   <span class="mf">1180.70501237</span>  <span class="mf">1170.16147958</span>  <span class="mf">1181.17245963</span>  <span class="mf">1173.47516131</span>  <span class="mf">1169.76674633</span>
   <span class="mf">1183.45775738</span>  <span class="mf">1200.77408167</span>  <span class="mf">1231.77102929</span>  <span class="mf">1241.98215513</span>  <span class="mf">1239.66569423</span>
@@ -258,7 +258,7 @@ gtag('config', 'UA-85620206-1')
   </div>
   <div class="db dn-ns">
     <p class="f7 black-70 mt4 tc">
-      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+      © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
 </footer>

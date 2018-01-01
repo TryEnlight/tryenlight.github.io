@@ -492,6 +492,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <span class="n">NN</span> <span class="o">=</span> <span class="n">Neural_Network</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c"># trains the NN 1,000 times</span>
+  <span class="k">print</span> <span class="s">"# "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
   <span class="k">print</span> <span class="s">"Input (scaled): </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
   <span class="k">print</span> <span class="s">"Actual Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
   <span class="k">print</span> <span class="s">"Predicted Output: </span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">NN</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
@@ -501,6 +502,32 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <span class="n">NN</span><span class="o">.</span><span class="n">saveWeights</span><span class="p">()</span>
 <span class="n">NN</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>To see how accurate the network actually is, I ran trained it 100,000 times to see if it would ever get exactly the right output. Here’s what I got:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="mi">99999</span>
+<span class="nx">Input</span> <span class="p">(</span><span class="nx">scaled</span><span class="p">):</span>
+<span class="p">[[</span> <span class="mf">0.66666667</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.33333333</span>  <span class="mf">0.55555556</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">1</span><span class="p">.</span>          <span class="mf">0.66666667</span><span class="p">]]</span>
+<span class="nx">Actual</span> <span class="nx">Output</span><span class="p">:</span>
+<span class="p">[[</span> <span class="mf">0.92</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.86</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.89</span><span class="p">]]</span>
+<span class="nx">Predicted</span> <span class="nx">Output</span><span class="p">:</span>
+<span class="p">[[</span> <span class="mf">0.92</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.86</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.89</span><span class="p">]]</span>
+<span class="nx">Loss</span><span class="p">:</span>
+<span class="mf">1.94136958194</span><span class="nx">e</span><span class="o">-</span><span class="mi">18</span>
+
+
+<span class="nx">Predicted</span> <span class="nx">data</span> <span class="nx">based</span> <span class="nx">on</span> <span class="nx">trained</span> <span class="nx">weights</span><span class="p">:</span>
+<span class="nx">Input</span> <span class="p">(</span><span class="nx">scaled</span><span class="p">):</span>
+<span class="p">[</span> <span class="mf">0.5</span>  <span class="mi">1</span><span class="p">.</span> <span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span>
+<span class="p">[</span> <span class="mf">0.91882413</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it’s super impressive that your computer, a physical object, managed to <em>learn</em> by itself!</p>
@@ -576,7 +603,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
   </div>
   <div class="db dn-ns">
     <p class="f7 black-70 mt4 tc">
-      © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+      © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
 </footer>
