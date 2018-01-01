@@ -2,6 +2,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    {% if page.layout == 'post' %}
       <title>Build a {{ page.title | strip_html }} with {{ page.language }}</title>
+      <link rel="canonical" href="https://enlight.nyc{{ page.url }}">
       <meta name="description" content="{{ page.description }}">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="twitter:card" content="summary" />
@@ -14,6 +15,7 @@
    {% endif %}
    {% if page.layout != 'post' %}
      <title>{{ page.title | strip_html }}</title>
+     <link rel="canonical" href="https://enlight.nyc{{ page.url }}">
      <meta name="description" content="{{ page.description }}">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta property="og:title" content="{{ page.title }}">
