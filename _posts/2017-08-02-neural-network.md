@@ -11,6 +11,7 @@ demourl: https://repl.it/Jxmb/2
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/NeuralNetwork/NeuralNetwork.py
 language: Python
 color: orange
+forum-url: http://community.enlight.nyc/t/build-a-neural-network/25
 ---
 ## What is a Neural Network?
 

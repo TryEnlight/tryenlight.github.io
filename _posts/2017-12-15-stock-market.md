@@ -10,6 +10,7 @@ img: /img/stock.png
 source: https://github.com/tryenlight/enlight/tree/master/demo/machine-learning/stock-prediction/stock.py
 language: scikit-learn
 color: blue
+forum-url: http://community.enlight.nyc/t/build-a-stock-market-prediction-algorithm/24
 ---
 
 ## Predicting the Market

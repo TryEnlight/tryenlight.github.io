@@ -11,14 +11,14 @@
     <a href="/" class="white">enlight</a>
     </div>
 
-      <div class="nav">
-        <ul>
-        <li><a href="/guide">Guide</a><li>
-				<li><a href="/ml">Machine Learning</a><li>
-        <li><a href="/web">Web Development</a><li>
-        <li><a href="/about">About</a><li>
-        </ul>
-      </div>
+		<div class="nav">
+			<ul>
+			<li><a href="http://community.enlight.nyc/">Community</a><li>
+			<li><a href="/guide">Guide</a><li>
+			<li><a href="/ml">Machine Learning</a><li>
+			<li><a href="/about">About</a><li>
+			</ul>
+		</div>
     </div>
 	</header>
 
@@ -47,7 +47,26 @@
 			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
       {{ content }}
-    </div>
+
+
+{% if page.forum-url == null %}
+<br>
+{% else %}
+			<article class="mw7 center ph3 ph5-ns tc br2 pv5 bg-{{page.color}} white mb5">
+				<a href="{{page.forum-url}}"
+			  <h1 class="fw6 f3 f2-ns lh-title mt0 mb3">
+			    Have a question, comment, or suggestion?
+			  </h1>
+			  <h2 class="fw2 f4 lh-copy mt0 mb3">
+			    Click here to discuss this project on the commmunity forum.
+			  </h2>
+			</a>
+			</article>
+{% endif %}
+
+
+
+
 
     <div class="content center f4 pv5 lh-copy ph2 content bt">
     <div id="disqus_thread"></div>
