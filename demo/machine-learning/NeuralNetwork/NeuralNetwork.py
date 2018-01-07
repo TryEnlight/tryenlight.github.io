@@ -57,18 +57,18 @@ class Neural_Network(object):
     np.savetxt("w2.txt", self.W2, fmt="%s")
 
   def predict(self):
-    print "Predicted data based on trained weights: ";
-    print "Input (scaled): \n" + str(xPredicted);
-    print "Output: \n" + str(self.forward(xPredicted));
+    print("Predicted data based on trained weights: ")
+    print("Input (scaled): \n" + str(xPredicted))
+    print("Output: \n" + str(self.forward(xPredicted)))
 
 NN = Neural_Network()
 for i in xrange(100000): # trains the NN 100,000 times
-  print " #" + str(i) + "\n"
-  print "Input (scaled): \n" + str(X)
-  print "Actual Output: \n" + str(y)
-  print "Predicted Output: \n" + str(NN.forward(X))
-  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
-  print "\n"
+  print(" #" + str(i) + "\n")
+  print("Input (scaled): \n" + str(X))
+  print("Actual Output: \n" + str(y))
+  print("Predicted Output: \n" + str(NN.forward(X)))
+  print("Loss: \n" + str(np.mean(np.square(y - NN.forward(X))))) # mean sum squared loss
+  print("\n")
   NN.train(X, y)
 
 NN.saveWeights()
