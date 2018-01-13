@@ -75,11 +75,17 @@ header {
     padding-left: 0;
     padding-right: 0;
   }
+  .nav {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
   .nav ul {
     float: none;
+    text-align: center;
   }
   .nav ul li {
-    padding: 0.2rem;
+    margin: 0;
   }
 }
 /* post colors */
