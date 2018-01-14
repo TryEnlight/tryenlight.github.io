@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guessing Number Game
+title: Build a Guessing Number Game
 description: Build a fun number guessing game using python in the terminal
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: python

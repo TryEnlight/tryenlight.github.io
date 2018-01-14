@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Real Time Chat App
+title: Build a Real Time Chat App
 description: Use technologies like Node.js, Socket.io, and Express to create your own form of communication!
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: hard-web

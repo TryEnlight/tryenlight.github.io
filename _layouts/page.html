@@ -9,15 +9,22 @@
   <a href="/" class="white">enlight</a>
   </div>
 
-  <div class="nav">
-    <ul>
-    <li><a href="http://community.enlight.nyc/">Community</a><li>
-    <li><a href="/guide">Guide</a><li>
-    <li><a href="/ml">Machine Learning</a><li>
-    <li><a href="/about">About</a><li>
+  <nav>
+    <div class="nav-mobile">
+      <a id="nav-toggle" href="#!"><span></span></a>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#">All Projects</a>
+        <ul class="nav-dropdown">
+          <li><a href="/web">HTML/CSS/JS</a></li>
+          <li><a href="/ml">Machine Learning</a></li>
+          <li><a href="/crypto">Blockchain</a></li>
+        </ul></li>
+      <li><a href="https://community.enlight.nyc">Community</a></li>
+      <li><a href="/guide">Guide</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
-  </div>
-  </div>
+  </nav>
 </header>
 
 <body>
@@ -31,6 +38,13 @@
   {{ content }}
 </div>
 
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+<script src="/js/scripts.js"></script>
 </body>
 
 {% include footer.html %}

@@ -9,11 +9,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta property="og:title" content="Getting Started as a Developer">
      <meta property="og:description" content="Learn to Code Starter Pack">
-     <meta property="og:url" content="http://localhost:4000/guide.html">
+     <meta property="og:url" content="http://0.0.0.0:4000/guide.html">
+     <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
      <meta name="twitter:card" content="summary" />
      <meta name="twitter:site" content="@tryenlight" />
      <meta name="twitter:title" content="Getting Started as a Developer" />
      <meta name="twitter:description" content="Learn to Code Starter Pack" />
+     <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
+
    
 
 
@@ -43,15 +46,22 @@ gtag('config', 'UA-85620206-1')
   <a href="/" class="white">enlight</a>
   </div>
 
-  <div class="nav">
-    <ul>
-    <li><a href="http://community.enlight.nyc/">Community</a><li>
-    <li><a href="/guide">Guide</a><li>
-    <li><a href="/ml">Machine Learning</a><li>
-    <li><a href="/about">About</a><li>
+  <nav>
+    <div class="nav-mobile">
+      <a id="nav-toggle" href="#!"><span></span></a>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#">All Projects</a>
+        <ul class="nav-dropdown">
+          <li><a href="/web">HTML/CSS/JS</a></li>
+          <li><a href="/ml">Machine Learning</a></li>
+          <li><a href="/crypto">Blockchain</a></li>
+        </ul></li>
+      <li><a href="https://community.enlight.nyc">Community</a></li>
+      <li><a href="/guide">Guide</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
-  </div>
-  </div>
+  </nav>
 </header>
 
 <body>
@@ -66,6 +76,7 @@ gtag('config', 'UA-85620206-1')
   <h1 class="f4 bold mw6">Table of Contents</h1>
   <ul class="list pl0 ml0 mw6 ba b--light-silver br2">
     <li class="ph3 pv3 bb b--light-silver"><a href="#getting-started">Getting Started</a></li>
+    <li class="ph3 pv3 bb b--light-silver"><a href="git">Learn Git</a></li>
     <li class="ph3 pv3 bb b--light-silver"><a href="#html">HTML/CSS/JS</a></li>
     <li class="ph3 pv3 bb b--light-silver"><a href="#node">Node.js</a></li>
     <li class="ph3 pv3 bb b--light-silver"><a href="#python">Python</a></li>
@@ -87,8 +98,11 @@ gtag('config', 'UA-85620206-1')
     <p>That's it! It doesn't take much to start to code. The toughest part is persisting and pushing yourself to learn more
     and more to advance your skills.
 
+
     <p>Some text editors I recommend are <a href="https://atom.io">Atom</a> and <a href="https://sublimetext.com">Sublime Text</a>.
     However, you may even use TextEdit or WordPad if you wish :P
+
+    <p>Before you move on, I encourage you to take a look at Git, a version control platform. You can learn more about it <a href="https://enlight.nyc/git">here</a>. 
 
   <h1 class="f2 bold mw6" id="html">HTML/CSS/JS</h1>
 
@@ -135,12 +149,19 @@ gtag('config', 'UA-85620206-1')
 
 </div>
 
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+<script src="/js/scripts.js"></script>
 </body>
 
 <footer class="pa4 pa5-l black-70 bt b--black-10">
 
 <div class="email">
-<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,400+ other developers.</h1>
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,600+ other developers.</h1>
 <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
   <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
   <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
@@ -167,6 +188,7 @@ gtag('config', 'UA-85620206-1')
       © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
+  
 </footer>
 
 

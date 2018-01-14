@@ -4,17 +4,20 @@
 	  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    
-      <title>Build a Real Time Chat App with Node.js</title>
+      <title>Build a Build a Real Time Chat App with Node.js</title>
       <link rel="canonical" href="https://enlight.nyc/nodejs-chat">
       <meta name="description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Build a Real Time Chat App with Node.js" />
+      <meta name="twitter:title" content="Build a Build a Real Time Chat App with Node.js" />
       <meta name="twitter:description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!" />
-      <meta property="og:title" content="Build a Real Time Chat App with Node.js">
+      <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
+      <meta property="og:title" content="Build a Build a Real Time Chat App with Node.js">
       <meta property="og:description" content="Use technologies like Node.js, Socket.io, and Express to create your own form of communication!">
-      <meta property="og:url" content="http://localhost:4000/nodejs-chat">
+      <meta property="og:url" content="http://0.0.0.0:4000/nodejs-chat">
+      <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
+
    
    
 
@@ -45,14 +48,24 @@ gtag('config', 'UA-85620206-1')
     <a href="/" class="white">enlight</a>
     </div>
 
-		<div class="nav">
-			<ul>
-			<li><a href="http://community.enlight.nyc/">Community</a><li>
-			<li><a href="/guide">Guide</a><li>
-			<li><a href="/ml">Machine Learning</a><li>
-			<li><a href="/about">About</a><li>
-			</ul>
-		</div>
+		<nav>
+		  <div class="nav-mobile">
+		    <a id="nav-toggle" href="#!"><span></span></a>
+		  </div>
+		  <ul class="nav-list">
+		    <li><a href="#">All Projects</a>
+		      <ul class="nav-dropdown">
+		        <li><a href="/web">HTML/CSS/JS</a></li>
+		        <li><a href="/ml">Machine Learning</a></li>
+		        <li><a href="/crypto">Blockchain</a></li>
+		      </ul></li>
+		    <li><a href="https://community.enlight.nyc">Community</a></li>
+		    <li><a href="/guide">Guide</a></li>
+		    <li><a href="/about">About</a></li>
+		  </ul>
+		</nav>
+
+		
     </div>
 	</header>
 
@@ -62,7 +75,7 @@ gtag('config', 'UA-85620206-1')
     <!-- https://www.gradient-animator.com/ -->
     <article class="dt w-100 orange tc">
       <div class="dtc v-top tc white ph3 ph4-l pt2">
-        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Real Time Chat App</span></h1>
+        <h1 class="f1 f-subheadline-l fw6 tc"><span>Build a Real Time Chat App</span></h1>
         <a href="https://enlight-chat-nodejs.herokuapp.com/"><img class="project-image" src="/img/nodejs-chat.gif"></a><br><br>
 				<div class="pv4">
 
@@ -306,7 +319,7 @@ On connect, let us emit a message to confirm our connection with an event of <co
 
 <p>Well, now you have a basic form of communication! If you open up multiple tabs, you’ll see the messages are being sent in real-time!</p>
 
-   </div>
+ </div>
 
 
 <br>
@@ -344,14 +357,20 @@ On connect, let us emit a message to confirm our connection with an event of <co
     </div>
 
 
+		<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
 
+
+		<script src="/js/scripts.js"></script>
 
 	</body>
 
   <footer class="pa4 pa5-l black-70 bt b--black-10">
 
 <div class="email">
-<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,400+ other developers.</h1>
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,600+ other developers.</h1>
 <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
   <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
   <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
@@ -378,6 +397,7 @@ On connect, let us emit a message to confirm our connection with an event of <co
       © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
+  
 </footer>
 
 

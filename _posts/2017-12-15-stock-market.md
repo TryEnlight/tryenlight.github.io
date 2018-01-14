@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stock Prediction Algorithm
+title: Build a Stock Prediction Algorithm
 description: Build an algorithm that forecasts stock prices
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 difficulty: intermediate

@@ -9,9 +9,12 @@
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
+      <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
       <meta property="og:title" content="Build a {{ page.title }} with {{ page.language }}">
       <meta property="og:description" content="{{page.description }}">
       <meta property="og:url" content="{{ site.url }}{{page.url}}">
+      <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
+
    {% endif %}
    {% if page.layout != 'post' %}
      <title>{{ page.title | strip_html }}</title>
@@ -21,10 +24,13 @@
      <meta property="og:title" content="{{ page.title }}">
      <meta property="og:description" content="{{page.description }}">
      <meta property="og:url" content="{{ site.url }}{{page.url}}">
+     <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
      <meta name="twitter:card" content="summary" />
      <meta name="twitter:site" content="@tryenlight" />
      <meta name="twitter:title" content="{{ page.title }}" />
      <meta name="twitter:description" content="{{ page.description }}" />
+     <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
+
    {% endif %}
 
 

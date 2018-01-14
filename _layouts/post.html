@@ -11,14 +11,24 @@
     <a href="/" class="white">enlight</a>
     </div>
 
-		<div class="nav">
-			<ul>
-			<li><a href="http://community.enlight.nyc/">Community</a><li>
-			<li><a href="/guide">Guide</a><li>
-			<li><a href="/ml">Machine Learning</a><li>
-			<li><a href="/about">About</a><li>
-			</ul>
-		</div>
+		<nav>
+		  <div class="nav-mobile">
+		    <a id="nav-toggle" href="#!"><span></span></a>
+		  </div>
+		  <ul class="nav-list">
+		    <li><a href="#">All Projects</a>
+		      <ul class="nav-dropdown">
+		        <li><a href="/web">HTML/CSS/JS</a></li>
+		        <li><a href="/ml">Machine Learning</a></li>
+		        <li><a href="/crypto">Blockchain</a></li>
+		      </ul></li>
+		    <li><a href="https://community.enlight.nyc">Community</a></li>
+		    <li><a href="/guide">Guide</a></li>
+		    <li><a href="/about">About</a></li>
+		  </ul>
+		</nav>
+
+		
     </div>
 	</header>
 
@@ -28,7 +38,7 @@
     <!-- https://www.gradient-animator.com/ -->
     <article class="dt w-100 {{ page.color }} tc">
       <div class="dtc v-top tc white ph3 ph4-l pt2">
-        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">{{ page.title }}</span></h1>
+        <h1 class="f1 f-subheadline-l fw6 tc"><span>{{ page.title }}</span></h1>
         <a href="{{ page.demourl }}"><img class="project-image" src="{{ page.img }}"></a><br><br>
 				<div class="pv4">
 
@@ -47,7 +57,7 @@
 			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
       {{ content }}
-   </div>
+ </div>
 
 {% if page.forum-url == null %}
 <br>
@@ -96,7 +106,13 @@
     </div>
 
 
+		<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
 
+
+		<script src="/js/scripts.js"></script>
 
 	</body>
 

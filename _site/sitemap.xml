@@ -2,25 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/2018/01/06/stellar-ICO.html</loc>
-      
-        <lastmod>2018-01-06T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/01/06/smart-contract.html</loc>
-      
-        <lastmod>2018-01-06T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/stock-market-prediction</loc>
+      <loc>http://0.0.0.0:4000/stock-market-prediction</loc>
       
         <lastmod>2017-12-15T00:00:00-05:00</lastmod>
       
@@ -29,7 +11,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/neural-network</loc>
+      <loc>http://0.0.0.0:4000/neural-network</loc>
       
         <lastmod>2017-08-02T00:00:00-04:00</lastmod>
       
@@ -38,7 +20,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/twitter-bot</loc>
+      <loc>http://0.0.0.0:4000/twitter-bot</loc>
       
         <lastmod>2017-06-14T00:00:00-04:00</lastmod>
       
@@ -47,7 +29,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/guess-number</loc>
+      <loc>http://0.0.0.0:4000/guess-number</loc>
       
         <lastmod>2017-02-28T00:00:00-05:00</lastmod>
       
@@ -56,7 +38,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/nodejs-chat</loc>
+      <loc>http://0.0.0.0:4000/nodejs-chat</loc>
       
         <lastmod>2017-02-12T00:00:00-05:00</lastmod>
       
@@ -65,7 +47,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/web-paint</loc>
+      <loc>http://0.0.0.0:4000/web-paint</loc>
       
         <lastmod>2016-12-26T00:00:00-05:00</lastmod>
       
@@ -74,7 +56,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/weather</loc>
+      <loc>http://0.0.0.0:4000/weather</loc>
       
         <lastmod>2016-12-26T00:00:00-05:00</lastmod>
       
@@ -83,7 +65,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/code-editor</loc>
+      <loc>http://0.0.0.0:4000/code-editor</loc>
       
         <lastmod>2016-12-26T00:00:00-05:00</lastmod>
       
@@ -92,7 +74,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/hex-color-generator</loc>
+      <loc>http://0.0.0.0:4000/hex-color-generator</loc>
       
         <lastmod>2016-12-26T00:00:00-05:00</lastmod>
       
@@ -101,7 +83,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/clock</loc>
+      <loc>http://0.0.0.0:4000/clock</loc>
       
         <lastmod>2016-12-26T00:00:00-05:00</lastmod>
       
@@ -110,7 +92,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/text-editor</loc>
+      <loc>http://0.0.0.0:4000/text-editor</loc>
       
         <lastmod>2016-12-25T00:00:00-05:00</lastmod>
       
@@ -119,7 +101,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/quote</loc>
+      <loc>http://0.0.0.0:4000/quote</loc>
       
         <lastmod>2016-12-25T00:00:00-05:00</lastmod>
       
@@ -128,7 +110,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/to-do</loc>
+      <loc>http://0.0.0.0:4000/to-do</loc>
       
         <lastmod>2016-12-24T00:00:00-05:00</lastmod>
       
@@ -136,6 +118,10 @@
       <priority>1.0</priority>
     </url>
   
+  
+    
+  
+    
   
     
   

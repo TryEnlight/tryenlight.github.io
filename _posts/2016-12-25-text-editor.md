@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Text Editor
+title: Build a Text Editor
 description: Build a minimal text editor that autosaves your text every second
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: easy-web

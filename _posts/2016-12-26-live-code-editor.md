@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Live HTML/CSS/JS Editor
+title: Build a Live HTML/CSS/JS Editor
 description: Build an online editor that compiles your code live
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: middle-web

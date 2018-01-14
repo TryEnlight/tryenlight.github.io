@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Twitter Bot
+title: Build a Twitter Bot
 description: Build a virtual machine that can tweet!
 author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 category: hard-web

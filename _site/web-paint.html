@@ -4,17 +4,20 @@
 	  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    
-      <title>Build a Web Paint App with HTML/CSS/JS</title>
+      <title>Build a Build a Web Paint App with HTML/CSS/JS</title>
       <link rel="canonical" href="https://enlight.nyc/web-paint">
       <meta name="description" content="create your own digital whiteboard in HTML/CSS/JS">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tryenlight" />
-      <meta name="twitter:title" content="Build a Web Paint App with HTML/CSS/JS" />
+      <meta name="twitter:title" content="Build a Build a Web Paint App with HTML/CSS/JS" />
       <meta name="twitter:description" content="create your own digital whiteboard in HTML/CSS/JS" />
-      <meta property="og:title" content="Build a Web Paint App with HTML/CSS/JS">
+      <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
+      <meta property="og:title" content="Build a Build a Web Paint App with HTML/CSS/JS">
       <meta property="og:description" content="create your own digital whiteboard in HTML/CSS/JS">
-      <meta property="og:url" content="http://localhost:4000/web-paint">
+      <meta property="og:url" content="http://0.0.0.0:4000/web-paint">
+      <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
+
    
    
 
@@ -45,14 +48,24 @@ gtag('config', 'UA-85620206-1')
     <a href="/" class="white">enlight</a>
     </div>
 
-		<div class="nav">
-			<ul>
-			<li><a href="http://community.enlight.nyc/">Community</a><li>
-			<li><a href="/guide">Guide</a><li>
-			<li><a href="/ml">Machine Learning</a><li>
-			<li><a href="/about">About</a><li>
-			</ul>
-		</div>
+		<nav>
+		  <div class="nav-mobile">
+		    <a id="nav-toggle" href="#!"><span></span></a>
+		  </div>
+		  <ul class="nav-list">
+		    <li><a href="#">All Projects</a>
+		      <ul class="nav-dropdown">
+		        <li><a href="/web">HTML/CSS/JS</a></li>
+		        <li><a href="/ml">Machine Learning</a></li>
+		        <li><a href="/crypto">Blockchain</a></li>
+		      </ul></li>
+		    <li><a href="https://community.enlight.nyc">Community</a></li>
+		    <li><a href="/guide">Guide</a></li>
+		    <li><a href="/about">About</a></li>
+		  </ul>
+		</nav>
+
+		
     </div>
 	</header>
 
@@ -62,7 +75,7 @@ gtag('config', 'UA-85620206-1')
     <!-- https://www.gradient-animator.com/ -->
     <article class="dt w-100 orange tc">
       <div class="dtc v-top tc white ph3 ph4-l pt2">
-        <h1 class="f1 f-subheadline-l fw6 tc">Build a <span class="underline">Web Paint App</span></h1>
+        <h1 class="f1 f-subheadline-l fw6 tc"><span>Build a Web Paint App</span></h1>
         <a href="/demo/web-paint-project/index.html"><img class="project-image" src="/img/web-paint.gif"></a><br><br>
 				<div class="pv4">
 
@@ -228,7 +241,7 @@ gtag('config', 'UA-85620206-1')
 
 <p>There you have it! We now have a drawing app that can use any hex color. Try inserting a hex code in the input box and click and drag to mouse to draw! After you’ve accomplished this, try to make another text box that changes the lineWidth of the line, or if you really want a challenge, try <a href="http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage" class="underline">saving the canvas</a> in a user’s localStorage so that the drawing will not be erased when the page is refreshed!</p>
 
-   </div>
+ </div>
 
 
 <br>
@@ -266,14 +279,20 @@ gtag('config', 'UA-85620206-1')
     </div>
 
 
+		<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
 
+
+		<script src="/js/scripts.js"></script>
 
 	</body>
 
   <footer class="pa4 pa5-l black-70 bt b--black-10">
 
 <div class="email">
-<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,400+ other developers.</h1>
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,600+ other developers.</h1>
 <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
   <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
   <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
@@ -300,6 +319,7 @@ gtag('config', 'UA-85620206-1')
       © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
+  
 </footer>
 
 

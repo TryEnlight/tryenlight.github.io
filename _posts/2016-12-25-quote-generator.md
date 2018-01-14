@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quote Generator
+title: Build a Quote Generator
 description: Build a website that presents a random quote for your inspiration
 author: <a class="link white" href="https://ichauster.github.io/">Ivan Chau</a>
 category: middle-web
