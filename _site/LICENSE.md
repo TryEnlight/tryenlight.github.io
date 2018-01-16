@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2017, Enlight by Samay Shamdasani (https://shamdasani.org)
+Copyright (c) 2018, Enlight by Samay Shamdasani (https://shamdasani.org)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -117,6 +117,15 @@ header {
     background-position: 0% 50%;
   }
 }
+
+.card {
+  opacity: 0.99;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
 /* post styles */
 
 .button:hover {
@@ -207,7 +216,7 @@ nav ul li ul li a {
 }
 
 .nav-dropdown {
-  position: relative;
+  position: absolute;
   display: none;
   z-index: 1;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
@@ -233,8 +242,8 @@ ul .nav-dropdown li {
   }
 
   nav {
-    width: 100%;
-    padding-top: 50px;
+    width: 100% !important;
+    padding-top: 10px;
   }
   nav ul {
     display: none;
@@ -256,6 +265,7 @@ ul .nav-dropdown li {
   }
   .mobile {
     display: none;
+    background: inherit;
   }
 }
 @media screen and (min-width: 799px) {

@@ -6,9 +6,9 @@ description: Learn Web Development (HTML/CSS/JS)
 
 <h3 class="tc f3"> Beginner Web Development (JS) Projects:</h3><br>
 
-<section class="cf w-50 center pa2-ns">
+<section class="cf w-75 center pa2-ns">
   {% for post in site.categories.easy-web %}
-    <article class="fl w-100 w-50-m  w-25-ns pa2-ns">
+    <article class="fl w-100 w-50-m  w-25-ns pa2-ns card">
     <a href="{{ post.url | prepend:site.baseurl }}" class="ph2 ph0-ns pb3 link db">
     <div class="aspect-ratio aspect-ratio--1x1">
       <img style="background-image:url({{post.img}});"
@@ -24,7 +24,7 @@ description: Learn Web Development (HTML/CSS/JS)
 
 <h3 class="tc f3"> Intermediate Web Development (JS) Projects:</h3><br>
 
-<section class="cf w-50 center pa2-ns">
+<section class="cf w-75 center pa2-ns">
   {% for post in site.categories.middle-web %}
    <article class="fl w-100 w-50-m  w-25-ns pa2-ns">
     <a href="{{ post.url | prepend:site.baseurl }}" class="ph2 ph0-ns pb3 link db">

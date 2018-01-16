@@ -9,11 +9,11 @@
       <meta name="twitter:site" content="@tryenlight" />
       <meta name="twitter:title" content="Build a {{ page.title }} with {{ page.language }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
-      <meta name="twitter:image" content="https://enlight.nyc/logo.jpg" />
+      <meta name="twitter:image" content="https://enlight.nyc{{ page.img }}" />
       <meta property="og:title" content="Build a {{ page.title }} with {{ page.language }}">
       <meta property="og:description" content="{{page.description }}">
       <meta property="og:url" content="{{ site.url }}{{page.url}}">
-      <meta property="og:image" content="https://enlight.nyc/logo.jpg" />
+      <meta property="og:image" content="https://enlight.nyc{{ page.img }}" />
 
    {% endif %}
    {% if page.layout != 'post' %}
@@ -35,9 +35,9 @@
 
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
-
-      <link href="{{ "/style.css" | prepend: site.baseurl }}?{{site.time | date: '%s%N'}}" rel="stylesheet">
-      <link href="/syntax.css" rel="stylesheet">
+      <link href="/style.css" rel="stylesheet">
+      <!-- <link href="{{ "/style.css" | prepend: site.baseurl }}?{{site.time | date: '%s%N'}}" rel="stylesheet" /> -->
+      <link href="/syntax.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
             <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>

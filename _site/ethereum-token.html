@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Build your own Ethereum Token with Solidity</title>
+      <link rel="canonical" href="https://enlight.nyc/ethereum-token">
+      <meta name="description" content="Build a ERC20 token on top of the Ethereum blockchain.">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Build your own Ethereum Token with Solidity" />
+      <meta name="twitter:description" content="Build a ERC20 token on top of the Ethereum blockchain." />
+      <meta name="twitter:image" content="https://enlight.nyc/img/tokens2.gif" />
+      <meta property="og:title" content="Build a Build your own Ethereum Token with Solidity">
+      <meta property="og:description" content="Build a ERC20 token on top of the Ethereum blockchain.">
+      <meta property="og:url" content="http://0.0.0.0:4000/ethereum-token">
+      <meta property="og:image" content="https://enlight.nyc/img/tokens2.gif" />
+
+   
+   
+
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="/style.css" rel="stylesheet">
+      <!-- <link href="/style.css?1516068547380325000" rel="stylesheet" /> -->
+      <link href="/syntax.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="black">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+		<nav>
+		  <div class="nav-mobile">
+		    <a id="nav-toggle" href="#!"><span></span></a>
+		  </div>
+		  <ul class="nav-list">
+		    <li><a href="#">All Projects</a>
+		      <ul class="nav-dropdown">
+		        <li><a href="/web">HTML/CSS/JS</a></li>
+		        <li><a href="/ml">Machine Learning</a></li>
+		        <li><a href="/crypto">Blockchain</a></li>
+		      </ul></li>
+		    <li><a href="https://community.enlight.nyc">Community</a></li>
+		    <li><a href="/guide">Guide</a></li>
+		    <li><a href="/about">About</a></li>
+		  </ul>
+		</nav>
+
+		
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 black tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc"><span>Build your own Ethereum Token</span></h1>
+        <a href="https://ropsten.etherscan.io/token/0x97084d6ce5841b81b0d2aa99f2fb5ef5917cc79c"><img class="project-image" src="/img/tokens2.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/enlight/tree/master/demo/ethereum-token/ENLT.sol" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+				
+        <a href="https://ropsten.etherscan.io/token/0x97084d6ce5841b81b0d2aa99f2fb5ef5917cc79c" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+				
+        <h3 class="f4 fw3 tc">By <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <h2 id="what-is-an-ethereum-token">What is an Ethereum Token?</h2>
+
+<p><a href="https://ethereum.org">Ethereum</a> is an open software platform based on blockchain technology that enables developers to build and deploy decentralized applications. Many dApps have their own token built on top of the Ethereum network to crowdfund or run the dApps.</p>
+
+<p>In this tutorial, we’ll be building a <a href="https://en.wikipedia.org/wiki/ERC20">ERC20</a> standard token that is capable of the following:</p>
+<ul>
+  <li>checking balances</li>
+  <li>transfer tokens</li>
+  <li>transfer tokens from an address to another</li>
+  <li>approve account(s) to withdraw tokens</li>
+  <li>display amount approved for withdrawal between two accounts</li>
+</ul>
+
+<h2 id="writing-our-token-contract">Writing our Token Contract</h2>
+
+<p>We will be programming in <a href="https://solidity.readthedocs.io/en/develop/">Solidity</a>, the language of the Ethereum network created for smart contracts. Open up a text editor and create a file with your token name and the <code class="highlighter-rouge">.sol</code> file extension at the end. Note that this token contract tutorial is based on the ERC20 implementation from <a href="https://github.com/ConsenSys/Token-Factory">Token Factory</a>.</p>
+
+<p>Let’s write a ERC20Token contract by declaring all our methods:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="nx">contract</span> <span class="nx">ERC20Token</span> <span class="p">{</span>
+
+    <span class="kd">function</span> <span class="nx">totalSupply</span><span class="p">()</span> <span class="nx">constant</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">supply</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">balanceOf</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_owner</span><span class="p">)</span> <span class="nx">constant</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">balance</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">transferFrom</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">approve</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">allowance</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_owner</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_spender</span><span class="p">)</span> <span class="nx">constant</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">remaining</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nx">event</span> <span class="nx">Transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">indexed</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">indexed</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">);</span>
+    <span class="nx">event</span> <span class="nx">Approval</span><span class="p">(</span><span class="nx">address</span> <span class="nx">indexed</span> <span class="nx">_owner</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">indexed</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, we define the functions of the ERC20 Token standard as mentioned above.  One can see that <code class="highlighter-rouge">totalSupply()</code> returns a <code class="highlighter-rouge">uint</code>, or value of tokens in circulation. <code class="highlighter-rouge">balanceof()</code> and <code class="highlighter-rouge">allowance()</code> also return integers, while <code class="highlighter-rouge">transfer()</code>, <code class="highlighter-rouge">transferFrom()</code>, and <code class="highlighter-rouge">approve()</code> return boolean (true/false) values. The parameters of these functions have an <code class="highlighter-rouge">address</code> field which is the ETH public key of a user. The two <code class="highlighter-rouge">event</code> methods emit details of transfers and approvals.</p>
+
+<p>Solidity uses contract inheritance, so let’s create another contract to implement the methods we’ve defined. In this contract, we’ll need to start off by creating an array, or mapping <code class="highlighter-rouge">addresses</code> to balances. Along with our <code class="highlighter-rouge">balances</code> array, we also need an <code class="highlighter-rouge">allowed</code> array to indicate how much of our token an address can withdraw from another address. Lastly, let’s also define a <code class="highlighter-rouge">public</code> integer totalSupply which will hold the amount of tokens we will have in circulation.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">contract</span> <span class="nx">Token</span> <span class="nx">is</span> <span class="nx">ERC20Token</span> <span class="p">{</span>
+
+    <span class="nx">mapping</span> <span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">uint256</span><span class="p">)</span> <span class="nx">balances</span><span class="p">;</span>
+    <span class="nx">mapping</span> <span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">mapping</span> <span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">uint256</span><span class="p">))</span> <span class="nx">allowed</span><span class="p">;</span>
+    <span class="nx">uint256</span> <span class="kr">public</span> <span class="nx">totalSupply</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Adding to this contract, we need to implement the rest of our methods. Our <code class="highlighter-rouge">transfer()</code> function takes two parameters: the address we are sending our token to (<code class="highlighter-rouge">address _to</code>), and the amount we are sending (<code class="highlighter-rouge">uint256 _value</code>). We will be returning a <code class="highlighter-rouge">bool</code> value (true/false) to indicate whether our tokens have been transferred successfully or not.</p>
+
+<p>In our function, we have to deduct the amount of tokens spent by the sender and add the token value to the destination address. However, we will do this only when certain conditions are met. So, we’ll use a <code class="highlighter-rouge">if</code> statement that will transfer the tokens only if the sender’s balance is more than or equal to the value of tokens being sent and if that value if over 0. Otherwise, the function will return <code class="highlighter-rouge">false</code>. After we complete the transfer, we emit the details of the transaction with the <code class="highlighter-rouge">Transfer</code> event.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span> <span class="o">&amp;&amp;</span> <span class="nx">_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>
+            <span class="nx">balances</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">_value</span><span class="p">;</span>
+            <span class="nx">Transfer</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Our <code class="highlighter-rouge">transferFrom</code> method is almost identical from the one above, but since we are transferring tokens from one address to another, we need to add an <code class="highlighter-rouge">address _from</code> parameter. We also need to check if the number of tokens being transferred is approved.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">transferFrom</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">balances</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span> <span class="o">&amp;&amp;</span> <span class="nx">allowed</span><span class="p">[</span><span class="nx">_from</span><span class="p">][</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span> <span class="o">&amp;&amp;</span> <span class="nx">_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">balances</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">_value</span><span class="p">;</span>
+        <span class="nx">balances</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>
+        <span class="nx">allowed</span><span class="p">[</span><span class="nx">_from</span><span class="p">][</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>
+        <span class="nx">Transfer</span><span class="p">(</span><span class="nx">_from</span><span class="p">,</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To implement our <code class="highlighter-rouge">balanceOf()</code> method, we just need to return the value stored in the balances array for the address inputted.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">balanceOf</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_owner</span><span class="p">)</span> <span class="nx">constant</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">balance</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">balances</span><span class="p">[</span><span class="nx">_owner</span><span class="p">];</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>There are two remaining methods to develop a ERC20 standard token. The <code class="highlighter-rouge">approve()</code> method allows allowances to be added for the sender to withdraw tokens from a certain address. It will call the <code class="highlighter-rouge">Approval()</code> event to emit the details of the approval.</p>
+
+<p>Lastly, we can return the allowance an address can withdraw of another address.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">approve</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">allowed</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">][</span><span class="nx">_spender</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_value</span><span class="p">;</span>
+        <span class="nx">Approval</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">allowance</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_owner</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_spender</span><span class="p">)</span> <span class="nx">constant</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">remaining</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">allowed</span><span class="p">[</span><span class="nx">_owner</span><span class="p">][</span><span class="nx">_spender</span><span class="p">];</span>
+    <span class="p">}</span> <span class="c1">// end of Token contract</span>
+</code></pre></div></div>
+
+<p>To initialize our token, we can create another contract inherited from the <code class="highlighter-rouge">Token</code> contract with our token name. For this example, I’m going to be creating 1,000 Enlight, or ENLT tokens.</p>
+
+<p>We want to make sure that, since this isn’t an ICO, if ether is sent to this address, we send it back. In this contract, we will also be defining our token name, number of decimals to show, and the token symbol.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">contract</span> <span class="nx">ENLT</span> <span class="nx">is</span> <span class="nx">Token</span> <span class="p">{</span>
+
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//if ether is sent to this address, send it back.</span>
+        <span class="k">throw</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">string</span> <span class="kr">public</span> <span class="nx">name</span><span class="p">;</span>                   
+    <span class="nx">uint8</span> <span class="kr">public</span> <span class="nx">decimals</span><span class="p">;</span>               
+    <span class="nx">string</span> <span class="kr">public</span> <span class="nx">symbol</span><span class="p">;</span>                
+
+    <span class="kd">function</span> <span class="nx">ENLT</span><span class="p">(</span> <span class="c1">// should have the same name as the contract name</span>
+        <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>    <span class="c1">// creator gets all initial tokens</span>
+        <span class="nx">totalSupply</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>             <span class="c1">// total supply of token</span>
+        <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Enlight"</span><span class="p">;</span>               <span class="c1">// name of token</span>
+        <span class="nx">decimals</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                  <span class="c1">// amount of decimals</span>
+        <span class="nx">symbol</span> <span class="o">=</span> <span class="s2">"ENLT"</span><span class="p">;</span>                <span class="c1">// symbol of token</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* Approves and then calls the receiving contract */</span>
+    <span class="kd">function</span> <span class="nx">approveAndCall</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">,</span> <span class="nx">bytes</span> <span class="nx">_extraData</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">allowed</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">][</span><span class="nx">_spender</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_value</span><span class="p">;</span>
+        <span class="nx">Approval</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">_spender</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">_spender</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bytes4</span><span class="p">(</span><span class="nx">bytes32</span><span class="p">(</span><span class="nx">sha3</span><span class="p">(</span><span class="s2">"receiveApproval(address,uint256,address,bytes)"</span><span class="p">))),</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">_value</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="nx">_extraData</span><span class="p">))</span> <span class="p">{</span> <span class="k">throw</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">approveAndCall()</code> method runs when the contact is authorized to transfer an amount of tokens from the sender account, and the function <code class="highlighter-rouge">receiveApproval()</code> is called in the receiving contract where the transfer can be done.</p>
+
+<h2 id="publishing-our-contract-to-the-testnet">Publishing our contract to the Testnet</h2>
+
+<p>Now that we’ve written our token contract, we can deploy it to the Ethereum testnet.</p>
+
+<h3 id="metamask">Metamask</h3>
+
+<p>Download the <a href="https://metamask.io/">Metamask</a> extension. This extension will help us connect to the test blockchain easily.</p>
+
+<p>Once it installs, create a password. On the top left of the extension, connect to the Ropsten Test Network. Since we are on the test network, we will need some test ether to deploy our contract. Go to this <a href="https://faucet.metamask.io/">faucet</a> to get 1 free test Ether.</p>
+
+<h3 id="ethereum-remix">Ethereum Remix</h3>
+
+<p>Now, go to <a href="https://remix.ethereum.org/">Ethereum’s Solidity IDE</a> so we can deploy the contract. Copy the contract code and click on the run tab up top. Make sure your environment is set to Injected Web3 and then select on your token contract and click create. Metamask will now pop up asking to complete the transaction of paying for fees. Once you click submit, your contract will be published.</p>
+
+<p><img src="/img/confirm-token.jpg" class="img" /></p>
+
+<p>If you go to the “sent” tab on Metamask, you will be able to see that our contract is published. Click on the contract image to pull up the testnet explorer.</p>
+
+<h3 id="checking-our-balance-in-metamask">Checking our balance in Metamask</h3>
+
+<p>On the explorer page, copy the contract address. To add the tokens to our wallet, go to Metamask, select the token tab, and then click on add tokens. Copy the Token contract address and click add. You’ll now be able to see that you own X amount of your token!</p>
+
+<p><img src="/img/metamask.jpg" class="img" /></p>
+
+<h2 id="sending-and-receiving-tokens">Sending and Receiving Tokens</h2>
+
+<p>To interact with your contract, you could build a dApp that would use the smart contract as an API, but the easiest way to send and receive tokens for now would be to use a dApp called <a href="https://tokenfactory.surge.sh/#/tokensearch">Token Factory</a>. Simply enter your contract address and you have access to all the methods we programmed on our contract. If you want to test transactions, try creating another account on Metamask (top right) and send some tokens to that address (you can copy the address by clicking on the three dots next to the account name).</p>
+
+<p><img src="/img/confirm-token.jpg" class="img" /></p>
+
+<p>If you want some ENLT, drop a reply <a href="http://community.enlight.nyc/t/build-your-own-ethereum-token/30">here</a> and I’ll send you some!</p>
+
+<h3 id="looking-at-etherscan">Looking at Etherscan</h3>
+
+<p>If we take a look at ENLT’s page on <a href="https://ropsten.etherscan.io/token/0x97084d6ce5841b81b0d2aa99f2fb5ef5917cc79c">Etherscan</a>, we can see the total supply as well as all the token transfers that have taken place and all the token holders!</p>
+
+<p>Coming soon will be a full fledged dApp built on the Ethereum network that will utilize smart contracts. Feel free to discuss this project on the community forum below.</p>
+
+ </div>
+
+
+			<article class="mw7 center ph3 ph5-ns tc br2 pv5 bg-black white mb5">
+				<a href="http://community.enlight.nyc/t/build-your-own-ethereum-token/30"
+			  <h1 class="fw6 f3 f2-ns lh-title mt0 mb3">
+			    Have a question, comment, or suggestion?
+			  </h1>
+			  <h2 class="fw2 f4 lh-copy mt0 mb3">
+			    Click here to discuss this project on the commmunity forum.
+			  </h2>
+			</a>
+			</article>
+
+
+
+
+
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+		<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+
+
+		<script src="/js/scripts.js"></script>
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,600+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+        © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/TryEnlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+  
+</footer>
+
+
+</html>
