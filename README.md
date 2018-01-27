@@ -1,5 +1,5 @@
 <p align="center"><h1 align="center">Enlight</h1></p>
-<p align="center"><b>learn to code by building projects</b>
+<p align="center"><b>learn to code by building projects</b></p>
 
 ## projects available
 
@@ -36,15 +36,17 @@ Python
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
 ## Contribute by adding your projects & tutorials!
-Enlight is open-source - which means we love contributors! Have a project on the web, a cool app you're making, or really  anything useful? Share your knowledge! It doesn't have to be a specific programming language -- just send us whatever you want to share!
+Enlight is open-source, which means we love contributors! Have a project on the web, a cool app you're making, or really  anything useful? Share your knowledge! It doesn't have to be a specific programming language, just send us whatever you want to share!
 
 If it's useful, it'll be posted on the site with of course, credit to you!
 
-- fork the repo
-- put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory
-- submit a pull request
+#### Pull request
+- Fork this repository
+- Put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory, We used [jekyll](https://jekyllrb.com/) to build the site, So for test and debugging you should [install jekyll](https://jekyllrb.com/docs/installation/) and serve it with `jekyll serve` command.
+- Submit a [pull request](https://github.com/TryEnlight/tryenlight.github.io/pulls)
 
-**or...** if you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
+#### E-mail
+If you don't want to go through GitHub, you can email me your project+tutorial at techboss302@gmail.com
 
 thank you!
 
