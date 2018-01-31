@@ -24,6 +24,13 @@ Python
 - [Guessing Number Game](https://tryenlight.github.io/guess-number)
 - [Neural Network](https://tryenlight.github.io/neural-network)
 
+Data Science
+- [Neural Network](https://tryenlight.github.io/neural-network)
+- [Stock Market Prediction](https://enlight.nyc/stock-market-prediction)
+
+Blockchain
+- [Ethereum Token](https://enlight.nyc/ethereum-token)
+
 
 ## for the future
 - Machine Learning
