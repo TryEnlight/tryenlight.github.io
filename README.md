@@ -29,9 +29,13 @@ Python
 - Machine Learning
     - Linear Regression w/ Best Fit Line
     - Classification & Object Detection
+    - Recognition algorithm
+- Crypto Prediction Algorithm
+- Crypto bot
 - Blockchain Implementation
 - HN Clone
 - Twitter Clone
+
 
 - suggest more ideas using this [issue](https://github.com/samayshamdasani/enlight/issues/2)
 
