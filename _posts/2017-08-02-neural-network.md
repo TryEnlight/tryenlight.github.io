@@ -480,6 +480,8 @@ Output:
 
 There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it's super impressive that your computer, a physical object, managed to *learn* by itself!
 
+If you want to see how this network can be applied to digit recognition, you can take a look at my implementation of it [here](https://repl.it/@shamdasani/DigitRecognition).
+
 Make sure to stick around for more machine learning tutorials on other models like Linear Regression and Classification coming soon!
 
 
