@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Build a Snowglobe
-description: Build a ERC20 token on top of the Ethereum blockchain.
+description: Use Three.js to develop an interactive winter scene.
 author: <a class="link white" href="mailto:thomas.c.narramore@gmail.com">Thomas Narramore</a>
 difficulty: intermediate
 category: middle-web
