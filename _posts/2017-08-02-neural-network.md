@@ -130,7 +130,7 @@ This image breaks down what our neural network actually does to produce an outpu
 
 ```python
 (2 * .2) + (9 * .8) = 7.6
-(2 * .6) + (9 * .3) = 7.5
+(2 * .6) + (9 * .3) = 3.9
 (2 * .1) + (9 * .7) = 6.5
 ```
 To get the final value for the hidden layer, we need to apply the [activation function](https://en.wikipedia.org/wiki/Activation_function). The role of an activation function is to introduce nonlinearity. An advantage of this is that the output is mapped from a range of 0 and 1, making it easier to alter weights in the future.
@@ -491,4 +491,4 @@ Make sure to stick around for more machine learning tutorials on other models li
 
 [Welch Labs](https://www.youtube.com/watch?v=bxe2T-V8XRs)
 
-*Special thanks to [Kabir Shah](https://blog.kabir.ml/posts/machine-learning.html) for his contributions to the development of this tutorial*
+[Kabir Shah](https://blog.kabir.ml/posts/machine-learning.html) 

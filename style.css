@@ -75,6 +75,15 @@ header {
   animation: GradientAnimation 23s ease infinite;
 }
 
+.navy {
+  background: linear-gradient(to right, #16222a, #3a6073);
+  background-size: 400% 400%;
+
+  -webkit-animation: GradientAnimation 60s ease infinite;
+  -moz-animation: GradientAnimation 60s ease infinite;
+  animation: GradientAnimation 60s ease infinite;
+}
+
 .black {
   background: linear-gradient(to right, #000000, #434343);
   background-size: 400% 400%;

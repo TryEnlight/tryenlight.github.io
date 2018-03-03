@@ -23,7 +23,7 @@
 
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
-      <link href="/style.css?1517452234179721000" rel="stylesheet" />
+      <link href="/style.css?1520046645830141000" rel="stylesheet" />
       <link href="/syntax.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
             <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -213,7 +213,7 @@ gtag('config', 'UA-85620206-1')
 <p>This image breaks down what our neural network actually does to produce an output. First, the products of the random generated weights (.2, .6, .1, .8, .3, .7) on each synapse and the corresponding inputs are summed to arrive as the first values of the hidden layer. These sums are in a smaller font as they are not the final values for the hidden layer.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">8</span><span class="p">)</span> <span class="o">=</span> <span class="mf">7.6</span>
-<span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">3.9</span>
 <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="o">.</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="mf">6.5</span>
 </code></pre></div></div>
 <p>To get the final value for the hidden layer, we need to apply the <a href="https://en.wikipedia.org/wiki/Activation_function">activation function</a>. The role of an activation function is to introduce nonlinearity. An advantage of this is that the output is mapped from a range of 0 and 1, making it easier to alter weights in the future.</p>
@@ -545,6 +545,8 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <p>There you have it! A full-fledged neural network that can learn and adapt to produce accurate outputs. While we thought of our inputs as hours studying and sleeping, and our outputs as test scores, feel free to change these to whatever you like and observe how the network adapts! After all, all the network sees are the numbers. The calculations we made, as complex as they seemed to be, all played a big role in our learning model. If you think about it, it’s super impressive that your computer, a physical object, managed to <em>learn</em> by itself!</p>
 
+<p>If you want to see how this network can be applied to digit recognition, you can take a look at my implementation of it <a href="https://repl.it/@shamdasani/DigitRecognition">here</a>.</p>
+
 <p>Make sure to stick around for more machine learning tutorials on other models like Linear Regression and Classification coming soon!</p>
 
 <h4 id="references">References</h4>
@@ -553,7 +555,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
 
 <p><a href="https://www.youtube.com/watch?v=bxe2T-V8XRs">Welch Labs</a></p>
 
-<p><em>Special thanks to <a href="https://blog.kabir.ml/posts/machine-learning.html">Kabir Shah</a> for his contributions to the development of this tutorial</em></p>
+<p><a href="https://blog.kabir.ml/posts/machine-learning.html">Kabir Shah</a></p>
 
  </div>
 
@@ -615,7 +617,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
   <footer class="pa4 pa5-l black-70 bt b--black-10">
 
 <div class="email">
-<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,600+ other developers.</h1>
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,700+ other developers.</h1>
 <form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
   <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
   <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
@@ -642,7 +644,7 @@ Basically, if we have a weight of `10`, and an input of `5`, our output is `50`.
       © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
     </p>
   </div>
-  
+
 </footer>
 
 

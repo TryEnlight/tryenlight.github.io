@@ -6,7 +6,7 @@ author: <a class="link white" href="https://shamdasani.org">Samay Shamdasani</a>
 difficulty: intermediate
 category: crypto
 permalink: /ethereum-token
-img: /img/tokens2.gif
+img: /img/ethereum.jpg
 source: https://github.com/tryenlight/enlight/tree/master/demo/ethereum-token/ENLT.sol
 demourl: https://ropsten.etherscan.io/token/0x97084d6ce5841b81b0d2aa99f2fb5ef5917cc79c
 language: Solidity

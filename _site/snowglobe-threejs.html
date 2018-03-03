@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   
+      <title>Build a Snowglobe with Three.js</title>
+      <link rel="canonical" href="https://enlight.nyc/snowglobe-threejs">
+      <meta name="description" content="Build a ERC20 token on top of the Ethereum blockchain.">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tryenlight" />
+      <meta name="twitter:title" content="Build a Snowglobe with Three.js" />
+      <meta name="twitter:description" content="Build a ERC20 token on top of the Ethereum blockchain." />
+      <meta name="twitter:image" content="https://enlight.nyc/img/snowglobe.gif" />
+      <meta property="og:title" content="Build a Snowglobe with Three.js">
+      <meta property="og:description" content="Build a ERC20 token on top of the Ethereum blockchain.">
+      <meta property="og:url" content="http://0.0.0.0:4000/snowglobe-threejs">
+      <meta property="og:image" content="https://enlight.nyc/img/snowglobe.gif" />
+
+   
+   
+
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.min.css" />
+      <link href="/style.css?1520046645830141000" rel="stylesheet" />
+      <link href="/syntax.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85620206-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'UA-85620206-1')
+</script>
+
+	</head>
+
+
+	<header class="navy">
+    <div class="top">
+    <div class="enlight">
+    <a href="/" class="white">enlight</a>
+    </div>
+
+		<nav>
+		  <div class="nav-mobile">
+		    <a id="nav-toggle" href="#!"><span></span></a>
+		  </div>
+		  <ul class="nav-list">
+		    <li><a href="#">All Projects</a>
+		      <ul class="nav-dropdown">
+		        <li><a href="/web">HTML/CSS/JS</a></li>
+		        <li><a href="/ml">Machine Learning</a></li>
+		        <li><a href="/crypto">Blockchain</a></li>
+		      </ul></li>
+		    <li><a href="https://community.enlight.nyc">Community</a></li>
+		    <li><a href="/guide">Guide</a></li>
+		    <li><a href="/about">About</a></li>
+		  </ul>
+		</nav>
+
+		
+    </div>
+	</header>
+
+
+	<body>
+
+    <!-- https://www.gradient-animator.com/ -->
+    <article class="dt w-100 navy tc">
+      <div class="dtc v-top tc white ph3 ph4-l pt2">
+        <h1 class="f1 f-subheadline-l fw6 tc"><span>Build a Snowglobe</span></h1>
+        <a href="https://enlight.nyc/snowglobe"><img class="project-image" src="/img/snowglobe.gif"></a><br><br>
+				<div class="pv4">
+
+        <a href="https://github.com/tryenlight/snowglobe" class="f4 link ba ph3 pv2 mb2 dib white button">Source</a>
+				
+        <a href="https://enlight.nyc/snowglobe" class="f4 link ba ph3 pv2 mb2 dib white button">Demo</a>
+				
+        <h3 class="f4 fw3 tc">By <a class="link white" href="mailto:thomas.c.narramore@gmail.com">Thomas Narramore</a></h3>
+			</div>
+			</div>
+
+    </article>
+
+    <div class="content pv4 pa2">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <p>In this tutorial, we will be building a winter scene using a javascript library called <code class="highlighter-rouge">three.js</code>.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Before we begin, you’ll need to download three.js <a href="http://threejs.org">here</a>. After you unzip the file, open, the <code class="highlighter-rouge">build</code> folder, take the file <code class="highlighter-rouge">three.min.js</code>, and put it in a new project folder. You also need to navigate to the <code class="highlighter-rouge">examples/js/controls</code> folder and copy <code class="highlighter-rouge">OrbitControls.js</code> to your project folder.</p>
+
+<p>For this project, we’ll only need to make two files:</p>
+<ul>
+  <li>index.html - this file will hold our markup and have the canvas for our animation</li>
+  <li>app.js - this is where we’ll be doing most of our work</li>
+</ul>
+
+<p>In our html file, we just need to do two things. First, we’ll need to link our javascript files.  Link the the <code class="highlighter-rouge">three.js</code> file, which contains the code for the library we’re using. Below that link <code class="highlighter-rouge">three-orbit-controls.js</code>, which contains the code that will allow us to rotate our view and zoom in and out in the animation, and finally your <code class="highlighter-rouge">app.js</code> which will contain all the code you write.</p>
+
+<p>Second, we’ll add a <code class="highlighter-rouge">style</code> tag where we set the <code class="highlighter-rouge">margin</code> to 0, and <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> to 100%. This will ensure that the animation takes up the whole window.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Winter Scene<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/three.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/three-orbit-controls.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+<span class="nt">&lt;style&gt;</span>
+  <span class="nt">body</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">canvas</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span> <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span> <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre></div></div>
+<h2 id="creating-the-scene">Creating the Scene</h2>
+
+<p>Now, let’s open our JavaScript file where we’ll be programming our animation. We’ll cover the setup very quickly here, but you can find a more detailed explanation in the Three.js <a href="https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene">documentation</a>.</p>
+
+<p>We need to do a few things to set up the scene. First, make a variable and set it to <code class="highlighter-rouge">Three.Scene()</code>. The scene is an object that will hold everything we create. Then, set the background color to <code class="highlighter-rouge">0xBAD4FF</code>.</p>
+
+<p>Next, create a <code class="highlighter-rouge">camera</code> variable that we set to <code class="highlighter-rouge">THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 50 )</code>. Here, in the <a href="https://threejs.org/docs/#api/cameras/PerspectiveCamera">PerspectiveCamera</a>, specify our field of view, or how wide of an angle we see as the first attribute. The second attribute is the aspect ratio, and the third and fourth ones are the clipping planes, which determines how near or far the object must be before the camera stops rendering it.</p>
+
+<p>Finally, we need to create the <code class="highlighter-rouge">renderer</code>, set it the width and height of the window, and append it to the document using <code class="highlighter-rouge">document.body.appendChild()</code>.</p>
+
+<p>Here’s what our code should look like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="mh">0xbad4ff</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span> <span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+<span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="creating-snow">Creating Snow</h2>
+
+<p>To create our snowflakes, we will first set a <code class="highlighter-rouge">flakeCount</code> to the desired amount of snowflakes. We’ll be using <a href="https://threejs.org/docs/#api/geometries/TetrahedronGeometry">TetrahedronGeometry</a> with a radius of <code class="highlighter-rouge">.035</code> for our flake geometry and our snowflake material will be <a href="https://threejs.org/docs/#api/materials/MeshPhongMaterial">MeshPhongMaterial</a> with a color of white.</p>
+
+<p>To randomly generate these snowflakes onto the screen, we will use first define the varible <code class="highlighter-rouge">snow</code> as a <a href="https://threejs.org/docs/#api/objects/Group">Group</a> and use a <code class="highlighter-rouge">for</code> loop to iterate through each snowflake and set a random position in terms of <code class="highlighter-rouge">x, y, and z</code>. Add the mesh to the group and add the group, <code class="highlighter-rouge">snow</code>, to the scene. Lastly, we should set the variable <code class="highlighter-rouge">flakeArray</code> to <code class="highlighter-rouge">snow.children</code> so we can animate each one of them after.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">flakeCount</span> <span class="o">=</span> <span class="mi">9000</span>
+<span class="kd">var</span> <span class="nx">flakeGeometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TetrahedronGeometry</span><span class="p">(</span><span class="mf">0.035</span><span class="p">)</span> <span class="c1">// radius</span>
+<span class="kd">var</span> <span class="nx">flakeMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span> <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span> <span class="p">})</span>
+<span class="kd">var</span> <span class="nx">snow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Group</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">flakeCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">flakeMesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">flakeGeometry</span><span class="p">,</span> <span class="nx">flakeMaterial</span><span class="p">)</span>
+  <span class="nx">flakeMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span>
+    <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">40</span>
+  <span class="p">)</span>
+  <span class="nx">snow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">flakeMesh</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">snow</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">flakeArray</span> <span class="o">=</span> <span class="nx">snow</span><span class="p">.</span><span class="nx">children</span>
+</code></pre></div></div>
+
+<h2 id="creating-the-surface">Creating the Surface</h2>
+
+<p>To build the surface of our scene, we will be using <a href="https://threejs.org/docs/#api/geometries/CircleGeometry">CircleGeometry</a> with a radius of 10 and 50 segments (triangles). Our ground material is the same as before, <a href="https://threejs.org/docs/#api/materials/MeshPhongMaterial">MeshPhongMaterial</a>. To give the ground the right orientation, we can rotate it <code class="highlighter-rouge">90 degrees</code> on it’s x axis, or <code class="highlighter-rouge">pi/2</code> radians. Then we set the ground’s <code class="highlighter-rouge">y</code> position to <code class="highlighter-rouge">-1.8</code> to bring it slightly below the level of the camera.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">groundGeometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CircleGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">groundMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span> <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span> <span class="p">})</span>
+<span class="kd">var</span> <span class="nx">ground</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">groundGeometry</span><span class="p">,</span> <span class="nx">groundMaterial</span><span class="p">)</span>
+<span class="nx">ground</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.8</span>
+<span class="nx">ground</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ground</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="building-the-tree">Building the Tree</h2>
+
+<p>Finally, we can now build our tree. Our tree will consist of a trunk, and the three leaves in a cone shape. We set the tree variable to a <a href="https://threejs.org/docs/#api/objects/Group">Group</a> and then define <a href="https://threejs.org/docs/#api/geometries/CylinderGeometry">CylinderGeometry</a> with a radius top and bottom of <code class="highlighter-rouge">.2</code> and a height of <code class="highlighter-rouge">1</code>. Again, we also use <a href="https://threejs.org/docs/#api/materials/MeshPhongMaterial">MeshPhongMaterial</a> with a color of <code class="highlighter-rouge">0x49311c</code> for the trunk material.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tree</span>
+<span class="kd">var</span> <span class="nx">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Group</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">trunkGeometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CylinderGeometry</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">trunkMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span> <span class="na">color</span><span class="p">:</span> <span class="mh">0x49311c</span> <span class="p">})</span>
+<span class="kd">var</span> <span class="nx">trunk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">trunkGeometry</span><span class="p">,</span> <span class="nx">trunkMaterial</span><span class="p">)</span>
+<span class="nx">tree</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">trunk</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Since this only defines the trunk, we also need to add the leaves which make the tree, well, look like a tree. We will use <a href="https://threejs.org/docs/#api/geometries/ConeGeometry">ConeGeometry</a> with a radius of <code class="highlighter-rouge">1.2</code>, height of <code class="highlighter-rouge">2</code>, and <code class="highlighter-rouge">6</code> radial segments. Now once we add this to the <code class="highlighter-rouge">tree</code> group, we can define leaves for the middle and top, all by changing just the vertical position, <code class="highlighter-rouge">y</code>. If we set the <code class="highlighter-rouge">y</code> to a unit higher, then of course, the leaves element will rise one unit.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// leaves</span>
+
+<span class="kd">var</span> <span class="nx">leavesGeometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ConeGeometry</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">leavesMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span> <span class="na">color</span><span class="p">:</span> <span class="mh">0x3d5e3a</span> <span class="p">})</span>
+<span class="kd">var</span> <span class="nx">leavesBottom</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">leavesGeometry</span><span class="p">,</span> <span class="nx">leavesMaterial</span><span class="p">)</span>
+<span class="nx">leavesBottom</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="nx">tree</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">leavesBottom</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">leavesMiddle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">leavesGeometry</span><span class="p">,</span> <span class="nx">leavesMaterial</span><span class="p">)</span>
+<span class="nx">leavesMiddle</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">2.2</span>
+<span class="nx">tree</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">leavesMiddle</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">leavesTop</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">leavesGeometry</span><span class="p">,</span> <span class="nx">leavesMaterial</span><span class="p">)</span>
+<span class="nx">leavesTop</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">3.2</span>
+<span class="nx">tree</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">leavesTop</span><span class="p">)</span>
+
+<span class="nx">tree</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.3</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="rendering-the-scene">Rendering the scene</h2>
+
+<p>We’ve written everything to build our scene. All we have to do now is to render it!</p>
+
+<h3 id="lighting">Lighting</h3>
+
+<p>Right now, the elements are all black, since there is no light shine onto them! Let’s fix that. We’ll set two <a href="https://threejs.org/docs/#api/lights/PointLight">PointLights</a> where we will shine white light with an intensity of <code class="highlighter-rouge">.3</code> on each side. We will also have an <a href="https://threejs.org/docs/#api/lights/AmbientLight">AmbientLight</a> which illuminates the whole scene equally with an intensity of <code class="highlighter-rouge">.8</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">rightLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PointLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">rightLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">leftLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PointLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">leftLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">ambientLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">AmbientLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">rightLight</span><span class="p">)</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">leftLight</span><span class="p">)</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ambientLight</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="controls">Controls</h3>
+
+<p>To be able to interact with the scene, we must define our scene’s <a href="https://threejs.org/docs/#examples/controls/OrbitControls">OrbitControls</a> so that one can drag their mouse to move the scene. It is also essential that we zoom out to be able to see the whole scene, so we must set the scene’s <code class="highlighter-rouge">camera.position.z</code> to <code class="highlighter-rouge">15</code> and <code class="highlighter-rouge">camera.position.y</code> to <code class="highlighter-rouge">1</code> to view the scene at a higher perspective.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">controls</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">OrbitControls</span><span class="p">(</span><span class="nx">camera</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">)</span>
+
+<span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">controls</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h3 id="animations-and-rendering">Animations and Rendering</h3>
+
+<p>Now, to animate the snowflakes, we write two <code class="highlighter-rouge">for</code> loops. <code class="highlighter-rouge">FlakeArray</code> is an array containing each individual snowflake as we had defined earlier. The first <code class="highlighter-rouge">for</code> loop takes all the flakes from <code class="highlighter-rouge">FlakeArray[0]</code> to <code class="highlighter-rouge">flakeArray[flakeArray.length/2]</code>, and the second for loops takes all the flakes from <code class="highlighter-rouge">flakeArray[flakeArray.length/2]</code> to <code class="highlighter-rouge">flakeArray[flakeArray.length]</code>.</p>
+
+<p>We use <code class="highlighter-rouge">flakeArray[i].rotation.y/x/z</code> to make each flake spin on three axes, with all the flakes in our first loop spinning one direction and all the flakes in our second loop spinning the opposite direction.</p>
+
+<p>In both for loops, we set the <code class="highlighter-rouge">y</code> position of each snowflake to decrease, making the snow fall. Finally, in each loop we add an <code class="highlighter-rouge">if</code> statement that says if a flake falls below a certain <code class="highlighter-rouge">y</code> position, we increase the y position to bring it back to the top of the scene, causing the snowfall to go on infinitely.</p>
+
+<p>Lastly, we just update the controls and call our animate function to render the scene.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">animate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">flakeArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mf">0.01</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mf">0.02</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">z</span> <span class="o">+=</span> <span class="mf">0.03</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mf">0.018</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="nx">flakeArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">flakeArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mf">0.03</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">-=</span> <span class="mf">0.03</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">z</span> <span class="o">-=</span> <span class="mf">0.02</span>
+    <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mf">0.016</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">flakeArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mf">9.5</span>
+    <span class="p">}</span>
+
+    <span class="nx">snow</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mf">0.0000002</span>
+  <span class="p">}</span>
+  <span class="nx">controls</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>
+
+  <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">animate</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>There you have it! Try editing the project to your personal taste and of course, sharing it on the <a href="http://community.enlight.nyc/t/build-a-snowglobe-with-three-js/45">community forum</a>!</p>
+
+ </div>
+
+
+			<article class="mw7 center ph3 ph5-ns tc br2 pv5 bg-navy white mb5">
+				<a href="http://community.enlight.nyc/t/build-a-snowglobe-with-three-js/45"
+			  <h1 class="fw6 f3 f2-ns lh-title mt0 mb3">
+			    Have a question, comment, or suggestion?
+			  </h1>
+			  <h2 class="fw2 f4 lh-copy mt0 mb3">
+			    Click here to discuss this project on the commmunity forum.
+			  </h2>
+			</a>
+			</article>
+
+
+
+
+
+
+    <div class="content center f4 pv5 lh-copy ph2 content bt">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+/*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+;(function() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+    s = d.createElement('script')
+
+  s.src = 'https://enlight-2.disqus.com/embed.js'
+
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+})()
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+		<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+
+
+		<script src="/js/scripts.js"></script>
+
+	</body>
+
+  <footer class="pa4 pa5-l black-70 bt b--black-10">
+
+<div class="email">
+<h1 class="fw6 f3 f2-ns lh-title mt0 mb3">Join 1,700+ other developers.</h1>
+<form method="post" action="//enlight.us11.list-manage.com/subscribe/post?u=c28720fd0200ee7eef0e3e9ec&amp;id=1905fa696f" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <input placeholder="Email Address" value="" name="EMAIL" id="mce-EMAIL" type="email" class= "mw-100 w-80 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box">
+  <input type="submit" class="input-reset w-50 w-auto-ns bg-black-80 white f5 pv2 pv3-ns ph4 ba b--black-80 dim">
+</form>
+</div>
+
+
+
+  <div class="dt dt--fixed w-100" >
+    <div class="dn dtc-ns v-mid">
+      <p class="f7 black-70 dib pr3 mb3 pt5">
+        © Enlight 2017 by <a href="https://shamdasani.org">shamdasani.org</a>
+      </p>
+    </div>
+    <div class="dtc-ns black-70 tc tr-ns pt5">
+      <a href="https://twitter.com/tryenlight" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @tryenlight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+      <a class="link near-black hover-white dib mh3 tc" href="https://github.com/TryEnlight" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+  </a>
+    </div>
+  </div>
+  <div class="db dn-ns">
+    <p class="f7 black-70 mt4 tc">
+      © Enlight 2016-2018 by <a href="https://shamdasani.org">shamdasani.org</a>
+    </p>
+  </div>
+
+</footer>
+
+
+</html>
