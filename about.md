@@ -37,5 +37,6 @@ Feel free to shoot me an **[email](mailto:techboss302@gmail.com)** if you have a
 
 
 ### Contributors
+<a class="link white" href="mailto:thomas.c.narramore@gmail.com">Thomas Narramore</a><br>
 <a class="link white" href="https://ichauster.github.io/">Ivan Chau</a><br>
 <a class="link white" href="https://kabir.ml">Kabir Shah</a><br>
