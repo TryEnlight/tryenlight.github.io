@@ -15,7 +15,7 @@ color: orange
 ---
 ### Getting Started
 
-In this tutorial, we'll make a text editor in the browser. Using JavaScript, we can save the text automatically in a user's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that lets you save data in user's browser.
+In this tutorial, we'll make a text editor in the broswer. Using JavaScript, we can save the text automatically in a user's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" class="underline">localStorage</a> so that whenever the text editor is pulled up, it remembers the text that was written. localStorage is a JavaScript object that let's you save data in user's browser.
 
 As always, you'll need a folder with three files:
 
