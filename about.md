@@ -20,7 +20,7 @@ Enlight is open-source, which means we love contributors! Have a project on the 
 If it's useful, it'll be posted on the site with of course, credit to you!
 
 #### Pull request
-- Fork this repository
+- Fork [this repository](https://github.com/tryenlight/enlight)
 - Put the tutorial text in a `.md` file in the `_posts` directory and the source code in a folder in the `demo` directory, We used [jekyll](https://jekyllrb.com/) to build the site, So for test and debugging you should [install jekyll](https://jekyllrb.com/docs/installation/) and serve it with `jekyll serve` command.
 - Submit a [pull request](https://github.com/TryEnlight/tryenlight.github.io/pulls)
 

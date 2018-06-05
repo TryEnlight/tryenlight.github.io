@@ -4,7 +4,7 @@
     <url>
       <loc>http://0.0.0.0:4000/snowglobe-threejs</loc>
       
-        <lastmod>2018-03-02T00:00:00-05:00</lastmod>
+        <lastmod>2018-03-02T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -13,7 +13,7 @@
     <url>
       <loc>http://0.0.0.0:4000/ethereum-token</loc>
       
-        <lastmod>2018-01-14T00:00:00-05:00</lastmod>
+        <lastmod>2018-01-14T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -22,7 +22,7 @@
     <url>
       <loc>http://0.0.0.0:4000/stock-market-prediction</loc>
       
-        <lastmod>2017-12-15T00:00:00-05:00</lastmod>
+        <lastmod>2017-12-15T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -31,7 +31,7 @@
     <url>
       <loc>http://0.0.0.0:4000/neural-network</loc>
       
-        <lastmod>2017-08-02T00:00:00-04:00</lastmod>
+        <lastmod>2017-08-02T00:00:00-07:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -40,7 +40,7 @@
     <url>
       <loc>http://0.0.0.0:4000/twitter-bot</loc>
       
-        <lastmod>2017-06-14T00:00:00-04:00</lastmod>
+        <lastmod>2017-06-14T00:00:00-07:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -49,7 +49,7 @@
     <url>
       <loc>http://0.0.0.0:4000/guess-number</loc>
       
-        <lastmod>2017-02-28T00:00:00-05:00</lastmod>
+        <lastmod>2017-02-28T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -58,7 +58,7 @@
     <url>
       <loc>http://0.0.0.0:4000/nodejs-chat</loc>
       
-        <lastmod>2017-02-12T00:00:00-05:00</lastmod>
+        <lastmod>2017-02-12T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -67,7 +67,7 @@
     <url>
       <loc>http://0.0.0.0:4000/web-paint</loc>
       
-        <lastmod>2016-12-26T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-26T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -76,7 +76,7 @@
     <url>
       <loc>http://0.0.0.0:4000/weather</loc>
       
-        <lastmod>2016-12-26T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-26T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -85,7 +85,7 @@
     <url>
       <loc>http://0.0.0.0:4000/code-editor</loc>
       
-        <lastmod>2016-12-26T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-26T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -94,7 +94,7 @@
     <url>
       <loc>http://0.0.0.0:4000/hex-color-generator</loc>
       
-        <lastmod>2016-12-26T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-26T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -103,7 +103,7 @@
     <url>
       <loc>http://0.0.0.0:4000/clock</loc>
       
-        <lastmod>2016-12-26T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-26T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -112,7 +112,7 @@
     <url>
       <loc>http://0.0.0.0:4000/text-editor</loc>
       
-        <lastmod>2016-12-25T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-25T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -121,7 +121,7 @@
     <url>
       <loc>http://0.0.0.0:4000/quote</loc>
       
-        <lastmod>2016-12-25T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-25T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
@@ -130,7 +130,7 @@
     <url>
       <loc>http://0.0.0.0:4000/to-do</loc>
       
-        <lastmod>2016-12-24T00:00:00-05:00</lastmod>
+        <lastmod>2016-12-24T00:00:00-08:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>

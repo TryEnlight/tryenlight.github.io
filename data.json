@@ -1,0 +1,28 @@
+{
+  "projects" : [
+    {
+      "title": "Snowglobe",
+      "description": "test",
+      "language": "three.js",
+      "imageURL": "https://enlight.nyc/img/snowglobe.gif",
+      "difficulty": "easy",
+      "url": "https://enlight.nyc/snowglobe-threejs"
+    },
+    {
+      "title": "Neural Network",
+      "description": "test",
+      "language": "python",
+      "imageURL": "https://enlight.nyc/img/nn.png",
+      "difficulty": "hard",
+      "url": "https://enlight.nyc/neural-network"
+    },
+    {
+      "title": "Real Time Chat App",
+      "description": "test",
+      "language": "node.js",
+      "imageURL": "https://enlight.nyc/img/nodejs-chat.gif",
+      "difficulty": "intermediate",
+      "url": "https://enlight.nyc/nodejs-chat"
+    }
+  ]
+}
