@@ -1,4 +1,5 @@
-[
+{
+  "projects" : [
     {
       "title": "Snowglobe",
       "description": "test",
@@ -24,3 +25,4 @@
       "url": "https://enlight.nyc/nodejs-chat"
     }
   ]
+}
