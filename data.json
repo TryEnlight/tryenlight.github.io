@@ -1,7 +1,7 @@
 {
   "projects" : [
     {
-      "title": "Snowglobe",
+      "title": "3D Snowglobe",
       "description": "test",
       "language": "three.js",
       "imageURL": "https://enlight.nyc/img/snowglobe.gif",
