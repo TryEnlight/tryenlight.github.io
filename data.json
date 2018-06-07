@@ -5,7 +5,7 @@
       "description": "test",
       "language": "three.js",
       "imageURL": "https://enlight.nyc/img/snowglobe.gif",
-      "difficulty": "easy",
+      "difficulty": "beginner",
       "url": "https://enlight.nyc/snowglobe-threejs"
     },
     {
@@ -23,6 +23,70 @@
       "imageURL": "https://enlight.nyc/img/nodejs-chat.gif",
       "difficulty": "intermediate",
       "url": "https://enlight.nyc/nodejs-chat"
+    },
+    {
+      "title": "Twitter Bot",
+      "description": "test",
+      "language": "node.js",
+      "imageURL": "https://enlight.nyc/img/twitter-bot.png",
+      "difficulty": "intermediate",
+      "url": "https://enlight.nyc/twitter-bot"
+    },
+    {
+      "title": "Web Paint App",
+      "description": "test",
+      "language": "HTML/JS/CSS",
+      "imageURL": "https://enlight.nyc/img/web-paint.gif",
+      "difficulty": "intermediate",
+      "url": "https://enlight.nyc/web-paint"
+    },
+    {
+        "title": "Geolocation Weather App",
+        "description": "test",
+        "language": "HTML/JS/CSS",
+        "imageURL": "https://enlight.nyc/img/weather.gif",
+        "difficulty": "intermediate",
+        "url": "https://enlight.nyc/weather"
+    },
+    {
+        "title": "Guessing Number Game",
+        "description": "test",
+        "language": "Python",
+        "imageURL": "https://enlight.nyc/img/guess-number.gif",
+        "difficulty": "easy",
+        "url": "https://enlight.nyc/guess-number"
+    },
+    {
+        "title": "Hex Color Generator",
+        "description": "test",
+        "language": "HTML/JS/CSS",
+        "imageURL": "https://enlight.nyc/img/color.gif",
+        "difficulty": "beginner",
+        "url": "https://enlight.nyc/hex-color-generator"
+    },
+    {
+        "title": "Clock",
+        "description": "test",
+        "language": "HTML/JS/CSS",
+        "imageURL": "https://enlight.nyc/img/clock.gif",
+        "difficulty": "beginner",
+        "url": "https://enlight.nyc/clock"
+    },
+    {
+        "title": "Quote Generator",
+        "description": "test",
+        "language": "HTML/JS/CSS",
+        "imageURL": "https://enlight.nyc/img/quote.gif",
+        "difficulty": "beginner",
+        "url": "https://enlight.nyc/quote"
+    },
+    {
+        "title": "To-do List",
+        "description": "test",
+        "language": "HTML/JS/CSS",
+        "imageURL": "https://enlight.nyc/img/to-do.gif",
+        "difficulty": "beginner",
+        "url": "https://enlight.nyc/to-do"
     }
   ]
 }
