@@ -2,7 +2,7 @@
   "projects" : [
     {
       "title": "3D Snowglobe",
-      "description": "test",
+      "description": "Build an interactive 3D winter scene in Javascript",
       "language": "three.js",
       "imageURL": "https://enlight.nyc/img/snowglobe.gif",
       "difficulty": "beginner",
@@ -10,7 +10,7 @@
     },
     {
       "title": "Neural Network",
-      "description": "test",
+      "description": "Create a Neural Network from scratch to predict an outcome based on two features",
       "language": "python",
       "imageURL": "https://enlight.nyc/img/nn.png",
       "difficulty": "hard",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Real Time Chat App",
-      "description": "test",
+      "description": "Build a real-time chat app using Node.js that broadcasts messages to all clients ",
       "language": "node.js",
       "imageURL": "https://enlight.nyc/img/nodejs-chat.gif",
       "difficulty": "intermediate",
@@ -26,7 +26,7 @@
     },
     {
       "title": "Twitter Bot",
-      "description": "test",
+      "description": "Learn to interact with the Twitter API using JavaScript",
       "language": "node.js",
       "imageURL": "https://enlight.nyc/img/twitter-bot.png",
       "difficulty": "intermediate",
@@ -34,7 +34,7 @@
     },
     {
       "title": "Web Paint App",
-      "description": "test",
+      "description": "Create a fun web painting app to draw in any color",
       "language": "HTML/JS/CSS",
       "imageURL": "https://enlight.nyc/img/web-paint.gif",
       "difficulty": "intermediate",
@@ -42,7 +42,7 @@
     },
     {
         "title": "Geolocation Weather App",
-        "description": "test",
+        "description": "Use location and weather APIs to fetch the location and weather",
         "language": "HTML/JS/CSS",
         "imageURL": "https://enlight.nyc/img/weather.gif",
         "difficulty": "intermediate",
@@ -50,15 +50,15 @@
     },
     {
         "title": "Guessing Number Game",
-        "description": "test",
+        "description": "Build a simple guessing number game and learn the fundamentals of Python.",
         "language": "Python",
         "imageURL": "https://enlight.nyc/img/guess-number.gif",
-        "difficulty": "easy",
+        "difficulty": "beginner",
         "url": "https://enlight.nyc/guess-number"
     },
     {
         "title": "Hex Color Generator",
-        "description": "test",
+        "description": "Create a web app that generates random hex colors",
         "language": "HTML/JS/CSS",
         "imageURL": "https://enlight.nyc/img/color.gif",
         "difficulty": "beginner",
@@ -66,7 +66,7 @@
     },
     {
         "title": "Clock",
-        "description": "test",
+        "description": "Design and implement a clock from scratch using HTML, CSS, and JavaScript.",
         "language": "HTML/JS/CSS",
         "imageURL": "https://enlight.nyc/img/clock.gif",
         "difficulty": "beginner",
@@ -74,7 +74,7 @@
     },
     {
         "title": "Quote Generator",
-        "description": "test",
+        "description": "Interact with a Quote API and display inspiration",
         "language": "HTML/JS/CSS",
         "imageURL": "https://enlight.nyc/img/quote.gif",
         "difficulty": "beginner",
@@ -82,7 +82,7 @@
     },
     {
         "title": "To-do List",
-        "description": "test",
+        "description": "Create a to-do list in JavaScript to keep track of your tasks",
         "language": "HTML/JS/CSS",
         "imageURL": "https://enlight.nyc/img/to-do.gif",
         "difficulty": "beginner",
