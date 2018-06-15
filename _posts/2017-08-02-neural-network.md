@@ -23,9 +23,9 @@ Neural networks can be intimidating, especially for people new to machine learni
 
 With approximately 100 billion neurons, the human brain processes data at speeds as fast as 268 mph! In essence, a neural network is a collection of **neurons** connected by **synapses**. This collection is organized into three main layers: the input layer, the hidden layer, and the output layer. You can have many hidden layers, which is where the term **deep learning** comes into play. In an artifical neural network, there are several inputs, which are called **features**, and produce a single output, which is called a **label**.
 
-<img src="https://blog.kabir.ml/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img">
+<img src="https://blog.kabir.sh/img/machine-learning/FeedForwardNeuralNetwork.svg" class="img">
 <div class="tr">
-<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br>
+<sup>Image via <a href="https://blog.kabir.sh/posts/machine-learning">Kabir Shah</a></sup><br>
 </div>
 
 The circles represent neurons while the lines represent synapses. The role of a synapse is to multiply the inputs and **weights**. You can think of weights as the "strength" of the connection between neurons. Weights primarily define the output of a neural network. However, they are highly flexible. After, an activation function is applied to return an output.
@@ -52,34 +52,34 @@ Our neural network will model a single hidden layer with three inputs and one ou
 
 
 <div class="pa4">
-  <div class="overflow-auto">
-    <table class="f6 w-100 mw5 center" cellspacing="0">
-      <thead>
-        <tr class="stripe-dark">
-          <th class="fw6 tl pa3 bg-white">Hours Studied, Hours Slept (input)</th>
-          <th class="fw6 tl pa0 bg-white">Test Score (output)</th>
-        </tr>
-      </thead>
-      <tbody class="lh-copy">
-        <tr class="stripe-dark">
-          <td class="pa3">2, 9</td>
-          <td class="pa3">92</td>
-        </tr>
-        <tr class="stripe-dark">
-          <td class="pa3">1, 5</td>
-          <td class="pa3">86</td>
-        </tr>
-        <tr class="stripe-dark">
-          <td class="pa3">3, 6</td>
-          <td class="pa3">89</td>
-        </tr>
-        <tr class="stripe-dark">
-          <td class="pa3">4, 8</td>
-          <td class="pa3">?</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="overflow-auto">
+<table class="f6 w-100 mw5 center" cellspacing="0">
+<thead>
+<tr class="stripe-dark">
+<th class="fw6 tl pa3 bg-white">Hours Studied, Hours Slept (input)</th>
+<th class="fw6 tl pa0 bg-white">Test Score (output)</th>
+</tr>
+</thead>
+<tbody class="lh-copy">
+<tr class="stripe-dark">
+<td class="pa3">2, 9</td>
+<td class="pa3">92</td>
+</tr>
+<tr class="stripe-dark">
+<td class="pa3">1, 5</td>
+<td class="pa3">86</td>
+</tr>
+<tr class="stripe-dark">
+<td class="pa3">3, 6</td>
+<td class="pa3">89</td>
+</tr>
+<tr class="stripe-dark">
+<td class="pa3">4, 8</td>
+<td class="pa3">?</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -111,11 +111,11 @@ Next, let's define a python `class` and write an `init` function where we'll spe
 
 ```python
 class Neural_Network(object):
-  def __init__(self):
-    #parameters
-    self.inputSize = 2
-    self.outputSize = 1
-    self.hiddenSize = 3
+def __init__(self):
+#parameters
+self.inputSize = 2
+self.outputSize = 1
+self.hiddenSize = 3
 ```
 
 It is time for our first calculation. Remember that our synapses perform a [dot product](https://www.khanacademy.org/math/precalculus/precalc-matrices/multiplying-matrices-by-matrices/v/matrix-multiplication-intro), or matrix multiplication of the input and weight. Note that weights are generated randomly and between 0 and 1.
@@ -176,20 +176,20 @@ Once we have all the variables set up, we are ready to write our `forward` propa
 
 ```python
 def forward(self, X):
-    #forward propagation through our network
-    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
-    self.z2 = self.sigmoid(self.z) # activation function
-    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
-    o = self.sigmoid(self.z3) # final activation function
-    return o
+#forward propagation through our network
+self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+self.z2 = self.sigmoid(self.z) # activation function
+self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+o = self.sigmoid(self.z3) # final activation function
+return o
 ```
 
 Lastly, we need to define our sigmoid function:
 
 ```python
 def sigmoid(self, s):
-    # activation function
-    return 1/(1+np.exp(-s))
+# activation function
+return 1/(1+np.exp(-s))
 ```
 
 And, there we have it! A (untrained) neural network capable of producing an output.
@@ -206,27 +206,27 @@ X = X/np.amax(X, axis=0) # maximum of X array
 y = y/100 # max test score is 100
 
 class Neural_Network(object):
-  def __init__(self):
-    #parameters
-    self.inputSize = 2
-    self.outputSize = 1
-    self.hiddenSize = 3
+def __init__(self):
+#parameters
+self.inputSize = 2
+self.outputSize = 1
+self.hiddenSize = 3
 
-    #weights
-    self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
-    self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
+#weights
+self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
+self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
 
-  def forward(self, X):
-    #forward propagation through our network
-    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
-    self.z2 = self.sigmoid(self.z) # activation function
-    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
-    o = self.sigmoid(self.z3) # final activation function
-    return o
+def forward(self, X):
+#forward propagation through our network
+self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+self.z2 = self.sigmoid(self.z) # activation function
+self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+o = self.sigmoid(self.z3) # final activation function
+return o
 
-  def sigmoid(self, s):
-    # activation function
-    return 1/(1+np.exp(-s))
+def sigmoid(self, s):
+# activation function
+return 1/(1+np.exp(-s))
 
 NN = Neural_Network()
 
@@ -259,9 +259,9 @@ To figure out which direction to alter our weights, we need to find the rate of 
 
 In this case, we will be using a partial derivative to allow us to take into account another variable.
 
-<img src="https://blog.kabir.ml/img/machine-learning/weightToLoss.svg" class="img">
+<img src="https://blog.kabir.sh/img/machine-learning/weightToLoss.svg" class="img">
 <div class="tr">
-<sup>Image via <a href="https://blog.kabir.ml/posts/machine-learning">Kabir Shah</a></sup><br>
+<sup>Image via <a href="https://blog.kabir.sh/posts/machine-learning">Kabir Shah</a></sup><br>
 </div>
 
 This method is known as **gradient descent**. By knowing which way to alter our weights, our outputs can only get more accurate.
@@ -295,31 +295,31 @@ Let's continue to code our `Neural_Network` class by adding a sigmoidPrime (deri
 
 ```python
 def sigmoidPrime(self, s):
-    #derivative of sigmoid
-    return s * (1 - s)
+#derivative of sigmoid
+return s * (1 - s)
 ```
 
 Then, we'll want to create our `backward` propagation function that does everything specified in the four steps above:
 
 ```python
 def backward(self, X, y, o):
-    # backward propgate through the network
-    self.o_error = y - o # error in output
-    self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
+# backward propgate through the network
+self.o_error = y - o # error in output
+self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
 
-    self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
-    self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
+self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
+self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
 
-    self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
-    self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
+self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
+self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
 ```
 
 We can now define our output through initiating foward propagation and intiate the backward function by calling it in the `train` function:
 
 ```python
 def train (self, X, y):
-    o = self.forward(X)
-    self.backward(X, y, o)
+o = self.forward(X)
+self.backward(X, y, o)
 ```
 
 To run the network, all we have to do is to run the `train` function. Of course, we'll want to do this multiple, or maybe thousands, of times. So, we'll use a `for` loop.
@@ -327,12 +327,12 @@ To run the network, all we have to do is to run the `train` function. Of course,
 ```python
 NN = Neural_Network()
 for i in xrange(1000): # trains the NN 1,000 times
-  print "Input: \n" + str(X)
-  print "Actual Output: \n" + str(y)
-  print "Predicted Output: \n" + str(NN.forward(X))
-  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
-  print "\n"
-  NN.train(X, y)
+print "Input: \n" + str(X)
+print "Actual Output: \n" + str(y)
+print "Predicted Output: \n" + str(NN.forward(X))
+print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
+print "\n"
+NN.train(X, y)
 ```
 
 Great, we now have a Neural Network! What about using these trained weights to predict test scores that we don't know?
@@ -354,9 +354,9 @@ Then, we'll create a new function that prints our predicted output for `xPredict
 
 ```python
 def predict(self):
-    print "Predicted data based on trained weights: ";
-    print "Input (scaled): \n" + str(xPredicted);
-    print "Output: \n" + str(self.forward(xPredicted));
+print "Predicted data based on trained weights: ";
+print "Input (scaled): \n" + str(xPredicted);
+print "Output: \n" + str(self.forward(xPredicted));
 ```
 
 To run this function simply call it under the for loop.
@@ -367,8 +367,8 @@ NN.predict()
 If you'd like to save your trained weights, you can do so with `np.savetxt`:
 ```python
 def saveWeights(self):
-    np.savetxt("w1.txt", self.W1, fmt="%s")
-    np.savetxt("w2.txt", self.W2, fmt="%s")
+np.savetxt("w1.txt", self.W1, fmt="%s")
+np.savetxt("w2.txt", self.W2, fmt="%s")
 ```
 
 Here's the final result:
@@ -387,65 +387,65 @@ xPredicted = xPredicted/np.amax(xPredicted, axis=0) # maximum of xPredicted (our
 y = y/100 # max test score is 100
 
 class Neural_Network(object):
-  def __init__(self):
-    #parameters
-    self.inputSize = 2
-    self.outputSize = 1
-    self.hiddenSize = 3
+def __init__(self):
+#parameters
+self.inputSize = 2
+self.outputSize = 1
+self.hiddenSize = 3
 
-    #weights
-    self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
-    self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
+#weights
+self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
+self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
 
-  def forward(self, X):
-    #forward propagation through our network
-    self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
-    self.z2 = self.sigmoid(self.z) # activation function
-    self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
-    o = self.sigmoid(self.z3) # final activation function
-    return o
+def forward(self, X):
+#forward propagation through our network
+self.z = np.dot(X, self.W1) # dot product of X (input) and first set of 3x2 weights
+self.z2 = self.sigmoid(self.z) # activation function
+self.z3 = np.dot(self.z2, self.W2) # dot product of hidden layer (z2) and second set of 3x1 weights
+o = self.sigmoid(self.z3) # final activation function
+return o
 
-  def sigmoid(self, s):
-    # activation function
-    return 1/(1+np.exp(-s))
+def sigmoid(self, s):
+# activation function
+return 1/(1+np.exp(-s))
 
-  def sigmoidPrime(self, s):
-    #derivative of sigmoid
-    return s * (1 - s)
+def sigmoidPrime(self, s):
+#derivative of sigmoid
+return s * (1 - s)
 
-  def backward(self, X, y, o):
-    # backward propgate through the network
-    self.o_error = y - o # error in output
-    self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
+def backward(self, X, y, o):
+# backward propgate through the network
+self.o_error = y - o # error in output
+self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
 
-    self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
-    self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
+self.z2_error = self.o_delta.dot(self.W2.T) # z2 error: how much our hidden layer weights contributed to output error
+self.z2_delta = self.z2_error*self.sigmoidPrime(self.z2) # applying derivative of sigmoid to z2 error
 
-    self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
-    self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
+self.W1 += X.T.dot(self.z2_delta) # adjusting first set (input --> hidden) weights
+self.W2 += self.z2.T.dot(self.o_delta) # adjusting second set (hidden --> output) weights
 
-  def train(self, X, y):
-    o = self.forward(X)
-    self.backward(X, y, o)
+def train(self, X, y):
+o = self.forward(X)
+self.backward(X, y, o)
 
-  def saveWeights(self):
-    np.savetxt("w1.txt", self.W1, fmt="%s")
-    np.savetxt("w2.txt", self.W2, fmt="%s")
+def saveWeights(self):
+np.savetxt("w1.txt", self.W1, fmt="%s")
+np.savetxt("w2.txt", self.W2, fmt="%s")
 
-  def predict(self):
-    print "Predicted data based on trained weights: ";
-    print "Input (scaled): \n" + str(xPredicted);
-    print "Output: \n" + str(self.forward(xPredicted));
+def predict(self):
+print "Predicted data based on trained weights: ";
+print "Input (scaled): \n" + str(xPredicted);
+print "Output: \n" + str(self.forward(xPredicted));
 
 NN = Neural_Network()
 for i in xrange(1000): # trains the NN 1,000 times
-  print "# " + str(i) + "\n"
-  print "Input (scaled): \n" + str(X)
-  print "Actual Output: \n" + str(y)
-  print "Predicted Output: \n" + str(NN.forward(X))
-  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
-  print "\n"
-  NN.train(X, y)
+print "# " + str(i) + "\n"
+print "Input (scaled): \n" + str(X)
+print "Actual Output: \n" + str(y)
+print "Predicted Output: \n" + str(NN.forward(X))
+print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
+print "\n"
+NN.train(X, y)
 
 NN.saveWeights()
 NN.predict()
@@ -457,16 +457,16 @@ To see how accurate the network actually is, I ran trained it 100,000 times to s
 # 99999
 Input (scaled):
 [[ 0.66666667  1.        ]
- [ 0.33333333  0.55555556]
- [ 1.          0.66666667]]
+[ 0.33333333  0.55555556]
+[ 1.          0.66666667]]
 Actual Output:
 [[ 0.92]
- [ 0.86]
- [ 0.89]]
+[ 0.86]
+[ 0.89]]
 Predicted Output:
 [[ 0.92]
- [ 0.86]
- [ 0.89]]
+[ 0.86]
+[ 0.89]]
 Loss:
 1.94136958194e-18
 
@@ -491,4 +491,4 @@ Make sure to stick around for more machine learning tutorials on other models li
 
 [Welch Labs](https://www.youtube.com/watch?v=bxe2T-V8XRs)
 
-[Kabir Shah](https://blog.kabir.ml/posts/machine-learning.html) 
+[Kabir Shah](https://blog.kabir.sh/posts/machine-learning.html)

@@ -1,9 +1,10 @@
 import numpy as np
 
 # X = (hours studying, hours sleeping), y = score on test, xPredicted = 4 hours studying & 8 hours sleeping (input data for prediction)
-X = np.array(([2, 9], [1, 5], [3, 6]), dtype=float)
-y = np.array(([92], [86], [89]), dtype=float)
-xPredicted = np.array(([4,8]), dtype=float)
+X = np.array(([1, 2, 9], [2, 1, 5], [5, 2, 9]), dtype=float)
+y = np.array(([92], [86], [82]), dtype=float)
+
+xPredicted = np.array(([1,4,8]), dtype=float)
 
 # scale units
 X = X/np.amax(X, axis=0) # maximum of X array
@@ -13,7 +14,7 @@ y = y/100 # max test score is 100
 class Neural_Network(object):
   def __init__(self):
     #parameters
-    self.inputSize = 2
+    self.inputSize = 3
     self.outputSize = 1
     self.hiddenSize = 3
 
@@ -62,7 +63,7 @@ class Neural_Network(object):
     print "Output: \n" + str(self.forward(xPredicted));
 
 NN = Neural_Network()
-for i in xrange(1000): # trains the NN 100,000 times
+for i in xrange(10000): # trains the NN 100,000 times
   print " #" + str(i) + "\n"
   print "Input (scaled): \n" + str(X)
   print "Actual Output: \n" + str(y)
