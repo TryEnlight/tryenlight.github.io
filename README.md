@@ -1,8 +1,6 @@
 <p align="center"><h1 align="center">Enlight</h1></p>
 <p align="center"><b>learn to code by building projects</b></p>
 
-# This repo is deprecated -- new codebase at https://github.com/tryenlight/site
-
 ## projects available
 
 Latest: [Neural Network](https://tryenlight.github.io/neural-network)
