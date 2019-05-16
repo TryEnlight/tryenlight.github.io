@@ -1,24 +1,28 @@
 import numpy as np
 
-# X = (hours studying, hours sleeping), y = score on test, xPredicted = 4 hours studying & 8 hours sleeping (input data for prediction)
-X = np.array(([1, 2, 9], [2, 1, 5], [5, 2, 9]), dtype=float)
-y = np.array(([92], [86], [82]), dtype=float)
-
-xPredicted = np.array(([1,4,8]), dtype=float)
+# X = (hours studying, hours sleeping), y = score on test
+xAll = np.array(([2, 9], [1, 5], [3, 6], [5, 10]), dtype=float) # input data
+y = np.array(([92], [86], [89]), dtype=float) # output
 
 # scale units
-X = X/np.amax(X, axis=0) # maximum of X array
-xPredicted = xPredicted/np.amax(xPredicted, axis=0) # maximum of xPredicted (our input data for the prediction)
+xAll = xAll/np.amax(xAll, axis=0) # scaling input data
+y = y/100 # scaling output data (max test score is 100)
+
+# split data
+X = np.split(xAll, [3])[0] # training data
+xPredicted = np.split(xAll, [3])[1] # testing data
+
+y = np.array(([92], [86], [89]), dtype=float)
 y = y/100 # max test score is 100
 
 class Neural_Network(object):
   def __init__(self):
-    #parameters
-    self.inputSize = 3
+  #parameters
+    self.inputSize = 2
     self.outputSize = 1
     self.hiddenSize = 3
 
-    #weights
+  #weights
     self.W1 = np.random.randn(self.inputSize, self.hiddenSize) # (3x2) weight matrix from input to hidden layer
     self.W2 = np.random.randn(self.hiddenSize, self.outputSize) # (3x1) weight matrix from hidden to output layer
 
@@ -39,7 +43,7 @@ class Neural_Network(object):
     return s * (1 - s)
 
   def backward(self, X, y, o):
-    # backward propgate through the network
+    # backward propagate through the network
     self.o_error = y - o # error in output
     self.o_delta = self.o_error*self.sigmoidPrime(o) # applying derivative of sigmoid to error
 
@@ -58,18 +62,18 @@ class Neural_Network(object):
     np.savetxt("w2.txt", self.W2, fmt="%s")
 
   def predict(self):
-    print "Predicted data based on trained weights: ";
-    print "Input (scaled): \n" + str(xPredicted);
-    print "Output: \n" + str(self.forward(xPredicted));
+    print ("Predicted data based on trained weights: ")
+    print ("Input (scaled): \n" + str(xPredicted))
+    print ("Output: \n" + str(self.forward(xPredicted)))
 
 NN = Neural_Network()
-for i in xrange(10000): # trains the NN 100,000 times
-  print " #" + str(i) + "\n"
-  print "Input (scaled): \n" + str(X)
-  print "Actual Output: \n" + str(y)
-  print "Predicted Output: \n" + str(NN.forward(X))
-  print "Loss: \n" + str(np.mean(np.square(y - NN.forward(X)))) # mean sum squared loss
-  print "\n"
+for i in range(1000): # trains the NN 1,000 times
+  print ("# " + str(i) + "\n")
+  print ("Input (scaled): \n" + str(X))
+  print ("Actual Output: \n" + str(y))
+  print ("Predicted Output: \n" + str(NN.forward(X)))
+  print ("Loss: \n" + str(np.mean(np.square(y - NN.forward(X))))) # mean sum squared loss
+  print ("\n")
   NN.train(X, y)
 
 NN.saveWeights()
