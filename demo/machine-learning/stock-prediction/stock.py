@@ -4,7 +4,10 @@ import numpy as np
 import datetime
 
 from sklearn.linear_model import LinearRegression
-from sklearn import preprocessing, cross_validation, svm
+from sklearn import preprocessing, svm
+#replacement for cross validation
+from sklearn.model_selection import train_test_split
+
 
 df = quandl.get("WIKI/AMZN")
 
@@ -22,8 +25,8 @@ X = X[:-forecast_out]
 
 y = np.array(df['Prediction'])
 y = y[:-forecast_out]
-
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size = 0.2)
+# below sentencce has been modified for train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 clf = LinearRegression()
 clf.fit(X_train,y_train)
