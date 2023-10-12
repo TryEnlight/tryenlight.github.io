@@ -67,7 +67,7 @@ class Neural_Network(object):
     print ("Output: \n" + str(self.forward(xPredicted)))
 
 NN = Neural_Network()
-for i in range(1000): # trains the NN 1,000 times
+for i in range(100): # trains the NN 1,000 times
   print ("# " + str(i) + "\n")
   print ("Input (scaled): \n" + str(X))
   print ("Actual Output: \n" + str(y))
